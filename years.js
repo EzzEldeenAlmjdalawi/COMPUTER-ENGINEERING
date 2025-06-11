@@ -75,11 +75,11 @@ function getLinkFor(subjectName, item) {
         },
         "General Physics Lab A": {
             "Lab": "https://example.com/research-book.pdf",
-            "Recorded Videos": "https://example.com/research-lectures",
+            "Recorded Videos": "https://youtube.com/@islamicuniversityphysics8361?feature=shared",
         },
         "Workshop Technology": {
             "Lab": "https://example.com/research-book.pdf",
-            "Recorded Videos": "https://example.com/research-lectures",
+            "Recorded Videos": "https://youtube.com/playlist?list=PLw4p3drzdttSvHxb4IigE9Rv01TcQKXUU&feature=shared",
         },
         "General Chemistry": {
             "Slides": "General_Chemistry_slides.html",
@@ -102,7 +102,7 @@ function getLinkFor(subjectName, item) {
         "Technical English": {
             "Slides": "detailes/Technical_English_slides.html",
             "Book & Solutions": "https://example.com/research-book.pdf",
-            "Lectures": "detailes/Technical_English_lec.html",
+            "Lectures": "Technical_English_lec.html",
             "Chapters":"detailes/Technical_English_chapters.html",
             "Discussion & Problems & Problems solution":"https://example.com/research-lectures",
             "Quiz & Exams & Homework":"https://example.com/research-lectures",
@@ -212,11 +212,11 @@ function getLinkFor(subjectName, item) {
         },
         "Data structures and algorithms Lab": {
             "Lab": "https://example.com/research-book.pdf",
-            "Recorded Videos": "https://example.com/research-lectures",
+            "Recorded Videos": "https://youtube.com/playlist?list=PLVl2wY_uRKfrLHkSPnZAiQNEPBbXtxiZl&feature=shared",
         },
         "Practical linear signals and systems": {
             "Lab": "https://example.com/research-book.pdf",
-            "Recorded Videos": "https://example.com/research-lectures",
+            "Recorded Videos": "https://youtube.com/playlist?list=PLO6WLrSKBViFXiEfV_aFovAusiq43p5BT&feature=shared",
         },
         "Discrete mathematics": {
             "Slides": "Discrete_mathematics_slides.html",
@@ -260,7 +260,7 @@ function getLinkFor(subjectName, item) {
         },
         "Linear control systems practical": {
             "Lab": "https://example.com/research-book.pdf",
-            "Recorded Videos": "https://example.com/research-lectures",
+            "Recorded Videos": "https://youtube.com/playlist?list=PLDG4OdepPTCHRzVF6fn86C3PrrWqU8U4n&feature=shared",
         },
         "Computer architecture": {
             "Slides": "Computer_architecture_slides.html",
