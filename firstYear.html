@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Year</title>
+    <link rel="stylesheet" href="years.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>  
+        
+        <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+
+        <div class="myList" id="menuList">
+        <ul>
+            <li><a href="index.html" class="fas fa-home" ></a></li>
+            <li><a href="firstYear.html">📁 First Year </a></li>
+            <li><a href="secndYear.html">📁 Second Year </a></li>
+            <li><a href="thirdYear.html">📁 Third Year </a></li>
+            <li><a href="fourthYear.html">📁 Fourth Year </a></li>
+            <li><a href="fifthYear.html">📁 Fifth Year </a></li>
+        </ul>
+        </div>
+
+       
+        <h1>First Year</h1>
+            <div class="semester"   onclick="toggleSubjects('sec1')">📘 First Semester</div>
+            <div id="sec1" class="subject-list">
+                
+                <div class="subject" onclick="toggleResources(this)" data-lab="true">منهجية بحث علمي</div>               
+                <div class="subject" onclick="toggleResources(this)" data-lab="true">Introduction to Engineering</div>
+                <div class="subject" onclick="toggleResources(this)" data-lab="true">Engineering Drawing</div>
+                <div class="subject" onclick="toggleResources(this)">Calculus A</div>
+                <div class="subject" onclick="toggleResources(this)" data-lab="true">General Physics Lab A</div>
+                <div class="subject" onclick="toggleResources(this)">General Physics A</div>
+            </div>
+
+            <div class="semester"  onclick="toggleSubjects('sec2')">📙 Second Semester</div>
+            <div id="sec2" class="subject-list">
+                
+                <div class="subject" onclick="toggleResources(this)">General Chemistry</div>
+                <div class="subject" onclick="toggleResources(this)" data-lab="true">Workshop Technology</div>
+                <div class="subject" onclick="toggleResources(this)">Introduction to Computers</div>
+                <div class="subject" onclick="toggleResources(this)">Technical English</div>
+                <div class="subject" onclick="toggleResources(this)">Calculus B</div>
+                <div class="subject" onclick="toggleResources(this)">General Physics B</div>
+        </div>
+       
+       <script src="years.js"></script>
+</body>
+</html>

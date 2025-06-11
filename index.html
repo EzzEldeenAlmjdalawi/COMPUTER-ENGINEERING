@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>COMPUTER ENGINEERING</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+ <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+
+
+<div class="myList" id="menuList">
+  <ul>
+    <li><a href="index.html" class="fas fa-home" ></a></li>
+    <li><a href="firstYear.html">📁 First Year </a></li>
+    <li><a href="secndYear.html">📁 Second Year </a></li>
+    <li><a href="thirdYear.html">📁 Third Year </a></li>
+    <li><a href="fourthYear.html">📁 Fourth Year </a></li>
+    <li><a href="fifthYear.html">📁 Fifth Year </a></li>
+  </ul>
+</div>
+
+<div class="containar">
+  
+      <div class="content">
+            <div class="title"> ✨ Welcome to our website ✨ </div>
+            <div class="subtitle"> here you'll find every thing you want to study our subjectes </div>
+
+              <div class="semesters">
+                <a class="semester" style="--i:1" href="firstYear.html">📘 First</a>
+                <a class="semester" style="--i:5" href="secndYear.html">📙 Second</a>
+                <a class="semester" style="--i:10" href="thirdYear.html">📕 Third</a>
+                <a class="semester" style="--i:15" href="fourthYear.html">📒 Fourth</a>
+                <a class="semester" style="--i:20" href="fifthYear.html">📗 Fifth</a>
+              </div>
+    </div>
+</div>
+  <script>
+    function toggleMenu() {
+    const menu = document.getElementById('menuList');
+    menu.classList.toggle('show');
+  }
+  </script>
+
+<div class="authors-glow">
+  
+  
+  <span>  Eng. Musab Alaswad  </span>
+  <span> & Eng. Ezz Eldeen Almjdalawi</span>
+  <span>: BY</span>
+</div>
+</body>
+</html>

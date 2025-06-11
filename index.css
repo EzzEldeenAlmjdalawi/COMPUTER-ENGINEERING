@@ -1,0 +1,231 @@
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #00f7ff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      cursor: pointer;
+      z-index: 1001;
+      color: #000;
+      box-shadow: 0 0 10px #00f7ff88;
+      transition: all 0.3s ease;
+    }
+    .toggle-btn:hover {
+      background-color: #00cfff;
+      box-shadow: 0 0 20px #00f7ff;
+      transform: scale(1.05);
+    }
+
+ 
+  
+
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #00f7ff;
+      text-shadow: 0 0 10px #00f7ff;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #00f7ff; }
+      to   { text-shadow: 0 0 20px #00f7ff, 0 0 30px #00cfff; }
+    }
+
+    .subtitle {
+      color: #ccc;
+      margin: 10px 0 30px;
+      font-size: 1.1rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .semesters {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 80%;
+      max-width: 400px;
+      justify-content: center;
+    }
+
+    .semester {
+      padding: 15px;
+      border-radius: 30px;
+      border: 1px solid #00f7ff;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: #00f7ff;
+      font-size: 1rem;
+      text-decoration: none;
+      text-align: center;
+      transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+      width: 550px;
+    }
+
+    .semester:hover {
+      background-color: #00f7ff;
+      color: black;
+      transform: scale(1.01);
+    }
+    .toggle-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #00f7ff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    z-index: 1001;
+    color: #000;
+    box-shadow: 0 0 10px #00f7ff88;
+    transition: all 0.3s ease;
+  }
+  .toggle-btn:hover {
+    background-color: #00cfff;
+    box-shadow: 0 0 20px #00f7ff;
+    transform: scale(1.05);
+  }
+
+.myList {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  padding: 30px 20px;
+  transition: left 0.4s ease;
+  z-index: 1000;
+  box-shadow: 2px 0 20px rgba(0, 247, 255, 0.2);
+  animation: slideOut 0.3s forwards;
+  overflow-y: auto;
+  color:white;
+}
+
+.myList.show {
+  left: 0;
+  animation: slideIn 0.4s forwards;
+}
+
+@keyframes slideIn {
+  from {
+    left: -250px;
+    opacity: 0.3;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    left: 0;
+    opacity: 1;
+  }
+  to {
+    left: -250px;
+    opacity: 0.3;
+  }
+}
+
+.myList ul {
+  list-style-type: none;
+}
+
+.myList ul li  {
+  margin: 15px 0;
+  font-size: 1.1rem;
+  color: #fff;
+  padding: 8px 10px;
+  border-bottom: 1px solid #00f7ff44;
+  transition: all 0.3s ease;
+}
+.myList ul li a {
+  margin: 15px 0;
+  font-size: 1.1rem;
+  color: #fff;
+  padding: 8px 10px;
+  border-bottom: 1px solid #00f7ff44;
+  transition: all 0.3s ease;
+}
+
+.myList ul li:hover {
+  color: #00f7ff;
+  transform: translateX(5px);
+}
+.myList ul li a:hover {
+  color: #00f7ff;
+  transform: translateX(5px);
+}
+
+
+.authors-glow {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #00f7ff;
+  text-shadow: 0 0 6px #00f7ff;
+  animation: glow 2s ease-in-out infinite alternate;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+  z-index: 1000;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 6px #00f7ff; }
+  to   { text-shadow: 0 0 18px #00f7ff, 0 0 28px #00cfff; }
+}
+
+
+@media (max-width: 600px) {
+  .authors-glow {
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 0.9rem;
+    right: 12px;
+    bottom: 12px;
+    gap: 4px;
+  }
+}
