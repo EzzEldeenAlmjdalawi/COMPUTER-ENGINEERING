@@ -57,8 +57,8 @@ function getLinkFor(subjectName, item) {
                
         },
         "Introduction to Engineering": {
-            "Lab": "https://example.com/research-book.pdf",
-            "Recorded Videos": "https://example.com/research-lectures",   
+            "Lab": "https://drive.google.com/file/d/1X8bBSJPwOIjPW2v_vtP346qg6V2GPUHu/view?usp=drivesdk",
+            "Recorded Videos": "https://drive.google.com/drive/folders/1csAdjg1956N653D2ojmiXHK8376KTjRf",   
         },
         "General Physics A": {
             "Slides": "General_Physics_A_slides.html",
@@ -70,15 +70,15 @@ function getLinkFor(subjectName, item) {
                
         },
         "Engineering Drawing": {
-            "Lab": "https://example.com/research-book.pdf",
-            "Recorded Videos": "https://example.com/research-lectures",
+            "Lab": "https://drive.google.com/drive/folders/1YEmMQ7Qj-RBKlzz_YZ0y17TWboXAKecl",
+            "Recorded Videos": "https://drive.google.com/drive/folders/1Z61L6grOxUgZHoVnuH0vUQod3GtSWKlE",
         },
         "General Physics Lab A": {
-            "Lab": "https://example.com/research-book.pdf",
+            "Lab": "General Physics Lab A_dis.html",
             "Recorded Videos": "https://youtube.com/@islamicuniversityphysics8361?feature=shared",
         },
         "Workshop Technology": {
-            "Lab": "https://example.com/research-book.pdf",
+            "Lab": "Workshop Technology_lec.html",
             "Recorded Videos": "https://youtube.com/playlist?list=PLw4p3drzdttSvHxb4IigE9Rv01TcQKXUU&feature=shared",
         },
         "General Chemistry": {
@@ -99,6 +99,11 @@ function getLinkFor(subjectName, item) {
             "Quiz & Exams & Homework":"https://example.com/research-lectures",
                
         },
+        "Introduction to Computers Lab": {
+            "Lab": "Introduction_to_Computers lab_.html",
+            "Recorded Videos": "Introduction_to_Computers lab_lec.html",
+        },
+
         "Technical English": {
             "Slides": "detailes/Technical_English_slides.html",
             "Book & Solutions": "https://example.com/research-book.pdf",
@@ -144,6 +149,26 @@ function getLinkFor(subjectName, item) {
             "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/14E_f1fKi3wvv8tHWJQFeAI-ZFulUHPlz",
                
         },
+        "Digital Design Lab 1": {
+            "Lab": "https://drive.google.com/drive/folders/14XctxF6tgfWrXY_NNsPRqYBvmSSoTuAu",
+            "Recorded Videos": "Digital Design Lab 1_lec.html",
+        },
+       
+        "Computer Programming Lab 1": {
+            "Lab": "https://drive.google.com/drive/folders/1422IcXWjGPLR5QnLxshuLWXY0ZEbyHcX",
+            "Recorded Videos": "https://youtube.com/playlist?list=PLq5FW85cJhv5wkNk8ngddqoaK47jGQxBY&feature=shared",
+        },
+       
+        "Computer Programming Lab 2": {
+            "Lab": "https://drive.google.com/drive/folders/165HNsOPYUxBIEuuJcWyKQ5On7Vr5cvId",
+            "Recorded Videos": "https://youtube.com/playlist?list=PLq5FW85cJhv7QyI_bq1dQ1rIoLy_7S9pq&feature=shared",
+        },
+       
+        "Digital Design Lab 2": {
+            "Lab": "https://drive.google.com/drive/folders/161SnL_AbfF3GzUk9Niv0v4yKVvnPKMSl",
+            "Recorded Videos": "Digital Design Lab 2_lec.html",
+        },
+        
         "Electric Circuits 1": {
             "Slides": "Electric_Circuits_1_slides.html",
             "Book & Solutions": "https://drive.google.com/drive/folders/152ds4OkK0QMPu7fIaweshHvGH0jfujrR",
@@ -154,7 +179,7 @@ function getLinkFor(subjectName, item) {
                
         },
         "Electric Circuits Lab 1": {
-            "Lab": "https://drive.google.com/drive/folders/14Ywc99YRBUY2uVmcx3gkXXevT67YloSM",
+            "Lab": "Electric Circuits Lab 1_lec.html",
             "Recorded Videos": "https://www.youtube.com/watch?v=_ZRJbBljj9A",
         },
         "Electronics Lab 1": {
@@ -211,11 +236,11 @@ function getLinkFor(subjectName, item) {
             "Recorded Videos": "Discrete_mathematics lab_lec.html",
         },
         "Data structures and algorithms Lab": {
-            "Lab": "https://example.com/research-book.pdf",
+            "Lab": "https://drive.google.com/drive/folders/1dOv5bq1GsQupSeExGeR1Tg8dGCPKQsYT",
             "Recorded Videos": "https://youtube.com/playlist?list=PLVl2wY_uRKfrLHkSPnZAiQNEPBbXtxiZl&feature=shared",
         },
         "Practical linear signals and systems": {
-            "Lab": "https://example.com/research-book.pdf",
+            "Lab": "Practical linear signals and systems Lab.html",
             "Recorded Videos": "https://youtube.com/playlist?list=PLO6WLrSKBViFXiEfV_aFovAusiq43p5BT&feature=shared",
         },
         "Discrete mathematics": {
@@ -229,29 +254,29 @@ function getLinkFor(subjectName, item) {
         },
         "Data structures and algorithms": {
             "Slides": "Data_structures_and_algorithms_slides.html",
-            "Book & Solutions": "https://example.com/research-book.pdf",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1eD1rzo-buF2U6CjCZ2jK9WoU2Ds9HZ3R",
             "Lectures": "Data_structures_and_algorithms_lec.html",
             "Chapters":"Data_structures_and_algorithms_chapters.html",
-            "Discussion & Problems & Problems solution":"https://example.com/research-lectures",
-            "Quiz & Exams & Homework":"https://example.com/research-lectures",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1eeeyvfVNVF-uBLu1orj278PydFbkwr3O",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1eewtgvRjA7mZqLadYzzGPReV8WDRMkNi",
                
         },
         "Linear signals and systems": {
             "Slides": "Linear_signals_and_systems_slides.html",
-            "Book & Solutions": "https://example.com/research-book.pdf",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1seCBz1ov8qR2LE8RidIDUc1ywBRcFlbs",
             "Lectures": "Linear_signals_and_systems_lec.html",
             "Chapters":"Linear_signals_and_systems_chapters.html",
-            "Discussion & Problems & Problems solution":"https://example.com/research-lectures",
-            "Quiz & Exams & Homework":"https://example.com/research-lectures",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1t4tnxm19bG1uepP1NY-udGHSTRG6VLTh",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1sri9eeFPfbNSu607gJ-AlTasMsplU8cL",
                
         },
         "Probability and Statistics Theory": {
             "Slides": "Probability_and_Statistics_Theory_slides.html",
-            "Book & Solutions": "https://example.com/research-book.pdf",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1lvG1EdmdV_ZcTbQCekvemaGL8v5p17kk",
             "Lectures": "Probability_and_Statistics_Theory_lec.html",
             "Chapters":"Probability_and_Statistics_Theory_chapters.html",
-            "Discussion & Problems & Problems solution":"https://example.com/research-lectures",
-            "Quiz & Exams & Homework":"https://example.com/research-lectures",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1lrGWBpkT_TrPJ-FFAyx2skdJr0-xp9tM",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1llvHCYdehHAsCvpMg0BTwsKuI1NLXk-n",
                
         },
         "Practical digital electronics": {
@@ -343,7 +368,7 @@ function getLinkFor(subjectName, item) {
             "Quiz & Exams & Homework":"https://example.com/research-lectures",
                
         },
-        "Hardware Description Languages": {
+        "VHDL": {
             "Slides": "Hardware_Description_Languages_slides.html",
             "Book & Solutions": "https://example.com/research-book.pdf",
             "Lectures": "Hardware_Description_Languages_lec.html",
