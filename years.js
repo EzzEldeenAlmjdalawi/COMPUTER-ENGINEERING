@@ -70,8 +70,8 @@ function getLinkFor(subjectName, item) {
                
         },
         "Engineering Drawing": {
-            "Lab": "https://drive.google.com/drive/folders/1YEmMQ7Qj-RBKlzz_YZ0y17TWboXAKecl",
-            "Recorded Videos": "https://drive.google.com/drive/folders/1Z61L6grOxUgZHoVnuH0vUQod3GtSWKlE",
+            "Lab": "https://drive.google.com/drive/folders/1YB1cel9cPP4S7uTk3LT9eYOLMrHwIq17",
+            "Recorded Videos": "https://drive.google.com/drive/folders/12LWdtyHsIi0lGayQMoW5H2nFq4DhSENd",
         },
         "General Physics Lab A": {
             "Lab": "General Physics Lab A_dis.html",
