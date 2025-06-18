@@ -52,8 +52,8 @@ function getLinkFor(subjectName, item) {
             "Book & Solutions": "https://drive.google.com/drive/folders/1cjCMhjvsrMCHfC4Dz7iklUAD7LsF0MUx?usp=sharing",
             "Lectures": "CalculusA_lec.html",
             "Chapters":"CalculusA_chapters.html",
-            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/15Yt2rb-pVzZfkSfw7gp_wKByxKpxzLX2?usp=sharing",
-            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/18s111RIWg8tBrAQro8IonTPH5Fv_E0mA?usp=sharing",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/15Yt2rb-pVzZfkSfw7gp_wKByxKpxzLX2",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1CQNxFWJ8Oudsw5MTjzJTihUjB0w0V9mg",
                
         },
         "Introduction to Engineering": {
@@ -65,8 +65,8 @@ function getLinkFor(subjectName, item) {
             "Book & Solutions": "https://drive.google.com/drive/folders/1qR3Mdf6umHXyTxR_x0IIDhkaArvQZ1H1?usp=sharing",
             "Lectures": "General_Physics_A_lec.html",
             "Chapters":"General_Physics_A_chapters.html",
-            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1rDXiV2IjZHitR6wpJDiT-kQbBpOX7UMt?usp=sharing",
-            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1rDXiV2IjZHitR6wpJDiT-kQbBpOX7UMt?usp=sharing",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1rDXiV2IjZHitR6wpJDiT-kQbBpOX7UMt",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1CEBf8YsAUe7X9W33Sm3y4X7UguzIUEId",
                
         },
         "Engineering Drawing": {
@@ -83,20 +83,20 @@ function getLinkFor(subjectName, item) {
         },
         "General Chemistry": {
             "Slides": "General_Chemistry_slides.html",
-            "Book & Solutions": "https://example.com/research-book.pdf",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1-_DW-EAKFrwyrqiOvViaxNK2cwp_cBVd",
             "Lectures": "General_Chemistry_lec.html",
-            "Chapters":"detailes/General_Chemistry_chapters.html",
-            "Discussion & Problems & Problems solution":"https://example.com/research-lectures",
-            "Quiz & Exams & Homework":"https://example.com/research-lectures",
+            "Chapters":"General_Chemistry_chapters.html",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1wqWktARE5PP6L0YSpauysGFh9g5IbxEh",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1qs_VN7fUGVQ2npqVOehmseqhXgrGBarQ",
               
         },
         "Introduction to Computers": {
             "Slides": "Introduction_to_Computers_slides.html",
-            "Book & Solutions": "https://example.com/research-book.pdf",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1SsVupb7weX2vcZ8cVnA-6H0780BmjnRu",
             "Lectures": "Introduction_to_Computers_lec.html",
             "Chapters":"Introduction_to_Computers_chapters.html",
-            "Discussion & Problems & Problems solution":"https://example.com/research-lectures",
-            "Quiz & Exams & Homework":"https://example.com/research-lectures",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1rGyf1Tn9S_DEYdskwOo81CrTX3fNZZk6",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/13agufZwZ13gonWYhl7ahCEmx4ostnO2l",
                
         },
         "Introduction to Computers Lab": {
@@ -105,30 +105,30 @@ function getLinkFor(subjectName, item) {
         },
 
         "Technical English": {
-            "Slides": "detailes/Technical_English_slides.html",
-            "Book & Solutions": "https://example.com/research-book.pdf",
+            "Slides": "Technical_English_slides.html",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1YtusCfU9RIrxGpHQc8PTiW1AUYsxzUN-",
             "Lectures": "Technical_English_lec.html",
-            "Chapters":"detailes/Technical_English_chapters.html",
-            "Discussion & Problems & Problems solution":"https://example.com/research-lectures",
-            "Quiz & Exams & Homework":"https://example.com/research-lectures",
+            "Chapters":"Technical_English_chapters.html",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/18wcuqSGbOCWVMTDSBZnrHY_ty_FNECCT",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1EpbVMEf4JgRvjoHcgz2833jcjkomeJMn",
                
         },
         "Calculus B": {
             "Slides": "Calculus_B_slides.html",
-            "Book & Solutions": "https://example.com/research-book.pdf",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1XPCcMzeAY_U7ctFcDBhLijJknB0JnaB1",
             "Lectures": "Calculus_B_lec.html",
             "Chapters":"Calculus_B_chapters.html",
-            "Discussion & Problems & Problems solution":"https://example.com/research-lectures",
-            "Quiz & Exams & Homework":"https://example.com/research-lectures",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1rkimAtnG8AiVkKae-xd0Gsu35YKHg-QE",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/14TMKVtzMTj35p7f14fqkb1EtgY5X91Ef",
                
         },
         "General Physics B": {
             "Slides": "General_Physics_B_slides.html",
-            "Book & Solutions": "https://example.com/research-book.pdf",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1xfP8Q2JzBybH3uwfzv2Y7t6nLgbE-Yni",
             "Lectures": "General_Physics_B_lec.html",
             "Chapters":"General_Physics_B_chapters.html",
-            "Discussion & Problems & Problems solution":"https://example.com/research-lectures",
-            "Quiz & Exams & Homework":"https://example.com/research-lectures",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1iZJoLIHXoWfMOqSuAaaA7kboNwu6QBBT",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1EYWJpQpG6Yo7KsRJLTuSnvUH0XSu_YTx",
                
         },
         "Computer Programming 1": {
@@ -280,110 +280,172 @@ function getLinkFor(subjectName, item) {
                
         },
         "Practical digital electronics": {
-            "Lab": "https://example.com/research-book.pdf",
-            "Recorded Videos": "https://example.com/research-lectures",
+            "Lab": "Practical digital electronics_Lab.html",
+            "Recorded Videos": "Practical digital electronics_lec.html",
         },
         "Linear control systems practical": {
-            "Lab": "https://example.com/research-book.pdf",
-            "Recorded Videos": "https://youtube.com/playlist?list=PLDG4OdepPTCHRzVF6fn86C3PrrWqU8U4n&feature=shared",
+            "Lab": "Linear control systems practical Lab.html",
+            "Recorded Videos": "https://youtube.com/playlist?list=PLDG4OdepPTCHzaF74ncrRJ1f-tCt73yty&feature=shared",
         },
         "Computer architecture": {
             "Slides": "Computer_architecture_slides.html",
-            "Book & Solutions": "https://example.com/research-book.pdf",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1AwD72iRKmMC4s3zHh7soIlkOY3F8d5tT",
             "Lectures": "Computer_architecture_lec.html",
             "Chapters":"Computer_architecture_chapters.html",
-            "Discussion & Problems & Problems solution":"https://example.com/research-lectures",
-            "Quiz & Exams & Homework":"https://example.com/research-lectures",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1NJq9OlVylwl4RmQaLniUcqJhWEhxtPzX",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1NGeYkgnu4VjJcx1SSj7MIXmIxW7WjFFg",
                
         },
+        "Computer architecture Lab": {
+            "Lab": "Computer architecture Lab.html",
+            "Recorded Videos": "https://youtube.com/playlist?list=PL7FZVP8rUtKt4DruVeDQ6lt0MCrpxdTcF&feature=shared",
+        },
+
+    
+        "database systems Lab": {
+            "Lab": "https://drive.google.com/drive/folders/1_oBNr-6JD4xZ5eAyHbWbZIxuTBKveQjr",
+            "Recorded Videos": "database systems Lab_lec.html",
+        },
+
+
+
         "database systems": {
             "Slides": "database_systems_slides.html",
-            "Book & Solutions": "https://example.com/research-book.pdf",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1ZzfKgokCLhxS39TlujxEA89FkLTLSKH0",
             "Lectures": "database_systems_lec.html",
             "Chapters":"database_systems_chapters.html",
-            "Discussion & Problems & Problems solution":"https://example.com/research-lectures",
-            "Quiz & Exams & Homework":"https://example.com/research-lectures",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1sZrKD6ixbC1vr9ZUOpWNtRvyidrVYLG4",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1mzRp6nJ57CGfAeaeUMyPHrzeRE19vPL0",
                
         },
         "digital electronics": {
             "Slides": "digital_electronics_slides.html",
-            "Book & Solutions": "https://example.com/research-book.pdf",
+            "Book & Solutions": "https://drive.google.com/drive/folders/10F24slGyeF1ZxzESPatFcPHSA9bCVFzA",
             "Lectures": "digital_electronics_lec.html",
             "Chapters":"digital_electronics_chapters.html",
-            "Discussion & Problems & Problems solution":"https://example.com/research-lectures",
-            "Quiz & Exams & Homework":"https://example.com/research-lectures",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1Vz9g39mGaVDJZUi_MsKgwYVmP90nMK0o",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1ZCMPaXFa4hkbE2keQsLTj_BelKIMzVd7",
                
         },
         "Linear control systems": {
             "Slides": "Linear_control_systems_slides.html",
-            "Book & Solutions": "https://example.com/research-book.pdf",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1SjwckHgTPwQ7wRTm-vh8AjIoLkcNW7gb",
             "Lectures": "Linear_control_systems_lec.html",
             "Chapters":"Linear_control_systems_chapters.html",
-            "Discussion & Problems & Problems solution":"https://example.com/research-lectures",
-            "Quiz & Exams & Homework":"https://example.com/research-lectures",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1Gn_8eOuR1b0OfaoyX2MMcxQb_caLXoJQ",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1MaExSgm5xjTh2JK9Jl1LDRiT1NoOvAaJ",
              
         },
         "Operating Systems": {
             "Slides": "Operating_Systems_slides.html",
-            "Book & Solutions": "https://example.com/research-book.pdf",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1zpBNtl_2jKRhf_ZDnrK25eW-o2F2m7rq",
             "Lectures": "Operating_Systems_lec.html",
             "Chapters":"Operating_Systems_chapters.html",
-            "Discussion & Problems & Problems solution":"https://example.com/research-lectures",
-            "Quiz & Exams & Homework":"https://example.com/research-lectures",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/12ulDRADxdwg_Djp_F6RBB44fGkzAo0SN",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/12ttLRpr0mKM_XdbcW3w-OcWjbs9hO_4s",
               
         },
         "Data Communication": {
             "Slides": "Data_Communication_slides.html",
-            "Book & Solutions": "https://example.com/research-book.pdf",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1hhOgx5g5OkOnsb82uJttZlVfpTPqV0K6",
             "Lectures": "Data_Communication_lec.html",
             "Chapters":"Data_Communication_chapters.html",
-            "Discussion & Problems & Problems solution":"https://example.com/research-lectures",  
-            "Quiz & Exams & Homework":"https://example.com/research-lectures",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1pnjeAQaDaLjo8eflPudd4wy7VbOLY0Od",  
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1po7746cWl2xtf4r1iIqdffsLsdUJI69O",
              
         },
         "Assembly Language": {
             "Slides": "Assembly_Language_slides.html",
-            "Book & Solutions": "https://example.com/research-book.pdf",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1TCoxACAHT60y7E1njfhzcOajBQFMdTeL",
             "Lectures": "Assembly_Language_lec.html",
             "Chapters":"Assembly_Language_chapters.html",
-            "Discussion & Problems & Problems solution":"https://example.com/research-lectures",
-            "Quiz & Exams & Homework":"https://example.com/research-lectures",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1TdSVPABut_aa3aSzZwm54ThzF7wBsqU1",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1Th2s-yEbdEBmDgc2tpgrKWlz3atu5yr-",
                
         },
+
+        "Assembly Language Lab": {
+            "Lab": "Assembly Language Lab_.html",
+            "Recorded Videos": "https://youtube.com/playlist?list=PLYCNhQDVbex-EYEJFxg6F3uluWfi0y50-&feature=shared",
+        },
+
+
+
+        "Data Communication Lab": {
+            "Lab": "https://drive.google.com/drive/folders/1x_adf8apcrNQNqdFNbXGG203WNsVujyg",
+            "Recorded Videos": "https://youtube.com/playlist?list=PLn9Q0FC7RMxLIIyIWe98WiOQRVyITK8my&feature=shared",
+        },
+
+
+ 
+        "Operating Systems Lab": {
+            "Lab": "Operating Systems Lab.html",
+            "Recorded Videos": "Operating Systems Lab_lec.html",
+        },
+ 
+
+        "تدريب عملي(250)ساعة": {
+            "Lab": "تدريب عملي(250)ساعة.html",
+            "Recorded Videos": "https://drive.google.com/drive/folders/19dWhAXXJnx0FyGVvjHnWgBfrzYG7Q9-1",
+        },
+ 
+        "Embedded Systems Lab": {
+            "Lab": "Embedded Systems Lab.html",
+            "Recorded Videos": "https://youtube.com/playlist?list=PLq5FW85cJhv4WZpa4VydMSqcNm38xGBhf&feature=shared",
+        },
+
+            
+
+        "VHDL Lab": {
+            "Lab": "https://drive.google.com/drive/folders/1ZZ3GPjkxyHG0ZubFg1EgY8o7GnIxQd3F",
+            "Recorded Videos": "VHDL Lab_lec.html",
+        },
+    
+ 
+        
         "Computer Networks": {
             "Slides": "Computer_Networks_slides.html",
-            "Book & Solutions": "https://example.com/research-book.pdf",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1AzL18ADbV90gFeP3mG96_MEkeCBr9YAp",
             "Lectures": "Computer_Networks_lec.html",
             "Chapters":"Computer_Networks_chapters.html",
-            "Discussion & Problems & Problems solution":"https://example.com/research-lectures",
-            "Quiz & Exams & Homework":"https://example.com/research-lectures",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1G5ZxiBvhosuCSy1rupWpiqQEcM83RqE6",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1BDLTlWA9LBf6IuCmfEy9EioHS604pFDe",
                
         },
+
+        "Computer Networks Lab": {
+            "Lab": "Computer Networks Lab.html",
+            "Recorded Videos": "Computer Networks Lab_lec.html",
+        },
+ 
+
+
         "Embedded Systems": {
             "Slides": "Embedded_Systems_slides.html",
-            "Book & Solutions": "https://example.com/research-book.pdf",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1Ha-FktxIVnUrfJ-RtvaPv0zSgGBfMt0g",
             "Lectures": "Embedded_Systems_lec.html",
             "Chapters":"Embedded_Systems_chapters.html",
-            "Discussion & Problems & Problems solution":"https://example.com/research-lectures",
-            "Quiz & Exams & Homework":"https://example.com/research-lectures",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1Jv2_87dN99FNNTvxgq3lQIZpgIVR8uJ9",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1I72ucHKhXKx9vufUX3vY9V0qsWSI_pz3",
                
         },
+
         "VHDL": {
             "Slides": "Hardware_Description_Languages_slides.html",
-            "Book & Solutions": "https://example.com/research-book.pdf",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1TLMCsvRBFzFUukK5tjsPVu6ecFzJCu_l",
             "Lectures": "Hardware_Description_Languages_lec.html",
             "Chapters":"Hardware_Description_Languages_chapters.html",
-            "Discussion & Problems & Problems solution":"https://example.com/research-lectures",
-            "Quiz & Exams & Homework":"https://example.com/research-lectures",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1X1aZY9WQAXRxQjJ2qrVjZRdzJF1c5Nrc",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1Vc7q5vaBfSH6aJrRK8ZnXG9T3KEPBiTl",
                
         },
         "Software Engineering": {
             "Slides": "Software_Engineering_slides.html",
-            "Book & Solutions": "https://example.com/research-book.pdf",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1NNXTwTLAvmMnl-8aEFHyDrI8zUlYDGX0",
             "Lectures": "Software_Engineering_lec.html",
             "Chapters":"Software_Engineering_chapters.html",
-            "Discussion & Problems & Problems solution":"https://example.com/research-lectures",
-            "Quiz & Exams & Homework":"https://example.com/research-lectures",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1P6Wwg0ooB5oZGn0oPELEj_CLOB0VraZq",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1P5gtzyUtGBcqfqTRc6wCXPZctcQ-2xBF",
               
         },
         "AI": {
