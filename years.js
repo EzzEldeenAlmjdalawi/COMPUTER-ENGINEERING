@@ -373,7 +373,7 @@ function getLinkFor(subjectName, item) {
 
         "Data Communication Lab": {
             "Lab": "https://drive.google.com/drive/folders/1x_adf8apcrNQNqdFNbXGG203WNsVujyg",
-            "Recorded Videos": "https://youtube.com/playlist?list=PLn9Q0FC7RMxLIIyIWe98WiOQRVyITK8my&feature=shared",
+            "Recorded Videos": "https://www.youtube.com/playlist?list=PLDnSyw7TIc55E2OiXsozDZ-Ztdqas_6lD",
         },
 
 
@@ -449,23 +449,31 @@ function getLinkFor(subjectName, item) {
               
         },
         "AI": {
-            "Lab": "https://example.com/research-book.pdf",
+            "Lab": "Ai.html",
             "Recorded Videos": "https://www.youtube.com/playlist?list=PL9fwy3NUQKwbyzcrZS3SXHXq2bmczG2zD",
         },
         "AI Lab": {
-            "Lab": "https://example.com/research-book.pdf",
+            "Lab": "https://drive.google.com/drive/folders/1AnrCTffG_cgDnPUhA1ycK2oDHxR7RQoj",
             "Recorded Videos": "https://www.youtube.com/playlist?list=PLoxxbQaXjEPiFy7_CE3t7zPbLAENAVUXw",
         },
         "Network Security": {
-            "Lab": "https://example.com/research-book.pdf",
-            "Recorded Videos": "https://www.youtube.com/playlist?list=PLCaBbsduBn60vLfP2h1XAhbIk32BHdwkq",
+            "Slides": "https://drive.google.com/drive/folders/1fQuOOB3NdyJ_Cya2NuJFGent8C5bOxh6",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1AKDUcSwsXjCXBp687cfnwsljZbD_yIk1",
+            "Lectures": "Network Security_lec.html",
+            "Chapters":"https://drive.google.com/drive/folders/1T3oW8asOjXWHiEjT58FnjMMsxd4yXrzr",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1N1124TuAYZ2IzAgNqMkqo49AVhVAQjE8",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1gX4eZau0_5P14tjZBfB5tEfUA99ajKWH",
+               
         },
+      
         "Network Security Lab": {
-            "Lab": "https://example.com/research-book.pdf",
+            "Lab": "https://drive.google.com/drive/folders/1yQ9o4l_PAR9pOt1CZy6FFbDuTktn8cMR",
             "Recorded Videos": "https://www.youtube.com/playlist?list=PLq5FW85cJhv4Gm0ycivqhaVKCbXi5w_UV",
         },
+
+
         "Security In Computer Systems": {
-            "Lab": "https://example.com/research-book.pdf",
+            "Lab": "https://drive.google.com/drive/folders/1i4njOu8R0sNNq8b-JBVVWPbJEjpOQb7O",
             "Recorded Videos": "https://www.youtube.com/playlist?list=PLJGg4x6CCiDT14V0C-4Jp1tO6LASSr2fI",
         },
     };
