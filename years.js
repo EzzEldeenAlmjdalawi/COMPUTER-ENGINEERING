@@ -298,7 +298,7 @@ function getLinkFor(subjectName, item) {
         },
         "Computer architecture Lab": {
             "Lab": "Computer architecture Lab.html",
-            "Recorded Videos": "https://youtube.com/playlist?list=PL7FZVP8rUtKt4DruVeDQ6lt0MCrpxdTcF&feature=shared",
+            "Recorded Videos": "Computer_architecture lab_lec.html",
         },
 
     
