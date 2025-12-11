@@ -373,7 +373,7 @@ function getLinkFor(subjectName, item) {
 
         "Data Communication Lab": {
             "Lab": "https://drive.google.com/drive/folders/1x_adf8apcrNQNqdFNbXGG203WNsVujyg",
-            "Recorded Videos": "https://www.youtube.com/playlist?list=PLDnSyw7TIc55E2OiXsozDZ-Ztdqas_6lD",
+            "Recorded Videos": "Data Com Lab_lec.html",
         },
 
 
