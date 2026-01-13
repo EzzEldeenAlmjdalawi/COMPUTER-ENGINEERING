@@ -236,8 +236,8 @@ function getLinkFor(subjectName, item) {
             "Recorded Videos": "Discrete_mathematics lab_lec.html",
         },
         "Data structures and algorithms Lab": {
-            "Lab": "https://drive.google.com/drive/folders/1dOv5bq1GsQupSeExGeR1Tg8dGCPKQsYT",
-            "Recorded Videos": "https://youtube.com/playlist?list=PLVl2wY_uRKfrLHkSPnZAiQNEPBbXtxiZl&feature=shared",
+            "Lab": "https://drive.google.com/drive/folders/1d2z4I4xHzQKUvUWjcMBjMug0x9XhWTBm",
+            "Recorded Videos": "Data structures and algorithms Lab lec.html",
         },
         "Practical linear signals and systems": {
             "Lab": "Practical linear signals and systems Lab.html",
@@ -468,7 +468,7 @@ function getLinkFor(subjectName, item) {
       
         "Network Security Lab": {
             "Lab": "https://drive.google.com/drive/folders/1yQ9o4l_PAR9pOt1CZy6FFbDuTktn8cMR",
-            "Recorded Videos": "https://www.youtube.com/playlist?list=PLq5FW85cJhv4Gm0ycivqhaVKCbXi5w_UV",
+            "Recorded Videos": "Network Security_lec Lab.html",
         },
 
 
