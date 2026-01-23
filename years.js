@@ -366,7 +366,7 @@ function getLinkFor(subjectName, item) {
 
         "Assembly Language Lab": {
             "Lab": "Assembly Language Lab_.html",
-            "Recorded Videos": "https://youtube.com/playlist?list=PLYCNhQDVbex-EYEJFxg6F3uluWfi0y50-&feature=shared",
+            "Recorded Videos": "Assembly_Language_Lab_lec.html",
         },
 
 
@@ -463,6 +463,15 @@ function getLinkFor(subjectName, item) {
             "Chapters":"https://drive.google.com/drive/folders/1T3oW8asOjXWHiEjT58FnjMMsxd4yXrzr",
             "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1N1124TuAYZ2IzAgNqMkqo49AVhVAQjE8",
             "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1gX4eZau0_5P14tjZBfB5tEfUA99ajKWH",
+               
+        },
+        "DIP معالجة الصور الرقمية": {
+            "Slides": "https://drive.google.com/drive/folders/1bWY2mZCjMMwSoLNqbJUvKfZamPENIMwU",
+            "Book & Solutions": "https://drive.google.com/drive/folders/17AKPwdDFzgTCqTnvvImvsRANBrXSsHyu",
+            "Lectures": "https://youtube.com/playlist?list=PLIVqjZoOR8uxQrAlTbh8lwOQuVvrNgCRu&si=LvMADbcvYwv7rYXJ",
+            "Chapters":"https://drive.google.com/drive/folders/14NRjtIxX7SjXoLrmOoWByz8DbiT2HyWZ",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1gfdQ_FZ3EeyIcPYW_VjGw-P2i-2ZWYoo",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1oG3YAvaHEn0gZvJvPT4FM3uWZYByhSwX",
                
         },
       
