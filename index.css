@@ -229,3 +229,61 @@
     gap: 4px;
   }
 }
+
+
+
+
+
+
+
+/* صندوق البحث في الزاوية العليا اليمنى */
+.search-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1002; /* أعلى من القائمة */
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.search-container input {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #00f7ff;
+  outline: none;
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.95rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+.search-container input::placeholder {
+  color: #ccc;
+}
+
+.search-results {
+  margin-top: 5px;
+  background-color: rgba(0,0,0,0.8);
+  border-radius: 8px;
+  max-height: 300px;
+  overflow-y: auto;
+  display: none;
+  flex-direction: column;
+}
+
+.search-results div {
+  padding: 8px 10px;
+  border-bottom: 1px solid #00f7ff44;
+  cursor: pointer;
+  color: #00f7ff;
+  font-size: 0.9rem;
+}
+
+.search-results div:hover {
+  background-color: #00f7ff;
+  color: black;
+}
+
+
+

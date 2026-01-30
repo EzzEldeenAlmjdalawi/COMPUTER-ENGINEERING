@@ -489,3 +489,161 @@ function getLinkFor(subjectName, item) {
 
     return links[subjectName]?.[item] || "#";
 }
+
+
+
+// كل المواد مع السنة والفصل وأسماء بديلة للبحث بالعربي/الإنجليزي
+const allSubjects = [
+  // السنة الأولى
+  { year: 'firstYear', semester: 'First Semester', name: 'Scientific Research Methodology', altName: 'منهجية بحث علمي المنهجية  سنة اولى السنة الاولى فصل اول  الفصل الاول' },
+  { year: 'firstYear', semester: 'First Semester', name: 'Introduction to Engineering', altName: 'مقدمة في الهندسة المقدمة هندسة سنة اولى السنة الاولى فصل اول' },
+  { year: 'firstYear', semester: 'First Semester', name: 'Engineering Drawing', altName: ' رسم هندسي الرسم الهندسي سنة اولى السنة الاولى فصل اول' },
+  { year: 'firstYear', semester: 'First Semester', name: 'Calculus A', altName: 'كالكولس تفاضل 1 التفاضل والتكامل أ كالك سنة اولى فصل اول السنة الاولى الفصل الاول' },
+  { year: 'firstYear', semester: 'First Semester', name: 'General Physics Lab A', altName: 'مختبر الفيزياء العامة أ لاب الاب سنة اولى السنة الاولى فصل اول  الفصل الاول' },
+  { year: 'firstYear', semester: 'First Semester', name: 'General Physics A', altName: 'الفيزياء العامة أ فيزياء سنة اولى السنة الاولى فصل اول  الفصل الاول' },
+  { year: 'firstYear', semester: 'Second Semester', name: 'General Chemistry', altName: 'الكيمياء العامة كيمياء كيمستري  سنة اولى الفصل الثاني السنة الاولى' },
+  { year: 'firstYear', semester: 'Second Semester', name: 'Workshop Technology', altName: ' تقنية الورش تكنولوجيا الورش خالد الحلاق سنة اولى الفصل الثاني السنة الاولى' },
+  { year: 'firstYear', semester: 'Second Semester', name: 'Introduction to Computers', altName: 'مقدمة في الحاسوب مقدمة في الكمبيوتر سنة اولى الفصل الثاني السنة الاولى' },
+  { year: 'firstYear', semester: 'Second Semester', name: 'Introduction to Computers Lab', altName: 'مختبر مقدمة الحاسوب لاب الاب سنة اولى الفصل الثاني السنة الاولى' },
+  { year: 'firstYear', semester: 'Second Semester', name: 'Technical English', altName: ' انجليزي تقني اللغة الإنجليزية التقنية Eng سنة اولى الفصل الثاني السنة الاولى' },
+  { year: 'firstYear', semester: 'Second Semester', name: 'Calculus B', altName: ' تفاضل وتكامل كالكولس التفاضل والتكامل ب 2 سنة اولى الفصل الثاني السنة الاولى' },
+  { year: 'firstYear', semester: 'Second Semester', name: 'General Physics B', altName: '  قيزياء الفيزياء العامة ب سنة اولى الفصل الثاني السنة الاولى' },
+
+  // السنة الثانية
+  { year: 'secndYear', semester: 'First Semester', name: 'Computer Programming 1', altName: 'برمجة الحاسوب 1 السنة الثانية الفصل الاول سنة ثانية فصل اول' },
+  { year: 'secndYear', semester: 'First Semester', name: 'Computer Programming Lab 1', altName: 'مختبر برمجة الحاسوب 1 لاب الاب السنة الثانية الفصل الاول سنة ثانية فصل اول' },
+  { year: 'secndYear', semester: 'First Semester', name: 'Digital Design 1', altName: 'التصميم الرقمي 1 تصميم تجميعي السنة الثانية الفصل الاول سنة ثانية فصل اول' },
+  { year: 'secndYear', semester: 'First Semester', name: 'Digital Design Lab 1', altName: 'مختبر التصميم الرقمي 1 لاب الاب تجميعي وسام عاشور السنة الثانية الفصل الاول سنة ثانية فصل اول' },
+  { year: 'secndYear', semester: 'First Semester', name: 'Electric Circuits 1', altName: 'الدوائر الكهربائية 1 المحروق دواىر السنة الثانية الفصل الاول سنة ثانية فصل اول' },
+  { year: 'secndYear', semester: 'First Semester', name: 'Electric Circuits Lab 1', altName: 'مختبر الدوائر الكهربائية 1 لاب الاب دواىر المحروق السنة الثانية الفصل الاول سنة ثانية فصل اول' },
+  { year: 'secndYear', semester: 'Second Semester', name: 'Linear Algebra', altName: 'الجبر الخطي جبر خطي فاتن دكنورة السنة الثانية سنة ثانية الفصل الثاني فصل ثاني' },
+  { year: 'secndYear', semester: 'Second Semester', name: 'Computer Programming 2', altName: 'برمجة الحاسوب 2 ربا سلامة ايمن مليحة السنة الثانية سنة ثانية الفصل الثاني فصل ثاني' },
+  { year: 'secndYear', semester: 'Second Semester', name: 'Computer Programming Lab 2', altName: 'مختبر برمجة الحاسوب 2 لاب الاب  السنة الثانية سنة ثانية الفصل الثاني فصل ثاني' },
+  { year: 'secndYear', semester: 'Second Semester', name: 'Digital Design 2', altName: 'التصميم الرقمي 2 تصميم تتابعي السنة الثانية سنة ثانية الفصل الثاني فصل ثاني' },
+  { year: 'secndYear', semester: 'Second Semester', name: 'Digital Design Lab 2', altName: 'مختبر التصميم الرقمي 2 لاب الاب تتابعي السنة الثانية سنة ثانية الفصل الثاني فصل ثاني' },
+  { year: 'secndYear', semester: 'Second Semester', name: 'Electronics Lab 1', altName: 'مختبر الإلكترونيات 1 لاب الكترونيات الاب السنة الثانية سنة ثانية الفصل الثاني فصل ثاني' },
+  { year: 'secndYear', semester: 'Second Semester', name: 'Electronics 1', altName: 'الإلكترونيات 1 الكترونيات السنة الثانية سنة ثانية الفصل الثاني فصل ثاني' },
+  { year: 'secndYear', semester: 'Second Semester', name: 'Ordinary Differential Equations', altName: ' معادلات تفاضلية ode OED المعادلات التفاضلية العادية السنة الثانية سنة ثانية الفصل الثاني فصل ثاني' },
+
+  // السنة الثالثة
+  { year: 'thirdYear', semester: 'First Semester', name: 'Discrete mathematics', altName: 'الرياضيات المتقطعة رياضيات متقطعة السنة الثالثة سنة ثالثة الفصل الاول فصل اول' },
+  { year: 'thirdYear', semester: 'First Semester', name: 'Discrete mathematics Lab', altName: 'مختبر الرياضيات المتقطعة لاب مختبر متقطعة رياضيات السنة الثالثة سنة ثالثة الفصل الاول فصل اول' },
+  { year: 'thirdYear', semester: 'First Semester', name: 'Data structures and algorithms', altName: ' داتا ستركشر هياكل البيانات والخوارزميات احمد مهدي  السنة الثالثة سنة ثالثة الفصل الاول فصل اول' },
+  { year: 'thirdYear', semester: 'First Semester', name: 'Data structures and algorithms Lab', altName: 'مختبر هياكل البيانات والخوارزميات لاب الاب داتا ستركشر السنة الثالثة سنة ثالثة الفصل الاول فصل اول' },
+  { year: 'thirdYear', semester: 'First Semester', name: 'Practical linear signals and systems', altName: 'الإشارات والأنظمة الخطية العملية اشارات سجنال لاب الاب السنة الثالثة سنة ثالثة الفصل الاول فصل اول' },
+  { year: 'thirdYear', semester: 'First Semester', name: 'Linear signals and systems', altName: 'الإشارات والأنظمة الخطية اشارات سجنال السنة الثالثة سنة ثالثة الفصل الاول فصل اول' },
+  { year: 'thirdYear', semester: 'First Semester', name: 'Probability and Statistics Theory', altName: 'نظرية الاحتمالات والإحصاء احتمالات احصاء السنة الثالثة سنة ثالثة الفصل الاول فصل اول' },
+  { year: 'thirdYear', semester: 'Second Semester', name: 'Computer architecture', altName: 'هندسة الحاسوب حاسوب السنة الثالثة الفصل الثاني سنة ثالثة فصل ثاني' },
+  { year: 'thirdYear', semester: 'Second Semester', name: 'Computer architecture Lab', altName: 'مختبر هندسة الحاسوب لاب الاب حاسوب السنة الثالثة الفصل الثاني سنة ثالثة فصل ثاني' },
+  { year: 'thirdYear', semester: 'Second Semester', name: 'Database systems', altName: ' داتا بيز نظم قواعد البيانات احمد مهدي السنة الثالثة الفصل الثاني سنة ثالثة فصل ثاني' },
+  { year: 'thirdYear', semester: 'Second Semester', name: 'Database systems Lab', altName: 'مختبر نظم قواعد البيانات لاب الاب السنة الثالثة الفصل الثاني سنة ثالثة فصل ثاني' },
+  { year: 'thirdYear', semester: 'Second Semester', name: 'Practical digital electronics', altName: 'مختبر الإلكترونيات الرقمية لاب الاب السنة الثالثة الفصل الثاني سنة ثالثة فصل ثاني' },
+  { year: 'thirdYear', semester: 'Second Semester', name: 'Digital electronics', altName: 'الإلكترونيات الرقمية رقمية الكترونيات السنة الثالثة الفصل الثاني سنة ثالثة فصل ثاني' },
+  { year: 'thirdYear', semester: 'Second Semester', name: 'Linear control systems practical', altName: 'مختبر التحكم الخطي لاب الاب السنة الثالثة الفصل الثاني سنة ثالثة فصل ثاني' },
+  { year: 'thirdYear', semester: 'Second Semester', name: 'Linear control systems', altName: 'أنظمة التحكم الخطي انظمة التحكم الخطي كنترول السنة الثالثة الفصل الثاني سنة ثالثة فصل ثاني' },
+
+  // السنة الرابعة
+  { year: 'fourthYear', semester: 'First Semester', name: 'Operating Systems', altName: ' نظم التشغيل  os أنظمة التشغيل انظمة التشغيل السنة الرابعة سنة رابعة فصل اول الفصل الاول' },
+  { year: 'fourthYear', semester: 'First Semester', name: 'Operating Systems Lab', altName: ' os انظمة التشغيل مختبر أنظمة التشغيل لاب الاب انظمة التشغيل السنة الرابعة سنة رابعة فصل اول الفصل الاو' },
+  { year: 'fourthYear', semester: 'First Semester', name: 'Data Communication', altName: 'الاتصالات البيانات اتصالات بيانات السنة الرابعة سنة رابعة فصل اول الفصل الاو' },
+  { year: 'fourthYear', semester: 'First Semester', name: 'Data Communication Lab', altName: 'مختبر الاتصالات البيانات لاب الاب اتصالات  السنة الرابعة سنة رابعة فصل اول الفصل الاو' },
+  { year: 'fourthYear', semester: 'First Semester', name: 'Assembly Language', altName: 'لغة التجميع تجميع امل محفوظ السنة الرابعة سنة رابعة فصل اول الفصل الاو' },
+  { year: 'fourthYear', semester: 'First Semester', name: 'Assembly Language Lab', altName: 'مختبر لغة التجميع لاب الاب السنة الرابعة سنة رابعة فصل اول الفصل الاو' },
+  { year: 'fourthYear', semester: 'First Semester', name: 'Practical Training 250h', altName: 'تدريب 250 ساعة ميدان ميداني السنة الرابعة سنة رابعة فصل اول الفصل الاو' },
+  { year: 'fourthYear', semester: 'Second Semester', name: 'Computer Networks', altName: 'شبكات الحاسوب الشبكات شبكة السنة الرابعة سنة رابعة الفصل الثاني فصل ثاني' },
+  { year: 'fourthYear', semester: 'Second Semester', name: 'Computer Networks Lab', altName: 'مختبر شبكات الحاسوب لاب الاب الشبكات السنة الرابعة سنة رابعة الفصل الثاني فصل ثاني' },
+  { year: 'fourthYear', semester: 'Second Semester', name: 'Embedded Systems', altName: 'الأنظمة المدمجة انظمة مدمجة المدمجة السنة الرابعة سنة رابعة الفصل الثاني فصل ثاني' },
+  { year: 'fourthYear', semester: 'Second Semester', name: 'Embedded Systems Lab', altName: 'مختبر الأنظمة المدمجة لاب الاب مدمجة انظمة السنة الرابعة سنة رابعة الفصل الثاني فصل ثاني' },
+  { year: 'fourthYear', semester: 'Second Semester', name: 'VHDL', altName: ' فهدل في إتش دي إل السنة الرابعة سنة رابعة الفصل الثاني فصل ثاني' },
+  { year: 'fourthYear', semester: 'Second Semester', name: 'VHDL Lab', altName: ' فهدل مختبر في إتش دي إل لاب الاب فهدل السنة الرابعة سنة رابعة الفصل الثاني فصل ثاني' },
+  { year: 'fourthYear', semester: 'Second Semester', name: 'Software Engineering', altName: 'هندسة البرمجيات الهندسة برمجيات  السنة الرابعة سنة رابعة الفصل الثاني فصل ثاني' },
+
+  // السنة الخامسة
+  { year: 'fifthYear', semester: 'First Semester', name: 'AI', altName: 'الذكاء الاصطناعي ذكاء اصطياعي اصطناعي السنة الخامسة الفصل الاول سنة خامسة فصل اول' },
+  { year: 'fifthYear', semester: 'First Semester', name: 'AI Lab', altName: 'مختبر الذكاء الاصطناعي لاب الاب ذكاء اصطناعي السنة الخامسة الفصل الاول سنة خامسة فصل اول' },
+  { year: 'fifthYear', semester: 'First Semester', name: 'Network Security', altName: 'أمن الشبكات امن الامن شبكات شبكة السنة الخامسة الفصل الاول سنة خامسة فصل اول' },
+  { year: 'fifthYear', semester: 'First Semester', name: ' Digital Image Processing', altName: 'معالجة صور رقمية DIP السنة الخامسة الفصل الاول سنة خامسة فصل اول' },
+  { year: 'fifthYear', semester: 'First Semester', name: 'Network Security Lab', altName: 'مختبر أمن الشبكات لاب الاب شبكة السنة الخامسة الفصل الاول سنة خامسة فصل اول' },
+  { year: 'fifthYear', semester: 'Second Semester', name: 'Security In Computer Systems', altName: 'أمن أنظمة الحاسوب امن الامن انطمة الحاسوب حاسوب السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني' },
+  { year: 'fifthYear', semester: 'Second Semester', name: 'Elective Course 3', altName: 'اختياري 3 خيار اختر  السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني' },
+  { year: 'fifthYear', semester: 'Second Semester', name: 'Elective Course 4', altName: 'اختياري 4 خيار اختر  السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني' },
+];
+
+
+
+  // دالة تنظيف النصوص لتحويلها إلى id
+  function normalizeText(text) {
+      return text.toLowerCase().replace(/\s+/g, '').replace(/[^\w\u0600-\u06FF]/g, '');
+  }
+
+  // === 1. إنشاء IDs لكل مادة على الصفحة ===
+  document.querySelectorAll('.subject-list .subject').forEach(sub => {
+      sub.setAttribute('id', normalizeText(sub.textContent));
+  });
+
+  // === 2. عند تحميل الصفحة، فتح الفصل إذا تم حفظه في localStorage ===
+  window.addEventListener('DOMContentLoaded', () => {
+      const openSemesterId = localStorage.getItem('openSemester');
+      if (openSemesterId) {
+          const semester = document.getElementById(openSemesterId);
+          if (semester) {
+              semester.style.display = 'flex'; // فتح الفصل
+          }
+          localStorage.removeItem('openSemester'); // مسح المفتاح بعد الفتح
+      }
+
+      // === 3. التمرير والتركيز على المادة ===
+      const hash = window.location.hash;
+      if (hash) {
+          const element = document.querySelector(hash);
+          if (element) {
+              // فتح الفصل المحتوي على المادة إذا كان مخفي
+              let parentSemester = element.closest('.subject-list');
+              if (parentSemester) parentSemester.style.display = 'flex';
+
+              // التمرير والتركيز على المادة
+              element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              const originalBg = element.style.backgroundColor;
+              element.style.backgroundColor = '#00f7ff66'; // تمييز المادة
+              setTimeout(() => element.style.backgroundColor = originalBg, 9000);
+          }
+      }
+  });
+
+  // === 4. البحث ===
+  function searchSubject() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const resultsContainer = document.getElementById('searchResults');
+      resultsContainer.innerHTML = '';
+
+      if (input === '') {
+          resultsContainer.style.display = 'none';
+          return;
+      }
+
+      const results = allSubjects.filter(sub =>
+          sub.name.toLowerCase().includes(input) ||
+          (sub.altName && sub.altName.toLowerCase().includes(input))
+      );
+
+      results.forEach(sub => {
+          const div = document.createElement('div');
+          div.classList.add('search-item');
+          div.innerHTML = `<strong>${sub.name}</strong> - ${sub.year} - ${sub.semester}`;
+
+          div.onclick = () => {
+              const subjectId = normalizeText(sub.name);
+              const semesterId = 'semester-' + normalizeText(sub.semester);
+
+              // حفظ الفصل في localStorage ليتم فتحه بعد الانتقال
+              localStorage.setItem('openSemester', semesterId);
+
+              // الانتقال للصفحة مع التركيز على المادة
+              window.location.href = sub.year + '.html#' + subjectId;
+          };
+
+          resultsContainer.appendChild(div);
+      });
+
+      resultsContainer.style.display = results.length ? 'flex' : 'none';
+  }

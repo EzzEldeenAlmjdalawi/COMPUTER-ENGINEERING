@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="subject-list"></div>
     <title>Fifth Year</title>
     <link rel="stylesheet" href="years.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -22,18 +23,22 @@
         </ul>
         </div>
         <div  class="containar" >
+            <div class="subject-list"></div>
             <h1>Fifth Year</h1>
+            <div class="semester" data-semester="First Semester" id="semester-firstsemester"></div>
             <div class="semester" onclick="toggleSubjects('sem1')">📘 First Semester</div>
+            
             <div id="sem1" class="subject-list">
                
                 <div class="subject" onclick="toggleResources(this)" data-lab="true">AI</div>
                 <div class="subject" onclick="toggleResources(this)" data-lab="true">AI Lab</div>
                 <div class="subject" onclick="toggleResources(this)">Network Security</div>
-                <div class="subject" onclick="toggleResources(this)">DIP معالجة الصور الرقمية</div>
+                <div class="subject" onclick="toggleResources(this)">Digital Image Processing</div>
                 <div class="subject" onclick="toggleResources(this)" data-lab="true">Network Security Lab</div>
             </div>
 
             <div class="semester" onclick="toggleSubjects('sem2')">📙 Second Semester</div>
+            <div class="semester" data-semester="Second Semester" id="semester-secondsemester"></div>
             <div id="sem2" class="subject-list">
                 <div class="subject" onclick="toggleResources(this)" data-lab="true">  Security In Computer Systems</div>
                 <div class="subject" onclick="toggleResources(this)" data-lab="true">Elective Course 3</div>

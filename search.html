@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>بحث المواد</title>
+<style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input { width: 300px; padding: 8px; margin-bottom: 10px; }
+    .result { margin-top: 10px; }
+    .subject { padding: 5px; border-bottom: 1px solid #ddd; }
+    .lab { color: green; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h2>بحث المواد</h2>
+<input type="text" id="searchInput" placeholder="اكتب اسم المادة أو السنة أو الفصل..." onkeyup="searchSubjects()">
+
+<div id="results" class="result"></div>
+
+<script>
+// بيانات المواد حسب السنوات والفصول
+const data = {
+    firstYear: {
+        "First Semester": [
+            { name: "منهجية بحث علمي", lab: true },
+            { name: "Introduction to Engineering", lab: true },
+            { name: "Engineering Drawing", lab: true },
+            { name: "Calculus A", lab: false },
+            { name: "General Physics Lab A", lab: true },
+            { name: "General Physics A", lab: false }
+        ],
+        "Second Semester": [
+            { name: "General Chemistry", lab: false },
+            { name: "Workshop Technology", lab: true },
+            { name: "Introduction to Computers", lab: false },
+            { name: "Introduction to Computers Lab", lab: true },
+            { name: "Technical English", lab: false },
+            { name: "Calculus B", lab: false },
+            { name: "General Physics B", lab: false }
+        ]
+    },
+    secndYear: {
+        "First Semester": [
+            { name: "Computer Programming 1", lab: false },
+            { name: "Computer Programming Lab 1", lab: true },
+            { name: "Digital Design 1", lab: false },
+            { name: "Digital Design Lab 1", lab: true },
+            { name: "Electric Circuits 1", lab: false },
+            { name: "Electric Circuits Lab 1", lab: true }
+        ],
+        "Second Semester": [
+            { name: "Linear Algebra", lab: false },
+            { name: "Computer Programming 2", lab: false },
+            { name: "Computer Programming Lab 2", lab: true },
+            { name: "Digital Design 2", lab: false },
+            { name: "Digital Design Lab 2", lab: true },
+            { name: "Electronics Lab 1", lab: true },
+            { name: "Electronics 1", lab: false },
+            { name: "Ordinary Differential Equations", lab: false }
+        ]
+    },
+    thirdYear: {
+        "First Semester": [
+            { name: "Discrete mathematics", lab: false },
+            { name: "Discrete mathematics Lab", lab: true },
+            { name: "Data structures and algorithms", lab: false },
+            { name: "Data structures and algorithms Lab", lab: true },
+            { name: "Practical linear signals and systems", lab: true },
+            { name: "Linear signals and systems", lab: false },
+            { name: "Probability and Statistics Theory", lab: false }
+        ],
+        "Second Semester": [
+            { name: "Computer architecture", lab: false },
+            { name: "Computer architecture Lab", lab: true },
+            { name: "database systems", lab: false },
+            { name: "database systems Lab", lab: true },
+            { name: "Practical digital electronics", lab: true },
+            { name: "digital electronics", lab: false },
+            { name: "Linear control systems practical", lab: true },
+            { name: "Linear control systems", lab: false }
+        ]
+    },
+    fourthYear: {
+        "First Semester": [
+            { name: "Operating Systems", lab: false },
+            { name: "Operating Systems Lab", lab: true },
+            { name: "Data Communication", lab: false },
+            { name: "Data Communication Lab", lab: true },
+            { name: "Assembly Language", lab: false },
+            { name: "Assembly Language Lab", lab: true },
+            { name: "تدريب عملي(250)ساعة", lab: true }
+        ],
+        "Second Semester": [
+            { name: "Computer Networks", lab: false },
+            { name: "Computer Networks Lab", lab: true },
+            { name: "Embedded Systems", lab: false },
+            { name: "Embedded Systems Lab", lab: true },
+            { name: "VHDL", lab: false },
+            { name: "VHDL Lab", lab: true },
+            { name: "Software Engineering", lab: false }
+        ]
+    },
+    fifthYear: {
+        "First Semester": [
+            { name: "AI", lab: true },
+            { name: "AI Lab", lab: true },
+            { name: "Network Security", lab: false },
+            { name: "DIP معالجة الصور الرقمية", lab: false },
+            { name: "Network Security Lab", lab: true }
+        ],
+        "Second Semester": [
+            { name: "Security In Computer Systems", lab: true },
+            { name: "Elective Course 3", lab: true },
+            { name: "Elective Course 4", lab: true }
+        ]
+    }
+};
+
+// دالة البحث
+function searchSubjects() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = "";
+
+    for (let year in data) {
+        for (let semester in data[year]) {
+            data[year][semester].forEach(subject => {
+                if (subject.name.toLowerCase().includes(query) || year.toLowerCase().includes(query) || semester.toLowerCase().includes(query)) {
+                    const div = document.createElement('div');
+                    div.classList.add('subject');
+                    div.innerHTML = `<strong>${subject.name}</strong> - ${year} - ${semester} ${subject.lab ? '<span class="lab">(Lab)</span>' : ''}`;
+                    resultsDiv.appendChild(div);
+                }
+            });
+        }
+    }
+}
+</script>
+
+</body>
+</html>

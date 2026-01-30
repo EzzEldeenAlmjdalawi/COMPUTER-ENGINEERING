@@ -22,8 +22,10 @@
         </div>
         
         <div  class="containar" >
+            <div class="subject-list"></div>
             <h1>Fourth Year</h1>
             <div class="semester" onclick="toggleSubjects('sem1')">📘 First Semester</div>
+            <div class="semester" data-semester="First Semester" id="semester-firstsemester"></div>
             <div id="sem1" class="subject-list">
                 
                 <div class="subject" onclick="toggleResources(this)">Operating Systems</div>
@@ -32,11 +34,12 @@
                 <div class="subject" onclick="toggleResources(this)" data-lab="true">Data Communication Lab </div>
                 <div class="subject" onclick="toggleResources(this)">Assembly Language</div>
                 <div class="subject" onclick="toggleResources(this)" data-lab="true">Assembly Language Lab </div>
-                <div class="subject" onclick="toggleResources(this)" data-lab="true">تدريب عملي(250)ساعة </div>
+                <div class="subject" onclick="toggleResources(this)" data-lab="true">Practical Training 250h </div>
                
             </div>
 
             <div class="semester" onclick="toggleSubjects('sem2')">📙 Second Semester</div>
+            <div class="semester" data-semester="Second Semester" id="semester-secondsemester"></div>
             <div id="sem2" class="subject-list">
                 <div class="subject" onclick="toggleResources(this)">Computer Networks</div>
                 <div class="subject" onclick="toggleResources(this)" data-lab="true">Computer Networks Lab </div>
