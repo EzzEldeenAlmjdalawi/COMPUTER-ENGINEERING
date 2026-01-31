@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+  
   <meta charset="UTF-8">
   <title>COMPUTER ENGINEERING</title>
   <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="themes.css">
+  <link rel="stylesheet" href="theme-synced.css">
   <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -16,6 +19,30 @@
   <div class="search-container">
   <input type="text" id="searchInput" placeholder="ابحث عن المادة..." onkeyup="searchSubject()">
   <div id="searchResults" class="search-results"></div>
+</div>
+
+
+
+<div class="theme-control">
+  <button class="theme-btn" onclick="toggleThemeMenu()">🎨</button>
+  <div class="theme-menu" id="themeMenu">
+    <span class="color blue"      onclick="applyTheme('theme-blue')"></span>
+    <span class="color green"     onclick="applyTheme('theme-green')"></span>
+    <span class="color purple"    onclick="applyTheme('theme-purple')"></span>
+    <span class="color orange"    onclick="applyTheme('theme-orange')"></span>
+    <span class="color red"       onclick="applyTheme('theme-red')"></span>
+    <span class="color pink"      onclick="applyTheme('theme-pink')"></span>
+    <span class="color yellow"    onclick="applyTheme('theme-yellow')"></span>
+    <span class="color cyan"      onclick="applyTheme('theme-cyan')"></span>
+    <span class="color lime"      onclick="applyTheme('theme-lime')"></span>
+    <span class="color teal"      onclick="applyTheme('theme-teal')"></span>
+    <span class="color magenta"   onclick="applyTheme('theme-magenta')"></span>
+    <span class="color maroon"    onclick="applyTheme('theme-maroon')"></span>
+    <span class="color navy"      onclick="applyTheme('theme-navy')"></span>
+    <span class="color gray"      onclick="applyTheme('theme-gray')"></span>
+    <span class="color black"     onclick="applyTheme('theme-black')"></span>
+    <span class="color off"       onclick="applyTheme('')">✖</span>
+  </div>
 </div>
 
 

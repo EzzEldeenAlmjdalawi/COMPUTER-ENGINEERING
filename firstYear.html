@@ -4,17 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First Year</title>
+    
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="theme-synced.css">
     <link rel="stylesheet" href="years.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
    
 </head>
-<body>    
+<body>   
+    
+<div class="theme-control">
+  <button class="theme-btn" onclick="toggleThemeMenu()">🎨</button>
+
+  <div class="theme-menu" id="themeMenu">
+    <span class="color blue"      onclick="applyTheme('theme-blue')"></span>
+    <span class="color green"     onclick="applyTheme('theme-green')"></span>
+    <span class="color purple"    onclick="applyTheme('theme-purple')"></span>
+    <span class="color orange"    onclick="applyTheme('theme-orange')"></span>
+    <span class="color red"       onclick="applyTheme('theme-red')"></span>
+    <span class="color pink"      onclick="applyTheme('theme-pink')"></span>
+    <span class="color yellow"    onclick="applyTheme('theme-yellow')"></span>
+    <span class="color cyan"      onclick="applyTheme('theme-cyan')"></span>
+    <span class="color lime"      onclick="applyTheme('theme-lime')"></span>
+    <span class="color teal"      onclick="applyTheme('theme-teal')"></span>
+    <span class="color magenta"   onclick="applyTheme('theme-magenta')"></span>
+    <span class="color maroon"    onclick="applyTheme('theme-maroon')"></span>
+    <span class="color navy"      onclick="applyTheme('theme-navy')"></span>
+    <span class="color gray"      onclick="applyTheme('theme-gray')"></span>
+    <span class="color black"     onclick="applyTheme('theme-black')"></span>
+    <span class="color off"       onclick="applyTheme('')">✖</span>
+  </div>
+</div>
 
 
 
 
-               
 
+
+
+
+
+
+
+
+    
         <button class="toggle-btn" onclick="toggleMenu()">☰</button>
 
         <div class="myList" id="menuList">
@@ -54,6 +87,9 @@
                 <div class="subject" onclick="toggleResources(this)">Calculus B</div>
                 <div class="subject" onclick="toggleResources(this)">General Physics B</div>
         </div>
+
+
+
        
        <script src="years.js"></script>
 </body>

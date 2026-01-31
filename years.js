@@ -647,3 +647,66 @@ const allSubjects = [
 
       resultsContainer.style.display = results.length ? 'flex' : 'none';
   }
+
+
+
+
+
+
+
+
+
+// =====================================
+// Toggle Theme Menu
+// =====================================
+function toggleThemeMenu() {
+  const menu = document.getElementById("themeMenu");
+  menu.classList.toggle("show");
+
+  const btn = document.querySelector(".theme-btn");
+  const rect = btn.getBoundingClientRect();
+
+  // إذا قرب من يمين الشاشة → عمودي
+  if (rect.right > window.innerWidth - 150) {
+    menu.style.flexDirection = "column";
+    menu.style.left = "auto";
+    menu.style.right = "0px";
+  } else {
+    menu.style.flexDirection = "row";
+    menu.style.left = "calc(50% - 20px)";
+    menu.style.right = "auto";
+  }
+}
+
+// =====================================
+// Apply Theme + Save it
+// =====================================
+function applyTheme(theme) {
+  // إزالة أي ثيم قديم
+  document.body.className = document.body.className
+    .split(" ")
+    .filter(c => !c.startsWith("theme-"))
+    .join(" ");
+
+  if (theme) {
+    document.body.classList.add(theme);
+
+    // 🔥 حفظ الثيم
+    localStorage.setItem("ui-theme", theme);
+  } else {
+    localStorage.removeItem("ui-theme");
+  }
+}
+
+// =====================================
+// Load saved theme on page load
+// =====================================
+window.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("ui-theme");
+
+  if (savedTheme) {
+    document.body.classList.add(savedTheme);
+  }
+});
+
+
