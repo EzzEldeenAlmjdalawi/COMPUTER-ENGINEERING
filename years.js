@@ -43,7 +43,7 @@ function toggleResources(subjectDiv) {
 
 function getLinkFor(subjectName, item) {
     const links = {
-        "منهجية بحث علمي": {
+        "Scientific Research Methodology": {
             "Lab": "https://drive.google.com/drive/folders/1STKIgYA-LP21Sq83t1hF_Sra-77r8-Jx?usp=sharing",
             "Recorded Videos": "https://drive.google.com/drive/folders/1ILQazmvS9dK7uXJnVnn-fHM7Pb_-I4T1?usp=sharing",
         },
@@ -465,7 +465,7 @@ function getLinkFor(subjectName, item) {
             "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1gX4eZau0_5P14tjZBfB5tEfUA99ajKWH",
                
         },
-        "DIP معالجة الصور الرقمية": {
+        "Digital Image Processing": {
             "Slides": "https://drive.google.com/drive/folders/1bWY2mZCjMMwSoLNqbJUvKfZamPENIMwU",
             "Book & Solutions": "https://drive.google.com/drive/folders/17AKPwdDFzgTCqTnvvImvsRANBrXSsHyu",
             "Lectures": "https://youtube.com/playlist?list=PLIVqjZoOR8uxQrAlTbh8lwOQuVvrNgCRu&si=LvMADbcvYwv7rYXJ",
@@ -510,15 +510,15 @@ const allSubjects = [
   { year: 'firstYear', semester: 'Second Semester', name: 'General Physics B', altName: '  قيزياء الفيزياء العامة ب سنة اولى الفصل الثاني السنة الاولى' },
 
   // السنة الثانية
-  { year: 'secndYear', semester: 'First Semester', name: 'Computer Programming 1', altName: 'برمجة الحاسوب 1 السنة الثانية الفصل الاول سنة ثانية فصل اول' },
-  { year: 'secndYear', semester: 'First Semester', name: 'Computer Programming Lab 1', altName: 'مختبر برمجة الحاسوب 1 لاب الاب السنة الثانية الفصل الاول سنة ثانية فصل اول' },
+  { year: 'secndYear', semester: 'First Semester', name: 'Computer Programming 1', altName: 'برمجة الحاسوب 1 السنة الثانية الفصل الاول سنة ثانية فصل اول جافا ' },
+  { year: 'secndYear', semester: 'First Semester', name: 'Computer Programming Lab 1', altName: 'مختبر برمجة الحاسوب 1 لاب الاب السنة الثانية الفصل الاول سنة ثانية فصل اول جافا' },
   { year: 'secndYear', semester: 'First Semester', name: 'Digital Design 1', altName: 'التصميم الرقمي 1 تصميم تجميعي السنة الثانية الفصل الاول سنة ثانية فصل اول' },
   { year: 'secndYear', semester: 'First Semester', name: 'Digital Design Lab 1', altName: 'مختبر التصميم الرقمي 1 لاب الاب تجميعي وسام عاشور السنة الثانية الفصل الاول سنة ثانية فصل اول' },
   { year: 'secndYear', semester: 'First Semester', name: 'Electric Circuits 1', altName: 'الدوائر الكهربائية 1 المحروق دواىر السنة الثانية الفصل الاول سنة ثانية فصل اول' },
   { year: 'secndYear', semester: 'First Semester', name: 'Electric Circuits Lab 1', altName: 'مختبر الدوائر الكهربائية 1 لاب الاب دواىر المحروق السنة الثانية الفصل الاول سنة ثانية فصل اول' },
   { year: 'secndYear', semester: 'Second Semester', name: 'Linear Algebra', altName: 'الجبر الخطي جبر خطي فاتن دكنورة السنة الثانية سنة ثانية الفصل الثاني فصل ثاني' },
-  { year: 'secndYear', semester: 'Second Semester', name: 'Computer Programming 2', altName: 'برمجة الحاسوب 2 ربا سلامة ايمن مليحة السنة الثانية سنة ثانية الفصل الثاني فصل ثاني' },
-  { year: 'secndYear', semester: 'Second Semester', name: 'Computer Programming Lab 2', altName: 'مختبر برمجة الحاسوب 2 لاب الاب  السنة الثانية سنة ثانية الفصل الثاني فصل ثاني' },
+  { year: 'secndYear', semester: 'Second Semester', name: 'Computer Programming 2', altName: 'برمجة الحاسوب 2 ربا سلامة ايمن مليحة السنة الثانية سنة ثانية الفصل الثاني فصل ثاني جافا' },
+  { year: 'secndYear', semester: 'Second Semester', name: 'Computer Programming Lab 2', altName: 'مختبر برمجة الحاسوب 2 لاب الاب  السنة الثانية سنة ثانية الفصل الثاني فصل ثاني جافا' },
   { year: 'secndYear', semester: 'Second Semester', name: 'Digital Design 2', altName: 'التصميم الرقمي 2 تصميم تتابعي السنة الثانية سنة ثانية الفصل الثاني فصل ثاني' },
   { year: 'secndYear', semester: 'Second Semester', name: 'Digital Design Lab 2', altName: 'مختبر التصميم الرقمي 2 لاب الاب تتابعي السنة الثانية سنة ثانية الفصل الثاني فصل ثاني' },
   { year: 'secndYear', semester: 'Second Semester', name: 'Electronics Lab 1', altName: 'مختبر الإلكترونيات 1 لاب الكترونيات الاب السنة الثانية سنة ثانية الفصل الثاني فصل ثاني' },
