@@ -468,7 +468,7 @@ function getLinkFor(subjectName, item) {
         "Digital Image Processing": {
             "Slides": "https://drive.google.com/drive/folders/1bWY2mZCjMMwSoLNqbJUvKfZamPENIMwU",
             "Book & Solutions": "https://drive.google.com/drive/folders/17AKPwdDFzgTCqTnvvImvsRANBrXSsHyu",
-            "Lectures": "https://youtube.com/playlist?list=PLIVqjZoOR8uxQrAlTbh8lwOQuVvrNgCRu&si=LvMADbcvYwv7rYXJ",
+            "Lectures": "DIP_Lec.html",
             "Chapters":"https://drive.google.com/drive/folders/14NRjtIxX7SjXoLrmOoWByz8DbiT2HyWZ",
             "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1gfdQ_FZ3EeyIcPYW_VjGw-P2i-2ZWYoo",
             "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1oG3YAvaHEn0gZvJvPT4FM3uWZYByhSwX",
@@ -708,5 +708,18 @@ window.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add(savedTheme);
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
