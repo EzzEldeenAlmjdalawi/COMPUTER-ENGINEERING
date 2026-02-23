@@ -723,3 +723,169 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+async function getPrayerTimes() {
+    try {
+        const response = await fetch("https://api.aladhan.com/v1/timingsByCity?city=Gaza&country=Palestine&method=5");
+        const data = await response.json();
+        const timings = data.data.timings;
+
+        const prayers = [
+            {name: "الفجر", key: "fajr", time: timings.Fajr},
+            {name: "الظهر", key: "dhuhr", time: timings.Dhuhr},
+            {name: "العصر", key: "asr", time: timings.Asr},
+            {name: "المغرب", key: "maghrib", time: timings.Maghrib},
+            {name: "العشاء", key: "isha", time: timings.Isha}
+        ];
+
+        const now = new Date();
+        let nextPrayer = null;
+
+        for (let prayer of prayers) {
+            const cleanTime = prayer.time.split(" ")[0];
+            const [hours, minutes] = cleanTime.split(":");
+            let prayerTime = new Date();
+            prayerTime.setHours(hours, minutes, 0);
+            if (prayerTime > now) {
+                nextPrayer = { ...prayer, prayerTime };
+                break;
+            }
+        }
+
+        if (!nextPrayer) {
+            const cleanTime = prayers[0].time.split(" ")[0];
+            const [hours, minutes] = cleanTime.split(":");
+            let prayerTime = new Date();
+            prayerTime.setDate(prayerTime.getDate() + 1);
+            prayerTime.setHours(hours, minutes, 0);
+            nextPrayer = { ...prayers[0], prayerTime };
+        }
+
+        // الأيقونات
+        const iconMap = {
+            "الفجر": "fa-solid fa-sun",
+            "الظهر": "fa-solid fa-sun",
+            "العصر": "fa-solid fa-cloud-sun",
+            "المغرب": "fa-solid fa-moon",
+            "العشاء": "fa-solid fa-star"
+        };
+        document.getElementById("prayerIcon").className = iconMap[nextPrayer.name];
+
+        // الوقت بصيغة 12 ساعة (أرقام إنجليزية)
+        const formattedTime = nextPrayer.prayerTime.toLocaleTimeString("en-US", {
+            hour: "numeric",
+            minute: "numeric",
+            hour12: true
+        });
+
+        // تلوين اسم الصلاة حسب نوعها
+        const prayerNameEl = document.getElementById("nextPrayerName");
+        prayerNameEl.innerText = nextPrayer.name;
+        prayerNameEl.className = nextPrayer.key;
+
+        document.getElementById("nextPrayerTime").innerText = formattedTime;
+
+        startCountdown(nextPrayer.prayerTime);
+
+    } catch (error) {
+        console.log("Error:", error);
+        document.getElementById("nextPrayerName").innerText = "تعذر تحميل المواقيت";
+    }
+}
+
+function startCountdown(prayerTime) {
+    setInterval(() => {
+        const now = new Date();
+        const diff = prayerTime - now;
+
+        if (diff <= 0) return;
+
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerText =
+            `⏳ متبقي ${hours}س ${minutes}د ${seconds}ث`;
+    }, 1000);
+}
+
+getPrayerTimes();
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// قائمة بالرسائل التحفيزية / التذكيرية
+const reminders = [
+    "حان وقت الدعاء، لا تنس ذكر الله.",
+     "إِنَّ اللَّهَ غَفُورٌ رَّحِيمٌ.",
+       "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ.",
+     "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ.",
+      "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا.",
+        "رَبَّنَا اغْفِرْ لَنَا ذُنُوبَنَا.",
+     "رَبَّنَا وَقِنَا عَذَابَ النَّار.",
+     "إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالإِحْسَانِ.",
+    "فَتَوَكَّلْ عَلَى اللَّهِ.",
+    "وَاسْتَغْفِرُوا رَبَّكُمْ ثُمَّ تُوبُوا إِلَيْهِ.",
+        "أَلَمْ نَشْرَحْ لَكَ صَدْرَكَ .",
+     "فَاصْبِرْ إِنَّ وَعْدَ اللَّهِ حَقٌّ.",
+    "وَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ.",
+     "وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا وَبِالْوَالِدَيْنِ إِحْسَانًا.",
+    "وفقكم الله لما يحب ويرضى.",
+     "الحمدلله على ما أنا عليه ، و على ما سأكون.",
+     " أَلا بذِكرِ اللهِ تَطمَئنُّ القُلوب .",
+      "نصبح و نُمسي في زِحامٍ مِن النِعم , الحمدُ لله قولاً و فعلاً و شُكراً و رضاً.",
+    " ، الحمدلله حتى ترضى و تُرضيني 🤍.",
+    "يَا أَيُّهَا الَّذِينَ آمَنُوا صَلُّوا عَلَيْهِ وَسَلِّمُوا تَسْلِيمًا.",
+    "أستغفِرُ الله  لا حَول و لا قوة إلا بالله. سُبحان الله و بِحمده سُبحان الله العَظيم",
+    "سُبحان الله  الحَمد لله لا إله إلا الله  الله أكبر .",
+    ".",
+    "اللهم صلِ و سلم على نبينا محمد. وعلى اله وصحبه اجمعين",
+     "غدَوْنا مع الإصباحِ بالحَمدِ والرّضا فسُبحانَ من أحيا وأعطى ويَسَّرا.",
+     "كل التوفيق لكم ي ابطال الهندسة 💚.",
+     "لا تنسونا من صالح دعاكم 💛💚.",
+    "اقرأوا القرآن فإنه شفيع لأصحابه.",
+    "لا تنسوا الصلاة على وقتها، فهي نور في حياتكم.",
+    "تذكر أن كل عمل صالح يرفع درجاتك.",
+    "ادعُ لنفسك ولأحبابك، فالدعاء مستجاب."
+];
+
+function showReminder() {
+    const randomIndex = Math.floor(Math.random() * reminders.length);
+    const reminderEl = document.getElementById("reminderText");
+    reminderEl.innerText = reminders[randomIndex];
+
+    // تغيير لون الخلفية عشوائي بسيط
+    reminderEl.parentElement.style.backgroundColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+
+    // تأثير بصري خفيف
+    reminderEl.parentElement.classList.add("animate");
+    setTimeout(() => {
+        reminderEl.parentElement.classList.remove("animate");
+    }, 300);
+}
+
+// عرض تذكير عند تحميل الصفحة
+document.addEventListener("DOMContentLoaded", showReminder);
+
+// تحديث الرسالة كل 30 ثانية (يمكن تعديل الوقت)
+setInterval(showReminder, 5000);

@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="themes.css">
   <link rel="stylesheet" href="theme-synced.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -19,6 +20,34 @@
   <div class="search-container">
   <input type="text" id="searchInput" placeholder="ابحث عن المادة..." onkeyup="searchSubject()">
   <div id="searchResults" class="search-results"></div>
+
+
+
+
+<div class="prayer-box">
+    <div class="prayer-header">
+        <i class="fa-solid fa-mosque"></i>
+        <span>الصلاة القادمة - غزة</span>
+        
+    </div>
+
+    <div class="prayer-name">
+        <i id="prayerIcon"></i>
+        <span id="nextPrayerName"></span>
+    </div>
+
+    <div id="nextPrayerTime"></div>
+    <div id="countdown"></div>
+</div>
+
+
+
+<div class="spiritual-reminder">
+    <span id="reminderText"></span>
+</div>
+
+
+
 </div>
 
 
@@ -44,8 +73,6 @@
     <span class="color off"       onclick="applyTheme('')">✖</span>
   </div>
 </div>
-
-
 
 
 
