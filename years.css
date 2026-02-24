@@ -205,24 +205,35 @@
 
 
 
-
 .prayer-box {
     width: 300px;
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 10px;
     text-align: center;
-    font-family: Arial, sans-serif;
+    font-family: 'Cairo', Arial, sans-serif; /* خط أوضح للعربي */
 }
 
+/* تحسين عنوان "الصلاة القادمة" */
 .prayer-header {
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 10px;
+    font-size: 18px;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4); /* زيادة وضوح */
 }
 
+/* أيقونة الصلاة */
 .prayer-name i {
     margin-right: 8px;
     font-size: 20px;
+}
+
+/* تكبير و توضيح اسم الصلاة */
+#nextPrayerName {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
 
 /* تلوين اسم الصلاة حسب النوع */
@@ -232,44 +243,64 @@
 #nextPrayerName.maghrib { color: #FF4500; }
 #nextPrayerName.isha { color: #800080; }
 
-
+/* تكبير وقت الصلاة */
 #nextPrayerTime {
-    font-weight: bold;
-    margin: 5px 0;
-    font-family: "Arial", sans-serif; /* الأرقام بالإنجليزي */
+    font-weight: 800;
+    font-size: 24px;
+    margin: 8px 0;
+    font-family: "Arial", sans-serif;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
 
+/* تحسين العد التنازلي */
 #countdown {
-    margin-top: 5px;
-    font-size: 14px;
+    margin-top: 6px;
+    font-size: 15px;
+    font-weight: 600;
 }
 
+/* ===============================
+   تحسين خاص للجوال
+================================ */
+@media (max-width: 480px) {
 
+    .prayer-box {
+        width: 95%;
+        padding: 18px;
+    }
 
+    .prayer-header {
+        font-size: 19px;
+    }
 
+    #nextPrayerName {
+        font-size: 24px;
+    }
 
+    #nextPrayerTime {
+        font-size: 26px;
+    }
 
+    #countdown {
+        font-size: 16px;
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
+/* ===============================
+   صندوق التذكير
+================================ */
 .spiritual-reminder {
     margin-top: 15px;
-    padding: 12px 15px;
+    padding: 14px 16px;
     background-color: #f0f8ff;
     border-left: 5px solid #1E90FF;
     font-style: italic;
-    font-weight: bold;
-    border-radius: 6px;
+    font-weight: 600;
+    border-radius: 8px;
     text-align: center;
     font-size: 16px;
+    line-height: 1.6;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
     transition: background-color 0.5s, transform 0.3s;
 }
 
