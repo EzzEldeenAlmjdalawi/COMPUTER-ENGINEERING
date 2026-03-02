@@ -889,3 +889,21 @@ document.addEventListener("DOMContentLoaded", showReminder);
 
 // تحديث الرسالة كل 30 ثانية (يمكن تعديل الوقت)
 setInterval(showReminder, 5000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
