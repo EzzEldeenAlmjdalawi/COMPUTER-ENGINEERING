@@ -479,6 +479,15 @@ function getLinkFor(subjectName, item) {
             "Lab": "https://drive.google.com/drive/folders/1yQ9o4l_PAR9pOt1CZy6FFbDuTktn8cMR",
             "Recorded Videos": "Network Security_lec Lab.html",
         },
+        "Deep learning": {
+            "Slides": "https://drive.google.com/drive/folders/1yJ-anXjW6LhskjbN7QkjKBOvvhiNbKaf",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1R58NOG1ePh-CTEgJjBZ5DNpJVg_adwU7",
+            "Lectures": "DL_lec.html",
+            "Chapters":"https://drive.google.com/drive/folders/1yJ-anXjW6LhskjbN7QkjKBOvvhiNbKaf",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1DVh8vqgd8NJGt_1D1D1f5xKpmzy9P1P4",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1-Ar7678c7LJpPFLOjLi-SGl5Jce8H8gF",
+               
+        },
 
 
         "Security In Computer Systems": {
@@ -560,6 +569,7 @@ const allSubjects = [
 
   // السنة الخامسة
   { year: 'fifthYear', semester: 'First Semester', name: 'AI', altName: 'الذكاء الاصطناعي ذكاء اصطياعي اصطناعي السنة الخامسة الفصل الاول سنة خامسة فصل اول' },
+  { year: 'fifthYear', semester: 'First Semester', name: 'Deep learning', altName: 'الذكاء الاصطناعي ذكاء اصطياعي اصطناعي السنة الخامسة الفصل الاول سنة خامسة فصل اول تعلم عميق التعلم' },
   { year: 'fifthYear', semester: 'First Semester', name: 'AI Lab', altName: 'مختبر الذكاء الاصطناعي لاب الاب ذكاء اصطناعي السنة الخامسة الفصل الاول سنة خامسة فصل اول' },
   { year: 'fifthYear', semester: 'First Semester', name: 'Network Security', altName: 'أمن الشبكات امن الامن شبكات شبكة السنة الخامسة الفصل الاول سنة خامسة فصل اول' },
   { year: 'fifthYear', semester: 'First Semester', name: ' Digital Image Processing', altName: 'معالجة صور رقمية DIP السنة الخامسة الفصل الاول سنة خامسة فصل اول' },
