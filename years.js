@@ -391,7 +391,7 @@ function getLinkFor(subjectName, item) {
  
         "Embedded Systems Lab": {
             "Lab": "Embedded Systems Lab.html",
-            "Recorded Videos": "https://youtube.com/playlist?list=PLq5FW85cJhv4WZpa4VydMSqcNm38xGBhf&feature=shared",
+            "Recorded Videos": "ES_lab_lec.html",
         },
 
             
