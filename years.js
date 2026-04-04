@@ -285,7 +285,7 @@ function getLinkFor(subjectName, item) {
         },
         "Linear control systems practical": {
             "Lab": "Linear control systems practical Lab.html",
-            "Recorded Videos": "https://youtube.com/playlist?list=PLDG4OdepPTCHzaF74ncrRJ1f-tCt73yty&feature=shared",
+            "Recorded Videos": "Control_Lab_lec.html",
         },
         "Computer architecture": {
             "Slides": "Computer_architecture_slides.html",
