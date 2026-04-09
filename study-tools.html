@@ -118,12 +118,46 @@
     .wb-tool-btn.danger:hover { border-color: #ff4444; color: #ff4444; background: rgba(255,68,68,0.08); }
 
     .wb-canvas-wrap { position: relative; width: 100%; }
-    canvas { display: block; cursor: crosshair; width: 100%; background: #0d1e2b; touch-action: none; }
+    canvas { display: block;  max-width: 100%;  height: auto; cursor: crosshair; width: 100%; background: #0d1e2b; touch-action: none; }
 
     @media (max-width: 680px) {
       .notebook-layout { grid-template-columns: 1fr; }
       .subject-sidebar { max-height: 200px; }
+      
     }
+     @media (max-width: 768px) {
+
+  .wb-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .wb-toolbar-group {
+    border-left: none;
+    padding-left: 0;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .wb-tool-btn {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+
+  .color-dot {
+    width: 18px;
+    height: 18px;
+  }
+
+  .wb-slider {
+    width: 60px;
+  }
+
+  canvas {
+    height: 60vh !important; /* 🔥 يخليها مناسبة للجوال */
+  }
+}
   </style>
 </head>
 <body>
@@ -383,19 +417,27 @@ createApp({
     let lastX=0, lastY=0, startX=0, startY=0, snapshot=null;
     const undoStack = [];
 
-    function initCanvas() {
-      nextTick(() => {
-        const canvas = wbCanvas.value;
-        if (!canvas || ctx) return; // already initialized
-        ctx = canvas.getContext('2d');
-        const w = canvasWrap.value.clientWidth || window.innerWidth;
-        const h = Math.max(480, window.innerHeight - 200);
-        canvas.width = w;
-        canvas.height = h;
-        const saved = localStorage.getItem('iug_whiteboard');
-        if (saved) { const img = new Image(); img.onload = () => ctx.drawImage(img,0,0); img.src = saved; }
-      });
+     function initCanvas() {
+  nextTick(() => {
+    const canvas = wbCanvas.value;
+    if (!canvas) return;
+
+    ctx = canvas.getContext('2d');
+
+    const wrapWidth = canvasWrap.value.clientWidth;
+    const wrapHeight = window.innerHeight;
+
+    canvas.width = wrapWidth;
+    canvas.height = wrapHeight * 0.65; // 🔥 نسبة من الشاشة بدل قيمة ثابتة
+
+    const saved = localStorage.getItem('iug_whiteboard');
+    if (saved) {
+      const img = new Image();
+      img.onload = () => ctx.drawImage(img, 0, 0);
+      img.src = saved;
     }
+  });
+}
 
     function getPos(e) {
       const c = wbCanvas.value, r = c.getBoundingClientRect();
