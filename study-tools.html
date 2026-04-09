@@ -258,6 +258,9 @@
           <button class="wb-tool-btn" @click="undoWb">↩ تراجع</button>
           <button class="wb-tool-btn danger" @click="clearWb">🗑 مسح</button>
           <button class="wb-tool-btn" @click="saveWbImage">💾 تحميل</button>
+
+          <button class="wb-tool-btn" @click="imgScale += 0.1; redrawCanvas()">➕</button>
+          <button class="wb-tool-btn" @click="imgScale -= 0.1; redrawCanvas()">➖</button>
         </div>
       </div>
       <div class="wb-canvas-wrap" ref="canvasWrap">
@@ -279,7 +282,7 @@ createApp({
     let bgImage = null;
     let imgX = 0;
     let imgY = 0;
-    let imgScale = 1;
+    const imgScale = ref(1);
     let draggingImg = false;
 
     const tab = ref('notebook');
@@ -352,7 +355,7 @@ createApp({
     bgImage = img;
     imgX = 0;
     imgY = 0;
-    imgScale = 1;
+    const imgScale = ref(1);
     redrawCanvas();
   };
   img.src = URL.createObjectURL(file);
@@ -370,8 +373,8 @@ createApp({
       bgImage,
       imgX,
       imgY,
-      bgImage.width * imgScale,
-      bgImage.height * imgScale
+      bgImage.width * imgScale.value,
+      bgImage.width * imgScale.value
     );
   }
 }
@@ -453,12 +456,11 @@ createApp({
       if (undoStack.length > 30) undoStack.shift();
     }
 
-    function startDraw(e) {
+   function startDraw(e) {
   if (!ctx) return;
 
   const { x, y } = getPos(e);
 
-  // 🎯 إذا وضع تحريك
   if (moveMode.value && bgImage) {
     draggingImg = true;
     lastX = x;
@@ -470,24 +472,51 @@ createApp({
   drawing = true;
   lastX = startX = x;
   lastY = startY = y;
-
-  if (['line','rect','circle'].includes(wbTool.value)) {
-    snapshot = ctx.getImageData(0,0,wbCanvas.value.width,wbCanvas.value.height);
-  }
-
-  if (wbTool.value==='pen'||wbTool.value==='eraser') {
-    ctx.beginPath();
-    ctx.moveTo(x,y);
-  }
 }
-    function startDrawTouch(e) { const t=e.touches[0]; startDraw({clientX:t.clientX,clientY:t.clientY}); }
 
-   function draw(e) {
+   function startDrawTouch(e) {
+  const { x, y } = getPosTouch(e);
+
+  // 🎯 إذا وضع تحريك
+  if (moveMode.value && bgImage) {
+    draggingImg = true;
+    lastX = x;
+    lastY = y;
+    return;
+  }
+
+  startDraw({
+    clientX: e.touches[0].clientX,
+    clientY: e.touches[0].clientY
+  });
+}
+
+function draw(e) {
   if (!ctx) return;
 
   const { x, y } = getPos(e);
 
-  // 🖐️ تحريك الصورة
+  // 🖐️ تحريك بالصورة (ماوس)
+  if (moveMode.value && draggingImg) {
+    imgX += x - lastX;
+    imgY += y - lastY;
+    lastX = x;
+    lastY = y;
+    redrawCanvas();
+    return;
+  }
+
+  if (!drawing) return;
+
+  applyDraw(x, y);
+}   
+
+function drawTouch(e) {
+  if (!ctx) return;
+
+  const { x, y } = getPosTouch(e);
+
+  // 🖐️ تحريك بالإصبع
   if (moveMode.value && draggingImg) {
     imgX += x - lastX;
     imgY += y - lastY;
@@ -501,7 +530,6 @@ createApp({
 
   applyDraw(x, y);
 }
-    function drawTouch(e) { if (!drawing) return; const {x,y}=getPosTouch(e); applyDraw(x,y); }
 
     function applyDraw(x,y) {
       if (!ctx) return;
@@ -551,8 +579,8 @@ createApp({
   const scaleAmount = e.deltaY * -0.001;
   imgScale += scaleAmount;
 
-  if (imgScale < 0.2) imgScale = 0.2;
-  if (imgScale > 5) imgScale = 5;
+   if (imgScale.value < 0.2) imgScale.value = 0.2;
+   if (imgScale.value > 5) imgScale.value = 5;
 
   redrawCanvas();
 }
@@ -560,9 +588,9 @@ createApp({
     return {
       tab, curriculum, notes, lastSaved, currentSubject, justSaved, openYears,
       toggleYear, selectSubject, saveNote, autoSave, clearNote, formatText, insertLine,
-      wbCanvas, canvasWrap, wbTool, wbColor, wbSize, colors, moveMode,
+      wbCanvas, canvasWrap, wbTool, wbColor, wbSize, colors, moveMode, imgScale, 
       initCanvas, startDraw, draw, endDraw, startDrawTouch, drawTouch,
-      undoWb, clearWb, saveWbImage, redrawCanvas, loadImage, toggleMoveMode, zoomImage,
+      undoWb, clearWb, saveWbImage, redrawCanvas, loadImage, toggleMoveMode, zoomImage, 
     };
   }
 }).mount('#app');
