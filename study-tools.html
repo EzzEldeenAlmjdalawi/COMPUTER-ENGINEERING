@@ -456,11 +456,12 @@ createApp({
       if (undoStack.length > 30) undoStack.shift();
     }
 
-   function startDraw(e) {
+  function startDraw(e) {
   if (!ctx) return;
 
   const { x, y } = getPos(e);
 
+  // 🖐️ وضع تحريك الصورة
   if (moveMode.value && bgImage) {
     draggingImg = true;
     lastX = x;
@@ -470,8 +471,20 @@ createApp({
 
   pushUndo();
   drawing = true;
+
   lastX = startX = x;
   lastY = startY = y;
+
+  // 🔥 مهم للأشكال (هذا اللي غالباً ناقص عندك)
+  if (['line','rect','circle'].includes(wbTool.value)) {
+    snapshot = ctx.getImageData(0, 0, wbCanvas.value.width, wbCanvas.value.height);
+  }
+
+  // 🔥 مهم للقلم والممحاة
+  if (wbTool.value === 'pen' || wbTool.value === 'eraser') {
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+  }
 }
 
    function startDrawTouch(e) {
