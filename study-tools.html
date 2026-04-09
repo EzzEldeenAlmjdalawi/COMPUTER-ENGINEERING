@@ -187,9 +187,9 @@
       background: #0a1a24;
       background-image: radial-gradient(rgba(0,229,255,0.08) 1px, transparent 1px);
       background-size: 24px 24px;
-      /* nice scrollbar */
       scrollbar-width: thin;
       scrollbar-color: rgba(0,229,255,0.25) transparent;
+      -webkit-overflow-scrolling: touch;
     }
     .wb-scroll-wrapper::-webkit-scrollbar { width: 6px; height: 6px; }
     .wb-scroll-wrapper::-webkit-scrollbar-thumb { background: rgba(0,229,255,0.25); border-radius: 6px; }
@@ -433,7 +433,7 @@
           :class="['tool-'+wbTool, isDragging ? 'dragging' : '']"
           ref="canvasArea"
           @mousedown="startDraw" @mousemove="onMove" @mouseup="endDraw" @mouseleave="endDraw"
-          @touchstart.prevent="onTouchStart" @touchmove.prevent="onTouchMove" @touchend.prevent="onTouchEnd"
+          @touchstart.prevent="onTouchStart" @touchmove="onTouchMove" @touchend.prevent="onTouchEnd"
           @wheel.prevent="onWheel">
           <!-- Overlay image (positioned via CSS transform) -->
           <img v-if="hasImage" ref="overlayImg" class="wb-overlay-img"
@@ -750,6 +750,7 @@ createApp({
       startDraw({clientX:t.clientX, clientY:t.clientY});
     }
     function onTouchMove(e) {
+      if (wbTool.value) e.preventDefault();
       if (e.touches.length===2 && hasImage.value) {
         // Pinch zoom
         const t1=e.touches[0], t2=e.touches[1];
