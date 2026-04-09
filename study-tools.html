@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Study Tools – IUG Computer Engineering</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:        #0b1f2a;
+      --bg2:       #0f2a38;
+      --bg3:       #163344;
+      --cyan:      #00e5ff;
+      --cyan-dim:  #00b8cc;
+      --cyan-glow: rgba(0,229,255,0.15);
+      --text:      #c8eef5;
+      --text-dim:  #6fa8b8;
+      --border:    rgba(0,229,255,0.18);
+      --radius:    14px;
+      --font-ar:   'Tajawal', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-ar);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(11,31,42,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 20px; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { font-family: var(--font-mono); font-size: 13px; color: var(--cyan); letter-spacing: 1px; text-decoration: none; }
+    .nav-title  { font-size: 15px; font-weight: 700; color: var(--cyan); text-shadow: 0 0 12px var(--cyan); }
+    .nav-back   { font-size: 13px; color: var(--text-dim); text-decoration: none; border: 1px solid var(--border); padding: 5px 12px; border-radius: 8px; transition: all .2s; }
+    .nav-back:hover { color: var(--cyan); border-color: var(--cyan); }
+
+    main { position: relative; z-index: 1; max-width: 1150px; margin: 0 auto; padding: 24px 16px 60px; }
+
+    /* TABS */
+    .tabs { display: flex; gap: 8px; margin-bottom: 24px; background: var(--bg2); border: 1px solid var(--border); border-radius: 50px; padding: 5px; width: fit-content; }
+    .tab-btn { padding: 9px 28px; border-radius: 50px; border: none; cursor: pointer; font-family: var(--font-ar); font-size: 14px; font-weight: 600; transition: all .25s; background: transparent; color: var(--text-dim); }
+    .tab-btn.active { background: var(--cyan); color: #0b1f2a; box-shadow: 0 0 20px rgba(0,229,255,0.4); }
+
+    /* NOTEBOOK */
+    .notebook-layout { display: grid; grid-template-columns: 260px 1fr; gap: 16px; min-height: 600px; }
+
+    .subject-sidebar { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 8px; display: flex; flex-direction: column; gap: 2px; max-height: 700px; overflow-y: auto; }
+    .subject-sidebar::-webkit-scrollbar { width: 4px; }
+    .subject-sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+    .year-group { margin-bottom: 4px; }
+    .year-header { display: flex; align-items: center; justify-content: space-between; padding: 9px 10px; border-radius: 10px; cursor: pointer; font-size: 13px; font-weight: 700; color: var(--cyan); background: var(--cyan-glow); border: 1px solid var(--border); transition: all .18s; user-select: none; }
+    .year-header:hover { background: rgba(0,229,255,0.2); }
+    .year-header .arrow { font-size: 10px; transition: transform .2s; }
+    .year-header.open .arrow { transform: rotate(90deg); }
+
+    .semester-group { padding: 4px 0 0 8px; }
+    .semester-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--text-dim); text-transform: uppercase; padding: 6px 8px 4px; font-family: var(--font-mono); }
+
+    .subject-item { padding: 8px 10px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 500; transition: all .15s; color: var(--text-dim); border: 1px solid transparent; display: flex; align-items: center; gap: 6px; }
+    .subject-item:hover { background: var(--bg3); color: var(--text); }
+    .subject-item.active { background: var(--cyan-glow); border-color: var(--border); color: var(--cyan); }
+    .subject-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); flex-shrink: 0; opacity: 0; transition: opacity .2s; }
+    .subject-item.has-note .dot { opacity: 1; }
+
+    .note-area { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); display: flex; flex-direction: column; overflow: hidden; }
+    .note-header { padding: 14px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+    .note-subject-name { font-size: 16px; font-weight: 700; color: var(--cyan); }
+    .note-actions { display: flex; gap: 8px; align-items: center; }
+    .note-meta { font-size: 11px; color: var(--text-dim); font-family: var(--font-mono); }
+    .btn-save { padding: 7px 18px; border-radius: 8px; background: var(--cyan); color: #0b1f2a; border: none; cursor: pointer; font-family: var(--font-ar); font-size: 13px; font-weight: 700; transition: all .2s; }
+    .btn-save:hover { box-shadow: 0 0 16px rgba(0,229,255,0.5); }
+    .btn-save.saved { background: transparent; color: var(--cyan); border: 1px solid var(--cyan); }
+    .btn-clear { padding: 7px 14px; border-radius: 8px; background: transparent; color: var(--text-dim); border: 1px solid var(--border); cursor: pointer; font-family: var(--font-ar); font-size: 13px; transition: all .2s; }
+    .btn-clear:hover { border-color: #ff4444; color: #ff4444; }
+
+    .note-toolbar { padding: 8px 14px; border-bottom: 1px solid var(--border); display: flex; gap: 6px; flex-wrap: wrap; }
+    .tool-btn { width: 32px; height: 32px; border-radius: 7px; background: var(--bg3); border: 1px solid var(--border); color: var(--text); cursor: pointer; font-size: 13px; display: flex; align-items: center; justify-content: center; transition: all .15s; font-weight: 700; }
+    .tool-btn:hover { background: var(--cyan-glow); border-color: var(--cyan); color: var(--cyan); }
+
+    .note-editor { flex: 1; padding: 18px; font-family: var(--font-ar); font-size: 15px; line-height: 1.9; color: var(--text); background: transparent; border: none; outline: none; resize: none; min-height: 420px; }
+    .note-editor::placeholder { color: var(--text-dim); }
+
+    .note-empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: var(--text-dim); padding: 40px; text-align: center; }
+    .note-empty .icon { font-size: 48px; opacity: .4; }
+
+    /* WHITEBOARD */
+    .wb-container { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+    .wb-toolbar { padding: 10px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .wb-toolbar-group { display: flex; align-items: center; gap: 6px; padding-left: 10px; border-left: 1px solid var(--border); }
+    .wb-toolbar-group:first-child { border-left: none; padding-left: 0; }
+    .wb-label { font-size: 10px; color: var(--text-dim); font-family: var(--font-mono); letter-spacing: 1px; text-transform: uppercase; }
+    .color-dot { width: 22px; height: 22px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: all .15s; flex-shrink: 0; }
+    .color-dot.active { border-color: white; transform: scale(1.2); }
+    .wb-slider { -webkit-appearance: none; width: 80px; height: 4px; background: var(--bg3); border-radius: 4px; outline: none; cursor: pointer; }
+    .wb-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--cyan); cursor: pointer; }
+    .wb-tool-btn { padding: 6px 12px; border-radius: 7px; background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); cursor: pointer; font-size: 12px; font-family: var(--font-ar); transition: all .15s; }
+    .wb-tool-btn:hover, .wb-tool-btn.active { background: var(--cyan-glow); border-color: var(--cyan); color: var(--cyan); }
+    .wb-tool-btn.danger:hover { border-color: #ff4444; color: #ff4444; background: rgba(255,68,68,0.08); }
+
+    .wb-canvas-wrap { position: relative; width: 100%; }
+    canvas { display: block; cursor: crosshair; width: 100%; background: #0d1e2b; touch-action: none; }
+
+    @media (max-width: 680px) {
+      .notebook-layout { grid-template-columns: 1fr; }
+      .subject-sidebar { max-height: 200px; }
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <nav>
+    <a href="index.html" class="nav-back">← الرئيسية</a>
+    <span class="nav-title">🎓 Study Tools</span>
+    <span class="nav-brand">IUG · CE</span>
+  </nav>
+  <main>
+    <div class="tabs">
+      <button class="tab-btn" :class="{active: tab==='notebook'}" @click="tab='notebook'">📝 ملاحظاتي</button>
+      <button class="tab-btn" :class="{active: tab==='whiteboard'}" @click="tab='whiteboard'; initCanvas()">🎨 السبورة</button>
+    </div>
+
+    <!-- NOTEBOOK -->
+    <div v-if="tab==='notebook'" class="notebook-layout">
+      <div class="subject-sidebar">
+        <div v-for="year in curriculum" :key="year.name" class="year-group">
+          <div class="year-header" :class="{open: openYears[year.name]}" @click="toggleYear(year.name)">
+            <span>{{ year.icon }} {{ year.name }}</span>
+            <span class="arrow">▶</span>
+          </div>
+          <div v-if="openYears[year.name]">
+            <div v-for="sem in year.semesters" :key="sem.name" class="semester-group">
+              <div class="semester-label">{{ sem.name }}</div>
+              <div v-for="subject in sem.subjects" :key="subject"
+                class="subject-item"
+                :class="{ active: currentSubject===subject, 'has-note': notes[subject] && notes[subject].trim() }"
+                @click="selectSubject(subject)">
+                <span class="dot"></span>{{ subject }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="note-area">
+        <template v-if="currentSubject">
+          <div class="note-header">
+            <span class="note-subject-name">{{ currentSubject }}</span>
+            <div class="note-actions">
+              <span class="note-meta" v-if="lastSaved[currentSubject]">حُفظ {{ lastSaved[currentSubject] }}</span>
+              <button class="btn-clear" @click="clearNote">مسح</button>
+              <button class="btn-save" :class="{saved: justSaved}" @click="saveNote">{{ justSaved ? '✓ تم الحفظ' : 'حفظ' }}</button>
+            </div>
+          </div>
+          <div class="note-toolbar">
+            <button class="tool-btn" @click="formatText('**','**')"><b>B</b></button>
+            <button class="tool-btn" @click="formatText('*','*')"><i>I</i></button>
+            <button class="tool-btn" @click="insertLine('## ')">H</button>
+            <button class="tool-btn" @click="insertLine('- ')">•</button>
+            <button class="tool-btn" @click="insertLine('1. ')">1.</button>
+            <button class="tool-btn" @click="insertLine('> ')">❝</button>
+            <button class="tool-btn" @click="formatText('`','`')">{ }</button>
+            <button class="tool-btn" @click="insertLine('---\n')">—</button>
+          </div>
+          <textarea id="noteEditor" class="note-editor"
+            v-model="notes[currentSubject]"
+            placeholder="اكتب ملاحظاتك هنا... (Ctrl+S للحفظ)"
+            @input="autoSave"
+            @keydown.ctrl.s.prevent="saveNote">
+          </textarea>
+        </template>
+        <div v-else class="note-empty">
+          <div class="icon">📚</div>
+          <p>اختار سنة ← فصل ← مادة من القائمة الجانبية</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHITEBOARD -->
+    <div v-if="tab==='whiteboard'" class="wb-container">
+      <div class="wb-toolbar">
+        <div class="wb-toolbar-group">
+          <span class="wb-label">الأداة</span>
+          <button class="wb-tool-btn" :class="{active: wbTool==='pen'}"    @click="wbTool='pen'">✏️ قلم</button>
+          <button class="wb-tool-btn" :class="{active: wbTool==='eraser'}" @click="wbTool='eraser'">🧹 ممحاة</button>
+          <button class="wb-tool-btn" :class="{active: wbTool==='line'}"   @click="wbTool='line'">╱ خط</button>
+          <button class="wb-tool-btn" :class="{active: wbTool==='rect'}"   @click="wbTool='rect'">▭ مستطيل</button>
+          <button class="wb-tool-btn" :class="{active: wbTool==='circle'}" @click="wbTool='circle'">○ دائرة</button>
+          <input type="file" accept="image/*" @change="loadImage" class="wb-tool-btn">
+         <button class="wb-tool-btn" @click="toggleMoveMode">
+         {{ moveMode ? '🎯 وضع الرسم' : '🖐️ تحريك الصورة' }}
+         </button>
+        </div>
+        <div class="wb-toolbar-group">
+          <span class="wb-label">اللون</span>
+          <div v-for="c in colors" :key="c" class="color-dot" :class="{active: wbColor===c}" :style="{background: c}" @click="wbColor=c; wbTool='pen'"></div>
+          <input type="color" v-model="wbColor" @change="wbTool='pen'" style="width:22px;height:22px;border:none;background:none;cursor:pointer;border-radius:50%;overflow:hidden"/>
+        </div>
+        <div class="wb-toolbar-group">
+          <span class="wb-label">الحجم</span>
+          <input type="range" min="1" max="30" v-model="wbSize" class="wb-slider"/>
+          <span style="font-size:12px;color:var(--text-dim);min-width:20px">{{ wbSize }}</span>
+        </div>
+        <div class="wb-toolbar-group">
+          <button class="wb-tool-btn" @click="undoWb">↩ تراجع</button>
+          <button class="wb-tool-btn danger" @click="clearWb">🗑 مسح</button>
+          <button class="wb-tool-btn" @click="saveWbImage">💾 تحميل</button>
+        </div>
+      </div>
+      <div class="wb-canvas-wrap" ref="canvasWrap">
+        <canvas ref="wbCanvas"
+          @wheel="zoomImage"
+          @mousedown="startDraw" @mousemove="draw" @mouseup="endDraw" @mouseleave="endDraw"
+          @touchstart.prevent="startDrawTouch" @touchmove.prevent="drawTouch" @touchend.prevent="endDraw">
+        </canvas>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+const { createApp, ref, reactive, nextTick } = Vue;
+createApp({
+  setup() {
+    const moveMode = ref(false);
+    let bgImage = null;
+    let imgX = 0;
+    let imgY = 0;
+    let imgScale = 1;
+    let draggingImg = false;
+
+    const tab = ref('notebook');
+
+    const curriculum = [
+      { name: 'First Year', icon: '📘', semesters: [
+        { name: 'Semester 1', subjects: ['Scientific Research Methodology','Introduction to Engineering','Engineering Drawing','Calculus A','General Physics Lab A','General Physics A'] },
+        { name: 'Semester 2', subjects: ['General Chemistry','Workshop Technology','Introduction to Computers','Introduction to Computers Lab','Technical English','Calculus B','General Physics B'] }
+      ]},
+      { name: 'Second Year', icon: '📙', semesters: [
+        { name: 'Semester 1', subjects: ['Computer Programming 1','Computer Programming Lab 1','Digital Design 1','Digital Design Lab 1','Electric Circuits 1','Electric Circuits Lab 1'] },
+        { name: 'Semester 2', subjects: ['Linear Algebra','Computer Programming 2','Computer Programming Lab 2','Digital Design 2','Digital Design Lab 2','Electronics Lab 1','Electronics 1','Ordinary Differential Equations'] }
+      ]},
+      { name: 'Third Year', icon: '📕', semesters: [
+        { name: 'Semester 1', subjects: ['Discrete Mathematics','Discrete Mathematics Lab','Data Structures and Algorithms','Data Structures and Algorithms Lab','Practical Linear Signals and Systems','Linear Signals and Systems','Probability and Statistics Theory'] },
+        { name: 'Semester 2', subjects: ['Computer Architecture','Computer Architecture Lab','Database Systems','Database Systems Lab','Practical Digital Electronics','Digital Electronics','Linear Control Systems Practical','Linear Control Systems'] }
+      ]},
+      { name: 'Fourth Year', icon: '📒', semesters: [
+        { name: 'Semester 1', subjects: ['Operating Systems','Operating Systems Lab','Data Communication','Data Communication Lab','Assembly Language','Assembly Language Lab','Practical Training 250h'] },
+        { name: 'Semester 2', subjects: ['Computer Networks','Computer Networks Lab','Embedded Systems','Embedded Systems Lab','VHDL','VHDL Lab','Software Engineering'] }
+      ]},
+      { name: 'Fifth Year', icon: '📗', semesters: [
+        { name: 'Semester 1', subjects: ['AI','Deep Learning','AI Lab','Network Security','Digital Image Processing','Network Security Lab'] },
+        { name: 'Semester 2', subjects: ['Security In Computer Systems','Elective Course 3','Elective Course 4'] }
+      ]}
+    ];
+
+    // NOTEBOOK
+    const STORAGE_KEY = 'iug_notes_v2';
+    const notes = reactive({});
+    const lastSaved = reactive({});
+    const currentSubject = ref(null);
+    const justSaved = ref(false);
+    const openYears = reactive({});
+    let autoSaveTimer = null;
+
+    curriculum.forEach(y => {
+      openYears[y.name] = false;
+      y.semesters.forEach(s => s.subjects.forEach(sub => { if (!notes[sub]) notes[sub] = ''; }));
+    });
+
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        const p = JSON.parse(stored);
+        Object.assign(notes, p.notes || {});
+        Object.assign(lastSaved, p.lastSaved || {});
+      }
+    } catch(e) {}
+
+    function toggleYear(name) { openYears[name] = !openYears[name]; }
+    function selectSubject(s) { currentSubject.value = s; }
+
+    function saveNote() {
+      if (currentSubject.value) {
+        lastSaved[currentSubject.value] = new Date().toLocaleTimeString('ar-EG', {hour:'2-digit', minute:'2-digit'});
+      }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ notes, lastSaved }));
+      justSaved.value = true;
+      setTimeout(() => justSaved.value = false, 2000);
+    
+    }
+
+    function loadImage(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const img = new Image();
+  img.onload = () => {
+    bgImage = img;
+    imgX = 0;
+    imgY = 0;
+    imgScale = 1;
+    redrawCanvas();
+  };
+  img.src = URL.createObjectURL(file);
+}
+
+   function redrawCanvas() {
+  if (!ctx) return;
+
+  // تنظيف السبورة
+  ctx.clearRect(0, 0, wbCanvas.value.width, wbCanvas.value.height);
+
+  // رسم الصورة إذا موجودة
+  if (bgImage) {
+    ctx.drawImage(
+      bgImage,
+      imgX,
+      imgY,
+      bgImage.width * imgScale,
+      bgImage.height * imgScale
+    );
+  }
+}
+     function toggleMoveMode() {
+  moveMode.value = !moveMode.value;
+}
+
+
+    function autoSave() { clearTimeout(autoSaveTimer); autoSaveTimer = setTimeout(saveNote, 1200); }
+
+    function clearNote() {
+      if (!currentSubject.value || !confirm('مسح ملاحظات ' + currentSubject.value + '؟')) return;
+      notes[currentSubject.value] = ''; saveNote();
+    }
+
+    function formatText(before, after) {
+      const ta = document.getElementById('noteEditor');
+      if (!ta) return;
+      const s = ta.selectionStart, e = ta.selectionEnd;
+      const sel = notes[currentSubject.value].substring(s, e) || 'نص';
+      notes[currentSubject.value] = notes[currentSubject.value].substring(0,s) + before + sel + after + notes[currentSubject.value].substring(e);
+      nextTick(() => { ta.focus(); ta.setSelectionRange(s+before.length, s+before.length+sel.length); });
+    }
+
+    function insertLine(prefix) {
+      const ta = document.getElementById('noteEditor');
+      if (!ta) return;
+      const pos = ta.selectionStart, text = notes[currentSubject.value];
+      const ls = text.lastIndexOf('\n', pos-1) + 1;
+      notes[currentSubject.value] = text.substring(0,ls) + prefix + text.substring(ls);
+      nextTick(() => { ta.focus(); ta.setSelectionRange(ls+prefix.length, ls+prefix.length); });
+    }
+
+    // WHITEBOARD
+    const wbCanvas   = ref(null);
+    const canvasWrap = ref(null);
+    const wbTool     = ref('pen');
+    const wbColor    = ref('#00e5ff');
+    const wbSize     = ref(3);
+    const colors     = ['#00e5ff','#ffffff','#ff4757','#2ed573','#ffa502','#a29bfe','#fd79a8','#000000'];
+
+    let ctx = null, drawing = false;
+    let lastX=0, lastY=0, startX=0, startY=0, snapshot=null;
+    const undoStack = [];
+
+    function initCanvas() {
+      nextTick(() => {
+        const canvas = wbCanvas.value;
+        if (!canvas || ctx) return; // already initialized
+        ctx = canvas.getContext('2d');
+        const w = canvasWrap.value.clientWidth || window.innerWidth;
+        const h = Math.max(480, window.innerHeight - 200);
+        canvas.width = w;
+        canvas.height = h;
+        const saved = localStorage.getItem('iug_whiteboard');
+        if (saved) { const img = new Image(); img.onload = () => ctx.drawImage(img,0,0); img.src = saved; }
+      });
+    }
+
+    function getPos(e) {
+      const c = wbCanvas.value, r = c.getBoundingClientRect();
+      return { x: (e.clientX-r.left)*(c.width/r.width), y: (e.clientY-r.top)*(c.height/r.height) };
+    }
+    function getPosTouch(e) {
+      const c = wbCanvas.value, r = c.getBoundingClientRect(), t = e.touches[0];
+      return { x: (t.clientX-r.left)*(c.width/r.width), y: (t.clientY-r.top)*(c.height/r.height) };
+    }
+    function pushUndo() {
+      const c = wbCanvas.value;
+      undoStack.push(ctx.getImageData(0,0,c.width,c.height));
+      if (undoStack.length > 30) undoStack.shift();
+    }
+
+    function startDraw(e) {
+  if (!ctx) return;
+
+  const { x, y } = getPos(e);
+
+  // 🎯 إذا وضع تحريك
+  if (moveMode.value && bgImage) {
+    draggingImg = true;
+    lastX = x;
+    lastY = y;
+    return;
+  }
+
+  pushUndo();
+  drawing = true;
+  lastX = startX = x;
+  lastY = startY = y;
+
+  if (['line','rect','circle'].includes(wbTool.value)) {
+    snapshot = ctx.getImageData(0,0,wbCanvas.value.width,wbCanvas.value.height);
+  }
+
+  if (wbTool.value==='pen'||wbTool.value==='eraser') {
+    ctx.beginPath();
+    ctx.moveTo(x,y);
+  }
+}
+    function startDrawTouch(e) { const t=e.touches[0]; startDraw({clientX:t.clientX,clientY:t.clientY}); }
+
+   function draw(e) {
+  if (!ctx) return;
+
+  const { x, y } = getPos(e);
+
+  // 🖐️ تحريك الصورة
+  if (moveMode.value && draggingImg) {
+    imgX += x - lastX;
+    imgY += y - lastY;
+    lastX = x;
+    lastY = y;
+    redrawCanvas();
+    return;
+  }
+
+  if (!drawing) return;
+
+  applyDraw(x, y);
+}
+    function drawTouch(e) { if (!drawing) return; const {x,y}=getPosTouch(e); applyDraw(x,y); }
+
+    function applyDraw(x,y) {
+      if (!ctx) return;
+      ctx.lineWidth   = wbTool.value==='eraser' ? wbSize.value*5 : Number(wbSize.value);
+      ctx.lineCap     = 'round'; ctx.lineJoin = 'round';
+      ctx.strokeStyle = wbTool.value==='eraser' ? '#0d1e2b' : wbColor.value;
+      if (wbTool.value==='pen'||wbTool.value==='eraser') {
+        ctx.lineTo(x,y); ctx.stroke(); lastX=x; lastY=y;
+      } else {
+        ctx.putImageData(snapshot,0,0); ctx.beginPath();
+        if (wbTool.value==='line')   { ctx.moveTo(startX,startY); ctx.lineTo(x,y); ctx.stroke(); }
+        else if (wbTool.value==='rect')   { ctx.strokeRect(startX,startY,x-startX,y-startY); }
+        else if (wbTool.value==='circle') { const rx=Math.abs(x-startX)/2,ry=Math.abs(y-startY)/2,cx=startX+(x-startX)/2,cy=startY+(y-startY)/2; ctx.ellipse(cx,cy,rx,ry,0,0,Math.PI*2); ctx.stroke(); }
+      }
+    }
+
+    function endDraw() {
+  draggingImg = false;
+
+  if (!drawing || !ctx) return;
+
+  drawing = false;
+  ctx.closePath();
+
+  try {
+    localStorage.setItem('iug_whiteboard', wbCanvas.value.toDataURL());
+  } catch(e){}
+}
+    function undoWb() {
+      if (!undoStack.length||!ctx) return; ctx.putImageData(undoStack.pop(),0,0);
+      try { localStorage.setItem('iug_whiteboard', wbCanvas.value.toDataURL()); } catch(e){}
+    }
+    function clearWb() {
+      if (!ctx||!confirm('مسح السبورة كاملها؟')) return;
+      ctx.clearRect(0,0,wbCanvas.value.width,wbCanvas.value.height);
+      localStorage.removeItem('iug_whiteboard');
+    }
+    function saveWbImage() {
+      const a=document.createElement('a'); a.download='whiteboard-iug.png'; a.href=wbCanvas.value.toDataURL(); a.click();
+    }
+
+    function zoomImage(e) {
+  if (!bgImage) return;
+
+  e.preventDefault();
+
+  const scaleAmount = e.deltaY * -0.001;
+  imgScale += scaleAmount;
+
+  if (imgScale < 0.2) imgScale = 0.2;
+  if (imgScale > 5) imgScale = 5;
+
+  redrawCanvas();
+}
+
+    return {
+      tab, curriculum, notes, lastSaved, currentSubject, justSaved, openYears,
+      toggleYear, selectSubject, saveNote, autoSave, clearNote, formatText, insertLine,
+      wbCanvas, canvasWrap, wbTool, wbColor, wbSize, colors, moveMode,
+      initCanvas, startDraw, draw, endDraw, startDrawTouch, drawTouch,
+      undoWb, clearWb, saveWbImage, redrawCanvas, loadImage, toggleMoveMode, zoomImage,
+    };
+  }
+}).mount('#app');
+</script>
+</body>
+</html>

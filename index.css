@@ -289,7 +289,22 @@
 
 
 
+.study-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,229,255,0.3);
+  color: #00e5ff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
 
+.study-btn:hover {
+  background: rgba(0,229,255,0.1);
+  box-shadow: 0 0 10px rgba(0,229,255,0.4);
+}
 
 
 

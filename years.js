@@ -184,7 +184,7 @@ function getLinkFor(subjectName, item) {
         },
         "Electronics Lab 1": {
             "Lab": "https://drive.google.com/drive/folders/15xgy7lDnHt28g7MG8JFhxrX-y7d6PnH9",
-            "Recorded Videos": "https://youtube.com/playlist?list=PLDG4OdepPTCGTx2U6QGsFz_pBdXkWQbp9&si=90xvkbypQiMrxYDJ",
+            "Recorded Videos": "Electronic 1_lab_lec.html",
         },
         "Linear Algebra": {
             "Slides": "Linear_Algebra_slides.html",
