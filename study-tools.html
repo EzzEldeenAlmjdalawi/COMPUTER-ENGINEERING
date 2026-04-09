@@ -103,61 +103,124 @@
     .note-empty { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: var(--text-dim); padding: 40px; text-align: center; }
     .note-empty .icon { font-size: 48px; opacity: .4; }
 
-    /* WHITEBOARD */
-    .wb-container { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
-    .wb-toolbar { padding: 10px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-    .wb-toolbar-group { display: flex; align-items: center; gap: 6px; padding-left: 10px; border-left: 1px solid var(--border); }
+    /* ══ WHITEBOARD ══ */
+    .wb-container {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      display: flex; flex-direction: column;
+      height: calc(100vh - 160px); min-height: 520px;
+    }
+
+    /* Pages bar */
+    .wb-pages-bar {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 14px; border-bottom: 1px solid var(--border);
+      background: var(--bg); overflow-x: auto; flex-shrink: 0;
+    }
+    .wb-pages-bar::-webkit-scrollbar { height: 3px; }
+    .wb-pages-bar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    .page-tab {
+      display: flex; align-items: center; gap: 5px;
+      padding: 5px 12px; border-radius: 8px; cursor: pointer;
+      font-size: 12px; font-weight: 600; white-space: nowrap;
+      background: var(--bg3); border: 1px solid var(--border);
+      color: var(--text-dim); transition: all .18s; flex-shrink: 0;
+    }
+    .page-tab:hover { color: var(--text); border-color: rgba(0,229,255,0.3); }
+    .page-tab.active { background: var(--cyan-glow); border-color: var(--cyan); color: var(--cyan); }
+    .page-tab .del-page {
+      font-size: 10px; color: var(--text-dim); background: none; border: none;
+      cursor: pointer; line-height: 1; transition: color .15s; padding: 0;
+    }
+    .page-tab .del-page:hover { color: #ff4444; }
+    .add-page-btn {
+      width: 26px; height: 26px; border-radius: 7px; flex-shrink: 0;
+      background: var(--bg3); border: 1px dashed var(--border);
+      color: var(--cyan); font-size: 16px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; transition: all .18s;
+    }
+    .add-page-btn:hover { background: var(--cyan-glow); border-color: var(--cyan); }
+
+    /* Toolbar */
+    .wb-toolbar {
+      padding: 8px 14px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap; flex-shrink: 0;
+    }
+    .wb-toolbar-group {
+      display: flex; align-items: center; gap: 5px;
+      padding-left: 8px; border-left: 1px solid var(--border);
+    }
     .wb-toolbar-group:first-child { border-left: none; padding-left: 0; }
     .wb-label { font-size: 10px; color: var(--text-dim); font-family: var(--font-mono); letter-spacing: 1px; text-transform: uppercase; }
-    .color-dot { width: 22px; height: 22px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: all .15s; flex-shrink: 0; }
+
+    .color-dot { width: 20px; height: 20px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: all .15s; flex-shrink: 0; }
     .color-dot.active { border-color: white; transform: scale(1.2); }
-    .wb-slider { -webkit-appearance: none; width: 80px; height: 4px; background: var(--bg3); border-radius: 4px; outline: none; cursor: pointer; }
+
+    .wb-slider { -webkit-appearance: none; width: 70px; height: 4px; background: var(--bg3); border-radius: 4px; outline: none; cursor: pointer; }
     .wb-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--cyan); cursor: pointer; }
-    .wb-tool-btn { padding: 6px 12px; border-radius: 7px; background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); cursor: pointer; font-size: 12px; font-family: var(--font-ar); transition: all .15s; }
-    .wb-tool-btn:hover, .wb-tool-btn.active { background: var(--cyan-glow); border-color: var(--cyan); color: var(--cyan); }
+
+    .wb-tool-btn {
+      padding: 6px 12px; border-radius: 8px; background: var(--bg3);
+      border: 1px solid var(--border); color: var(--text-dim); cursor: pointer;
+      font-size: 12px; font-family: var(--font-ar); transition: all .15s; white-space: nowrap;
+    }
+    .wb-tool-btn:hover, .wb-tool-btn.active {
+      background: var(--cyan-glow); border-color: var(--cyan); color: var(--cyan);
+    }
     .wb-tool-btn.danger:hover { border-color: #ff4444; color: #ff4444; background: rgba(255,68,68,0.08); }
 
-    .wb-canvas-wrap { position: relative; width: 100%; }
-    canvas { display: block;  max-width: 100%;  height: auto; cursor: crosshair; width: 100%; background: #0d1e2b; touch-action: none; }
+    .wb-file-label {
+      padding: 6px 12px; border-radius: 8px; background: var(--bg3);
+      border: 1px solid var(--border); color: var(--text-dim); cursor: pointer;
+      font-size: 12px; font-family: var(--font-ar); transition: all .15s; white-space: nowrap;
+    }
+    .wb-file-label:hover { background: var(--cyan-glow); border-color: var(--cyan); color: var(--cyan); }
+
+    /* Canvas area */
+    .wb-canvas-area {
+      flex: 1; position: relative; overflow: hidden;
+      background: #0a1a24;
+      /* subtle dot grid */
+      background-image: radial-gradient(rgba(0,229,255,0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .wb-canvas-area.tool-pen    { cursor: crosshair; }
+    .wb-canvas-area.tool-eraser { cursor: cell; }
+    .wb-canvas-area.tool-line,
+    .wb-canvas-area.tool-rect,
+    .wb-canvas-area.tool-circle { cursor: crosshair; }
+    .wb-canvas-area.tool-moveImg { cursor: grab; }
+    .wb-canvas-area.tool-moveImg.dragging { cursor: grabbing; }
+
+    /* The overlay image — positioned absolutely, transformed via JS */
+    .wb-overlay-img {
+      position: absolute; top: 0; left: 0;
+      transform-origin: top left;
+      pointer-events: none; /* canvas handles all events */
+      user-select: none;
+      opacity: 0.92;
+    }
+
+    canvas {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: block; touch-action: none;
+    }
+
+    /* Zoom indicator */
+    .zoom-badge {
+      position: absolute; bottom: 10px; left: 10px;
+      background: rgba(11,31,42,0.8); border: 1px solid var(--border);
+      border-radius: 6px; padding: 3px 8px;
+      font-size: 11px; font-family: var(--font-mono); color: var(--text-dim);
+      pointer-events: none;
+    }
 
     @media (max-width: 680px) {
       .notebook-layout { grid-template-columns: 1fr; }
       .subject-sidebar { max-height: 200px; }
-      
     }
-     @media (max-width: 768px) {
-
-  .wb-toolbar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  .wb-toolbar-group {
-    border-left: none;
-    padding-left: 0;
-    width: 100%;
-    flex-wrap: wrap;
-  }
-
-  .wb-tool-btn {
-    font-size: 11px;
-    padding: 5px 8px;
-  }
-
-  .color-dot {
-    width: 18px;
-    height: 18px;
-  }
-
-  .wb-slider {
-    width: 60px;
-  }
-
-  canvas {
-    height: 60vh !important; /* 🔥 يخليها مناسبة للجوال */
-  }
-}
   </style>
 </head>
 <body>
@@ -231,6 +294,19 @@
 
     <!-- WHITEBOARD -->
     <div v-if="tab==='whiteboard'" class="wb-container">
+
+      <!-- Pages bar -->
+      <div class="wb-pages-bar">
+        <div v-for="(page, idx) in wbPages" :key="page.id"
+          class="page-tab" :class="{active: currentPage===idx}"
+          @click="switchPage(idx)">
+          📄 {{ page.name }}
+          <button class="del-page" v-if="wbPages.length > 1" @click.stop="deletePage(idx)">✕</button>
+        </div>
+        <button class="add-page-btn" @click="addPage" title="صفحة جديدة">+</button>
+      </div>
+
+      <!-- Toolbar -->
       <div class="wb-toolbar">
         <div class="wb-toolbar-group">
           <span class="wb-label">الأداة</span>
@@ -239,52 +315,63 @@
           <button class="wb-tool-btn" :class="{active: wbTool==='line'}"   @click="wbTool='line'">╱ خط</button>
           <button class="wb-tool-btn" :class="{active: wbTool==='rect'}"   @click="wbTool='rect'">▭ مستطيل</button>
           <button class="wb-tool-btn" :class="{active: wbTool==='circle'}" @click="wbTool='circle'">○ دائرة</button>
-          <input type="file" accept="image/*" @change="loadImage" class="wb-tool-btn">
-         <button class="wb-tool-btn" @click="toggleMoveMode">
-         {{ moveMode ? '🎯 وضع الرسم' : '🖐️ تحريك الصورة' }}
-         </button>
+        </div>
+        <div class="wb-toolbar-group">
+          <span class="wb-label">صورة</span>
+          <label class="wb-file-label">
+            🖼️ رفع صورة
+            <input type="file" accept="image/*" @change="loadImage" style="display:none"/>
+          </label>
+          <button class="wb-tool-btn" :class="{active: wbTool==='moveImg'}" v-if="hasImage" @click="wbTool='moveImg'">🖐️ تحريك/تكبير</button>
+          <button class="wb-tool-btn danger" v-if="hasImage" @click="removeImage">✕ إزالة</button>
         </div>
         <div class="wb-toolbar-group">
           <span class="wb-label">اللون</span>
-          <div v-for="c in colors" :key="c" class="color-dot" :class="{active: wbColor===c}" :style="{background: c}" @click="wbColor=c; wbTool='pen'"></div>
-          <input type="color" v-model="wbColor" @change="wbTool='pen'" style="width:22px;height:22px;border:none;background:none;cursor:pointer;border-radius:50%;overflow:hidden"/>
+          <div v-for="c in colors" :key="c" class="color-dot"
+            :class="{active: wbColor===c}" :style="{background: c}"
+            @click="wbColor=c; if(wbTool==='moveImg') wbTool='pen'"></div>
+          <input type="color" v-model="wbColor"
+            style="width:20px;height:20px;border:none;background:none;cursor:pointer;border-radius:50%;overflow:hidden"/>
         </div>
         <div class="wb-toolbar-group">
           <span class="wb-label">الحجم</span>
           <input type="range" min="1" max="30" v-model="wbSize" class="wb-slider"/>
-          <span style="font-size:12px;color:var(--text-dim);min-width:20px">{{ wbSize }}</span>
+          <span style="font-size:12px;color:var(--text-dim);min-width:18px">{{ wbSize }}</span>
         </div>
         <div class="wb-toolbar-group">
           <button class="wb-tool-btn" @click="undoWb">↩ تراجع</button>
           <button class="wb-tool-btn danger" @click="clearWb">🗑 مسح</button>
           <button class="wb-tool-btn" @click="saveWbImage">💾 تحميل</button>
-
-          <button class="wb-tool-btn" @click="imgScale += 0.1; redrawCanvas()">➕</button>
-          <button class="wb-tool-btn" @click="imgScale -= 0.1; redrawCanvas()">➖</button>
         </div>
       </div>
-      <div class="wb-canvas-wrap" ref="canvasWrap">
-        <canvas ref="wbCanvas"
-          @wheel="zoomImage"
-          @mousedown="startDraw" @mousemove="draw" @mouseup="endDraw" @mouseleave="endDraw"
-          @touchstart.prevent="startDrawTouch" @touchmove.prevent="drawTouch" @touchend.prevent="endDraw">
-        </canvas>
+
+      <!-- Canvas area -->
+      <div class="wb-canvas-area"
+        :class="['tool-'+wbTool, isDragging ? 'dragging' : '']"
+        ref="canvasArea"
+        @mousedown="startDraw" @mousemove="onMove" @mouseup="endDraw" @mouseleave="endDraw"
+        @touchstart.prevent="onTouchStart" @touchmove.prevent="onTouchMove" @touchend.prevent="onTouchEnd"
+        @wheel.prevent="onWheel">
+        <!-- Overlay image (positioned via CSS transform) -->
+        <img v-if="hasImage" ref="overlayImg" class="wb-overlay-img"
+          :src="imgSrc"
+          :style="imgStyle"
+          draggable="false"/>
+        <!-- Drawing canvas -->
+        <canvas ref="wbCanvas"></canvas>
+        <!-- Zoom badge shown only when image active -->
+        <div class="zoom-badge" v-if="hasImage && wbTool==='moveImg'">
+          {{ Math.round(imgScale*100) }}%
+        </div>
       </div>
     </div>
   </main>
 </div>
 
 <script>
-const { createApp, ref, reactive, nextTick } = Vue;
+const { createApp, ref, reactive, nextTick, computed } = Vue;
 createApp({
   setup() {
-    const moveMode = ref(false);
-    let bgImage = null;
-    let imgX = 0;
-    let imgY = 0;
-    const imgScale = ref(1);
-    let draggingImg = false;
-
     const tab = ref('notebook');
 
     const curriculum = [
@@ -346,43 +433,6 @@ createApp({
     
     }
 
-    function loadImage(event) {
-  const file = event.target.files[0];
-  if (!file) return;
-
-  const img = new Image();
-  img.onload = () => {
-    bgImage = img;
-    imgX = 0;
-    imgY = 0;
-    const imgScale = ref(1);
-    redrawCanvas();
-  };
-  img.src = URL.createObjectURL(file);
-}
-
-   function redrawCanvas() {
-  if (!ctx) return;
-
-  // تنظيف السبورة
-  ctx.clearRect(0, 0, wbCanvas.value.width, wbCanvas.value.height);
-
-  // رسم الصورة إذا موجودة
-  if (bgImage) {
-    ctx.drawImage(
-      bgImage,
-      imgX,
-      imgY,
-      bgImage.width * imgScale.value,
-      bgImage.width * imgScale.value
-    );
-  }
-}
-     function toggleMoveMode() {
-  moveMode.value = !moveMode.value;
-}
-
-
     function autoSave() { clearTimeout(autoSaveTimer); autoSaveTimer = setTimeout(saveNote, 1200); }
 
     function clearNote() {
@@ -408,202 +458,272 @@ createApp({
       nextTick(() => { ta.focus(); ta.setSelectionRange(ls+prefix.length, ls+prefix.length); });
     }
 
-    // WHITEBOARD
+    // ══ WHITEBOARD ══
     const wbCanvas   = ref(null);
-    const canvasWrap = ref(null);
+    const canvasArea = ref(null);
     const wbTool     = ref('pen');
     const wbColor    = ref('#00e5ff');
     const wbSize     = ref(3);
     const colors     = ['#00e5ff','#ffffff','#ff4757','#2ed573','#ffa502','#a29bfe','#fd79a8','#000000'];
+    const isDragging = ref(false);
 
-    let ctx = null, drawing = false;
-    let lastX=0, lastY=0, startX=0, startY=0, snapshot=null;
+    // Pages
+    const WB_STORAGE  = 'iug_wb_pages_v3';
+    const wbPages     = reactive([]);
+    const currentPage = ref(0);
+    function defaultPage(n) {
+      return { id: Date.now()+n, name:'صفحة '+(n+1), drawing:null, imgSrc:null, imgX:0, imgY:0, imgScale:1 };
+    }
+    try {
+      const sv = JSON.parse(localStorage.getItem(WB_STORAGE));
+      if (sv && sv.length) sv.forEach(p => wbPages.push(p));
+    } catch(e){}
+    if (!wbPages.length) wbPages.push(defaultPage(0));
+
+    // Image overlay state (reactive so template updates)
+    const hasImage = ref(false);
+    const imgSrc   = ref('');
+    const imgX     = ref(0);
+    const imgY     = ref(0);
+    const imgScale = ref(1);
+    const imgStyle = computed(() =>
+      `transform: translate(${imgX.value}px, ${imgY.value}px) scale(${imgScale.value})`
+    );
+
+    function syncImgFromPage() {
+      const p = wbPages[currentPage.value];
+      hasImage.value  = !!p.imgSrc;
+      imgSrc.value    = p.imgSrc || '';
+      imgX.value      = p.imgX   || 0;
+      imgY.value      = p.imgY   || 0;
+      imgScale.value  = p.imgScale || 1;
+    }
+    function syncImgToPage() {
+      const p = wbPages[currentPage.value];
+      p.imgSrc   = imgSrc.value;
+      p.imgX     = imgX.value;
+      p.imgY     = imgY.value;
+      p.imgScale = imgScale.value;
+    }
+
+    // Canvas / drawing
+    let ctx = null;
+    let drawing = false;
+    let lastX=0, lastY=0, startX=0, startY=0;
+    let snapshot = null;
     const undoStack = [];
 
-     function initCanvas() {
-  nextTick(() => {
-    const canvas = wbCanvas.value;
-    if (!canvas) return;
-
-    ctx = canvas.getContext('2d');
-
-    const wrapWidth = canvasWrap.value.clientWidth;
-    const wrapHeight = window.innerHeight;
-
-    canvas.width = wrapWidth;
-    canvas.height = wrapHeight * 0.65; // 🔥 نسبة من الشاشة بدل قيمة ثابتة
-
-    const saved = localStorage.getItem('iug_whiteboard');
-    if (saved) {
-      const img = new Image();
-      img.onload = () => ctx.drawImage(img, 0, 0);
-      img.src = saved;
+    function savePagesToStorage() {
+      try { localStorage.setItem(WB_STORAGE, JSON.stringify(wbPages.map(p=>({...p})))); } catch(e){}
     }
-  });
-}
+    function saveCurrentDrawing() {
+      if (!ctx || !wbCanvas.value) return;
+      wbPages[currentPage.value].drawing = wbCanvas.value.toDataURL();
+      syncImgToPage();
+      savePagesToStorage();
+    }
+    function loadPageOnCanvas() {
+      if (!ctx || !wbCanvas.value) return;
+      syncImgFromPage();
+      ctx.clearRect(0,0,wbCanvas.value.width,wbCanvas.value.height);
+      const d = wbPages[currentPage.value].drawing;
+      if (d) { const i=new Image(); i.onload=()=>ctx.drawImage(i,0,0); i.src=d; }
+    }
 
+    function initCanvas() {
+      nextTick(() => {
+        const canvas = wbCanvas.value, area = canvasArea.value;
+        if (!canvas || !area) return;
+        ctx = canvas.getContext('2d');
+        canvas.width  = area.clientWidth  || 900;
+        canvas.height = area.clientHeight || 560;
+        undoStack.length = 0;
+        loadPageOnCanvas();
+      });
+    }
+
+    function switchPage(idx) {
+      saveCurrentDrawing(); currentPage.value = idx;
+      undoStack.length = 0;
+      nextTick(loadPageOnCanvas);
+    }
+    function addPage() {
+      saveCurrentDrawing();
+      wbPages.push(defaultPage(wbPages.length));
+      currentPage.value = wbPages.length - 1;
+      undoStack.length = 0;
+      nextTick(() => {
+        if (ctx && wbCanvas.value) ctx.clearRect(0,0,wbCanvas.value.width,wbCanvas.value.height);
+        hasImage.value = false; imgSrc.value = '';
+      });
+    }
+    function deletePage(idx) {
+      if (wbPages.length<=1 || !confirm('حذف '+wbPages[idx].name+'؟')) return;
+      wbPages.splice(idx,1);
+      if (currentPage.value >= wbPages.length) currentPage.value = wbPages.length-1;
+      savePagesToStorage();
+      nextTick(() => { undoStack.length=0; loadPageOnCanvas(); });
+    }
+
+    // ── Drawing helpers ──
     function getPos(e) {
-      const c = wbCanvas.value, r = c.getBoundingClientRect();
-      return { x: (e.clientX-r.left)*(c.width/r.width), y: (e.clientY-r.top)*(c.height/r.height) };
-    }
-    function getPosTouch(e) {
-      const c = wbCanvas.value, r = c.getBoundingClientRect(), t = e.touches[0];
-      return { x: (t.clientX-r.left)*(c.width/r.width), y: (t.clientY-r.top)*(c.height/r.height) };
+      const c=wbCanvas.value, r=c.getBoundingClientRect();
+      return { x:(e.clientX-r.left)*(c.width/r.width), y:(e.clientY-r.top)*(c.height/r.height) };
     }
     function pushUndo() {
-      const c = wbCanvas.value;
-      undoStack.push(ctx.getImageData(0,0,c.width,c.height));
-      if (undoStack.length > 30) undoStack.shift();
+      undoStack.push(ctx.getImageData(0,0,wbCanvas.value.width,wbCanvas.value.height));
+      if (undoStack.length>40) undoStack.shift();
     }
-
-  function startDraw(e) {
-  if (!ctx) return;
-
-  const { x, y } = getPos(e);
-
-  // 🖐️ وضع تحريك الصورة
-  if (moveMode.value && bgImage) {
-    draggingImg = true;
-    lastX = x;
-    lastY = y;
-    return;
-  }
-
-  pushUndo();
-  drawing = true;
-
-  lastX = startX = x;
-  lastY = startY = y;
-
-  // 🔥 مهم للأشكال (هذا اللي غالباً ناقص عندك)
-  if (['line','rect','circle'].includes(wbTool.value)) {
-    snapshot = ctx.getImageData(0, 0, wbCanvas.value.width, wbCanvas.value.height);
-  }
-
-  // 🔥 مهم للقلم والممحاة
-  if (wbTool.value === 'pen' || wbTool.value === 'eraser') {
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-  }
-}
-
-   function startDrawTouch(e) {
-  const { x, y } = getPosTouch(e);
-
-  // 🎯 إذا وضع تحريك
-  if (moveMode.value && bgImage) {
-    draggingImg = true;
-    lastX = x;
-    lastY = y;
-    return;
-  }
-
-  startDraw({
-    clientX: e.touches[0].clientX,
-    clientY: e.touches[0].clientY
-  });
-}
-
-function draw(e) {
-  if (!ctx) return;
-
-  const { x, y } = getPos(e);
-
-  // 🖐️ تحريك بالصورة (ماوس)
-  if (moveMode.value && draggingImg) {
-    imgX += x - lastX;
-    imgY += y - lastY;
-    lastX = x;
-    lastY = y;
-    redrawCanvas();
-    return;
-  }
-
-  if (!drawing) return;
-
-  applyDraw(x, y);
-}   
-
-function drawTouch(e) {
-  if (!ctx) return;
-
-  const { x, y } = getPosTouch(e);
-
-  // 🖐️ تحريك بالإصبع
-  if (moveMode.value && draggingImg) {
-    imgX += x - lastX;
-    imgY += y - lastY;
-    lastX = x;
-    lastY = y;
-    redrawCanvas();
-    return;
-  }
-
-  if (!drawing) return;
-
-  applyDraw(x, y);
-}
-
     function applyDraw(x,y) {
-      if (!ctx) return;
       ctx.lineWidth   = wbTool.value==='eraser' ? wbSize.value*5 : Number(wbSize.value);
-      ctx.lineCap     = 'round'; ctx.lineJoin = 'round';
-      ctx.strokeStyle = wbTool.value==='eraser' ? '#0d1e2b' : wbColor.value;
+      ctx.lineCap='round'; ctx.lineJoin='round';
+      ctx.strokeStyle = wbTool.value==='eraser' ? '#0a1a24' : wbColor.value;
       if (wbTool.value==='pen'||wbTool.value==='eraser') {
         ctx.lineTo(x,y); ctx.stroke(); lastX=x; lastY=y;
       } else {
         ctx.putImageData(snapshot,0,0); ctx.beginPath();
-        if (wbTool.value==='line')   { ctx.moveTo(startX,startY); ctx.lineTo(x,y); ctx.stroke(); }
-        else if (wbTool.value==='rect')   { ctx.strokeRect(startX,startY,x-startX,y-startY); }
-        else if (wbTool.value==='circle') { const rx=Math.abs(x-startX)/2,ry=Math.abs(y-startY)/2,cx=startX+(x-startX)/2,cy=startY+(y-startY)/2; ctx.ellipse(cx,cy,rx,ry,0,0,Math.PI*2); ctx.stroke(); }
+        if (wbTool.value==='line') { ctx.moveTo(startX,startY); ctx.lineTo(x,y); ctx.stroke(); }
+        else if (wbTool.value==='rect') { ctx.strokeRect(startX,startY,x-startX,y-startY); }
+        else if (wbTool.value==='circle') {
+          const rx=Math.abs(x-startX)/2, ry=Math.abs(y-startY)/2;
+          ctx.ellipse(startX+(x-startX)/2, startY+(y-startY)/2, rx,ry,0,0,Math.PI*2); ctx.stroke();
+        }
       }
     }
 
+    // ── Mouse events ──
+    function startDraw(e) {
+      if (!ctx) return;
+      const {x,y} = getPos(e);
+      if (wbTool.value==='moveImg' && hasImage.value) {
+        isDragging.value=true; lastX=e.clientX; lastY=e.clientY; return;
+      }
+      pushUndo(); drawing=true; lastX=startX=x; lastY=startY=y;
+      if (['line','rect','circle'].includes(wbTool.value))
+        snapshot=ctx.getImageData(0,0,wbCanvas.value.width,wbCanvas.value.height);
+      if (wbTool.value==='pen'||wbTool.value==='eraser') { ctx.beginPath(); ctx.moveTo(x,y); }
+    }
+    function onMove(e) {
+      if (!ctx) return;
+      if (wbTool.value==='moveImg' && isDragging.value) {
+        imgX.value += e.clientX - lastX;
+        imgY.value += e.clientY - lastY;
+        lastX=e.clientX; lastY=e.clientY; return;
+      }
+      if (!drawing) return;
+      applyDraw(...Object.values(getPos(e)));
+    }
     function endDraw() {
-  draggingImg = false;
+      isDragging.value=false;
+      if (drawing) { drawing=false; ctx.closePath(); saveCurrentDrawing(); }
+    }
 
-  if (!drawing || !ctx) return;
+    // ── Wheel zoom for image ──
+    function onWheel(e) {
+      if (!hasImage.value || wbTool.value!=='moveImg') return;
+      const delta = e.deltaY > 0 ? 0.9 : 1.1;
+      imgScale.value = Math.min(8, Math.max(0.1, imgScale.value * delta));
+    }
 
-  drawing = false;
-  ctx.closePath();
+    // ── Touch events (draw + pinch zoom) ──
+    let touch1=null, touch2=null, initPinchDist=0, initScale=1;
 
-  try {
-    localStorage.setItem('iug_whiteboard', wbCanvas.value.toDataURL());
-  } catch(e){}
-}
+    function onTouchStart(e) {
+      if (e.touches.length===2) {
+        // Pinch start
+        touch1=e.touches[0]; touch2=e.touches[1];
+        initPinchDist = Math.hypot(touch2.clientX-touch1.clientX, touch2.clientY-touch1.clientY);
+        initScale = imgScale.value;
+        return;
+      }
+      const t=e.touches[0];
+      startDraw({clientX:t.clientX, clientY:t.clientY});
+    }
+    function onTouchMove(e) {
+      if (e.touches.length===2 && hasImage.value) {
+        // Pinch zoom
+        const t1=e.touches[0], t2=e.touches[1];
+        const dist = Math.hypot(t2.clientX-t1.clientX, t2.clientY-t1.clientY);
+        imgScale.value = Math.min(8, Math.max(0.1, initScale*(dist/initPinchDist)));
+        // Pan: midpoint delta
+        const mx=(t1.clientX+t2.clientX)/2, my=(t1.clientY+t2.clientY)/2;
+        const om=(touch1.clientX+touch2.clientX)/2, omy=(touch1.clientY+touch2.clientY)/2;
+        imgX.value += mx-om; imgY.value += my-omy;
+        touch1=t1; touch2=t2;
+        return;
+      }
+      const t=e.touches[0];
+      if (wbTool.value==='moveImg' && isDragging.value) {
+        imgX.value += t.clientX - lastX; imgY.value += t.clientY - lastY;
+        lastX=t.clientX; lastY=t.clientY; return;
+      }
+      if (!drawing) return;
+      const c=wbCanvas.value, r=c.getBoundingClientRect();
+      applyDraw((t.clientX-r.left)*(c.width/r.width), (t.clientY-r.top)*(c.height/r.height));
+    }
+    function onTouchEnd(e) {
+      touch2=null;
+      if (e.touches.length===0) { endDraw(); syncImgToPage(); savePagesToStorage(); }
+    }
+
+    // ── Image actions ──
+    function loadImage(event) {
+      const file=event.target.files[0]; if (!file) return;
+      event.target.value='';
+      const reader=new FileReader();
+      reader.onload = ev => {
+        imgSrc.value   = ev.target.result;
+        imgX.value     = 20; imgY.value=20; imgScale.value=1;
+        hasImage.value = true;
+        syncImgToPage(); savePagesToStorage();
+      };
+      reader.readAsDataURL(file);
+    }
+    function removeImage() {
+      imgSrc.value=''; hasImage.value=false;
+      imgX.value=0; imgY.value=0; imgScale.value=1;
+      syncImgToPage(); savePagesToStorage();
+    }
+
+    // ── Undo / Clear / Save ──
     function undoWb() {
-      if (!undoStack.length||!ctx) return; ctx.putImageData(undoStack.pop(),0,0);
-      try { localStorage.setItem('iug_whiteboard', wbCanvas.value.toDataURL()); } catch(e){}
+      if (!undoStack.length||!ctx) return;
+      ctx.putImageData(undoStack.pop(),0,0); saveCurrentDrawing();
     }
     function clearWb() {
-      if (!ctx||!confirm('مسح السبورة كاملها؟')) return;
+      if (!ctx||!confirm('مسح هذه الصفحة؟')) return;
       ctx.clearRect(0,0,wbCanvas.value.width,wbCanvas.value.height);
-      localStorage.removeItem('iug_whiteboard');
+      wbPages[currentPage.value].drawing=null;
+      removeImage();
     }
     function saveWbImage() {
-      const a=document.createElement('a'); a.download='whiteboard-iug.png'; a.href=wbCanvas.value.toDataURL(); a.click();
+      // Composite: create off-screen canvas with image + drawing
+      const c = wbCanvas.value;
+      const out = document.createElement('canvas');
+      out.width=c.width; out.height=c.height;
+      const octx = out.getContext('2d');
+      octx.fillStyle='#0a1a24'; octx.fillRect(0,0,out.width,out.height);
+      if (hasImage.value) {
+        const img=new Image();
+        img.onload=()=>{
+          octx.drawImage(img, imgX.value, imgY.value, img.width*imgScale.value, img.height*imgScale.value);
+          octx.drawImage(c,0,0);
+          const a=document.createElement('a'); a.download='whiteboard-p'+(currentPage.value+1)+'.png'; a.href=out.toDataURL(); a.click();
+        }; img.src=imgSrc.value;
+      } else {
+        octx.drawImage(c,0,0);
+        const a=document.createElement('a'); a.download='whiteboard-p'+(currentPage.value+1)+'.png'; a.href=out.toDataURL(); a.click();
+      }
     }
-
-    function zoomImage(e) {
-  if (!bgImage) return;
-
-  e.preventDefault();
-
-  const scaleAmount = e.deltaY * -0.001;
-  imgScale += scaleAmount;
-
-   if (imgScale.value < 0.2) imgScale.value = 0.2;
-   if (imgScale.value > 5) imgScale.value = 5;
-
-  redrawCanvas();
-}
 
     return {
       tab, curriculum, notes, lastSaved, currentSubject, justSaved, openYears,
       toggleYear, selectSubject, saveNote, autoSave, clearNote, formatText, insertLine,
-      wbCanvas, canvasWrap, wbTool, wbColor, wbSize, colors, moveMode, imgScale, 
-      initCanvas, startDraw, draw, endDraw, startDrawTouch, drawTouch,
-      undoWb, clearWb, saveWbImage, redrawCanvas, loadImage, toggleMoveMode, zoomImage, 
+      wbCanvas, canvasArea, wbTool, wbColor, wbSize, colors, isDragging,
+      wbPages, currentPage, hasImage, imgSrc, imgX, imgY, imgScale, imgStyle,
+      initCanvas, switchPage, addPage, deletePage,
+      startDraw, onMove, endDraw, onTouchStart, onTouchMove, onTouchEnd, onWheel,
+      loadImage, removeImage, undoWb, clearWb, saveWbImage,
     };
   }
 }).mount('#app');
