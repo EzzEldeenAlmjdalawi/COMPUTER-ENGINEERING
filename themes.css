@@ -13,7 +13,10 @@
   width: 60px;
   height: 42px;
   border-radius: 15px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0,229,255,0.3);
+  color: #00f7ff;
+box-shadow: 0 0 10px rgba(0,229,255,0.2);
   border: 1px solid #444;
   color: #fff;
   font-size: 18px;
@@ -33,13 +36,22 @@
   gap: 3px;
   padding: 12px;
   width: 140px;
-  background: rgba(15, 15, 15, 0.95);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0,229,255,0.2);
+  box-shadow: 0 0 20px rgba(0,229,255,0.15);
+backdrop-filter: blur(10px);
   border-radius: 14px;
   border: 1px solid #333;
 }
 
 .theme-menu.show {
   display: flex;
+}
+
+.theme-btn:hover {
+  background: #00f7ff;
+  color: black;
+  box-shadow: 0 0 15px #00f7ff;
 }
 
 /* ===============================
@@ -50,27 +62,40 @@
   height: 26px;
   border-radius: 50%;
   cursor: pointer;
-  border: 1px solid #555;
+  border: 1px solid rgba(0,229,255,0.3);
+}
+
+.color:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 10px #00f7ff;
+}
+
+.color {
+  box-shadow: 0 0 8px rgba(0,247,255,0.3);
+}
+
+.color:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 12px #00f7ff;
 }
 
 
-.color.blue      { background: #0078ff; }
-.color.green     { background: #00ff9c; }
-.color.purple    { background: #9b5cff; }
-.color.orange    { background: #ff9f1c; }
-.color.red       { background: #ff3b3b; }
-.color.pink      { background: #ff6fcf; }
-.color.yellow    { background: #fff200; }
+.color.blue      { background: #00aaff; }
+.color.green     { background: #00ffcc; }
+.color.purple    { background: #b366ff; }
+.color.orange    { background: #ffb347; }
+.color.red       { background: #ff4d6d; }
+.color.pink      { background: #ff7bff; }
+.color.yellow    { background: #fff44f; }
 .color.cyan      { background: #00fff7; }
-.color.lime      { background: #a4ff00; }
-.color.teal      { background: #00b3b3; }
-.color.magenta   { background: #ff00ff; }
-.color.maroon    { background: #800000; }
-.color.navy      { background: #000080; }
-.color.gray      { background: #888888; }
-.color.black     { background: #000000; }
+.color.lime      { background: #bfff00; }
+.color.teal      { background: #00e6e6; }
+.color.magenta   { background: #ff00cc; }
+.color.maroon    { background: #b03060; }
+.color.navy      { background: #3366ff; }
+.color.gray      { background: #aaaaaa; }
+.color.black     { background: #111111; }
 .color.white     { background: #ffffff; }
-
 /* ===============================
    THEMES EFFECTS
 ================================ */

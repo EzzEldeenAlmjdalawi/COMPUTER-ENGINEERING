@@ -11,22 +11,52 @@ body[class*="theme-"] .no-glow {
   text-shadow: none !important;
 }
 
-/* Define colors for each theme */
-body.theme-blue    { --main:#0078ff; --main-hover:#3399ff; --bg-soft:#0f2747; --card:#162f52; }
-body.theme-green   { --main:#00ff9c; --main-hover:#33ffaa; --bg-soft:#0f2f26; --card:#16352b; }
-body.theme-purple  { --main:#9b5cff; --main-hover:#b375ff; --bg-soft:#241538; --card:#2b1b45; }
-body.theme-orange  { --main:#ff9f1c; --main-hover:#ffb840; --bg-soft:#3a2412; --card:#3b2a16; }
-body.theme-red     { --main:#ff3b3b; --main-hover:#ff6666; --bg-soft:#3a1010; --card:#4b1111; }
-body.theme-pink    { --main:#ff6fcf; --main-hover:#ff92d9; --bg-soft:#331933; --card:#452045; }
-body.theme-yellow  { --main:#fff200; --main-hover:#ffff66; --bg-soft:#333100; --card:#4b4b16; }
-body.theme-cyan    { --main:#00fff7; --main-hover:#33fff7; --bg-soft:#003333; --card:#004b4b; }
-body.theme-lime    { --main:#a4ff00; --main-hover:#baff33; --bg-soft:#334000; --card:#455200; }
-body.theme-teal    { --main:#00b3b3; --main-hover:#33cccc; --bg-soft:#003333; --card:#004b4b; }
-body.theme-magenta { --main:#ff00ff; --main-hover:#ff33ff; --bg-soft:#330033; --card:#450045; }
-body.theme-maroon  { --main:#800000; --main-hover:#993333; --bg-soft:#200000; --card:#330000; }
-body.theme-navy    { --main:#000080; --main-hover:#333399; --bg-soft:#000033; --card:#00004b; }
-body.theme-gray    { --main:#aaaaaa; --main-hover:#bbbbbb; --bg-soft:#333; --card:#444; }
-body.theme-black   { --main:#ffffff; --main-hover:#cccccc; --bg-soft:#000000; --card:#222; }
+/* ==================================================
+   IMPROVED NEON THEMES (STRONG + MODERN)
+================================================== */
+
+body.theme-blue    { --main:#00aaff; --main-hover:#33bbff; --bg-soft:#0a1f33; --card:#112b45; }
+
+body.theme-green   { --main:#00ffcc; --main-hover:#33ffd9; --bg-soft:#0a2f2a; --card:#113d36; }
+
+body.theme-purple  { --main:#b366ff; --main-hover:#c285ff; --bg-soft:#1a1033; --card:#24164a; }
+
+body.theme-orange  { --main:#ffb347; --main-hover:#ffc266; --bg-soft:#2a1a0f; --card:#3a2416; }
+
+body.theme-red     { --main:#ff4d6d; --main-hover:#ff6f85; --bg-soft:#2a0f14; --card:#3d141c; }
+
+body.theme-pink    { --main:#ff7bff; --main-hover:#ff9bff; --bg-soft:#2a1030; --card:#3a1642; }
+
+body.theme-yellow  { --main:#fff44f; --main-hover:#fff76a; --bg-soft:#2a280a; --card:#3a3715; }
+
+body.theme-cyan    { --main:#00fff7; --main-hover:#33fff9; --bg-soft:#062a2a; --card:#0d3b3b; }
+
+body.theme-lime    { --main:#bfff00; --main-hover:#ccff33; --bg-soft:#1f2a0a; --card:#2d3a12; }
+
+body.theme-teal    { --main:#00e6e6; --main-hover:#33f0f0; --bg-soft:#062626; --card:#0d3a3a; }
+
+body.theme-magenta { --main:#ff00cc; --main-hover:#ff33d6; --bg-soft:#2a0a24; --card:#3a1032; }
+
+body.theme-maroon  { --main:#b03060; --main-hover:#cc4a78; --bg-soft:#2a0a14; --card:#3a101c; }
+
+body.theme-navy    { --main:#3366ff; --main-hover:#5c85ff; --bg-soft:#0a0f2a; --card:#11183d; }
+
+body.theme-gray    { --main:#cccccc; --main-hover:#dddddd; --bg-soft:#1a1a1a; --card:#2a2a2a; }
+
+body.theme-black   { --main:#ffffff; --main-hover:#eeeeee; --bg-soft:#000000; --card:#111111; }
+
+
+body[class*="theme-"] .subject:hover,
+body[class*="theme-"] .semester:hover,
+body[class*="theme-"] .resources button:hover {
+  box-shadow: 0 0 10px var(--main);
+}
+
+
+
+body[class*="theme-"] a {
+  color: var(--main);
+}
 
 /* Apply to body */
 body[class*="theme-"] {

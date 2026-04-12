@@ -882,23 +882,27 @@ const reminders = [
 function showReminder() {
     const randomIndex = Math.floor(Math.random() * reminders.length);
     const reminderEl = document.getElementById("reminderText");
+
     reminderEl.innerText = reminders[randomIndex];
 
-    // تغيير لون الخلفية عشوائي بسيط
-    reminderEl.parentElement.style.backgroundColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    const box = reminderEl.parentElement;
 
-    // تأثير بصري خفيف
-    reminderEl.parentElement.classList.add("animate");
+    box.classList.add("animate");
     setTimeout(() => {
-        reminderEl.parentElement.classList.remove("animate");
+        box.classList.remove("animate");
     }, 300);
 }
+
 
 // عرض تذكير عند تحميل الصفحة
 document.addEventListener("DOMContentLoaded", showReminder);
 
 // تحديث الرسالة كل 30 ثانية (يمكن تعديل الوقت)
 setInterval(showReminder, 5000);
+
+
+
+
 
 
 

@@ -1,6 +1,6 @@
  body {
-      background-color: #0f1b2b;
-      color: #00f7ff;
+    background-color: #071520;
+    color: #00f7ff;
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 20px;
@@ -15,7 +15,7 @@
 
     @keyframes glow {
       from {
-        text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;
+        text-shadow: 0 0 10px rgba(0,229,255,0.8), 0 0 30px rgba(0,229,255,0.4);
       }
       to {
         text-shadow: 0 0 20px #00cfff, 0 0 30px #00cfff;
@@ -23,7 +23,9 @@
     }
 
     .semester {
-      background-color: #111e30;
+      background-color: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0,229,255,0.3);
+      color: #00f7ff;
       padding: 15px 20px;
       border-radius: 10px;
       margin-bottom: 15px;
@@ -34,7 +36,7 @@
     }
 
     .semester:hover {
-      background-color: #00cfff;
+     background-color: #00f7ff;
       color: black;
     }
 
@@ -46,7 +48,9 @@
     }
 
     .subject {
-      background-color: #1d2d44;
+      background-color: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(0,229,255,0.2);
+      color: #00f7ff;
       padding: 10px 20px;
       border-radius: 10px;
       cursor: pointer;
@@ -57,12 +61,14 @@
     }
 
     .subject:hover {
-      background-color: #00cfff;
+      background-color: #00f7ff;
       color: black;
     }
 
     .resources button {
-      background-color: #0077aa;
+      background-color: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0,229,255,0.3);
+      color: #00f7ff;
       border: none;
       padding: 10px;
       border-radius: 8px;
@@ -74,7 +80,8 @@
     }
 
     .resources button:hover {
-      background-color: #00bcd4;
+      background-color: #00f7ff;
+      color: black;
     }
         .toggle-btn {
             position: fixed;
@@ -102,15 +109,38 @@
         left: -250px;
         width: 250px;
         height: 100%;
-        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        background:
+        radial-gradient(ellipse 120% 80% at 10% 20%, rgba(0,229,255,0.06) 0%, transparent 60%),
+        linear-gradient(180deg, #060f18 0%, #08161f 100%);
+
         padding: 30px 20px;
         transition: left 0.4s ease;
         z-index: 1000;
-        box-shadow: 2px 0 20px rgba(0, 247, 255, 0.2);
+        box-shadow:
+        4px 0 40px rgba(0,0,0,0.6),
+        2px 0 0 rgba(0,229,255,0.2);
         animation: slideOut 0.3s forwards;
         overflow-y: auto;
         color:white;
         }
+
+        .myList::after {
+        content: "";
+        position: absolute;
+           top: 0;
+          right: -2px;
+         width: 3px;
+         height: 100%;
+
+        background: linear-gradient(
+        to bottom,
+        transparent,
+        #00f7ff,
+         transparent
+  );
+
+  box-shadow: 0 0 10px #00f7ff;
+}
 
         .myList.show {
         left: 0;
@@ -168,6 +198,11 @@
         color: #00f7ff;
         transform: translateX(5px);
         }
+
+        .myList ul li:hover {
+  box-shadow: 0 0 12px rgba(0,247,255,0.4);
+  border-radius: 8px;
+}
        body, html {
         overflow-x: hidden;
         }
@@ -331,8 +366,8 @@
 }
 
 .study-btn:hover {
-  background: rgba(0,229,255,0.1);
-  box-shadow: 0 0 10px rgba(0,229,255,0.4);
+  box-shadow: 0 0 12px rgba(0,247,255,0.4);
+  border-radius: 8px;
 }
 
 
