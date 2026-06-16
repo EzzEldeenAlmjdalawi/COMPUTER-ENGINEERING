@@ -1163,64 +1163,82 @@ body.dark-mode::before {
 
 
 /* ==========================================================================
-   سحر هندسي: إجبار الجوال العمودي على تدوير العرض ليصبح كالكمبيوتر مفروداً
+   إصلاح الجوال الشامل: فرد الموقع كاللابتوب بشكل آمن وعريض وبدون تدوير مسبب للاختفاء
    ========================================================================== */
-@media (max-width: 768px) and (orientation: portrait) {
+@media (max-width: 768px) {
+  /* إلغاء أي تدوير قديم وإعادة الـ body لوضعه الطبيعي المستقر */
   body {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100vh !important;  /* العرض يصبح هو ارتفاع الشاشة */
-    height: 100vw !important; /* الارتفاع يصبح هو عرض الشاشة */
-    transform: rotate(-90deg) !important; /* قلب الشاشة بالكامل أفقياً */
-    transform-origin: top left !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    transform: none !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
-    left: -100vh !important; /* تصحيح نقطة الدوران */
-  }
-
-  /* إعادة توزيع الحاوية الرئيسية والكروت لتفرد نفسها عرضياً كاللابتوب */
-  .main-layout-holder {
-    grid-template-cols: 1fr !important; /* حماية الهيكل العرضي */
-    width: 95% !important;
-    max-width: 850px !important;
-    margin: 15px auto !important;
     padding: 10px !important;
   }
 
-  .containar {
-    padding: 20px !important;
-    border-radius: 16px !important;
+  /* جعل الكرت الرئيسي ينفرد ويأخذ مساحة عرضية ممتازة مثل الكمبيوتر */
+  .main-layout-holder {
+    grid-template-cols: 1fr !important; 
+    width: 96% !important;
+    max-width: 100% !important;
+    margin: 10px auto !important;
+    padding: 5px !important;
   }
 
-  /* جعل الأزرار الكبيرة والصورة بجانب بعضها لمنع التكدس العمودي */
+  .containar {
+    padding: 20px 15px !important;
+    border-radius: 18px !important;
+  }
+
+  /* سحر التجاوب: جعل قائمة السنوات والصورة بجانب بعضهما (عرضي) إن سمحت الشاشة */
   .semesters-with-image-wrapper {
-    grid-template-cols: 1.2fr 1fr !important; 
+    display: flex !important;
+    flex-direction: column !important; /* ترتيب عمودي ذكي ومحكم للـ Layout لمنع ضياع العناصر */
     gap: 20px !important;
+  }
+
+  /* فرش أزرار السنوات لتأخذ كامل العرض وتظهر فخمة وسهلة الضغط جداً */
+  .semesters {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-cols: 1fr !important; /* كروت مفرودة ومستقيمة */
+    gap: 10px !important;
   }
 
   .semester {
-    padding: 12px 20px !important;
-    font-size: 0.95rem !important;
+    width: 100% !important;
+    padding: 14px 20px !important;
+    font-size: 1.05rem !important; /* حجم خط واضح وممتاز */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
   }
 
-  /* ضبط الصور لتتناسب مع الأبعاد العرضية الجديدة */
-  .top-image-side {
-    min-height: 200px !important;
+  /* جعل كلمة engineering في الخلفية منزوية ولطيفة ولا تتداخل مع الكروت */
+  .bg-engineering-text {
+    font-size: 11vw !important;
+    opacity: 0.15 !important;
+    top: 60% !important;
   }
-  
-  /* إخفاء عناصر التحكم الزائدة مؤقتاً في هذا الوضع إن كانت تسبب زحاماً */
-  .quick-stats {
-    margin-top: 15px !important;
-    padding-top: 15px !important;
-    gap: 20px !important;
-  }
+
+  /* إخفاء أو تصغير الفقاعات لتظل على الأطراف بلطافة تامة */
+  .bubble-top-right { width: 140px !important; height: 140px !important; top: -30px !important; right: -40px !important; }
+  .bubble-bottom-right { width: 110px !important; height: 110px !important; bottom: -20px !important; right: -30px !important; }
+  .bubble-bottom-left { width: 120px !important; height: 120px !important; bottom: -25px !important; left: -35px !important; }
 }
 
-/* الجوال بالوضع الأفقي الطبيعي - نضمن بقاء المساحة مفرودة بالكامل */
+/* إذا قام المستخدم بتدوير الجوال بنفسه وضعاً أفقياً (Landscape) */
 @media (max-width: 768px) and (orientation: landscape) {
   .main-layout-holder { 
-    width: 95% !important; 
-    max-width: 850px !important; 
+    width: 92% !important; 
+    max-width: 680px !important; 
+  }
+  .semesters-with-image-wrapper {
+    display: grid !important;
+    grid-template-cols: 1.2fr 1fr !important; /* تقسيم الأزرار والصورة بجانب بعضهما فوراً */
   }
 }
