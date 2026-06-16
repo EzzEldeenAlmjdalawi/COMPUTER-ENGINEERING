@@ -48,14 +48,10 @@ body::before {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
 @keyframes circuitFlow {
   0%   { background-position: 0 0; }
   100% { background-position: 160px 160px; }
 }
-
-
-
 
 /* ==========================================================================
    2. شريط التنقل العلوي الذكي (Main Navbar)
@@ -77,14 +73,14 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: clamp(8px, 1.5vw, 20px);
 }
 
 /* الشعار */
 .nav-logo-zone {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: clamp(6px, 1.2vw, 12px);
 }
 
 .nav-icon-bg {
@@ -98,13 +94,15 @@ body::before {
   justify-content: center;
   font-size: 1.2rem;
   box-shadow: 0 4px 12px rgba(14, 116, 144, 0.2);
+  flex-shrink: 0;
 }
 
 .nav-title-text {
   font-weight: 900;
-  font-size: 1.1rem;
+  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
   color: #0f172a;
   letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 .nav-title-text .uni-tag {
@@ -115,19 +113,20 @@ body::before {
 .nav-controls {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: clamp(6px, 1.2vw, 15px);
 }
 
 .toggle-btn {
   background: #0e7490;
   border: none;
-  padding: 8px 16px;
-  font-size: 1.1rem;
+  padding: 8px clamp(10px, 1.5vw, 16px);
+  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
   border-radius: 10px;
   cursor: pointer;
   color: #fff;
   box-shadow: 0 4px 10px rgba(14, 116, 144, 0.15);
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .toggle-btn:hover {
@@ -140,18 +139,17 @@ body::before {
    ========================================================================== */
 .search-container {
   position: relative;
-  width: 320px;
-  max-width: 100%;
+  width: clamp(150px, 22vw, 320px);
 }
 
 .search-container input {
   width: 100%;
-  padding: 10px 40px 10px 15px;
+  padding: 10px 35px 10px 12px;
   border-radius: 12px;
   border: 1px solid #cbd5e1;
   outline: none;
   font-family: 'Cairo', sans-serif;
-  font-size: 0.9rem;
+  font-size: clamp(0.75rem, 1.3vw, 0.9rem);
   background-color: #ffffff;
   color: #1e293b;
   transition: all 0.3s ease;
@@ -165,10 +163,11 @@ body::before {
 .search-icon {
   position: absolute;
   top: 50%;
-  right: 15px;
+  right: 12px;
   transform: translateY(-50%);
   color: #94a3b8;
   pointer-events: none;
+  font-size: clamp(0.75rem, 1.3vw, 0.9rem);
 }
 
 .search-results {
@@ -202,13 +201,13 @@ body::before {
 }
 
 body.dark-mode .search-container input {
-  background-color: rgba(30, 41, 59, 0.7) !important; /* خلفية زجاجية داكنة متناغمة */
+  background-color: rgba(30, 41, 59, 0.7) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   color: #f8fafc !important;
 }
 
 body.dark-mode .search-container input:focus {
-  border-color: #38bdf8 !important; /* إضاءة سماوية برمجة ليلاً */
+  border-color: #38bdf8 !important;
   background-color: #1e293b !important;
   box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15) !important;
 }
@@ -218,7 +217,7 @@ body.dark-mode .search-container input::placeholder {
 }
 
 body.dark-mode .search-icon {
-  color: #38bdf8 !important; /* الأيقونة تشع باللون السماوي المضيء */
+  color: #38bdf8 !important;
 }
 
 body.dark-mode .search-results {
@@ -246,8 +245,8 @@ body.dark-mode .search-results div:hover {
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
-  padding: 20px;
-  gap: 30px;
+  padding: clamp(10px, 2vw, 20px);
+  gap: clamp(15px, 2.5vw, 30px);
   position: relative;
   z-index: 1;
   flex-grow: 1;
@@ -255,7 +254,7 @@ body.dark-mode .search-results div:hover {
 
 @media (min-width: 1024px) {
   .main-layout-holder {
-    grid-template-cols: 3.5fr 1fr; /* تقسيم الكرت الأبيض الكبير والصناديق الجانبية */
+    grid-template-cols: 3.5fr 1fr;
   }
 }
 
@@ -264,7 +263,7 @@ body.dark-mode .search-results div:hover {
   width: 100%;
   background: #ffffff;
   border-radius: 24px;
-  padding: 30px;
+  padding: clamp(15px, 2.5vw, 30px);
   border: 1px solid #e2e8f0;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
   overflow: hidden;
@@ -273,13 +272,13 @@ body.dark-mode .search-results div:hover {
 .hero-grid {
   display: grid;
   grid-template-cols: 1fr;
-  gap: 30px;
+  gap: clamp(15px, 2.5vw, 30px);
   align-items: center;
 }
 
 @media (min-width: 992px) {
   .hero-grid {
-    grid-template-cols: 1.4fr 1fr; /* يضمن التوازن والمساحة الكاملة لجميع العناصر */
+    grid-template-cols: 1.4fr 1fr;
   }
 }
 
@@ -290,22 +289,21 @@ body.dark-mode .search-results div:hover {
   display: flex;
   flex-direction: column;
   text-align: center;      
-  align-items: center;     /* يبقي العناوين بالمنتصف */
+  align-items: center;     
   justify-content: center;
   z-index: 2;
   width: 100%;
 }
-/* تأكيد محاذاة الوصف */
+
 .subtitle {
   color: #64748b;
   margin: 15px 0 25px;
-  font-size: 1.1rem;
-  text-align: center;      /* يضمن توسيط السطر الفرعي */
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  text-align: center;      
 }
 
-/* هنا السحر: نجعل البادج يذهب للزاوية اليمين فوق تلقائياً */
 .platform-badge {
-  align-self: flex-start;  /* يدفعه لأقصى اليمين */
+  align-self: flex-start;  
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -314,9 +312,9 @@ body.dark-mode .search-results div:hover {
   color: #0e7490;
   padding: 6px 16px;
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
   font-weight: 700;
-  margin-bottom: 25px;    /* مسافة أنيقة تحت البادج */
+  margin-bottom: 25px;    
 }
 
 .badge-dot {
@@ -334,56 +332,48 @@ body.dark-mode .search-results div:hover {
 }
 
 .title {
-  font-size: 2.6rem;
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
   font-weight: 900;
   color: #0f172a;
   line-height: 1.2;
 }
 
-
 /* ==========================================================================
-   🔥 6. جزء الأزرار الخمسة الكبيرة وتمدد الصورة العلوية في الفراغ الفارغ
+   🔥 6. جزء الأزرار الخمسة الكبيرة وثبات الصورة بجانبها عرضياً كاللابتوب دائماً
    ========================================================================== */
 .semesters-with-image-wrapper {
-  display: grid;
-  grid-template-cols: 1fr; /* للموبايل */
-  gap: 30px;
-  width: 100%;
-  align-items: center;
+  display: grid !important;
+  /* السحر هنا: إجبار التوزيع على البقاء بجانب بعضه (عمودين) على كافة الشاشات والموجّهات */
+  grid-template-columns: 1.25fr 1fr !important; 
+  gap: clamp(10px, 2vw, 30px) !important;
+  width: 100% !important;
+  align-items: stretch !important; 
   margin-top: 10px;
 }
 
-@media (min-width: 850px) {
-  .semesters-with-image-wrapper {
-    grid-template-cols: 1.1fr 1fr; /* الأزرار تأخذ حجمها الكامل الفخم والصورة تملأ الفراغ بجانبها */
-    align-items: stretch; /* تجعل الصورة تمتد لتغطي كامل الارتفاع الموازي للسنين */
-  }
-}
-
 .semesters {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: clamp(8px, 1.5vh, 12px) !important;
+  width: 100% !important;
 }
 
 .semester {
-  padding: 15px 25px;
+  padding: clamp(10px, 1.8vh, 15px) clamp(10px, 2vw, 25px) !important;
   border-radius: 14px;
   border: 1px solid #e2e8f0;
   background-color: #ffffff;
   color: #334155;
-  font-size: 1rem;
+  font-size: clamp(0.8rem, 1.8vw, 1rem) !important; /* حجم مرن يمنع تكدس الخط وانقطاعه */
   font-weight: 700;
   text-decoration: none;
   box-shadow: 0 2px 5px rgba(0,0,0,0.01);
   transition: all 0.25s ease;
-  
-  /* التعديل السحري لتوسط الكلام والإيموجي في المنتصف تماماً */
-  display: flex;
-  align-items: center;
-  justify-content: center; 
-  gap: 10px; /* يعطي مسافة بسيطة وأنيقة بين النص والإيموجي */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important; 
+  gap: clamp(5px, 1vw, 10px) !important;
+  white-space: nowrap !important; /* قفل النص على سطر واحد لمنع التشوه العرضي */
 }
 
 .semester:hover {
@@ -394,20 +384,20 @@ body.dark-mode .search-results div:hover {
   box-shadow: 0 4px 12px rgba(14, 116, 144, 0.15);
 }
 
-/* حاوية الصورة العلوية لتملأ الفراغ بالكامل */
+/* حاوية الصورة العلوية لتملأ الفراغ بالكامل وتصغر مع شاشات الموبايل بنسب فنية */
 .top-image-side {
-  width: 100%;
-  height: 100%;
-  min-height: 280px;
-  display: flex;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: clamp(140px, 25vh, 280px) !important;
+  display: flex !important;
 }
 
 .top-engineer-img {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(14, 116, 144, 0.08);
-  object-fit: cover; /* تجعل الصورة تمتد وتملأ الفراغ بالكامل دون تشوه */
+  object-fit: cover; 
   border: 1px solid #e2e8f0;
   transition: all 0.3s ease;
 }
@@ -417,11 +407,13 @@ body.dark-mode .search-results div:hover {
   box-shadow: 0 15px 30px rgba(14, 116, 144, 0.15);
 }
 
-/* قسم الإحصائيات */
+/* قسم الإحصائيات المفرود عرضياً بالكامل على الموبايل والآيباد */
 .quick-stats {
-  display: flex;
-  gap: 40px;
-  margin-top: 35px;
+  display: flex !important;
+  flex-direction: row !important; /* الحفاظ على الفرد الأفقي كاللابتوب */
+  justify-content: space-around !important;
+  gap: clamp(5px, 2vw, 40px) !important;
+  margin-top: clamp(20px, 4vh, 35px) !important;
   padding-top: 25px;
   border-top: 1px solid #f1f5f9;
   width: 100%;
@@ -433,13 +425,13 @@ body.dark-mode .search-results div:hover {
 }
 
 .stat-num {
-  font-size: 1.6rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem) !important;
   font-weight: 800;
   color: #0f172a;
 }
 
 .stat-label {
-  font-size: 0.8rem;
+  font-size: clamp(0.65rem, 1.4vw, 0.8rem) !important;
   color: #64748b;
   font-weight: 600;
 }
@@ -450,15 +442,15 @@ body.dark-mode .search-results div:hover {
 .image-side {
   display: flex;
   justify-content: center;
-  align-items: stretch; /* تجعل حاوية الصورة تمتد عمودياً بالكامل */
+  align-items: stretch; 
   z-index: 2;
-  width: 100%;          /* تأخذ المساحة العرضية الكاملة المتاحة لها */
+  width: 100%;          
 }
 
 .engineer-image-card {
-  width: 100%;          /* تمتد لتملأ الفراغ بالكامل يميناً ويساراً */
-  height: 100%;         /* تمتد لتملأ الفراغ كاملاً فوق وتحت */
-  min-height: 350px;    /* تعطي ثقل ومساحة فخمة للصورة السفلية */
+  width: 100%;          
+  height: 100%;         
+  min-height: clamp(200px, 30vh, 350px);    
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(0,0,0,0.05);
@@ -471,7 +463,7 @@ body.dark-mode .search-results div:hover {
 .engineer-real-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;    /* السحر الهندي لامتلاء الصورة داخل الكارت بدون تشويه أبعادها */
+  object-fit: cover;    
   border-radius: 24px;
 }
 
@@ -524,14 +516,12 @@ body.dark-mode .search-results div:hover {
   transition: all 0.25s ease-in-out !important;
 }
 
-/* تأثير الـ Hover الاحترافي للسنوات */
 .myList ul li a:hover {
   color: #0e7490 !important;
   background-color: rgba(14, 116, 144, 0.06) !important;
-  padding-right: 20px !important; /* إزاحة خفيفة جهة اليمين تعطي طابع ديناميكي */
+  padding-right: 20px !important; 
 }
 
-/* زر "ادرس من هان" داخل القائمة */
 .study-btn-mobile {
   background: linear-gradient(135deg, #ffffff, #155e75) !important;
   color: #ffffff !important;
@@ -752,68 +742,50 @@ body.dark-mode .search-results div:hover {
 .bot-link:hover { color: #0891b2; }
 
 /* ==========================================================================
-   تنسيق زر البوت الجديد في الناف بار (Navbar Telegram Bot Button)
+   تنسيق الأزرار (Navbar Telegram Bot Button)
    ========================================================================== */
 .nav-bot-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(37, 99, 235, 0.08);
-  border: 1px solid rgba(37, 99, 235, 0.15);
-  padding: 6px 14px;
+  gap: 6px;
+  background: rgba(14, 116, 144, 0.08);
+  border: 1px solid rgba(14, 116, 144, 0.15);
+  padding: 6px clamp(6px, 1vw, 14px);
   border-radius: 12px;
   text-decoration: none;
   transition: all 0.25s ease;
-  margin-left: 10px;
 }
 
 .bot-text-nav {
   font-family: 'Cairo', sans-serif;
   font-size: 13px;
   font-weight: 700;
-  color: #1e3a8a;
+  color: #0e7490;
 }
 
 .nav-bot-btn:hover {
-  background: #2481cc;
-  border-color: #2481cc;
-  transform: translateY(-1px);
+  background: #0e7490;
+  border-color: #0e7490;
 }
 
 .nav-bot-btn:hover .bot-text-nav {
   color: #ffffff;
 }
 
-/* الاستجابة على الموبايل لشاشات العرض الصغيرة */
-@media (max-width: 768px) {
-  .bot-text-nav {
-    display: none; /* إخفاء النص والإبقاء على الأيقونة فقط لتوفير مساحة */
-  }
-  .nav-bot-btn {
-    padding: 6px;
-    margin-left: 5px;
-  }
-}
-
-
 /* ==========================================================================
    إعادة هيكلة وحل تداخل أزرار ومتحكمات الناف بار (Navbar Controls Flex)
    ========================================================================== */
-
-/* الحاوية الكلية للمتحكمات على اليسار */
 .nav-controls {
   display: flex;
   align-items: center;
-  gap: 12px; /* مسافة أمان هندسية تمنع الالتصاق والتداخل تماماً */
+  gap: clamp(6px, 1.2vw, 12px); 
 }
 
-/* إلغاء التموضع القديم المسبب للمشكلة وتثبيته في مكانه الصحيح */
 .theme-control-nav {
-  position: relative; /* تبديل من fixed إلى relative ليتحرك بانسيابية داخل الـ Flex */
+  position: relative; 
   display: inline-block;
 }
 
-/* زر اختيار الألوان الفخم والمتناسق هندسياً */
 .theme-btn-nav {
   width: 46px;
   height: 38px;
@@ -838,21 +810,19 @@ body.dark-mode .search-results div:hover {
   border-color: #0e7490;
 }
 
-/* تعديل هبوط قائمة الألوان لتظهر أسفل الزر تماماً وبدون انزياح */
 .theme-control-nav .theme-menu {
   top: 46px;
   right: 0;
   left: auto;
 }
 
-/* تنسيق زر قناة التليجرام الجديد */
 .nav-tg-channel-btn {
   display: flex;
   align-items: center;
   gap: 6px;
   background: rgba(0, 136, 204, 0.08);
   border: 1px solid rgba(0, 136, 204, 0.15);
-  padding: 6px 14px;
+  padding: 6px clamp(6px, 1vw, 14px);
   border-radius: 12px;
   text-decoration: none;
   transition: all 0.25s ease;
@@ -874,67 +844,15 @@ body.dark-mode .search-results div:hover {
   color: #ffffff;
 }
 
-/* تنسيق زر البوت المطور */
-.nav-bot-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(14, 116, 144, 0.08);
-  border: 1px solid rgba(14, 116, 144, 0.15);
-  padding: 6px 14px;
-  border-radius: 12px;
-  text-decoration: none;
-  transition: all 0.25s ease;
-}
-
-.bot-text-nav {
-  font-family: 'Cairo', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: #0e7490;
-}
-
-.nav-bot-btn:hover {
-  background: #0e7490;
-  border-color: #0e7490;
-}
-
-.nav-bot-btn:hover .bot-text-nav {
-  color: #ffffff;
-}
-
-/* ==========================================================================
-   دعم الاستجابة للهواتف الذكية (Responsive UI)
-   ========================================================================== */
-@media (max-width: 992px) {
-  /* إخفاء النصوص المكتوبة على الموبايل لتجنب التكدس، والاعتماد على الأيقونات */
-  .tg-text-nav, .bot-text-nav {
-    display: none;
-  }
-  .nav-tg-channel-btn, .nav-bot-btn {
-    padding: 8px;
-  }
-}
-
-
-
-
-
-
-
-
 /* ==========================================================================
    إصلاح الطبقات والسماح للقائمة بالظهور فوق كل عناصر الصفحة
    ========================================================================== */
-
-/* 1. السماح للناف بار وعناصر التحكم بإظهار العناصر المنبثقة دون قصها */
 .main-navbar, 
 .navbar-container, 
 .nav-controls {
-  overflow: visible !important; /* يلغي أي قص قديم للقائمة */
+  overflow: visible !important; 
 }
 
-/* 2. إجبار القائمة على الظهور في طبقة عليا مطلقة وتحديد مكانها بدقة */
 .theme-control-nav {
   position: relative !important;
   overflow: visible !important;
@@ -942,34 +860,23 @@ body.dark-mode .search-results div:hover {
 
 .theme-control-nav .theme-menu {
   position: absolute !important;
-  top: 45px !important;       /* هبوط مناسب أسفل الأيقونة */
-  left: 0 !important;          /* تبدأ من اليسار وتتجه لليمين لتظل داخل الشاشة */
+  top: 45px !important;      
+  left: 0 !important;          
   right: auto !important;
-  width: 150px !important;     /* عرض كافٍ ومحكم لدوائر الألوان */
-  background: #ffffff !important; /* خلفية بيضاء ناصعة */
+  width: 150px !important;     
+  background: #ffffff !important; 
   border: 1px solid #e2e8f0 !important;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.2) !important; /* ظل قوي ليبرزها */
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.2) !important; 
   border-radius: 14px !important;
   padding: 10px !important;
   gap: 8px !important;
-  z-index: 99999 !important;   /* أعلى طبقة في الموقع بالكامل لضمان عدم اختفائها */
+  z-index: 99999 !important;   
 }
 
-/* 3. التأكد من تفعيل خاصية الـ Flex عند الضغط */
 .theme-control-nav .theme-menu.show,
 .theme-control-nav .theme-menu.show-theme {
   display: flex !important;
 }
-
-
-
-
-
-
-
-
-
-
 
 /* ==========================================================================
    تنسيق زر الـ Dark Mode الجديد في الناف بار
@@ -1001,22 +908,20 @@ body.dark-mode .search-results div:hover {
    باليت ألوان الوضع المظلم الاحترافي (DARK MODE GLOBAL STYLES)
    ========================================================================== */
 body.dark-mode {
-  background-color: #0f172a !important; /* خلفية داكنة فخمة مريحة جداً للعين */
-  color: #f8fafc !important; /* لون النصوص الأساسية فاتح ومقروء */
+  background-color: #0f172a !important; 
+  color: #f8fafc !important; 
 }
 
-/* صبغ حاوية المحتوى وشبكة الرسم الهندسي لتتناسق مع الليل */
 body.dark-mode .main-container,
 body.dark-mode .containar {
-  background: #1e293b !important; /* كرت المحتوى بلون داكن متناسق */
+  background: #1e293b !important; 
   border: 1px solid rgba(255, 255, 255, 0.05) !important;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* صبغ أزرار السنوات في الواجهة الأساسية عند تفعيل الوضع المظلم */
 body.dark-mode .semesters .semester {
   background-color: rgba(255, 255, 255, 0.03) !important;
-  color: #38bdf8 !important; /* اللون الأزرق السماوي البرمجي المضيء */
+  color: #38bdf8 !important; 
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
@@ -1026,7 +931,6 @@ body.dark-mode .semesters .semester:hover {
   box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3) !important;
 }
 
-/* تعديل ألوان السايد بار (صندوق الصلاة والتذكير الإيماني) */
 body.dark-mode .prayer-box,
 body.dark-mode .reminder-box {
   background: #1e293b !important;
@@ -1039,7 +943,6 @@ body.dark-mode .reminder-header {
   color: #38bdf8 !important;
 }
 
-/* تعديل نصوص العناوين والوصف والمؤشرات */
 body.dark-mode .title {
   color: #ffffff !important;
 }
@@ -1056,7 +959,6 @@ body.dark-mode .stat-label {
   color: #94a3b8 !important;
 }
 
-/* تعديل مظهر الناف بار بالكامل ليصبح زجاجي معتم ليلاً */
 body.dark-mode .main-navbar {
   background: rgba(15, 23, 42, 0.9) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
@@ -1066,11 +968,10 @@ body.dark-mode .nav-title-text {
   color: #ffffff !important;
 }
 
-/* زر المود الليلي نفسه يتحول لنمط زجاجي مضيء */
 body.dark-mode .dark-mode-btn {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.1);
-  color: #eab308; /* لون الشمس الأصفر المتوهج للعودة للمود الفاتح */
+  color: #eab308; 
 }
 
 body.dark-mode .dark-mode-btn:hover {
@@ -1079,7 +980,6 @@ body.dark-mode .dark-mode-btn:hover {
   border-color: #eab308;
 }
 
-/* تعديل الفوتر الأسفل */
 body.dark-mode .authors-glow {
   background: #0f172a !important;
   border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
@@ -1088,19 +988,12 @@ body.dark-mode .authors-names strong {
   color: #38bdf8 !important;
 }
 
-/* تعديل توهج بوردة الدوائر الإلكترونية ليلاً داخل الـ Dark Mode */
 body.dark-mode::before {
   opacity: 0.95;
-  /* تحويل ألوان مسارات الـ SVG برمجياً لتعطي نبضاً سماوياً مضيئاً (Cyberpunk Look) */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M10 10 H 90 V 90 H 10 Z M30 10 V 40 H 50 M50 40 L 70 60 H 90 M10 70 H 40 L 50 80 V 90 M70 10 L 60 20 V 40' stroke='rgba(56, 189, 248, 0.06)' stroke-width='1.2' fill='none'/%3E%3Ccircle cx='30' cy='40' r='2.5' fill='rgba(56, 189, 248, 0.12)'/%3E%3Ccircle cx='50' cy='40' r='2' fill='rgba(6, 182, 212, 0.15)'/%3E%3Ccircle cx='70' cy='60' r='2.5' fill='rgba(56, 189, 248, 0.12)'/%3E%3Ccircle cx='40' cy='70' r='2' fill='rgba(6, 182, 212, 0.15)'/%3E%3C/svg%3E");
   filter: drop-shadow(0 0 1px rgba(56, 189, 248, 0.1));
 }
 
-
-
-/* ==========================================================================
-   إصلاح وضوح الصناديق الخدمية والإيمانية في الوضع المظلم (DARK MODE FIXED)
-   ========================================================================== */
 body.dark-mode .myList {
   background: rgba(15, 23, 42, 0.98) !important;
   border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
@@ -1122,123 +1015,76 @@ body.dark-mode .study-btn-mobile {
   box-shadow: 0 4px 15px rgba(56, 189, 248, 0.25) !important;
 }
 
-/* 🔥 حل مشكلة خط الصلاة والتذكير الإيماني ليلاً 🔥 */
 body.dark-mode .prayer-box .prayer-name {
-  color: #ffffff !important; /* اسم الصلاة أبيض ناصع وواضح جداً */
+  color: #ffffff !important; 
 }
 
 body.dark-mode .prayer-box #nextPrayerTime {
-  color: #e2e8f0 !important; /* وقت الصلاة القادمة فاتح ومقروء */
+  color: #e2e8f0 !important; 
 }
 
 body.dark-mode .prayer-box #countdown {
-  color: #94a3b8 !important; /* أرقام العداد التنازلي واضحة وبدون بهتان */
+  color: #94a3b8 !important; 
 }
 
 body.dark-mode .reminder-box .reminder-text {
-  color: #f1f5f9 !important; /* نص التذكير الإيماني ناصع ومريح للعين عند القراءة الليلية */
+  color: #f1f5f9 !important; 
 }
 
-
-
-/* ضبط البروز والدمج في الوضع المظلم (Cyber Dark Glow) */
 body.dark-mode {
-  /* أرضية ليلية شديدة العمق والفخامة */
   background: linear-gradient(135deg, #0b1329 0%, #0f172a 50%, #020617 100%) !important;
 }
 
 body.dark-mode::before {
-  /* خفض الشفافية ليلاً لراحة العين مع الحفاظ على بروز العناصر */
   opacity: 0.25 !important;
-  
-  /* نمط دمج متقدم يمنح الدوائر توهجاً سيبرانياً ناعماً وسط العتمة */
   mix-blend-mode: screen !important; 
-  
-  /* فلتر يعكس الإضاءة ويبرز الخطوط الزرقاء الغامقة بشكل متناسق مع عتمة الشاشة */
   filter: contrast(140%) brightness(80%) saturate(120%) !important;
 }
 
-
-
-
-
 /* ==========================================================================
-   إصلاح الجوال الشامل: فرد الموقع كاللابتوب بشكل آمن وعريض وبدون تدوير مسبب للاختفاء
+   🎯 القسم الهندسي السحري: الحفاظ على فرد اللابتوب بالكامل وثبات الهيكل الفخم على الموبايل والآيباد
    ========================================================================== */
-@media (max-width: 768px) {
-  /* إلغاء أي تدوير قديم وإعادة الـ body لوضعه الطبيعي المستقر */
+@media (max-width: 1024px) {
   body {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    width: 100% !important;
-    height: auto !important;
-    transform: none !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    padding: 10px !important;
+    padding: 8px !important;
   }
 
-  /* جعل الكرت الرئيسي ينفرد ويأخذ مساحة عرضية ممتازة مثل الكمبيوتر */
+  /* الحاوية تحافظ على الهيكل المفرود وعرض متناسق */
   .main-layout-holder {
-    grid-template-cols: 1fr !important; 
-    width: 96% !important;
-    max-width: 100% !important;
-    margin: 10px auto !important;
+    width: 100% !important;
     padding: 5px !important;
+    gap: 15px !important;
   }
 
   .containar {
-    padding: 20px 15px !important;
+    padding: clamp(12px, 2vw, 22px) !important;
     border-radius: 18px !important;
   }
 
-  /* سحر التجاوب: جعل قائمة السنوات والصورة بجانب بعضهما (عرضي) إن سمحت الشاشة */
-  .semesters-with-image-wrapper {
-    display: flex !important;
-    flex-direction: column !important; /* ترتيب عمودي ذكي ومحكم للـ Layout لمنع ضياع العناصر */
-    gap: 20px !important;
+  /* إخفاء النصوص الجانبية للأزرار في الناف بار فقط على الشاشات الصغيرة لحماية الـ Flex من الكسر */
+  .tg-text-nav, .bot-text-nav {
+    display: none !important;
   }
 
-  /* فرش أزرار السنوات لتأخذ كامل العرض وتظهر فخمة وسهلة الضغط جداً */
-  .semesters {
-    width: 100% !important;
-    display: grid !important;
-    grid-template-cols: 1fr !important; /* كروت مفرودة ومستقيمة */
-    gap: 10px !important;
+  .nav-tg-channel-btn, .nav-bot-btn {
+    padding: clamp(6px, 1.2vw, 10px) !important;
+  }
+  
+  .search-container {
+    width: 130px !important; /* تأمين مساحة للناف بار للظهور كاملاً */
   }
 
-  .semester {
-    width: 100% !important;
-    padding: 14px 20px !important;
-    font-size: 1.05rem !important; /* حجم خط واضح وممتاز */
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 10px !important;
-  }
-
-  /* جعل كلمة engineering في الخلفية منزوية ولطيفة ولا تتداخل مع الكروت */
+  /* تجاوب الكلمة المائية في الخلفية */
   .bg-engineering-text {
     font-size: 11vw !important;
-    opacity: 0.15 !important;
-    top: 60% !important;
+    opacity: 0.12 !important;
   }
-
-  /* إخفاء أو تصغير الفقاعات لتظل على الأطراف بلطافة تامة */
-  .bubble-top-right { width: 140px !important; height: 140px !important; top: -30px !important; right: -40px !important; }
-  .bubble-bottom-right { width: 110px !important; height: 110px !important; bottom: -20px !important; right: -30px !important; }
-  .bubble-bottom-left { width: 120px !important; height: 120px !important; bottom: -25px !important; left: -35px !important; }
 }
 
-/* إذا قام المستخدم بتدوير الجوال بنفسه وضعاً أفقياً (Landscape) */
+/* في حالة مسك الجوال بشكل أفقي طبيعي (Landscape) - نزيد من فرد المساحة العرضية */
 @media (max-width: 768px) and (orientation: landscape) {
   .main-layout-holder { 
-    width: 92% !important; 
-    max-width: 680px !important; 
-  }
-  .semesters-with-image-wrapper {
-    display: grid !important;
-    grid-template-cols: 1.2fr 1fr !important; /* تقسيم الأزرار والصورة بجانب بعضهما فوراً */
+    width: 96% !important; 
+    max-width: 900px !important; 
   }
 }
