@@ -60,48 +60,50 @@ body::before {
   position: sticky;
   top: 0;
   z-index: 1002;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid #e2e8f0;
-  padding: 10px 20px;
+  padding: 10px 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  width: 100% !important;
 }
 
 .navbar-container {
   max-width: 1300px;
   margin: 0 auto;
   display: flex;
+  flex-wrap: wrap; /* يسمح بنزول المكونات لسطر جديد على الموبايل بدلاً من الانخناق */
   align-items: center;
   justify-content: space-between;
-  gap: clamp(8px, 1.5vw, 20px);
+  gap: 10px;
 }
 
-/* الشعار */
+/* منطقة الشعار والاسم */
 .nav-logo-zone {
   display: flex;
   align-items: center;
-  gap: clamp(6px, 1.2vw, 12px);
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 .nav-icon-bg {
   background: #0e7490;
   color: #ffffff;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   box-shadow: 0 4px 12px rgba(14, 116, 144, 0.2);
-  flex-shrink: 0;
 }
 
 .nav-title-text {
   font-weight: 900;
-  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+  font-size: 0.95rem;
   color: #0f172a;
-  letter-spacing: 0.5px;
   white-space: nowrap;
 }
 
@@ -109,11 +111,11 @@ body::before {
   color: #06b6d4;
 }
 
-/* التحكم والقائمة باليسار */
 .nav-controls {
   display: flex;
   align-items: center;
-  gap: clamp(6px, 1.2vw, 15px);
+  gap: 6px;
+  flex-shrink: 0;
 }
 
 .toggle-btn {
@@ -137,22 +139,20 @@ body::before {
 /* ==========================================================================
    3. حاوية البحث المدمجة بذكاء في الشريط
    ========================================================================== */
+/* صندوق البحث */
 .search-container {
   position: relative;
-  width: clamp(150px, 22vw, 320px);
+  width: 200px;
 }
 
 .search-container input {
   width: 100%;
-  padding: 10px 35px 10px 12px;
-  border-radius: 12px;
+  padding: 8px 30px 8px 10px;
+  border-radius: 10px;
   border: 1px solid #cbd5e1;
   outline: none;
   font-family: 'Cairo', sans-serif;
-  font-size: clamp(0.75rem, 1.3vw, 0.9rem);
-  background-color: #ffffff;
-  color: #1e293b;
-  transition: all 0.3s ease;
+  font-size: 0.8rem;
 }
 
 .search-container input:focus {
@@ -343,12 +343,11 @@ body.dark-mode .search-results div:hover {
    ========================================================================== */
 .semesters-with-image-wrapper {
   display: grid !important;
-  /* السحر هنا: إجبار التوزيع على البقاء بجانب بعضه (عمودين) على كافة الشاشات والموجّهات */
-  grid-template-columns: 1.25fr 1fr !important; 
-  gap: clamp(10px, 2vw, 30px) !important;
+  grid-template-columns: 1fr 1.3fr !important; /* توزيع عادل للمساحة */
+  gap: clamp(10px, 2vw, 16px) !important;
   width: 100% !important;
-  align-items: stretch !important; 
-  margin-top: 10px;
+  align-items: center !important; /* يمنع تمطيط الصورة عمودياً ويجعلها في المنتصف تماماً */
+  margin-top: 20px !important;
 }
 
 .semesters {
@@ -387,20 +386,21 @@ body.dark-mode .search-results div:hover {
 /* حاوية الصورة العلوية لتملأ الفراغ بالكامل وتصغر مع شاشات الموبايل بنسب فنية */
 .top-image-side {
   width: 100% !important;
-  height: 100% !important;
-  min-height: clamp(140px, 25vh, 280px) !important;
+  height: auto !important; /* إلغاء الارتفاع القسري */
+  max-height: 280px !important; /* تأمين أقصى ارتفاع متناسق مع الأزرار */
   display: flex !important;
 }
 
 .top-engineer-img {
   width: 100% !important;
-  height: 100% !important;
-  border-radius: 18px;
-  box-shadow: 0 10px 25px rgba(14, 116, 144, 0.08);
-  object-fit: cover; 
-  border: 1px solid #e2e8f0;
-  transition: all 0.3s ease;
+  height: clamp(180px, 25vh, 260px) !important; /* إعطاء ارتفاع مرن مريح للعين */
+  border-radius: 16px !important;
+  object-fit: cover !important; /* السحر الذي يمنع التمطيط والقص المشوه ويحافظ على أبعاد الصورة الأصلية */
+  object-position: center !important;
+  border: 1px solid rgba(14, 116, 144, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
+
 
 .top-engineer-img:hover {
   transform: translateY(-3px);
@@ -1044,47 +1044,59 @@ body.dark-mode::before {
 /* ==========================================================================
    🎯 القسم الهندسي السحري: الحفاظ على فرد اللابتوب بالكامل وثبات الهيكل الفخم على الموبايل والآيباد
    ========================================================================== */
-@media (max-width: 1024px) {
-  body {
-    padding: 8px !important;
+/* ==========================================================================
+   تجاوب الجوال الشامل والمصلح (يتم وضعه في نهاية ملف index.css)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* 1. جعل عناصر الناف بار تلتف تلقائياً لسطرين بدلاً من الانخناق */
+  .navbar-container {
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
   }
 
-  /* الحاوية تحافظ على الهيكل المفرود وعرض متناسق */
-  .main-layout-holder {
+  /* 2. إجبار صندوق البحث على النزول في سطر ثاني بالأسفل ليأخذ العرض الكامل */
+  .search-container {
     width: 100% !important;
-    padding: 5px !important;
-    gap: 15px !important;
-  }
-
-  .containar {
-    padding: clamp(12px, 2vw, 22px) !important;
-    border-radius: 18px !important;
-  }
-
-  /* إخفاء النصوص الجانبية للأزرار في الناف بار فقط على الشاشات الصغيرة لحماية الـ Flex من الكسر */
-  .tg-text-nav, .bot-text-nav {
-    display: none !important;
-  }
-
-  .nav-tg-channel-btn, .nav-bot-btn {
-    padding: clamp(6px, 1.2vw, 10px) !important;
+    order: 3; /* يضعه في السطر الثاني */
+    margin-top: 8px !important;
   }
   
-  .search-container {
-    width: 130px !important; /* تأمين مساحة للناف بار للظهور كاملاً */
+  .search-container input {
+    width: 100% !important;
   }
 
-  /* تجاوب الكلمة المائية في الخلفية */
-  .bg-engineering-text {
-    font-size: 11vw !important;
-    opacity: 0.12 !important;
+  /* 3. ضبط الـ Grid للسنوات والصورة بجانب بعضهما */
+  .semesters-with-image-wrapper {
+    display: grid !important;
+    grid-template-columns: 1fr 1.2fr !important; /* توزيع متوازن ومريح للعين */
+    gap: 12px !important;
+    align-items: center !important; /* تمنع تمطيط الصورة عمودياً */
+  }
+
+  /* 4. السحر البرمجي: منع تمطيط الصورة أو فعصها نهائياً */
+  .semesters-with-image-wrapper img, 
+  .top-engineer-img {
+    width: 100% !important;
+    height: clamp(160px, 22vh, 240px) !important; /* ارتفاع ديناميكي متناسق مع الأزرار */
+    object-fit: cover !important; /* تحافظ على أبعاد الصورة الأصلية وتمنع التشويه */
+    border-radius: 12px !important;
+  }
+
+  /* 5. تصغير نصوص الأزرار قليلاً لتتناسب مع حجم شاشات الموبايل الصغير */
+  .semester {
+    font-size: 0.8rem !important;
+    padding: 10px 6px !important;
   }
 }
 
-/* في حالة مسك الجوال بشكل أفقي طبيعي (Landscape) - نزيد من فرد المساحة العرضية */
-@media (max-width: 768px) and (orientation: landscape) {
-  .main-layout-holder { 
-    width: 96% !important; 
-    max-width: 900px !important; 
-  }
+/* ==========================================================================
+   التوافق التام مع الوضع المظلم للناف بار
+   ========================================================================== */
+body.dark-mode .main-navbar {
+  background: rgba(30, 41, 59, 0.95) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-mode .nav-title-text {
+  color: #ffffff !important;
 }
