@@ -354,13 +354,12 @@ h1 {
 .containar {
   display: flex !important;
   flex-direction: column !important;
-  gap: 20px !important; /* توزيع مسافات متساوية وأنيقة بين الكروت */
-  max-width: 800px !important; /* تحديد عرض مثالي مريح للعين وسط الشاشة */
-  width: 90% !important;
-  margin: 40px auto !important; /* توسيط الحاوية وترك مسافة علوية فخمة */
-  padding: 10px !important;
+  gap: clamp(12px, 2.5vh, 20px) !important; /* مسافات مرنة تتناقص على الجوال */
+  max-width: 600px !important; /* العرض المثالي لمنع التمدد الزائد */
+  width: 88% !important;
+  margin: clamp(20px, 5vh, 40px) auto !important;
   position: relative !important;
-  z-index: 10 !important; /* رفع الكروت لطبقة علوية فوق كلمة الخلفية */
+  z-index: 10 !important;
 }
 
 /* ==========================================================================
@@ -369,20 +368,19 @@ h1 {
 .main-layout-holder div:has(> a),
 .containar a,
 div[class*="-card"] {
-  display: block !important;
-  background: rgba(255, 255, 255, 0.82) !important; /* خلفية زجاجية بيضاء شبه شفافة */
-  backdrop-filter: blur(14px) !important; /* تأثير التغبيش الزجاجي الفخم */
-  -webkit-backdrop-filter: blur(14px) !important;
-  
-  border: 1px solid rgba(14, 116, 144, 0.12) !important; /* إطار ناعم بلون الهوية الأزرق */
-  border-radius: 16px !important; /* زوايا منحنية ناعمة وحديثة */
-  padding: 18px 24px !important; /* مساحات داخلية مريحة للنصوص */
-  
-  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.03) !important; /* ظل ناعم جداً يعطي إيحاء بالبروز */
-  text-align: center !important;
-  text-decoration: none !important;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important; /* حركة انسيابية هندسية */
-  cursor: pointer !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(14, 116, 144, 0.12) !important;
+  border-radius: 14px !important;
+  padding: clamp(12px, 2vh, 18px) clamp(16px, 3vw, 24px) !important; /* حشو داخلي متناسق على الجوال */
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.02) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+body.dark-mode .main-layout-holder div:has(> a),
+body.dark-mode .containar a,
+body.dark-mode div[class*="-card"] {
+  background: rgba(30, 41, 59, 0.75) !important;
 }
 
 /* ==========================================================================
@@ -440,24 +438,24 @@ body.dark-mode .containar a {
   left: 50% !important;
   transform: translate(-50%, -50%) rotate(-12deg) !important;
   font-family: 'Montserrat', sans-serif !important;
-  font-size: 12vw !important;
+  
+  /* منع الكلمة من أن تصبح ضخمة أو تنضغط بشكل مشوه على الشاشات الصغيرة */
+  font-size: clamp(45px, 10vw, 120px) !important; 
   font-weight: 900 !important;
   text-transform: lowercase !important;
-  letter-spacing: -3px !important;
-  pointer-events: none !important; /* عزل كامل: الماوس يمر من خلالها ولا يلمسها */
-  user-select: none !important;
-  z-index: 1 !important; /* تظل في أبعد طبقة بالخلفية خلف الكروت تماماً */
+  letter-spacing: -1.5px !important;
+  white-space: nowrap !important; /* إجبار الكلمة على البقاء في سطر واحد دون التفاف */
   
-  /* لون باهت جداً وناعم كعلامة مائية لا تؤثر مطلقاً على أي أيقونة أو زر */
-  color: rgba(226, 232, 240, 0.28) !important;
-  opacity: 0.4 !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  z-index: 1 !important;
+  color: rgba(226, 232, 240, 0.25) !important;
+  opacity: 0.35 !important;
 }
 
 body.dark-mode .bg-engineering-text {
-  color: rgba(15, 23, 42, 0.18) !important;
-  text-shadow: 0 0 40px rgba(56, 189, 248, 0.03) !important;
+  color: rgba(15, 23, 42, 0.15) !important;
 }
-
 /* ==========================================================================
    6. تأمين الحماية المطلقة لأيقونة القائمة الجانبية وشريط التنقل
    ========================================================================== */
@@ -479,12 +477,11 @@ header {
   pointer-events: none !important;
   user-select: none !important;
   z-index: 0 !important;
-  background: linear-gradient(135deg, rgba(14, 116, 144, 0.1), rgba(56, 189, 248, 0.05)) !important;
-  backdrop-filter: blur(5px) !important;
-  -webkit-backdrop-filter: blur(5px) !important;
-  border: 1px solid rgba(14, 116, 144, 0.08) !important;
+  background: linear-gradient(135deg, rgba(14, 116, 144, 0.08), rgba(56, 189, 248, 0.04)) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  border: 1px solid rgba(14, 116, 144, 0.06) !important;
   animation: bubbleFloat 9s ease-in-out infinite alternate;
-  transition: all 0.3s ease;
 }
 
 /* ==========================================================================
@@ -496,17 +493,54 @@ header {
   pointer-events: none !important;
   user-select: none !important;
   z-index: 0 !important;
-  
-  /* لون أزرق غامق فخم مع تباين عالي وشفافية مدروسة */
-  background: linear-gradient(135deg, rgba(15, 17, 42, 0.15), rgba(30, 41, 59, 0.08)) !important;
-  backdrop-filter: blur(3px) !important;
-  -webkit-backdrop-filter: blur(3px) !important;
-  border: 1px solid rgba(21, 15, 42, 0.12) !important;
-  
-  /* حركة أسرع قليلاً للفقاعات الصغيرة لتعطي حيوية للموقع */
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.12), rgba(30, 41, 59, 0.06)) !important;
+  backdrop-filter: blur(2px) !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
   animation: bubbleFloat 6s ease-in-out infinite alternate-reverse;
-  transition: all 0.3s ease;
 }
+
+@media (max-width: 768px) {
+  .bubble-top-right { width: 140px !important; height: 140px !important; top: -30px !important; right: -40px !important; }
+  .bubble-mid-right-1 { width: 90px !important; height: 90px !important; top: 20% !important; right: -20px !important; }
+  .bubble-mid-right-2 { width: 70px !important; height: 70px !important; top: 65% !important; right: -15px !important; }
+  .bubble-bottom-right { width: 110px !important; height: 110px !important; bottom: -30px !important; right: -35px !important; }
+  
+  .bubble-mini-1 { width: 25px !important; height: 25px !important; top: 12% !important; right: 50px !important; }
+  .bubble-mini-2 { width: 20px !important; height: 20px !important; top: 48% !important; right: 30px !important; }
+  .bubble-mini-3 { width: 30px !important; height: 30px !important; bottom: 22% !important; right: 45px !important; }
+  
+  .bubble-bottom-left { width: 120px !important; height: 120px !important; bottom: -30px !important; left: -35px !important; }
+  .bubble-mid-left { width: 65px !important; height: 65px !important; top: 40% !important; left: -20px !important; }
+}
+
+@media (min-width: 769px) {
+  .bubble-top-right { width: 280px; height: 280px; top: -80px; right: -90px; }
+  .bubble-mid-right-1 { width: 160px; height: 160px; top: 25%; right: -40px; }
+  .bubble-mid-right-2 { width: 120px; height: 120px; top: 60%; right: -30px; }
+  .bubble-bottom-right { width: 200px; height: 200px; bottom: -50px; right: -60px; }
+  
+  .bubble-mini-1 { width: 45px; height: 45px; top: 15%; right: 120px; }
+  .bubble-mini-2 { width: 35px; height: 35px; top: 45%; right: 60px; }
+  .bubble-mini-3 { width: 55px; height: 55px; bottom: 20%; right: 100px; }
+  
+  .bubble-bottom-left { width: 220px; height: 220px; bottom: -60px; left: -70px; }
+  .bubble-mid-left { width: 110px; height: 110px; top: 40%; left: -40px; }
+}
+
+@keyframes bubbleFloat {
+  0% { transform: translateY(0) scale(1) rotate(0deg); }
+  100% { transform: translateY(-12px) scale(1.02) rotate(10deg); }
+}
+
+body.dark-mode .bubble {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.06), rgba(6, 182, 212, 0.02)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.04) !important;
+}
+body.dark-mode .bubble-mini {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.4), rgba(0, 0, 0, 0.2)) !important;
+  border: 1px solid rgba(56, 189, 248, 0.1) !important;
+}
+
 
 /* --- توزيع وتكثيف الفقاعات على الطرف اليمين بدقة متناهية --- */
 
@@ -572,36 +606,4 @@ header {
   left: -40px;
   animation-delay: 5s;
 }
-
-/* ==========================================================================
-   3. أنيميشن الحركة الانسيابية المتناسقة
-   ========================================================================== */
-@keyframes bubbleFloat {
-  0% {
-    transform: translateY(0) scale(1) rotate(0deg);
-    box-shadow: 0 4px 15px rgba(14, 116, 144, 0.02);
-  }
-  100% {
-    transform: translateY(-20px) scale(1.04) rotate(15deg);
-    box-shadow: 0 12px 30px rgba(56, 189, 248, 0.06);
-  }
-}
-
-/* ==========================================================================
-   4. دعم الوضع المظلم (Dark Mode) ليلاً ليتناسق الغامق والفاتح مع العتمة
-   ========================================================================== */
-body.dark-mode .bubble {
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.06), rgba(6, 182, 212, 0.02)) !important;
-  border: 1px solid rgba(255, 255, 255, 0.04) !important;
-}
-
-body.dark-mode .bubble-mini {
-  /* في المود المظلم تصبح الفقاعات الصغيرة شديدة العتمة والعمق السيبراني */
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.4), rgba(0, 0, 0, 0.2)) !important;
-  border: 1px solid rgba(56, 189, 248, 0.1) !important;
-  box-shadow: 0 0 15px rgba(56, 189, 248, 0.03) !important;
-}
-
-
-
 

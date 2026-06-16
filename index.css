@@ -1159,3 +1159,68 @@ body.dark-mode::before {
 }
 
 
+
+
+
+/* ==========================================================================
+   سحر هندسي: إجبار الجوال العمودي على تدوير العرض ليصبح كالكمبيوتر مفروداً
+   ========================================================================== */
+@media (max-width: 768px) and (orientation: portrait) {
+  body {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vh !important;  /* العرض يصبح هو ارتفاع الشاشة */
+    height: 100vw !important; /* الارتفاع يصبح هو عرض الشاشة */
+    transform: rotate(-90deg) !important; /* قلب الشاشة بالكامل أفقياً */
+    transform-origin: top left !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    left: -100vh !important; /* تصحيح نقطة الدوران */
+  }
+
+  /* إعادة توزيع الحاوية الرئيسية والكروت لتفرد نفسها عرضياً كاللابتوب */
+  .main-layout-holder {
+    grid-template-cols: 1fr !important; /* حماية الهيكل العرضي */
+    width: 95% !important;
+    max-width: 850px !important;
+    margin: 15px auto !important;
+    padding: 10px !important;
+  }
+
+  .containar {
+    padding: 20px !important;
+    border-radius: 16px !important;
+  }
+
+  /* جعل الأزرار الكبيرة والصورة بجانب بعضها لمنع التكدس العمودي */
+  .semesters-with-image-wrapper {
+    grid-template-cols: 1.2fr 1fr !important; 
+    gap: 20px !important;
+  }
+
+  .semester {
+    padding: 12px 20px !important;
+    font-size: 0.95rem !important;
+  }
+
+  /* ضبط الصور لتتناسب مع الأبعاد العرضية الجديدة */
+  .top-image-side {
+    min-height: 200px !important;
+  }
+  
+  /* إخفاء عناصر التحكم الزائدة مؤقتاً في هذا الوضع إن كانت تسبب زحاماً */
+  .quick-stats {
+    margin-top: 15px !important;
+    padding-top: 15px !important;
+    gap: 20px !important;
+  }
+}
+
+/* الجوال بالوضع الأفقي الطبيعي - نضمن بقاء المساحة مفرودة بالكامل */
+@media (max-width: 768px) and (orientation: landscape) {
+  .main-layout-holder { 
+    width: 95% !important; 
+    max-width: 850px !important; 
+  }
+}
