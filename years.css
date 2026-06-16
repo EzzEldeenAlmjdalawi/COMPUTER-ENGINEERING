@@ -607,3 +607,89 @@ body.dark-mode .bubble-mini {
   animation-delay: 5s;
 }
 
+
+
+
+
+
+
+
+
+/* =========================================
+   🔥 RESPONSIVE - YEAR PAGES
+   ========================================= */
+
+/* 📱 موبايل */
+@media (max-width: 768px) {
+
+  body {
+    padding: 10px !important;
+  }
+
+  .main-container {
+    width: 95% !important;
+    padding: 20px !important;
+    margin: 20px auto !important;
+  }
+
+  h1 {
+    font-size: 1.6rem !important;
+  }
+
+  /* الأزرار */
+  .semester {
+    font-size: 0.95rem !important;
+    padding: 12px !important;
+  }
+
+  /* المواد */
+  .subject {
+    font-size: 0.9rem !important;
+    padding: 10px !important;
+  }
+
+  /* القائمة الفرعية */
+  .subject-list,
+  .resources {
+    margin: 10px 0 20px 10px !important;
+    padding-right: 10px !important;
+  }
+
+  /* الروابط */
+  .resource-link {
+    font-size: 13px !important;
+    padding: 8px 12px !important;
+  }
+
+  /* زر القائمة */
+  .toggle-btn {
+    top: 10px !important;
+    left: 10px !important;
+    padding: 8px 14px !important;
+    font-size: 0.9rem !important;
+  }
+
+}
+
+
+/* 📱 Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .main-container {
+    width: 85% !important;
+    padding: 30px !important;
+  }
+
+  h1 {
+    font-size: 2rem !important;
+  }
+
+}
+
+
+/* 💻 تحسين عام */
+.semester,
+.subject,
+.resource-link {
+  word-break: break-word;
+}
