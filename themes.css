@@ -1,6 +1,6 @@
-/* ===============================
-   THEME BUTTON POSITION
-================================ */
+/* ==========================================================================
+   1. زر لوحة الألوان (THEME BUTTON) - النمط الزجاجي العصري
+   ========================================================================== */
 .theme-control {
   position: fixed;
   overflow: visible;
@@ -10,138 +10,144 @@
 }
 
 .theme-btn {
-  width: 60px;
+  width: 50px;
   height: 42px;
-  border-radius: 15px;
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(0,229,255,0.3);
-  color: #00f7ff;
-box-shadow: 0 0 10px rgba(0,229,255,0.2);
-  border: 1px solid #444;
-  color: #fff;
+  border-radius: 12px;
+  /* نمط Glassmorphism متوافق مع الواجهة البيضاء الجديدة */
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(14, 116, 144, 0.15);
+  color: #0e7490; /* اللون الكحلي الهندسي المعتمد */
   font-size: 18px;
   cursor: pointer;
-} 
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
 
-/* ===============================
-   THEME MENU
-================================ */
+.theme-btn:hover {
+  background: #0e7490;
+  color: #ffffff;
+  border-color: #0e7490;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(14, 116, 144, 0.2);
+}
+
+/* ==========================================================================
+   2. قائمة اختيار الألوان (THEME MENU)
+   ========================================================================== */
 .theme-menu {
   position: absolute;
-  top: 55px;
+  top: 52px;
   right: 0;
   left: auto;
   display: none;
   flex-wrap: wrap;
-  gap: 3px;
+  gap: 8px; /* مسافة مريحة وموزعة بشكل هندسي */
   padding: 12px;
-  width: 140px;
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(0,229,255,0.2);
-  box-shadow: 0 0 20px rgba(0,229,255,0.15);
-backdrop-filter: blur(10px);
-  border-radius: 14px;
-  border: 1px solid #333;
+  width: 150px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
 }
 
-.theme-menu.show {
+/* الكلاس التزامني لإظهار القائمة بسلاسة */
+.theme-menu.show,
+.theme-menu.show-theme {
   display: flex;
 }
 
-.theme-btn:hover {
-  background: #00f7ff;
-  color: black;
-  box-shadow: 0 0 15px #00f7ff;
-}
-
-/* ===============================
-   COLOR DOTS
-================================ */
+/* ==========================================================================
+   3. دوائر الألوان التفاعلية (COLOR DOTS)
+   ========================================================================== */
 .color {
   width: 26px;
   height: 26px;
   border-radius: 50%;
   cursor: pointer;
-  border: 1px solid rgba(0,229,255,0.3);
-}
-
-.color:hover {
-  transform: scale(1.15);
-  box-shadow: 0 0 10px #00f7ff;
-}
-
-.color {
-  box-shadow: 0 0 8px rgba(0,247,255,0.3);
+  border: 2px solid #ffffff; /* إطار أبيض داخلي ليفصل اللون ويبرزه */
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.15);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .color:hover {
   transform: scale(1.2);
-  box-shadow: 0 0 12px #00f7ff;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.3);
 }
 
+/* باليت الألوان المريحة للعين وبدون توهج Cyberpunk الفاقع */
+.color.blue      { background: #3b82f6; }
+.color.green     { background: #10b981; }
+.color.purple    { background: #8b5cf6; }
+.color.orange    { background: #f97316; }
+.color.red       { background: #ef4444; }
+.color.pink      { background: #ec4899; }
+.color.yellow    { background: #eab308; }
+.color.cyan      { background: #06b6d4; }
+.color.lime      { background: #84cc16; }
+.color.teal      { background: #14b8a6; }
+.color.magenta   { background: #d946ef; }
+.color.maroon    { background: #9f1239; }
+.color.navy      { background: #1e3a8a; }
+.color.gray      { background: #64748b; }
+.color.black     { background: #0f172a; }
+.color.off       { background: #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #334155; font-weight: bold; }
 
-.color.blue      { background: #00aaff; }
-.color.green     { background: #00ffcc; }
-.color.purple    { background: #b366ff; }
-.color.orange    { background: #ffb347; }
-.color.red       { background: #ff4d6d; }
-.color.pink      { background: #ff7bff; }
-.color.yellow    { background: #fff44f; }
-.color.cyan      { background: #00fff7; }
-.color.lime      { background: #bfff00; }
-.color.teal      { background: #00e6e6; }
-.color.magenta   { background: #ff00cc; }
-.color.maroon    { background: #b03060; }
-.color.navy      { background: #3366ff; }
-.color.gray      { background: #aaaaaa; }
-.color.black     { background: #111111; }
-.color.white     { background: #ffffff; }
-/* ===============================
-   THEMES EFFECTS
-================================ */
-body.theme-blue::after      { content: ""; position: fixed; inset:0; background: rgba(0,120,255,0.25); pointer-events:none; }
-body.theme-green::after     { content: ""; position: fixed; inset:0; background: rgba(0,255,160,0.25); pointer-events:none; }
-body.theme-purple::after    { content: ""; position: fixed; inset:0; background: rgba(155,92,255,0.25); pointer-events:none; }
-body.theme-orange::after    { content: ""; position: fixed; inset:0; background: rgba(255,159,28,0.25); pointer-events:none; }
-body.theme-red::after       { content: ""; position: fixed; inset:0; background: rgba(255,59,59,0.25); pointer-events:none; }
-body.theme-pink::after      { content: ""; position: fixed; inset:0; background: rgba(255,111,207,0.25); pointer-events:none; }
-body.theme-yellow::after    { content: ""; position: fixed; inset:0; background: rgba(255,242,0,0.25); pointer-events:none; }
-body.theme-cyan::after      { content: ""; position: fixed; inset:0; background: rgba(0,255,247,0.25); pointer-events:none; }
-body.theme-lime::after      { content: ""; position: fixed; inset:0; background: rgba(164,255,0,0.25); pointer-events:none; }
-body.theme-teal::after      { content: ""; position: fixed; inset:0; background: rgba(0,179,179,0.25); pointer-events:none; }
-body.theme-magenta::after   { content: ""; position: fixed; inset:0; background: rgba(255,0,255,0.25); pointer-events:none; }
-body.theme-maroon::after    { content: ""; position: fixed; inset:0; background: rgba(128,0,0,0.25); pointer-events:none; }
-body.theme-navy::after      { content: ""; position: fixed; inset:0; background: rgba(0,0,128,0.25); pointer-events:none; }
-body.theme-gray::after      { content: ""; position: fixed; inset:0; background: rgba(136,136,136,0.25); pointer-events:none; }
-body.theme-black::after     { content: ""; position: fixed; inset:0; background: rgba(0,0,0,0.25); pointer-events:none; }
-body.theme-white::after     { content: ""; position: fixed; inset:0; background: rgba(255,255,255,0.25); pointer-events:none; }
+/* ==========================================================================
+   4. تأثيرات التناغم اللوني للمنصة (THEMES EFFECTS)
+   بدلاً من تغطية الصفحة بطبقة تحجب الرؤية، الآن نقوم بصبغ حواف الكروت والعناصر برقة 
+   ========================================================================== */
+body.theme-blue .main-container, body.theme-blue .containar  { border-top: 4px solid #3b82f6; }
+body.theme-green .main-container, body.theme-green .containar { border-top: 4px solid #10b981; }
+body.theme-purple .main-container, body.theme-purple .containar { border-top: 4px solid #8b5cf6; }
+body.theme-orange .main-container, body.theme-orange .containar { border-top: 4px solid #f97316; }
+body.theme-red .main-container, body.theme-red .containar    { border-top: 4px solid #ef4444; }
+body.theme-pink .main-container, body.theme-pink .containar   { border-top: 4px solid #ec4899; }
+body.theme-yellow .main-container, body.theme-yellow .containar { border-top: 4px solid #eab308; }
+body.theme-cyan .main-container, body.theme-cyan .containar   { border-top: 4px solid #06b6d4; }
+body.theme-lime .main-container, body.theme-lime .containar   { border-top: 4px solid #84cc16; }
+body.theme-teal .main-container, body.theme-teal .containar   { border-top: 4px solid #14b8a6; }
+body.theme-magenta .main-container, body.theme-magenta .containar { border-top: 4px solid #d946ef; }
+body.theme-maroon .main-container, body.theme-maroon .containar { border-top: 4px solid #9f1239; }
+body.theme-navy .main-container, body.theme-navy .containar   { border-top: 4px solid #1e3a8a; }
+body.theme-gray .main-container, body.theme-gray .containar   { border-top: 4px solid #64748b; }
+body.theme-black .main-container, body.theme-black .containar { border-top: 4px solid #0f172a; }
 
-/* ===============================
-   BACKGROUND & TEXT FOR SPECIAL MODES
-================================ */
-body.theme-white { background:#ffffff !important; color:#111 !important; }
-body.theme-black { background:#000000 !important; color:#fff !important; }
+/* تغيير لون هيدر الفصول ديناميكياً مع الثيم المختار */
+body.theme-blue .semester  { background: rgba(59, 130, 246, 0.08); color: #3b82f6; }
+body.theme-green .semester { background: rgba(16, 185, 129, 0.08); color: #10b981; }
+body.theme-purple .semester{ background: rgba(139, 92, 246, 0.08); color: #8b5cf6; }
+body.theme-orange .semester{ background: rgba(249, 115, 22, 0.08); color: #f97316; }
+body.theme-red .semester   { background: rgba(239, 68, 68, 0.08); color: #ef4444; }
 
-/* ===============================
-   RESPONSIVE FIX
-================================ */
-@media(max-width:768px){
+/* ==========================================================================
+   5. الاستجابة مع الشاشات المختلفة (RESPONSIVE FIX)
+   ========================================================================== */
+@media(max-width: 768px) {
   .theme-control {
-    right: 15px;
-    top: 15px;
+    right: 70px; /* لضمان عدم تداخله مع زر القائمة الجانبية الموبايل */
+    top: 14px;
   }
 
   .theme-btn {
-    width: 50px;
+    width: 44px;
     height: 38px;
     font-size: 16px;
+    border-radius: 10px;
   }
 
   .theme-menu {
     right: 0;
     left: auto;
-    flex-direction: column;
-    width: 160px;
-    max-height: 300px;
+    width: 130px;
+    gap: 6px;
+    padding: 10px;
   }
 }
+

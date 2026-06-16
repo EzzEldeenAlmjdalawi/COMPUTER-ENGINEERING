@@ -1,376 +1,606 @@
- body {
-    background-color: #071520;
-    color: #00f7ff;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 30px;
-      animation: glow 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 10px rgba(0,229,255,0.8), 0 0 30px rgba(0,229,255,0.4);
-      }
-      to {
-        text-shadow: 0 0 20px #00cfff, 0 0 30px #00cfff;
-      }
-    }
-
-    .semester {
-      background-color: rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(0,229,255,0.3);
-      color: #00f7ff;
-      padding: 15px 20px;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      font-size: 1.3rem;
-      cursor: pointer;
-      transition: 0.3s;
-      text-align: center;
-    }
-
-    .semester:hover {
-     background-color: #00f7ff;
-      color: black;
-    }
-
-    .subject-list, .resources {
-      display: none;
-      flex-direction: column;
-      gap: 10px;
-      margin: 10px 0 20px 20px;
-    }
-
-    .subject {
-      background-color: rgba(0, 0, 0, 0.35);
-      border: 1px solid rgba(0,229,255,0.2);
-      color: #00f7ff;
-      padding: 10px 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      transition: 0.3s;
-      text-align: center;
-      
-    }
-
-    .subject:hover {
-      background-color: #00f7ff;
-      color: black;
-    }
-
-    .resources button {
-      background-color: rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(0,229,255,0.3);
-      color: #00f7ff;
-      border: none;
-      padding: 10px;
-      border-radius: 8px;
-      color: white;
-      text-align: center;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .resources button:hover {
-      background-color: #00f7ff;
-      color: black;
-    }
-        .toggle-btn {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: #00f7ff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            border-radius: 12px;
-            cursor: pointer;
-            z-index: 1001;
-            color: #000;
-            box-shadow: 0 0 10px #00f7ff88;
-            transition: all 0.3s ease;
-        }
-        .toggle-btn:hover {
-            background-color: #00cfff;
-            box-shadow: 0 0 20px #00f7ff;
-            transform: scale(1.05);
-        }
-        .myList {
-        position: fixed;
-        top: 0;
-        left: -250px;
-        width: 250px;
-        height: 100%;
-        background:
-        radial-gradient(ellipse 120% 80% at 10% 20%, rgba(0,229,255,0.06) 0%, transparent 60%),
-        linear-gradient(180deg, #060f18 0%, #08161f 100%);
-
-        padding: 30px 20px;
-        transition: left 0.4s ease;
-        z-index: 1000;
-        box-shadow:
-        4px 0 40px rgba(0,0,0,0.6),
-        2px 0 0 rgba(0,229,255,0.2);
-        animation: slideOut 0.3s forwards;
-        overflow-y: auto;
-        color:white;
-        }
-
-        .myList::after {
-        content: "";
-        position: absolute;
-           top: 0;
-          right: -2px;
-         width: 3px;
-         height: 100%;
-
-        background: linear-gradient(
-        to bottom,
-        transparent,
-        #00f7ff,
-         transparent
-  );
-
-  box-shadow: 0 0 10px #00f7ff;
+/* ==========================================================================
+   1. الإعدادات العامة والخلفية الهندسية الموحدة (Grid + Sine Waves)
+   ========================================================================== */
+body, html {
+  overflow-x: hidden;
 }
 
-        .myList.show {
-        left: 0;
-        animation: slideIn 0.4s forwards;
-        }
+div, nav, aside {
+  overflow-x: hidden;
+}
 
-        @keyframes slideIn {
-        from {
-            left: -250px;
-            opacity: 0.3;
-        }
-        to {
-            left: 0;
-            opacity: 1;
-        }
-        }
+body {
+  color: #1e293b;
+  font-family: 'Cairo', Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  position: relative;
 
-        @keyframes slideOut {
-        from {
-            left: 0;
-            opacity: 1;
-        }
-        to {
-            left: -250px;
-            opacity: 0.3;
-        }
-        }
+  /* السحر الهندي: دمج شبكة الرسم الهندسي مع موجات ترددية ناعمة تعبر عن جو هندسة الحاسوب */
+  background-color: #f8fafc;
+  background-image: 
+    /* 1. خطوط الشبكة العمودية والأفقية الدقيقة */
+    linear-gradient(to right, rgba(14, 116, 144, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 116, 144, 0.04) 1px, transparent 1px),
+    /* 2. موجات جيبية تكنولوجية متداخلة في الخلفية تعطي عمق تقني */
+    radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 20% 80%, rgba(14, 116, 144, 0.04) 0%, transparent 50%);
+  background-size: 30px 30px, 30px 30px, 100% 100%, 100% 100%;
+}
 
-        .myList ul {
-        list-style-type: none;
-        }
+/* ==========================================================================
+   2. حاوية البطاقات (Container) لضمان التوسط الدقيق والحواف الأنيقة
+   ========================================================================== */
+/* أضف هذا الكلاس لكي يجمع المواد والفصول في كرت أبيض مركزي رائع مثل الواجهة الرئيسية */
+.main-container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #ffffff;
+  border-radius: 24px; /* حواف دائرية فخمة */
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04); /* ظل ناعم يبرز الكرت */
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
 
-        .myList ul li  {
-        margin: 15px 0;
-        font-size: 1.1rem;
-        color: #fff;
-        padding: 8px 10px;
-        border-bottom: 1px solid #00f7ff44;
-        transition: all 0.3s ease;
-        }
-        .myList ul li a {
-        margin: 15px 0;
-        font-size: 1.1rem;
-        color: #fff;
-        padding: 8px 10px;
-        border-bottom: 1px solid #00f7ff44;
-        transition: all 0.3s ease;
-        }
+a {
+  text-decoration: none;
+}
 
-        .myList ul li:hover {
-        color: #00f7ff;
-        transform: translateX(5px);
-        }
-        .myList ul li a:hover {
-        color: #00f7ff;
-        transform: translateX(5px);
-        }
+/* ==========================================================================
+   2. تأثير التوهج للعنوان الرئيسي بشكل ناعم وغير دفش
+   ========================================================================== */
+h1 {
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 30px;
+  animation: glow 2s ease-in-out infinite alternate;
+}
 
-        .myList ul li:hover {
-  box-shadow: 0 0 12px rgba(0,247,255,0.4);
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(14, 116, 144, 0.1), 0 0 20px rgba(14, 116, 144, 0.05);
+  }
+  to {
+    text-shadow: 0 0 15px rgba(6, 182, 212, 0.2), 0 0 25px rgba(6, 182, 212, 0.1);
+  }
+}
+
+/* ==========================================================================
+   3. تنسيق أزرار السنوات والمواد الـ Semesters & Subjects
+   ========================================================================== */
+.semester {
+  background-color: #ffffff; /* جعل البطاقات بيضاء فخمة متناسقة مع الكرت الرئيسي */
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  padding: 15px 20px;
+  border-radius: 14px;
+  margin-bottom: 15px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.01);
+}
+
+.semester:hover {
+  background-color: #0e7490; /* يتحول للون الأزرق الهندسي الخاص بالمنصة عند المرور */
+  color: #ffffff;
+  border-color: #0e7490;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(14, 116, 144, 0.15);
+}
+
+/* قائمة المواد الفرعية */
+.subject-list, .resources {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  margin: 15px 0 25px 20px;
+  padding-right: 15px; /* مسافة جمالية تعطي انطباع بالتفرع */
+  border-right: 2px dashed #cbd5e1; /* خط منقط أنيق يربط المواد بالسنة الدراسية */
+}
+
+.subject {
+  background-color: #f1f5f9; /* لون رمادي خفيف للمواد لتمييزها عن السنوات */
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  text-align: center;
+}
+
+.subject:hover {
+  background-color: #06b6d4; /* تلوين المادة بلون تيل/سيان مكمل عند الإشارة إليها */
+  color: #ffffff;
+  border-color: #06b6d4;
+  transform: translateX(-3px); /* حركة تفاعلية ناعمة جهة اليمين/اليسار */
+}
+
+/* ==========================================================================
+   4. أزرار المصادر والروابط الدراسية Resources & Links
+   ========================================================================== */
+.resources button {
+  background-color: #ffffff;
+  border: 1px solid #0e7490;
+  color: #0e7490;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Cairo', sans-serif;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.resources button:hover {
+  background-color: #0e7490;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(14, 116, 144, 0.15);
+}
+
+.resource-link {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 18px;
+  background-color: #e0f2fe; /* أزرق سماوي ناعم للخلفية */
+  color: #0369a1; /* لون نص داكن واضح */
+  font-weight: 700;
+  text-decoration: none;
   border-radius: 8px;
+  font-size: 14px;
+  border: 1px solid #bae6fd;
+  transition: all 0.25s ease;
 }
-       body, html {
-        overflow-x: hidden;
-        }
 
-        div, nav, aside {
-        overflow-x: hidden;
-        }
-        a{
-            text-decoration: none;
-        }
+.resource-link:hover {
+  background-color: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.15);
+}
 
-        .resource-link {
-          display: inline-block;
-          margin: 5px;
-          padding: 10px 15px;
-          background-color: #1d2d44;
-          color: white;
-          text-decoration: none;
-          border-radius: 5px;
-          font-size: 14px;
-        }
-        .resource-link:hover {
-            background-color: #1d2d44;
-            color: black;
-        }
+/* ==========================================================================
+   5. القائمة الجانبية وزر التحكم (Sidebar & Toggle)
+   ========================================================================== */
+.toggle-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #0e7490;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  z-index: 1001;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(14, 116, 144, 0.2);
+  transition: all 0.3s ease;
+}
 
+.toggle-btn:hover {
+  background-color: #0891b2;
+  box-shadow: 0 6px 15px rgba(14, 116, 144, 0.3);
+  transform: scale(1.03);
+}
 
+.myList {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  background: #ffffff; /* توحيد لون القائمة بالخلفية البيضاء النقية */
+  border-right: 1px solid #e2e8f0;
+  padding: 30px 20px;
+  transition: left 0.4s cubic-bezier(.4,0,.2,1);
+  z-index: 1000;
+  box-shadow: 10px 0 40px rgba(0,0,0,0.03);
+  overflow-y: auto;
+  color: #1e293b;
+}
 
+.myList::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #0e7490, transparent);
+}
 
+.myList.show {
+  left: 0;
+}
 
+.myList ul {
+  list-style-type: none;
+}
 
+.myList ul li, .myList ul li a {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #334155;
+  padding: 10px 12px;
+  border-bottom: 1px solid #f1f5f9;
+  transition: all 0.25s ease;
+}
 
+.myList ul li:hover, .myList ul li a:hover {
+  color: #0e7490;
+  background-color: #f0fdfa;
+  border-radius: 8px;
+  transform: translateX(4px);
+}
 
-
-
-
-
+/* ==========================================================================
+   6. صندوق مواقيت الصلاة الإسلامي والتذكيرات الجانبية
+   ========================================================================== */
 .prayer-box {
-    width: 300px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    text-align: center;
-    font-family: 'Cairo', Arial, sans-serif; /* خط أوضح للعربي */
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.01);
 }
 
-/* تحسين عنوان "الصلاة القادمة" */
 .prayer-header {
-    font-weight: 700;
-    margin-bottom: 10px;
-    font-size: 18px;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.4); /* زيادة وضوح */
+  font-weight: 800;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: #0e7490;
 }
 
-/* أيقونة الصلاة */
-.prayer-name i {
-    margin-right: 8px;
-    font-size: 20px;
-}
-
-/* تكبير و توضيح اسم الصلاة */
 #nextPrayerName {
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
 }
 
-/* تلوين اسم الصلاة حسب النوع */
-#nextPrayerName.fajr { color: #FF8C00; }
-#nextPrayerName.dhuhr { color: #1E90FF; }
-#nextPrayerName.asr { color: #32CD32; }
-#nextPrayerName.maghrib { color: #FF4500; }
-#nextPrayerName.isha { color: #800080; }
+/* ألوان مريحة ومميزة لأسماء الصلوات بما يطابق روح التصميم */
+#nextPrayerName.fajr { color: #b45309; }
+#nextPrayerName.dhuhr { color: #0284c7; }
+#nextPrayerName.asr { color: #16a34a; }
+#nextPrayerName.maghrib { color: #ea580c; }
+#nextPrayerName.isha { color: #4f46e5; }
 
-/* تكبير وقت الصلاة */
 #nextPrayerTime {
-    font-weight: 800;
-    font-size: 24px;
-    margin: 8px 0;
-    font-family: "Arial", sans-serif;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin: 10px 0;
+  color: #0f172a;
 }
 
-/* تحسين العد التنازلي */
 #countdown {
-    margin-top: 6px;
-    font-size: 15px;
-    font-weight: 600;
+  margin-top: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
 }
 
-/* ===============================
-   تحسين خاص للجوال
-================================ */
-@media (max-width: 480px) {
-
-    .prayer-box {
-        width: 95%;
-        padding: 18px;
-    }
-
-    .prayer-header {
-        font-size: 19px;
-    }
-
-    #nextPrayerName {
-        font-size: 24px;
-    }
-
-    #nextPrayerTime {
-        font-size: 26px;
-    }
-
-    #countdown {
-        font-size: 16px;
-    }
-}
-
-/* ===============================
-   صندوق التذكير
-================================ */
+/* صندوق التذكير الروحاني المطور */
 .spiritual-reminder {
-    margin-top: 15px;
-    padding: 14px 16px;
-    background-color: #f0f8ff;
-    border-left: 5px solid #1E90FF;
-    font-style: italic;
-    font-weight: 600;
-    border-radius: 8px;
-    text-align: center;
-    font-size: 16px;
-    line-height: 1.6;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    transition: background-color 0.5s, transform 0.3s;
+  margin: 15px auto;
+  padding: 14px 16px;
+  background-color: #f0fdfa; /* خلفية ناعمة جداً مائلة للسيان والراحة النفسية */
+  border-left: 4px solid #06b6d4;
+  font-weight: 600;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #0f766e;
+  transition: all 0.3s ease;
 }
 
-/* تأثير خفيف عند تغير الرسالة */
 .spiritual-reminder.animate {
-    transform: scale(1.05);
+  transform: scale(1.02);
 }
 
-
-
-
-
-
-
-
-
-
+/* زر العودة للدراسة المخصص */
 .study-btn {
   display: inline-block;
   margin-top: 20px;
   padding: 12px 25px;
   border-radius: 12px;
-  border: 1px solid rgba(0,229,255,0.3);
-  color: #00e5ff;
-  text-decoration: none;
+  border: 1px solid #0e7490;
+  color: #0e7490;
   font-weight: bold;
-  transition: 0.3s;
+  background-color: #ffffff;
+  transition: all 0.25s ease;
 }
 
 .study-btn:hover {
-  box-shadow: 0 0 12px rgba(0,247,255,0.4);
-  border-radius: 8px;
+  background-color: #0e7490;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(14, 116, 144, 0.15);
+}
+
+/* التجاوب التام لشاشات الجوال المتنوعة */
+@media (max-width: 480px) {
+  .prayer-box {
+    width: 100%;
+    padding: 15px;
+  }
+  .prayer-header { font-size: 0.95rem; }
+  #nextPrayerName { font-size: 1.25rem; }
+  #nextPrayerTime { font-size: 1.35rem; }
 }
 
 
+
+
+
+
+/* ==========================================================================
+   1. تنظيم الحاوية الرئيسية للكروت (Layout Grid & Flex)
+   ========================================================================== */
+.main-layout-holder, 
+.containar {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important; /* توزيع مسافات متساوية وأنيقة بين الكروت */
+  max-width: 800px !important; /* تحديد عرض مثالي مريح للعين وسط الشاشة */
+  width: 90% !important;
+  margin: 40px auto !important; /* توسيط الحاوية وترك مسافة علوية فخمة */
+  padding: 10px !important;
+  position: relative !important;
+  z-index: 10 !important; /* رفع الكروت لطبقة علوية فوق كلمة الخلفية */
+}
+
+/* ==========================================================================
+   2. تصميم الكروت الزجاجية الفخمة العائمة (Premium Glassmorphism Cards)
+   ========================================================================== */
+.main-layout-holder div:has(> a),
+.containar a,
+div[class*="-card"] {
+  display: block !important;
+  background: rgba(255, 255, 255, 0.82) !important; /* خلفية زجاجية بيضاء شبه شفافة */
+  backdrop-filter: blur(14px) !important; /* تأثير التغبيش الزجاجي الفخم */
+  -webkit-backdrop-filter: blur(14px) !important;
+  
+  border: 1px solid rgba(14, 116, 144, 0.12) !important; /* إطار ناعم بلون الهوية الأزرق */
+  border-radius: 16px !important; /* زوايا منحنية ناعمة وحديثة */
+  padding: 18px 24px !important; /* مساحات داخلية مريحة للنصوص */
+  
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.03) !important; /* ظل ناعم جداً يعطي إيحاء بالبروز */
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important; /* حركة انسيابية هندسية */
+  cursor: pointer !important;
+}
+
+/* ==========================================================================
+   3. الحركات التفاعلية الفخمة عند تمرير الماوس فوق الكرت (Hover Effects)
+   ========================================================================== */
+.main-layout-holder div:has(> a):hover,
+.containar a:hover,
+div[class*="-card"]:hover {
+  transform: translateY(-4px) scale(1.015) !important; /* ارتفاع طفيف يعطي إحساساً بالعمق ثلاثي الأبعاد */
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: #0e7490 !important; /* بروز إطار لون الهوية */
+  box-shadow: 0 12px 24px rgba(14, 116, 144, 0.08) !important; /* توهج الظل بلون الهوية */
+}
+
+/* تنسيق نصوص الدكاترة والمواد داخل الكروت لتبدو حادة واحترافية */
+.main-layout-holder a, 
+.containar a {
+  color: #0e7490 !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  font-family: 'Cairo', sans-serif !important;
+  letter-spacing: 0.3px;
+}
+
+/* ==========================================================================
+   4. دعم الـ Dark Mode للكروت الزجاجية ليلاً
+   ========================================================================== */
+body.dark-mode .main-layout-holder div:has(> a),
+body.dark-mode .containar a,
+body.dark-mode div[class*="-card"] {
+  background: rgba(30, 41, 59, 0.75) !important; /* زجاج داكن مدمج مع عتمة الليل */
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+body.dark-mode .main-layout-holder div:has(> a):hover,
+body.dark-mode .containar a:hover,
+body.dark-mode div[class*="-card"]:hover {
+  background: rgba(30, 41, 59, 0.9) !important;
+  border-color: #38bdf8 !important; /* إطار سماوي مضيء ليلاً */
+  box-shadow: 0 12px 28px rgba(56, 189, 248, 0.12) !important;
+}
+
+body.dark-mode .main-layout-holder a, 
+body.dark-mode .containar a {
+  color: #f8fafc !important; /* تحويل الخط للأبيض الناصع ليلاً لسهولة القراءة */
+}
+
+/* ==========================================================================
+   5. ضبط كلمة Engineering بالخلفية كعلامة مائية (Watermark) ثابتة وآمنة
+   ========================================================================== */
+.bg-engineering-text {
+  position: fixed !important;
+  top: 55% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) rotate(-12deg) !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 12vw !important;
+  font-weight: 900 !important;
+  text-transform: lowercase !important;
+  letter-spacing: -3px !important;
+  pointer-events: none !important; /* عزل كامل: الماوس يمر من خلالها ولا يلمسها */
+  user-select: none !important;
+  z-index: 1 !important; /* تظل في أبعد طبقة بالخلفية خلف الكروت تماماً */
+  
+  /* لون باهت جداً وناعم كعلامة مائية لا تؤثر مطلقاً على أي أيقونة أو زر */
+  color: rgba(226, 232, 240, 0.28) !important;
+  opacity: 0.4 !important;
+}
+
+body.dark-mode .bg-engineering-text {
+  color: rgba(15, 23, 42, 0.18) !important;
+  text-shadow: 0 0 40px rgba(56, 189, 248, 0.03) !important;
+}
+
+/* ==========================================================================
+   6. تأمين الحماية المطلقة لأيقونة القائمة الجانبية وشريط التنقل
+   ========================================================================== */
+.toggle-btn, 
+.sidebar-toggle,
+.navbar,
+header {
+  z-index: 2000 !important; /* أعلى من الكروت ومن كلمة الخلفية لضمان عمل الأيقونات */
+}
+
+
+
+/* ==========================================================================
+   1. الفقاعات الأساسية والكبيرة (تدرج أزرق زجاجي ناعم)
+   ========================================================================== */
+.bubble {
+  position: fixed !important;
+  border-radius: 50% !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  z-index: 0 !important;
+  background: linear-gradient(135deg, rgba(14, 116, 144, 0.1), rgba(56, 189, 248, 0.05)) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+  border: 1px solid rgba(14, 116, 144, 0.08) !important;
+  animation: bubbleFloat 9s ease-in-out infinite alternate;
+  transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   2. الفقاعات الصغيرة الجديدة بلون أزرق غامق ملكي (Deep Sapphire Mini Bubbles)
+   ========================================================================== */
+.bubble-mini {
+  position: fixed !important;
+  border-radius: 50% !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  z-index: 0 !important;
+  
+  /* لون أزرق غامق فخم مع تباين عالي وشفافية مدروسة */
+  background: linear-gradient(135deg, rgba(15, 17, 42, 0.15), rgba(30, 41, 59, 0.08)) !important;
+  backdrop-filter: blur(3px) !important;
+  -webkit-backdrop-filter: blur(3px) !important;
+  border: 1px solid rgba(21, 15, 42, 0.12) !important;
+  
+  /* حركة أسرع قليلاً للفقاعات الصغيرة لتعطي حيوية للموقع */
+  animation: bubbleFloat 6s ease-in-out infinite alternate-reverse;
+  transition: all 0.3s ease;
+}
+
+/* --- توزيع وتكثيف الفقاعات على الطرف اليمين بدقة متناهية --- */
+
+.bubble-top-right {
+  width: 280px;
+  height: 280px;
+  top: -80px;
+  right: -90px;
+  animation-delay: 0s;
+}
+
+/* فقاعة إضافية يمين المنتصف علوي */
+.bubble-mid-right-1 {
+  width: 160px;
+  height: 160px;
+  top: 25%;
+  right: -40px;
+  animation-delay: 2s;
+}
+
+/* فقاعة إضافية يمين المنتصف سفلي */
+.bubble-mid-right-2 {
+  width: 120px;
+  height: 120px;
+  top: 60%;
+  right: -30px;
+  animation-delay: 4s;
+}
+
+/* فقاعة سفلية يمين */
+.bubble-bottom-right {
+  width: 200px;
+  height: 200px;
+  bottom: -50px;
+  right: -60px;
+  animation-delay: 1s;
+}
+
+/* --- مواقع الفقاعات الصغيرة الغامقة المحشوة بين الفقاعات الكبيرة على اليمين --- */
+
+
+.bubble-mini-3 {
+  width: 55px;
+  height: 55px;
+  bottom: 20%;
+  right: 100px;
+  animation-delay: 1.2s;
+}
+
+/* --- فقاعات التوازن على الطرف اليسار --- */
+.bubble-bottom-left {
+  width: 220px;
+  height: 220px;
+  bottom: -60px;
+  left: -70px;
+  animation-delay: 3s;
+}
+
+.bubble-mid-left {
+  width: 110px;
+  height: 110px;
+  top: 40%;
+  left: -40px;
+  animation-delay: 5s;
+}
+
+/* ==========================================================================
+   3. أنيميشن الحركة الانسيابية المتناسقة
+   ========================================================================== */
+@keyframes bubbleFloat {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    box-shadow: 0 4px 15px rgba(14, 116, 144, 0.02);
+  }
+  100% {
+    transform: translateY(-20px) scale(1.04) rotate(15deg);
+    box-shadow: 0 12px 30px rgba(56, 189, 248, 0.06);
+  }
+}
+
+/* ==========================================================================
+   4. دعم الوضع المظلم (Dark Mode) ليلاً ليتناسق الغامق والفاتح مع العتمة
+   ========================================================================== */
+body.dark-mode .bubble {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.06), rgba(6, 182, 212, 0.02)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.04) !important;
+}
+
+body.dark-mode .bubble-mini {
+  /* في المود المظلم تصبح الفقاعات الصغيرة شديدة العتمة والعمق السيبراني */
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.4), rgba(0, 0, 0, 0.2)) !important;
+  border: 1px solid rgba(56, 189, 248, 0.1) !important;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.03) !important;
+}
 
 
 

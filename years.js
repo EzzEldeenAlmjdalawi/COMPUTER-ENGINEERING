@@ -1,3 +1,25 @@
+// ==========================================================================
+// فحص وتطبيق الوضع المظلم تلقائياً في صفحات السنوات والمواد بناءً على اختيار الرئيسية
+// ==========================================================================
+document.addEventListener('DOMContentLoaded', function() {
+    const savedMode = localStorage.getItem('themeMode');
+    
+    if (savedMode === 'dark') {
+        document.body.classList.add('dark-mode');
+    } else {
+        document.body.classList.remove('dark-mode');
+    }
+});
+
+
+
+
+
+
+
+
+
+
 function toggleMenu() {
     const menu = document.getElementById('menuList');
     menu.classList.toggle('show');
@@ -384,7 +406,7 @@ function getLinkFor(subjectName, item) {
         },
  
 
-        "تدريب عملي(250)ساعة": {
+        "Practical Training 250h": {
             "Lab": "تدريب عملي(250)ساعة.html",
             "Recorded Videos": "https://drive.google.com/drive/folders/19dWhAXXJnx0FyGVvjHnWgBfrzYG7Q9-1",
         },

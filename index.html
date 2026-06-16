@@ -1,175 +1,178 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>COMPUTER ENGINEERING</title>
   <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="themes.css">
   <link rel="stylesheet" href="theme-synced.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
- 
-
- 
-
-  
-
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 </head> 
 <body>
 
+  <nav class="main-navbar">
+    <div class="navbar-container">
+      <div class="nav-logo-zone">
+        <div class="nav-icon-bg"><i class="fa-solid fa-laptop-code"></i></div>
+        <div class="nav-title-text">COMPUTER ENGINEERING <span class="uni-tag">IUG</span></div>
+      </div>
 
-  
-  <div class="search-container">
-  <input type="text" id="searchInput" placeholder="ابحث عن المادة..." onkeyup="searchSubject()">
-  <div id="searchResults" class="search-results"></div>
-
-
-
-
-<div class="prayer-box">
-    <div class="prayer-header">
-        <i class="fa-solid fa-mosque"></i>
-        <span>الصلاة القادمة - غزة</span>
+      <div class="search-container">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="ابحث عن المادة..." onkeyup="searchSubject()">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+      <div class="nav-controls">
         
+        <a href="https://t.me/IUGComENG2004" target="_blank" class="nav-tg-channel-btn" title="قناة التليجرام الرسمية">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Channel" width="22" height="22">
+          <span class="tg-text-nav">قناة التليجرام</span>
+        </a>
+
+        <a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" class="nav-bot-btn" title="بوت الملفات والبرامج على تليجرام">
+          <img src="https://img.icons8.com/fluency/48/bot.png" alt="Telegram Bot" width="22" height="22">
+          <span class="bot-text-nav">بوت الملفات والبرامج على تليجرام</span>
+        </a>
+
+        <button id="darkModeToggle" class="dark-mode-btn" onclick="toggleDarkMode()" title="تبديل الوضع الليلي">
+        <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+      </div>
     </div>
+  </nav>
 
-    <div class="prayer-name">
-        <i id="prayerIcon"></i>
-        <span id="nextPrayerName"></span>
-    </div>
-
-    <div id="nextPrayerTime"></div>
-    <div id="countdown"></div>
-</div>
-
-
-
-
-<div class="reminder-box">
-  <div class="reminder-header">
-    <i class="fa-solid fa-book-quran"></i>
-    <span>تذكير إيماني</span>
+  <div class="myList" id="menuList">
+    <ul>
+      <li><a href="index.html" class="fas fa-home"> الرئيسية</a></li>
+      <li><a href="firstYear.html">📁 First Year </a></li>
+      <li><a href="secndYear.html">📁 Second Year </a></li>
+      <li><a href="thirdYear.html">📁 Third Year </a></li>
+      <li><a href="fourthYear.html">📁 Fourth Year </a></li>
+      <li><a href="fifthYear.html">📁 Fifth Year </a></li>
+      <li><a href="study-tools.html" class="study-btn-mobile">🎓 ادرس من هان</a></li>
+    </ul>
   </div>
 
-  <div id="reminderText" class="reminder-text"></div>
-</div>
+  <div class="main-layout-holder">
+    
+    <div class="containar main-container">
+      <div class="hero-grid">
+        
+        <div class="content-side">
+          <div class="platform-badge">
+            <span class="badge-dot"></span>
+            منصة هندسة الحاسوب في الجامعة الإسلامية
+          </div>
+          
+          <h1 class="title">COMPUTER ENGINEERING IUG</h1>
+          <p class="subtitle">here you'll find every thing you want to study our subjectes</p>
 
+          <div class="semesters-with-image-wrapper">
+            
+            <div class="semesters">
+              <a class="semester" style="--i:1" href="firstYear.html">First Year 📘</a>
+              <a class="semester" style="--i:5" href="secndYear.html">Second Year 📙</a>
+              <a class="semester" style="--i:10" href="thirdYear.html">Third Year 📕</a>
+              <a class="semester" style="--i:15" href="fourthYear.html">Fourth Year 📒</a>
+              <a class="semester" style="--i:20" href="fifthYear.html">Fifth Year 📗</a>
+            </div>
 
+            <div class="top-image-side">
+              <img src="Com.png" alt="Top Computer Engineering" class="top-engineer-img">
+            </div>
 
+          </div>
 
-       <a href="study-tools.html" class="study-btn">
-  🎓 ادرس من هان
-</a>
+          <div class="quick-stats">
+            <div class="stat-item">
+              <span class="stat-num">5 سنوات</span>
+              <span class="stat-label">ملفات دراسية متكاملة</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">+1200</span>
+              <span class="stat-label">ملف ومصدر دراسي</span>
+            </div>
+          </div>
+        </div>
 
+        <div class="image-side">
+          <div class="engineer-image-card">
+            <img src="engineer.png" alt="Computer Engineering" class="engineer-real-img">
+          </div>
+        </div>
 
-</div>
+      </div>
+    </div>
 
+    <aside class="sidebar-services">
+      <div class="prayer-box">
+        <div class="prayer-header"><i class="fa-solid fa-mosque"></i> <span>الصلاة القادمة - غزة</span></div>
+        <div class="prayer-name"><i id="prayerIcon"></i><span id="nextPrayerName"></span></div>
+        <div id="nextPrayerTime"></div>
+        <div id="countdown"></div>
+      </div>
 
+      <div class="reminder-box">
+        <div class="reminder-header"><i class="fa-solid fa-book-quran"></i> <span>تذكير إيماني</span></div>
+        <div id="reminderText" class="reminder-text"></div>
+      </div>
 
-<div class="theme-control">
-  <button class="theme-btn" onclick="toggleThemeMenu()">🎨</button>
-  <div class="theme-menu" id="themeMenu">
-    <span class="color blue"      onclick="applyTheme('theme-blue')"></span>
-    <span class="color green"     onclick="applyTheme('theme-green')"></span>
-    <span class="color purple"    onclick="applyTheme('theme-purple')"></span>
-    <span class="color orange"    onclick="applyTheme('theme-orange')"></span>
-    <span class="color red"       onclick="applyTheme('theme-red')"></span>
-    <span class="color pink"      onclick="applyTheme('theme-pink')"></span>
-    <span class="color yellow"    onclick="applyTheme('theme-yellow')"></span>
-    <span class="color cyan"      onclick="applyTheme('theme-cyan')"></span>
-    <span class="color lime"      onclick="applyTheme('theme-lime')"></span>
-    <span class="color teal"      onclick="applyTheme('theme-teal')"></span>
-    <span class="color magenta"   onclick="applyTheme('theme-magenta')"></span>
-    <span class="color maroon"    onclick="applyTheme('theme-maroon')"></span>
-    <span class="color navy"      onclick="applyTheme('theme-navy')"></span>
-    <span class="color gray"      onclick="applyTheme('theme-gray')"></span>
-    <span class="color black"     onclick="applyTheme('theme-black')"></span>
-    <span class="color off"       onclick="applyTheme('')">✖</span>
+      <a href="study-tools.html" class="study-btn"><i class="fa-solid fa-graduation-cap"></i> ادرس من هان</a>
+    </aside>
+
   </div>
 
-</div>
-
-
-
-
- <button class="toggle-btn" onclick="toggleMenu()">☰</button>
- 
-
-<div class="myList" id="menuList">
-  <ul>
-    <li><a href="index.html" class="fas fa-home" ></a></li>
-    <li><a href="firstYear.html">📁 First Year </a></li>
-    <li><a href="secndYear.html">📁 Second Year </a></li>
-    <li><a href="thirdYear.html">📁 Third Year </a></li>
-    <li><a href="fourthYear.html">📁 Fourth Year </a></li>
-    <li><a href="fifthYear.html">📁 Fifth Year </a></li>
-       <a href="study-tools.html" class="study-btn">
-  🎓 ادرس من هان
-</a>
-
-  </ul>
-</div>
-
-<div class="containar">
-  
-      <div class="content">
-            <div class="title"> COMPUTER ENGINEERING IUG </div>
-            <div class="subtitle"> here you'll find every thing you want to study our subjectes </div>
-
-              <div class="semesters">
-                <a class="semester" style="--i:1" href="firstYear.html">📘 First Year</a>
-                <a class="semester" style="--i:5" href="secndYear.html">📙 Second Year</a>
-                <a class="semester" style="--i:10" href="thirdYear.html">📕 Third Year</a>
-                <a class="semester" style="--i:15" href="fourthYear.html">📒 Fourth Year</a>
-                <a class="semester" style="--i:20" href="fifthYear.html">📗 Fifth Year</a>
-              </div>
+  <footer class="authors-glow">
+    <div class="footer-content">
+      <div class="authors-names">
+        <strong>Eng. Ezz Eldeen Bassam Almjdalawi</strong>
+        <span>&</span>
+        <strong>Eng. Musab Musa Alaswed</strong>
+        
+        <span> : BY</span>
+      </div>
     </div>
-</div>
-  <script>
-    function toggleMenu() {
-    const menu = document.getElementById('menuList');
-    menu.classList.toggle('show');
-  }
+  </footer>
+
+   <script>
+    // 1. دالة القائمة الجانبية للموبايل
+    function toggleMenu() { 
+      document.getElementById('menuList').classList.toggle('show'); 
+    }
+    
+    // 2. دالة تشغيل وإطفاء الـ Dark Mode الذكية وحفظ الخيار
+    function toggleDarkMode() {
+      const body = document.body;
+      const darkModeBtn = document.getElementById('darkModeToggle');
+      
+      // تبديل كلاس الوضع المظلم على الـ body
+      body.classList.toggle('dark-mode');
+      
+      // تغيير شكل الأيقونة وحفظ الحالة في الـ LocalStorage
+      if (body.classList.contains('dark-mode')) {
+        darkModeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>'; // أيقونة الشمس للوضع الفاتح
+        localStorage.setItem('themeMode', 'dark');
+      } else {
+        darkModeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>'; // أيقونة القمر للوضع المظلم
+        localStorage.setItem('themeMode', 'light');
+      }
+    }
+
+    // 3. فحص الذاكرة عند تحميل الصفحة لتطبيق الوضع المختار تلقائياً
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedMode = localStorage.getItem('themeMode');
+      const darkModeBtn = document.getElementById('darkModeToggle');
+      
+      if (savedMode === 'dark') {
+        document.body.classList.add('dark-mode');
+        if(darkModeBtn) darkModeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+      }
+    });
   </script>
-
-
-
-
-
-<div class="authors-glow">
-  
-  
-  <span>  Eng. Ezz Eldeen  Bassam Almjdalawi  </span>
-  <span>  &   Eng. Musab Musa Alaswed</span>
-  <span>: BY</span>
-  <span><a href="https://t.me/IUGComENG2004" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" width="32" height="32">
-  </a>
-  </span>
-
-<span>
-<a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" style="text-decoration:none; display:flex; align-items:center; gap:6px;color:#00ffd5;">
-<img src="https://img.icons8.com/fluency/48/bot.png" alt="Telegram Bot" width="42" height="42">
-بوت الملفات وبرامج المواد على تليجرام
-</a>
-</span>
-
-
-
-
-  
-</div>
-
-
-
-
-
-
-
-<script src="years.js"></script>
-
+  <script src="years.js"></script>
 </body>
 </html>

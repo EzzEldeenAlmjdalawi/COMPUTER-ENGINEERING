@@ -1,511 +1,1161 @@
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+/* ==========================================================================
+   1. دمج الصورة الاحترافي برؤية هندسية عالية البروز والتناسق
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-      font-family: 'Cairo', sans-serif;
-      height: 100vh;
-      background:
-        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(0,229,255,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 80% at 80% 80%, rgba(0,100,180,0.12) 0%, transparent 55%),
-        radial-gradient(ellipse 100% 100% at 50% 50%, #071520 0%, #050e18 60%, #020810 100%);
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow-x: hidden;
-      position: relative;
-    }
-    /* animated grid overlay */
-    body::before {
-      content: '';
-      position: fixed; inset: 0; z-index: 0;
-      background-image:
-        linear-gradient(rgba(0,229,255,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,229,255,0.04) 1px, transparent 1px);
-      background-size: 44px 44px;
-      pointer-events: none;
-      animation: gridShift 20s linear infinite;
-    }
-    @keyframes gridShift {
-      0%   { background-position: 0 0; }
-      100% { background-position: 44px 44px; }
-    }
+body {
+  font-family: 'Cairo', sans-serif;
+  min-height: 100vh;
+  color: #1e293b;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+  
+  /* الوضع الطبيعي الفاتح: تدرج أزرق ملكي عميق ونقي لتستمد الصورة طاقتها منه */
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 40%, #075985 100%) !important;
+  background-attachment: fixed !important;
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+}
 
-    /* corner glow blobs */
-    body::after {
-      content: '';
-      position: fixed; inset: 0; z-index: 0;
-      background:
-        radial-gradient(circle 400px at 5% 5%,   rgba(0,229,255,0.06), transparent),
-        radial-gradient(circle 300px at 95% 90%,  rgba(0,140,255,0.07), transparent),
-        radial-gradient(circle 200px at 90% 10%,  rgba(0,229,255,0.04), transparent);
-      pointer-events: none;
-      animation: blobPulse 8s ease-in-out infinite alternate;
-    }
-    @keyframes blobPulse {
-      from { opacity: .6; }
-      to   { opacity: 1; }
-    }
+/* طبقة الصورة: هندسة الفلاتر والدمج الرهيب */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none; /* حماية مطلقة للأيقونات والكروت من التداخل */
+  
+  /* استدعاء الصورة وتثبيتها بشكل مثالي */
+  background-image: url('eng.jpg') !important;
+  background-attachment: fixed !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  
+  /* الشفافية المتزنة في الوضع الطبيعي */
+  opacity: 0.55 !important; 
+  
+  /* سحر الدمج: يجعل الدوائر تتداخل وتمتص اللون الأزرق الخلفي لتبدو مدمجة وبارزة */
+  mix-blend-mode: overlay !important; 
+  
+  /* معالجة بصرية لزيادة حدة تباين الدوائر والألوان لتظهر واضحة ونقية */
+  filter: contrast(130%) brightness(105%) saturate(110%) !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+@keyframes circuitFlow {
+  0%   { background-position: 0 0; }
+  100% { background-position: 160px 160px; }
+}
+
+
+
+
+/* ==========================================================================
+   2. شريط التنقل العلوي الذكي (Main Navbar)
+   ========================================================================== */
+.main-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1002;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e2e8f0;
+  padding: 10px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.navbar-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* الشعار */
+.nav-logo-zone {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-icon-bg {
+  background: #0e7490;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px rgba(14, 116, 144, 0.2);
+}
+
+.nav-title-text {
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: #0f172a;
+  letter-spacing: 0.5px;
+}
+
+.nav-title-text .uni-tag {
+  color: #06b6d4;
+}
+
+/* التحكم والقائمة باليسار */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 
 .toggle-btn {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background: #00f7ff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1.2rem;
-      border-radius: 12px;
-      cursor: pointer;
-      z-index: 1001;
-      color: #000;
-      box-shadow: 0 0 10px #00f7ff88;
-      transition: all 0.3s ease;
-    }
-    .toggle-btn:hover {
-      background-color: #00cfff;
-      box-shadow: 0 0 20px #00f7ff;
-      transform: scale(1.05);
-    }
-
- 
-  
- .container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      align-items: center;
-    }
-
-
-    .title {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #00e5ff;
-      text-shadow:
-        0 0 10px rgba(0,229,255,0.8),
-        0 0 30px rgba(0,229,255,0.4);
-      animation: glow 3s ease-in-out infinite alternate;
-      letter-spacing: 1px;
-      position: relative; z-index: 1;
-    }
-
-       @keyframes glow {
-      from {
-        text-shadow:
-          0 0 8px rgba(0,229,255,0.6),
-          0 0 20px rgba(0,229,255,0.3);
-      }
-      to {
-        text-shadow:
-          0 0 16px rgba(0,229,255,1),
-          0 0 40px rgba(0,229,255,0.6),
-          0 0 70px rgba(0,180,255,0.3);
-      }
-    }
-
-    .subtitle {
-      color: #ccc;
-      margin: 10px 0 30px;
-      font-size: 1.1rem;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-    }
-
-    .semesters {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      width: 80%;
-      max-width: 400px;
-      justify-content: center;
-    }
-
-    .semester {
-      padding: 15px;
-      border-radius: 30px;
-      border: 1px solid #00f7ff;
-      background-color: rgba(0, 0, 0, 0.4);
-      color: #00f7ff;
-      font-size: 1rem;
-      text-decoration: none;
-      text-align: center;
-      transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-      width: 550px;
-    }
-
-    .semester:hover {
-      background-color: #00f7ff;
-      color: black;
-      transform: scale(1.01);
-    }
-    .toggle-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background: #00f7ff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    border-radius: 12px;
-    cursor: pointer;
-    z-index: 1001;
-    color: #000;
-    box-shadow: 0 0 10px #00f7ff88;
-    transition: all 0.3s ease;
-  }
-  .toggle-btn:hover {
-    background-color: #00cfff;
-    box-shadow: 0 0 20px #00f7ff;
-    transform: scale(1.05);
-  }
-
-.myList {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  width: 250px;
-  height: 100%;
-  background:
-    radial-gradient(ellipse 120% 80% at 10% 20%, rgba(0,229,255,0.06) 0%, transparent 60%),
-    linear-gradient(180deg, #060f18 0%, #08161f 100%);
-  border-right: 1px solid rgba(0,229,255,0.15);
-  padding: 30px 20px;
-  transition: left 0.4s cubic-bezier(.4,0,.2,1);
-  z-index: 1000;
-  box-shadow: 4px 0 40px rgba(0,0,0,0.6), 2px 0 0 rgba(0,229,255,0.06);
-  overflow-y: auto;
-  color: white;
-}
-
-.myList.show {
-  left: 0;
-  animation: slideIn 0.4s forwards;
-}
-
-@keyframes slideIn {
-  from {
-    left: -250px;
-    opacity: 0.3;
-  }
-  to {
-    left: 0;
-    opacity: 1;
-  }
-}
-
-@keyframes slideOut {
-  from {
-    left: 0;
-    opacity: 1;
-  }
-  to {
-    left: -250px;
-    opacity: 0.3;
-  }
-}
-
-
-.myList ul {
-  list-style-type: none;
-}
-
-.myList ul li  {
-  margin: 15px 0;
+  background: #0e7490;
+  border: none;
+  padding: 8px 16px;
   font-size: 1.1rem;
+  border-radius: 10px;
+  cursor: pointer;
   color: #fff;
-  padding: 8px 10px;
-  border-bottom: 1px solid #00f7ff44;
-  transition: all 0.3s ease;
-}
-.myList ul li a {
-  margin: 15px 0;
-  font-size: 1.1rem;
-  color: #fff;
-  padding: 8px 10px;
-  border-bottom: 1px solid #00f7ff44;
+  box-shadow: 0 4px 10px rgba(14, 116, 144, 0.15);
   transition: all 0.3s ease;
 }
 
-.myList ul li:hover {
-  color: #00f7ff;
-  transform: translateX(5px);
-}
-.myList ul li a:hover {
-  color: #00f7ff;
-  transform: translateX(5px);
+.toggle-btn:hover {
+  background-color: #0891b2;
+  transform: scale(1.03);
 }
 
-  .myList ul li:hover {
-    box-shadow: 0 0 12px rgba(0,247,255,0.4);
-    border-radius: 8px;
-  }
-
-
-
-.authors-glow {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  font-size: 1.05rem;
-  font-weight: bold;
-  color: #00f7ff;
-  text-shadow: 0 0 6px #00f7ff;
-  animation: glow 2s ease-in-out infinite alternate;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 12px;
-  align-items: center;
-  z-index: 1000;
-}
-
-@keyframes glow {
-  from { text-shadow: 0 0 6px #00f7ff; }
-  to   { text-shadow: 0 0 18px #00f7ff, 0 0 28px #00cfff; }
-}
-
-
-@media (max-width: 600px) {
-  .authors-glow {
-    flex-direction: column;
-    align-items: flex-end;
-    font-size: 0.9rem;
-    right: 12px;
-    bottom: 12px;
-    gap: 4px;
-  }
-}
-
-
-
-
-
-
+/* ==========================================================================
+   3. حاوية البحث المدمجة بذكاء في الشريط
+   ========================================================================== */
 .search-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1002;
-
-  display: flex;
-  flex-direction: column;  /* 🔥 أهم نقطة */
-  gap: 10px;               /* مسافة بين العناصر */
-  width: 260px;
+  position: relative;
+  width: 320px;
+  max-width: 100%;
 }
 
-/* input */
 .search-container input {
-  padding: 10px 12px;
+  width: 100%;
+  padding: 10px 40px 10px 15px;
   border-radius: 12px;
-  border: 1px solid #00f7ff;
+  border: 1px solid #cbd5e1;
   outline: none;
   font-family: 'Cairo', sans-serif;
-  font-size: 0.95rem;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: #fff;
+  font-size: 0.9rem;
+  background-color: #ffffff;
+  color: #1e293b;
+  transition: all 0.3s ease;
 }
 
-/* نتائج البحث */
+.search-container input:focus {
+  border-color: #0e7490;
+  box-shadow: 0 0 0 3px rgba(14, 116, 144, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  pointer-events: none;
+}
+
 .search-results {
-  background-color: rgba(0,0,0,0.85);
-  border-radius: 10px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 8px;
+  background-color: #ffffff;
+  border-radius: 12px;
   max-height: 250px;
   overflow-y: auto;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   display: none;
   flex-direction: column;
-  border: 1px solid rgba(0, 247, 255, 0.2);
 }
 
 .search-results div {
-  padding: 8px 10px;
-  border-bottom: 1px solid #00f7ff44;
+  padding: 10px 15px;
+  border-bottom: 1px solid #f1f5f9;
   cursor: pointer;
-  color: #00f7ff;
+  color: #0e7490;
   font-size: 0.9rem;
+  text-align: right;
 }
 
 .search-results div:hover {
-  background-color: #00f7ff;
-  color: black;
+  background-color: #f0fdfa;
+  color: #0891b2;
 }
 
-/* =========================
-   PRAYER BOX (داخل نفس العمود)
-========================= */
+body.dark-mode .search-container input {
+  background-color: rgba(30, 41, 59, 0.7) !important; /* خلفية زجاجية داكنة متناغمة */
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #f8fafc !important;
+}
 
-.prayer-box {
+body.dark-mode .search-container input:focus {
+  border-color: #38bdf8 !important; /* إضاءة سماوية برمجة ليلاً */
+  background-color: #1e293b !important;
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15) !important;
+}
+
+body.dark-mode .search-container input::placeholder {
+  color: #64748b !important;
+}
+
+body.dark-mode .search-icon {
+  color: #38bdf8 !important; /* الأيقونة تشع باللون السماوي المضيء */
+}
+
+body.dark-mode .search-results {
+  background-color: rgba(30, 41, 59, 0.98) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.dark-mode .search-results div {
+  color: #cbd5e1 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+body.dark-mode .search-results div:hover {
+  background-color: rgba(56, 189, 248, 0.06) !important;
+  color: #38bdf8 !important;
+}
+
+/* ==========================================================================
+   4. الهيكل والتوزيع الرئيسي للموقع (Main Layout Grid)
+   ========================================================================== */
+.main-layout-holder {
+  display: grid;
+  grid-template-cols: 1fr;
+  max-width: 1400px;
   width: 100%;
-  padding: 14px 16px;
-  border-radius: 16px;
-
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(12px);
-
-  border: 1px solid rgba(0, 247, 255, 0.3);
-
-  box-shadow:
-    0 0 15px rgba(0, 247, 255, 0.15),
-    inset 0 0 10px rgba(0, 247, 255, 0.05);
-
-  color: #00f7ff;
-
-  animation: prayerGlow 3s ease-in-out infinite alternate;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 30px;
+  position: relative;
+  z-index: 1;
+  flex-grow: 1;
 }
 
-/* header */
-.prayer-header {
-  font-weight: 700;
-  font-size: 14px;
-  margin-bottom: 6px;
-  display: flex;
+@media (min-width: 1024px) {
+  .main-layout-holder {
+    grid-template-cols: 3.5fr 1fr; /* تقسيم الكرت الأبيض الكبير والصناديق الجانبية */
+  }
+}
+
+.containar {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 30px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-cols: 1fr;
+  gap: 30px;
   align-items: center;
-  gap: 6px;
 }
 
-/* name */
-.prayer-name {
-  font-size: 19px;
-  font-weight: 800;
-  margin: 6px 0;
-  text-shadow: 0 0 10px rgba(0, 247, 255, 0.6);
-}
-
-/* time */
-#nextPrayerTime {
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 5px;
-}
-
-#countdown {
-  font-size: 12px;
-  margin-top: 5px;
-  color: #ccc;
-}
-
-/* glow animation */
-@keyframes prayerGlow {
-  from {
-    box-shadow:
-      0 0 10px rgba(0, 247, 255, 0.1),
-      inset 0 0 8px rgba(0, 247, 255, 0.05);
-  }
-  to {
-    box-shadow:
-      0 0 22px rgba(0, 247, 255, 0.25),
-      inset 0 0 12px rgba(0, 247, 255, 0.08);
+@media (min-width: 992px) {
+  .hero-grid {
+    grid-template-cols: 1.4fr 1fr; /* يضمن التوازن والمساحة الكاملة لجميع العناصر */
   }
 }
 
-
-
-
-.study-btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 25px;
-  border-radius: 12px;
-  border: 1px solid rgba(0,229,255,0.3);
-  color: #00e5ff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.study-btn:hover {
- 
-  box-shadow: 0 0 12px rgba(0,247,255,0.4);
-  border-radius: 8px;
-
-}
-
-
-
-
-
-
-
-
-
-.reminder-box {
+/* ==========================================================================
+   5. نصوص الواجهة والترحيب (Content Side)
+   ========================================================================== */
+.content-side {
+  display: flex;
+  flex-direction: column;
+  text-align: center;      
+  align-items: center;     /* يبقي العناوين بالمنتصف */
+  justify-content: center;
+  z-index: 2;
   width: 100%;
-  max-width: 300px;
-  padding: 14px 16px;
-  border-radius: 16px;
+}
+/* تأكيد محاذاة الوصف */
+.subtitle {
+  color: #64748b;
+  margin: 15px 0 25px;
+  font-size: 1.1rem;
+  text-align: center;      /* يضمن توسيط السطر الفرعي */
+}
 
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(12px);
+/* هنا السحر: نجعل البادج يذهب للزاوية اليمين فوق تلقائياً */
+.platform-badge {
+  align-self: flex-start;  /* يدفعه لأقصى اليمين */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ecfeff;
+  border: 1px solid #cffafe;
+  color: #0e7490;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 25px;    /* مسافة أنيقة تحت البادج */
+}
 
-  border: 1px solid rgba(0, 247, 255, 0.25);
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #06b6d4;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
 
-  box-shadow:
-    0 0 15px rgba(0, 247, 255, 0.12),
-    inset 0 0 10px rgba(0, 247, 255, 0.05);
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.5); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(6, 182, 212, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); }
+}
 
-  color: #00f7ff;
+.title {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1.2;
+}
 
-  animation: reminderGlow 3s ease-in-out infinite alternate;
 
+/* ==========================================================================
+   🔥 6. جزء الأزرار الخمسة الكبيرة وتمدد الصورة العلوية في الفراغ الفارغ
+   ========================================================================== */
+.semesters-with-image-wrapper {
+  display: grid;
+  grid-template-cols: 1fr; /* للموبايل */
+  gap: 30px;
+  width: 100%;
+  align-items: center;
   margin-top: 10px;
 }
 
-.reminder-header {
+@media (min-width: 850px) {
+  .semesters-with-image-wrapper {
+    grid-template-cols: 1.1fr 1fr; /* الأزرار تأخذ حجمها الكامل الفخم والصورة تملأ الفراغ بجانبها */
+    align-items: stretch; /* تجعل الصورة تمتد لتغطي كامل الارتفاع الموازي للسنين */
+  }
+}
+
+.semesters {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.semester {
+  padding: 15px 25px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  color: #334155;
+  font-size: 1rem;
   font-weight: 700;
-  font-size: 14px;
-  margin-bottom: 6px;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.01);
+  transition: all 0.25s ease;
+  
+  /* التعديل السحري لتوسط الكلام والإيموجي في المنتصف تماماً */
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  gap: 10px; /* يعطي مسافة بسيطة وأنيقة بين النص والإيموجي */
+}
+
+.semester:hover {
+  background-color: #0e7490;
+  color: #ffffff;
+  border-color: #0e7490;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(14, 116, 144, 0.15);
+}
+
+/* حاوية الصورة العلوية لتملأ الفراغ بالكامل */
+.top-image-side {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  display: flex;
+}
+
+.top-engineer-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(14, 116, 144, 0.08);
+  object-fit: cover; /* تجعل الصورة تمتد وتملأ الفراغ بالكامل دون تشوه */
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.top-engineer-img:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(14, 116, 144, 0.15);
+}
+
+/* قسم الإحصائيات */
+.quick-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 35px;
+  padding-top: 25px;
+  border-top: 1px solid #f1f5f9;
+  width: 100%;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-num {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   7. الطرف الأيسر/السفلي: كارت الصورة الرئيسي الثاني للموقع
+   ========================================================================== */
+.image-side {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* تجعل حاوية الصورة تمتد عمودياً بالكامل */
+  z-index: 2;
+  width: 100%;          /* تأخذ المساحة العرضية الكاملة المتاحة لها */
+}
+
+.engineer-image-card {
+  width: 100%;          /* تمتد لتملأ الفراغ بالكامل يميناً ويساراً */
+  height: 100%;         /* تمتد لتملأ الفراغ كاملاً فوق وتحت */
+  min-height: 350px;    /* تعطي ثقل ومساحة فخمة للصورة السفلية */
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+  background: linear-gradient(135deg, rgba(14, 116, 144, 0.03) 0%, rgba(6, 182, 212, 0.08) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.engineer-real-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* السحر الهندي لامتلاء الصورة داخل الكارت بدون تشويه أبعادها */
+  border-radius: 24px;
+}
+
+/* ==========================================================================
+   8. القائمة الجانبية المنبثقة للموبايل (My Menu Side List)
+   ========================================================================== */
+.myList {
+  position: fixed !important;
+  top: 0;
+  left: -290px;
+  width: 290px !important;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-right: 1px solid rgba(14, 116, 144, 0.1) !important;
+  padding: 40px 22px !important;
+  transition: left 0.4s cubic-bezier(.4,0,.2,1) !important;
+  z-index: 1050;
+  box-shadow: 15px 0 40px rgba(15, 23, 42, 0.08) !important;
+  overflow-y: auto;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.myList.show { left: 0; }
+
+.myList ul { 
+  list-style-type: none !important; 
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.myList ul li { margin: 0 !important; }
+
+.myList ul li a {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 12px !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  color: #334155 !important;
+  padding: 12px 16px !important;
+  text-decoration: none !important;
+  border-radius: 12px !important;
+  transition: all 0.25s ease-in-out !important;
+}
+
+/* تأثير الـ Hover الاحترافي للسنوات */
+.myList ul li a:hover {
+  color: #0e7490 !important;
+  background-color: rgba(14, 116, 144, 0.06) !important;
+  padding-right: 20px !important; /* إزاحة خفيفة جهة اليمين تعطي طابع ديناميكي */
+}
+
+/* زر "ادرس من هان" داخل القائمة */
+.study-btn-mobile {
+  background: linear-gradient(135deg, #ffffff, #155e75) !important;
+  color: #ffffff !important;
+  font-family: 'Cairo', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 15px !important;
+  border: none !important;
+  padding: 14px !important;
+  border-radius: 12px !important;
+  width: 100% !important;
+  margin-top: 25px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  box-shadow: 0 4px 12px rgba(14, 116, 144, 0.2) !important;
+  transition: all 0.25s ease !important;
+}
+
+.study-btn-mobile:hover {
+  background-color: #0e7490;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(14, 116, 144, 0.15);
+  transform: translateY(-2px) !important;
+  filter: brightness(1.1);
+}
+
+/* ==========================================================================
+   9. صندوق تخصيص الألوان (Theme Controller)
+   ========================================================================== */
+.theme-control {
+  position: relative;
+}
+
+.theme-btn {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 10px;
+  font-size: 1.1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.theme-btn:hover { background-color: #e2e8f0; }
+
+.theme-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 10px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 12px;
+  border-radius: 14px;
+  display: grid;
+  grid-template-cols: repeat(4, 1fr);
+  gap: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  width: 160px;
+}
+
+.theme-menu.show-theme {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.theme-menu .color {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.theme-menu .color.off { background: #ef4444; color: #fff; text-align: center; line-height: 24px; font-size: 0.7rem; }
+
+/* ==========================================================================
+   10. الصناديق الخدمية والدينية الجانبية (Sidebar Services)
+   ========================================================================== */
+.sidebar-services {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 2;
+}
+
+.prayer-box, .reminder-box {
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+  color: #1e293b;
+  text-align: right;
+}
+
+.prayer-header, .reminder-header {
+  font-weight: 800;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #0e7490;
+}
+
+.prayer-name {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin: 8px 0;
+  color: #0f172a;
+}
+
+#nextPrayerTime {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+#countdown {
+  font-size: 0.8rem;
+  margin-top: 4px;
+  color: #64748b;
+}
+
+.reminder-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.study-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid #0e7490;
+  color: #0e7490;
+  background: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.study-btn:hover {
+  background: #0e7490;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(14, 116, 144, 0.15);
+}
+
+/* ==========================================================================
+   11. التذييل السفلي وحقوق المطورين (Footer Area)
+   ========================================================================== */
+.authors-glow {
+  margin-top: 40px;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  padding: 20px;
+  width: 100%;
+  z-index: 10;
+}
+
+.footer-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row-reverse;
+  }
+}
+
+.authors-names {
+  font-size: 0.9rem;
+  color: #64748b;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.authors-names strong {
+  color: #0f172a;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.bot-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0e7490;
+}
+
+.bot-link:hover { color: #0891b2; }
+
+/* ==========================================================================
+   تنسيق زر البوت الجديد في الناف بار (Navbar Telegram Bot Button)
+   ========================================================================== */
+.nav-bot-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  padding: 6px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  margin-left: 10px;
+}
+
+.bot-text-nav {
+  font-family: 'Cairo', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+.nav-bot-btn:hover {
+  background: #2481cc;
+  border-color: #2481cc;
+  transform: translateY(-1px);
+}
+
+.nav-bot-btn:hover .bot-text-nav {
+  color: #ffffff;
+}
+
+/* الاستجابة على الموبايل لشاشات العرض الصغيرة */
+@media (max-width: 768px) {
+  .bot-text-nav {
+    display: none; /* إخفاء النص والإبقاء على الأيقونة فقط لتوفير مساحة */
+  }
+  .nav-bot-btn {
+    padding: 6px;
+    margin-left: 5px;
+  }
+}
+
+
+/* ==========================================================================
+   إعادة هيكلة وحل تداخل أزرار ومتحكمات الناف بار (Navbar Controls Flex)
+   ========================================================================== */
+
+/* الحاوية الكلية للمتحكمات على اليسار */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* مسافة أمان هندسية تمنع الالتصاق والتداخل تماماً */
+}
+
+/* إلغاء التموضع القديم المسبب للمشكلة وتثبيته في مكانه الصحيح */
+.theme-control-nav {
+  position: relative; /* تبديل من fixed إلى relative ليتحرك بانسيابية داخل الـ Flex */
+  display: inline-block;
+}
+
+/* زر اختيار الألوان الفخم والمتناسق هندسياً */
+.theme-btn-nav {
+  width: 46px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(14, 116, 144, 0.15);
+  color: #0e7490;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.theme-btn-nav:hover {
+  background: #0e7490;
+  color: #ffffff;
+  border-color: #0e7490;
+}
+
+/* تعديل هبوط قائمة الألوان لتظهر أسفل الزر تماماً وبدون انزياح */
+.theme-control-nav .theme-menu {
+  top: 46px;
+  right: 0;
+  left: auto;
+}
+
+/* تنسيق زر قناة التليجرام الجديد */
+.nav-tg-channel-btn {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #00f7ff;
+  background: rgba(0, 136, 204, 0.08);
+  border: 1px solid rgba(0, 136, 204, 0.15);
+  padding: 6px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.25s ease;
 }
 
-.reminder-text {
-  font-size: 15px;
+.tg-text-nav {
+  font-family: 'Cairo', sans-serif;
+  font-size: 13px;
   font-weight: 700;
-  line-height: 1.6;
-  text-shadow: 0 0 10px rgba(0, 247, 255, 0.4);
-  color: #e6ffff;
+  color: #0088cc;
 }
 
-/* animation */
-@keyframes reminderGlow {
-  from {
-    box-shadow:
-      0 0 10px rgba(0, 247, 255, 0.1),
-      inset 0 0 8px rgba(0, 247, 255, 0.05);
-  }
-  to {
-    box-shadow:
-      0 0 22px rgba(0, 247, 255, 0.25),
-      inset 0 0 12px rgba(0, 247, 255, 0.08);
-  }
+.nav-tg-channel-btn:hover {
+  background: #0088cc;
+  border-color: #0088cc;
 }
 
-/* حركة خفيفة عند تغيير النص */
-.reminder-box.animate {
-  transform: scale(1.03);
-  transition: 0.3s;
+.nav-tg-channel-btn:hover .tg-text-nav {
+  color: #ffffff;
 }
 
+/* تنسيق زر البوت المطور */
+.nav-bot-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(14, 116, 144, 0.08);
+  border: 1px solid rgba(14, 116, 144, 0.15);
+  padding: 6px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
 
-
-.reminder-text {
-  font-size: 15px;
+.bot-text-nav {
+  font-family: 'Cairo', sans-serif;
+  font-size: 13px;
   font-weight: 700;
-  color: #e6ffff;
-  line-height: 1.6;
-  text-shadow: 0 0 10px rgba(0, 247, 255, 0.35);
+  color: #0e7490;
 }
 
-.reminder-box.animate {
-  transform: scale(1.04);
-  transition: 0.3s ease;
+.nav-bot-btn:hover {
+  background: #0e7490;
+  border-color: #0e7490;
 }
+
+.nav-bot-btn:hover .bot-text-nav {
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   دعم الاستجابة للهواتف الذكية (Responsive UI)
+   ========================================================================== */
+@media (max-width: 992px) {
+  /* إخفاء النصوص المكتوبة على الموبايل لتجنب التكدس، والاعتماد على الأيقونات */
+  .tg-text-nav, .bot-text-nav {
+    display: none;
+  }
+  .nav-tg-channel-btn, .nav-bot-btn {
+    padding: 8px;
+  }
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   إصلاح الطبقات والسماح للقائمة بالظهور فوق كل عناصر الصفحة
+   ========================================================================== */
+
+/* 1. السماح للناف بار وعناصر التحكم بإظهار العناصر المنبثقة دون قصها */
+.main-navbar, 
+.navbar-container, 
+.nav-controls {
+  overflow: visible !important; /* يلغي أي قص قديم للقائمة */
+}
+
+/* 2. إجبار القائمة على الظهور في طبقة عليا مطلقة وتحديد مكانها بدقة */
+.theme-control-nav {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.theme-control-nav .theme-menu {
+  position: absolute !important;
+  top: 45px !important;       /* هبوط مناسب أسفل الأيقونة */
+  left: 0 !important;          /* تبدأ من اليسار وتتجه لليمين لتظل داخل الشاشة */
+  right: auto !important;
+  width: 150px !important;     /* عرض كافٍ ومحكم لدوائر الألوان */
+  background: #ffffff !important; /* خلفية بيضاء ناصعة */
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.2) !important; /* ظل قوي ليبرزها */
+  border-radius: 14px !important;
+  padding: 10px !important;
+  gap: 8px !important;
+  z-index: 99999 !important;   /* أعلى طبقة في الموقع بالكامل لضمان عدم اختفائها */
+}
+
+/* 3. التأكد من تفعيل خاصية الـ Flex عند الضغط */
+.theme-control-nav .theme-menu.show,
+.theme-control-nav .theme-menu.show-theme {
+  display: flex !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   تنسيق زر الـ Dark Mode الجديد في الناف بار
+   ========================================================================== */
+.dark-mode-btn {
+  width: 42px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(14, 116, 144, 0.15);
+  color: #0e7490;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  transition: all 0.25s ease;
+}
+
+.dark-mode-btn:hover {
+  background: #0e7490;
+  color: #ffffff;
+  border-color: #0e7490;
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   باليت ألوان الوضع المظلم الاحترافي (DARK MODE GLOBAL STYLES)
+   ========================================================================== */
+body.dark-mode {
+  background-color: #0f172a !important; /* خلفية داكنة فخمة مريحة جداً للعين */
+  color: #f8fafc !important; /* لون النصوص الأساسية فاتح ومقروء */
+}
+
+/* صبغ حاوية المحتوى وشبكة الرسم الهندسي لتتناسق مع الليل */
+body.dark-mode .main-container,
+body.dark-mode .containar {
+  background: #1e293b !important; /* كرت المحتوى بلون داكن متناسق */
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* صبغ أزرار السنوات في الواجهة الأساسية عند تفعيل الوضع المظلم */
+body.dark-mode .semesters .semester {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  color: #38bdf8 !important; /* اللون الأزرق السماوي البرمجي المضيء */
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-mode .semesters .semester:hover {
+  background-color: #38bdf8 !important;
+  color: #0f172a !important;
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3) !important;
+}
+
+/* تعديل ألوان السايد بار (صندوق الصلاة والتذكير الإيماني) */
+body.dark-mode .prayer-box,
+body.dark-mode .reminder-box {
+  background: #1e293b !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .prayer-header,
+body.dark-mode .reminder-header {
+  color: #38bdf8 !important;
+}
+
+/* تعديل نصوص العناوين والوصف والمؤشرات */
+body.dark-mode .title {
+  color: #ffffff !important;
+}
+
+body.dark-mode .subtitle {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .stat-num {
+  color: #38bdf8 !important;
+}
+
+body.dark-mode .stat-label {
+  color: #94a3b8 !important;
+}
+
+/* تعديل مظهر الناف بار بالكامل ليصبح زجاجي معتم ليلاً */
+body.dark-mode .main-navbar {
+  background: rgba(15, 23, 42, 0.9) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+body.dark-mode .nav-title-text {
+  color: #ffffff !important;
+}
+
+/* زر المود الليلي نفسه يتحول لنمط زجاجي مضيء */
+body.dark-mode .dark-mode-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #eab308; /* لون الشمس الأصفر المتوهج للعودة للمود الفاتح */
+}
+
+body.dark-mode .dark-mode-btn:hover {
+  background: #eab308;
+  color: #0f172a;
+  border-color: #eab308;
+}
+
+/* تعديل الفوتر الأسفل */
+body.dark-mode .authors-glow {
+  background: #0f172a !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+body.dark-mode .authors-names strong {
+  color: #38bdf8 !important;
+}
+
+/* تعديل توهج بوردة الدوائر الإلكترونية ليلاً داخل الـ Dark Mode */
+body.dark-mode::before {
+  opacity: 0.95;
+  /* تحويل ألوان مسارات الـ SVG برمجياً لتعطي نبضاً سماوياً مضيئاً (Cyberpunk Look) */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M10 10 H 90 V 90 H 10 Z M30 10 V 40 H 50 M50 40 L 70 60 H 90 M10 70 H 40 L 50 80 V 90 M70 10 L 60 20 V 40' stroke='rgba(56, 189, 248, 0.06)' stroke-width='1.2' fill='none'/%3E%3Ccircle cx='30' cy='40' r='2.5' fill='rgba(56, 189, 248, 0.12)'/%3E%3Ccircle cx='50' cy='40' r='2' fill='rgba(6, 182, 212, 0.15)'/%3E%3Ccircle cx='70' cy='60' r='2.5' fill='rgba(56, 189, 248, 0.12)'/%3E%3Ccircle cx='40' cy='70' r='2' fill='rgba(6, 182, 212, 0.15)'/%3E%3C/svg%3E");
+  filter: drop-shadow(0 0 1px rgba(56, 189, 248, 0.1));
+}
+
+
+
+/* ==========================================================================
+   إصلاح وضوح الصناديق الخدمية والإيمانية في الوضع المظلم (DARK MODE FIXED)
+   ========================================================================== */
+body.dark-mode .myList {
+  background: rgba(15, 23, 42, 0.98) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 15px 0 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.dark-mode .myList ul li a {
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .myList ul li a:hover {
+  background-color: rgba(56, 189, 248, 0.06) !important;
+  color: #38bdf8 !important;
+}
+
+body.dark-mode .study-btn-mobile {
+  background: linear-gradient(135deg, #38bdf8, #0284c7) !important;
+  color: #0f172a !important;
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.25) !important;
+}
+
+/* 🔥 حل مشكلة خط الصلاة والتذكير الإيماني ليلاً 🔥 */
+body.dark-mode .prayer-box .prayer-name {
+  color: #ffffff !important; /* اسم الصلاة أبيض ناصع وواضح جداً */
+}
+
+body.dark-mode .prayer-box #nextPrayerTime {
+  color: #e2e8f0 !important; /* وقت الصلاة القادمة فاتح ومقروء */
+}
+
+body.dark-mode .prayer-box #countdown {
+  color: #94a3b8 !important; /* أرقام العداد التنازلي واضحة وبدون بهتان */
+}
+
+body.dark-mode .reminder-box .reminder-text {
+  color: #f1f5f9 !important; /* نص التذكير الإيماني ناصع ومريح للعين عند القراءة الليلية */
+}
+
+
+
+/* ضبط البروز والدمج في الوضع المظلم (Cyber Dark Glow) */
+body.dark-mode {
+  /* أرضية ليلية شديدة العمق والفخامة */
+  background: linear-gradient(135deg, #0b1329 0%, #0f172a 50%, #020617 100%) !important;
+}
+
+body.dark-mode::before {
+  /* خفض الشفافية ليلاً لراحة العين مع الحفاظ على بروز العناصر */
+  opacity: 0.25 !important;
+  
+  /* نمط دمج متقدم يمنح الدوائر توهجاً سيبرانياً ناعماً وسط العتمة */
+  mix-blend-mode: screen !important; 
+  
+  /* فلتر يعكس الإضاءة ويبرز الخطوط الزرقاء الغامقة بشكل متناسق مع عتمة الشاشة */
+  filter: contrast(140%) brightness(80%) saturate(120%) !important;
+}
+
+

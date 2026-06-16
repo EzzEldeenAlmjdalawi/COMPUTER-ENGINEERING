@@ -1,122 +1,278 @@
+/* ==========================================================================
+   THEME SYNCED PROFESSIONAL 15 COLORS (MODERN LIGHT & GLASS VERSION)
+   مزامنة الألوان الاحترافية لملفات السنوات مع الهوية البيضاء الجديدة
+   ========================================================================== */
 
-/* ==================================================
-   THEME SYNCED PROFESSIONAL 15 COLORS
-   Semesters, Subjects, Buttons, Sidebar
-================================================== */
-
-/* Disable glow on all themes, except names & site title */
-body[class*="theme-"] h1.site-title,
+/* إلغاء التوهج المزعج والإبقاء على الخطوط الهندسية واضحة ومريحة */
+body[class*="theme-"] h1,
 body[class*="theme-"] .no-glow {
   animation: none !important;
   text-shadow: none !important;
 }
 
-/* ==================================================
-   IMPROVED NEON THEMES (STRONG + MODERN)
-================================================== */
+/* ==========================================================================
+   باليت الألوان الهندسية الذكية (SMART MODERN LIGHT PALETTE)
+   قمنا بضبط درجات الألوان (الأساسي والناعم المشتق) لتتناغم مع الواجهة البيضاء
+   ========================================================================== */
+body.theme-blue    { --main: #2563eb; --main-hover: #1d4ed8; --main-soft: rgba(37, 99, 235, 0.06);   --border-soft: rgba(37, 99, 235, 0.15); }
+body.theme-green   { --main: #059669; --main-hover: #047857; --main-soft: rgba(5, 150, 105, 0.06);  --border-soft: rgba(5, 150, 105, 0.15); }
+body.theme-purple  { --main: #7c3aed; --main-hover: #6d28d9; --main-soft: rgba(124, 58, 237, 0.06);  --border-soft: rgba(124, 58, 237, 0.15); }
+body.theme-orange  { --main: #ea580c; --main-hover: #c2410c; --main-soft: rgba(234, 88, 12, 0.06);   --border-soft: rgba(234, 88, 12, 0.15); }
+body.theme-red     { --main: #dc2626; --main-hover: #b91c1c; --main-soft: rgba(220, 38, 38, 0.06);   --border-soft: rgba(220, 38, 38, 0.15); }
+body.theme-pink    { --main: #db2777; --main-hover: #be185d; --main-soft: rgba(219, 39, 119, 0.06);  --border-soft: rgba(219, 39, 119, 0.15); }
+body.theme-yellow  { --main: #ca8a04; --main-hover: #a16207; --main-soft: rgba(202, 138, 4, 0.06);   --border-soft: rgba(202, 138, 4, 0.15); }
+body.theme-cyan    { --main: #0891b2; --main-hover: #0e7490; --main-soft: rgba(8, 145, 178, 0.06);   --border-soft: rgba(8, 145, 178, 0.15); }
+body.theme-lime    { --main: #65a30d; --main-hover: #4d7c0f; --main-soft: rgba(101, 163, 13, 0.06);  --border-soft: rgba(101, 163, 13, 0.15); }
+body.theme-teal    { --main: #0d9488; --main-hover: #0f766e; --main-soft: rgba(13, 148, 136, 0.06);  --border-soft: rgba(13, 148, 136, 0.15); }
+body.theme-magenta { --main: #c026d3; --main-hover: #a21caf; --main-soft: rgba(192, 38, 211, 0.06);  --border-soft: rgba(192, 38, 211, 0.15); }
+body.theme-maroon  { --main: #be123c; --main-hover: #9f1239; --main-soft: rgba(190, 18, 60, 0.06);   --border-soft: rgba(190, 18, 60, 0.15); }
+body.theme-navy    { --main: #1e40af; --main-hover: #1e3a8a; --main-soft: rgba(30, 64, 175, 0.06);   --border-soft: rgba(30, 64, 175, 0.15); }
+body.theme-gray    { --main: #475569; --main-hover: #334155; --main-soft: rgba(71, 85, 105, 0.06);   --border-soft: rgba(71, 85, 105, 0.15); }
+body.theme-black   { --main: #0f172a; --main-hover: #1e293b; --main-soft: rgba(15, 23, 42, 0.04);    --border-soft: rgba(15, 23, 42, 0.2); }
 
-body.theme-blue    { --main:#00aaff; --main-hover:#33bbff; --bg-soft:#0a1f33; --card:#112b45; }
-
-body.theme-green   { --main:#00ffcc; --main-hover:#33ffd9; --bg-soft:#0a2f2a; --card:#113d36; }
-
-body.theme-purple  { --main:#b366ff; --main-hover:#c285ff; --bg-soft:#1a1033; --card:#24164a; }
-
-body.theme-orange  { --main:#ffb347; --main-hover:#ffc266; --bg-soft:#2a1a0f; --card:#3a2416; }
-
-body.theme-red     { --main:#ff4d6d; --main-hover:#ff6f85; --bg-soft:#2a0f14; --card:#3d141c; }
-
-body.theme-pink    { --main:#ff7bff; --main-hover:#ff9bff; --bg-soft:#2a1030; --card:#3a1642; }
-
-body.theme-yellow  { --main:#fff44f; --main-hover:#fff76a; --bg-soft:#2a280a; --card:#3a3715; }
-
-body.theme-cyan    { --main:#00fff7; --main-hover:#33fff9; --bg-soft:#062a2a; --card:#0d3b3b; }
-
-body.theme-lime    { --main:#bfff00; --main-hover:#ccff33; --bg-soft:#1f2a0a; --card:#2d3a12; }
-
-body.theme-teal    { --main:#00e6e6; --main-hover:#33f0f0; --bg-soft:#062626; --card:#0d3a3a; }
-
-body.theme-magenta { --main:#ff00cc; --main-hover:#ff33d6; --bg-soft:#2a0a24; --card:#3a1032; }
-
-body.theme-maroon  { --main:#b03060; --main-hover:#cc4a78; --bg-soft:#2a0a14; --card:#3a101c; }
-
-body.theme-navy    { --main:#3366ff; --main-hover:#5c85ff; --bg-soft:#0a0f2a; --card:#11183d; }
-
-body.theme-gray    { --main:#cccccc; --main-hover:#dddddd; --bg-soft:#1a1a1a; --card:#2a2a2a; }
-
-body.theme-black   { --main:#ffffff; --main-hover:#eeeeee; --bg-soft:#000000; --card:#111111; }
-
-
-body[class*="theme-"] .subject:hover,
-body[class*="theme-"] .semester:hover,
-body[class*="theme-"] .resources button:hover {
-  box-shadow: 0 0 10px var(--main);
+/* ==========================================================================
+   تطبيق التناغم اللوني على المحتوى والروابط
+   ========================================================================== */
+body[class*="theme-"] {
+  color: #334155 !important; /* الحفاظ على لون نصوص المقالات مريحاً وقابلاً للقراءة */
 }
-
-
 
 body[class*="theme-"] a {
   color: var(--main);
 }
 
-/* Apply to body */
-body[class*="theme-"] {
-  background-color: var(--bg-soft) !important;
+/* صبغ عنوان السنة بلون الثيم المختار تلقائياً */
+body[class*="theme-"] h1 {
   color: var(--main) !important;
 }
 
-/* Semesters */
-body[class*="theme-"] .semester {
-  background-color: var(--card) !important;
-  color: var(--main) !important;
-  border:1px solid var(--main-hover);
-  transition:0.3s;
+/* ==========================================================================
+   الحاوية الفخمة المحيطة بالمواد (.main-container)
+   إضافة لمسة تحديد علوية (Top Border) تتغير بحسب الثيم المختار بديناميكية تامة
+   ========================================================================== */
+body[class*="theme-"] .main-container {
+  border-top: 5px solid var(--main) !important;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.06), 0 0 1px var(--border-soft) !important;
 }
+
+/* ==========================================================================
+   أزرار الفصول والمواد (SEMESTERS & SUBJECTS)
+   تحويلها إلى مظهر زجاجي شفاف وراقي متناسق بالكامل
+   ========================================================================== */
+
+/* أزرار الفصول (Semester Buttons) */
+body[class*="theme-"] .semester {
+  background-color: var(--main-soft) !important;
+  color: var(--main) !important;
+  border: 1px solid var(--border-soft) !important;
+  box-shadow: none !important;
+  transition: all 0.25s ease;
+}
+
 body[class*="theme-"] .semester:hover {
   background-color: var(--main) !important;
-  color: var(--text-dark,#000) !important;
+  color: #ffffff !important;
+  border-color: var(--main) !important;
+  box-shadow: 0 4px 12px var(--border-soft) !important;
 }
 
-/* Subjects */
+/* كروت المواد الدراسية (Subject Items) */
 body[class*="theme-"] .subject {
-  background-color: var(--card) !important;
-  color: var(--main) !important;
-  border:1px solid var(--main-hover);
-  transition:0.3s;
-}
-body[class*="theme-"] .subject:hover {
-  background-color: var(--main) !important;
-  color: var(--text-dark,#000) !important;
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+  transition: all 0.2s ease;
 }
 
-/* Resources Buttons */
+body[class*="theme-"] .subject:hover {
+  border-color: var(--main) !important;
+  color: var(--main) !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 12px var(--border-soft) !important;
+  transform: translateY(-1px);
+}
+
+/* أزرار المصادر الداخلية للـ Lab والمستندات */
 body[class*="theme-"] .resources button {
   background-color: var(--main) !important;
-  color: var(--text-dark,#000) !important;
-  border:1px solid var(--main-hover);
-  transition:0.3s;
-}
-body[class*="theme-"] .resources button:hover {
-  filter:brightness(1.2);
+  color: #ffffff !important;
+  border: 1px solid var(--main-hover) !important;
+  transition: all 0.2s ease;
 }
 
-/* Toggle Button & Sidebar */
+body[class*="theme-"] .resources button:hover {
+  background-color: var(--main-hover) !important;
+  box-shadow: 0 4px 10px var(--border-soft) !important;
+}
+
+/* ==========================================================================
+   أزرار التحكم والقائمة الجانبية (TOGGLE & SIDEBAR)
+   ========================================================================== */
 body[class*="theme-"] .toggle-btn {
   background-color: var(--main) !important;
-  color: var(--text-dark,#000) !important;
-  box-shadow:none !important;
-  transition:0.3s;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px var(--border-soft) !important;
 }
-body[class*="theme-"] .toggle-btn:hover { filter:brightness(1.2); }
 
+body[class*="theme-"] .toggle-btn:hover {
+  background-color: var(--main-hover) !important;
+}
+
+/* المنيو والروابط المنسدلة */
 body[class*="theme-"] .myList {
-  box-shadow:2px 0 20px var(--main) !important;
-  transition:0.3s;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-left: 1px solid var(--border-soft) !important;
+  box-shadow: -4px 0 25px rgba(15, 23, 42, 0.05) !important;
 }
-body[class*="theme-"] .myList ul li,
-body[class*="theme-"] .myList ul li a {
-  border-bottom-color: color-mix(in srgb,var(--main) 40%,transparent);
+
+body[class*="theme-"] .myList ul li {
+  border-bottom-color: var(--border-soft) !important;
 }
-body[class*="theme-"] .myList ul li:hover,
+
 body[class*="theme-"] .myList ul li a:hover {
   color: var(--main) !important;
+  background-color: var(--main-soft) !important;
+}
+
+/* ربط ثيمات الألوان بأزرار السنوات والمكونات الفرعية داخل الصفحة الرئيسية */
+body[class*="theme-"] .semesters .semester {
+  background-color: var(--main-soft) !important;
+  color: var(--main) !important;
+  border: 1px solid var(--border-soft) !important;
+}
+
+body[class*="theme-"] .semesters .semester:hover {
+  background-color: var(--main) !important;
+  color: #ffffff !important;
+  border-color: var(--main) !important;
+}
+
+/* صبغ زر البوت في الناف بار ديناميكياً مع الثيم */
+body[class*="theme-"] .nav-bot-btn {
+  background: var(--main-soft);
+  border-color: var(--border-soft);
+}
+body[class*="theme-"] .nav-bot-btn .bot-text-nav {
+  color: var(--main);
+}
+body[class*="theme-"] .nav-bot-btn:hover {
+  background: var(--main);
+}
+body[class*="theme-"] .nav-bot-btn:hover .bot-text-nav {
+  color: #ffffff;
+}
+
+/* مزامنة أزرار القناة والبوت واللوحة في الناف بار مع الألوان المختارة */
+body[class*="theme-"] .theme-btn-nav {
+  color: var(--main);
+  border-color: var(--border-soft);
+}
+body[class*="theme-"] .theme-btn-nav:hover {
+  background: var(--main);
+  color: #ffffff;
+}
+body[class*="theme-"] .nav-tg-channel-btn,
+body[class*="theme-"] .nav-bot-btn {
+  background: var(--main-soft);
+  border-color: var(--border-soft);
+}
+body[class*="theme-"] .nav-tg-channel-btn .tg-text-nav,
+body[class*="theme-"] .nav-bot-btn .bot-text-nav {
+  color: var(--main);
+}
+body[class*="theme-"] .nav-tg-channel-btn:hover,
+body[class*="theme-"] .nav-bot-btn:hover {
+  background: var(--main);
+  border-color: var(--main);
+}
+body[class*="theme-"] .nav-tg-channel-btn:hover .tg-text-nav,
+body[class*="theme-"] .nav-bot-btn:hover .bot-text-nav {
+  color: #ffffff;
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   تنسيقات الوضع المظلم لصفحات السنوات والمواد (DARK MODE FOR YEARS PAGES)
+   ========================================================================== */
+
+/* الخلفية العامة لصفحة السنة والكتابة */
+body.dark-mode {
+  background-color: #0f172a !important; /* نفس الخلفية الليلية الفخمة للرئيسية */
+  color: #cbd5e1 !important;
+}
+
+/* صبغ الكرت المركزي المحيط بكل فصول ومواد السنة (.main-container) */
+body.dark-mode .main-container {
+  background: #1e293b !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* صبغ هيدر الفصول الدراسية (مثال: First Semester) ليلاً */
+body.dark-mode .semester {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  color: #38bdf8 !important; /* أزرق سماوي مضيء ومريح للعين */
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* صبغ كروت المواد الدراسية الفردية (Subject Cards) */
+body.dark-mode .subject {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-mode .subject:hover {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+  border-color: #38bdf8 !important;
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.15) !important;
+}
+
+/* صبغ الأزرار الداخلية للمصادر (أزرار الكتب، الـ Labs، الشروحات) */
+body.dark-mode .resources button {
+  background-color: #38bdf8 !important;
+  color: #0f172a !important; /* نص داكن فوق الزر المضيء لقراءة مثالية */
+  border: 1px solid #38bdf8 !important;
+  font-weight: 700;
+}
+
+body.dark-mode .resources button:hover {
+  filter: brightness(1.15);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3) !important;
+}
+
+/* صبغ عناوين السنوات الضخمة (مثال: First Year) */
+body.dark-mode h1 {
+  color: #ffffff !important;
+}
+
+/* تنسيق الناف بار في صفحات السنوات ليصبح زجاجياً معتماً */
+body.dark-mode .main-navbar {
+  background: rgba(15, 23, 42, 0.9) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+body.dark-mode .nav-title-text {
+  color: #ffffff !important;
+}
+
+/* المنيو والروابط المنسدلة على الموبايل ليلاً */
+body.dark-mode .myList {
+  background: #1e293b !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+body.dark-mode .myList ul li a {
+  color: #e2e8f0 !important;
+}
+
+body.dark-mode .myList ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  color: #38bdf8 !important;
 }
