@@ -205,7 +205,7 @@ function getLinkFor(subjectName, item) {
             "Recorded Videos": "https://www.youtube.com/watch?v=_ZRJbBljj9A",
         },
         "Electronics Lab 1": {
-            "Lab": "https://drive.google.com/drive/folders/15xgy7lDnHt28g7MG8JFhxrX-y7d6PnH9",
+            "Lab": "Electronic 1 _Lab.html",
             "Recorded Videos": "Electronic 1_lab_lec.html",
         },
         "Linear Algebra": {
@@ -419,7 +419,7 @@ function getLinkFor(subjectName, item) {
             
 
         "VHDL Lab": {
-            "Lab": "https://drive.google.com/drive/folders/1ZZ3GPjkxyHG0ZubFg1EgY8o7GnIxQd3F",
+            "Lab": "VHDL_Lab.html",
             "Recorded Videos": "VHDL Lab_lec.html",
         },
     
