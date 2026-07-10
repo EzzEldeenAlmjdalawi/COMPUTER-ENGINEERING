@@ -512,10 +512,26 @@ function getLinkFor(subjectName, item) {
         },
 
 
-        "Security In Computer Systems": {
-            "Lab": "https://drive.google.com/drive/folders/1i4njOu8R0sNNq8b-JBVVWPbJEjpOQb7O",
-            "Recorded Videos": "https://www.youtube.com/playlist?list=PLJGg4x6CCiDT14V0C-4Jp1tO6LASSr2fI",
+          "Security In Computer Systems": {
+            "Slides": "https://drive.google.com/drive/folders/1y3uKwBZ5QrKqfPrGaooAy0Qd4_DEySsh",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1i4njOu8R0sNNq8b-JBVVWPbJEjpOQb7O",
+            "Lectures": "Security In Computer Systems_lec.html",
+            "Chapters":"https://drive.google.com/drive/folders/1y3uKwBZ5QrKqfPrGaooAy0Qd4_DEySsh",
+            "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1PYxjlQf10eOLDFpyqZ-sdlCAGBvG83zL",
+            "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1E2D6t5wOgzgjZLJCtav0yFwypD2w6VIo",
+               
         },
+
+         "Distributed and parallel computerization": {
+            "Lab": "https://drive.google.com/drive/folders/18nh8ukbC3uBgmjrTxy5gM7TFirm1N6Ou",
+            "Recorded Videos": "https://drive.google.com/drive/folders/18nh8ukbC3uBgmjrTxy5gM7TFirm1N6Ou",
+        },
+
+         "Renewable energy systems Lab": {
+            "Lab": "https://drive.google.com/drive/folders/1_Lyhkw6o6NW6MZR0VdakIrQ4w5X6Srr3",
+            "Recorded Videos": "https://youtube.com/playlist?list=PLg9pU3bzWXtCqvO3YDttQgP-6-ooLkZMK&si=PCk5jUXkX7LvaVml",
+        },
+
     };
 
     return links[subjectName]?.[item] || "#";
@@ -596,9 +612,9 @@ const allSubjects = [
   { year: 'fifthYear', semester: 'First Semester', name: 'Network Security', altName: 'أمن الشبكات امن الامن شبكات شبكة السنة الخامسة الفصل الاول سنة خامسة فصل اول' },
   { year: 'fifthYear', semester: 'First Semester', name: ' Digital Image Processing', altName: 'معالجة صور رقمية DIP السنة الخامسة الفصل الاول سنة خامسة فصل اول' },
   { year: 'fifthYear', semester: 'First Semester', name: 'Network Security Lab', altName: 'مختبر أمن الشبكات لاب الاب شبكة السنة الخامسة الفصل الاول سنة خامسة فصل اول' },
-  { year: 'fifthYear', semester: 'Second Semester', name: 'Security In Computer Systems', altName: 'أمن أنظمة الحاسوب امن الامن انطمة الحاسوب حاسوب السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني' },
-  { year: 'fifthYear', semester: 'Second Semester', name: 'Elective Course 3', altName: 'اختياري 3 خيار اختر  السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني' },
-  { year: 'fifthYear', semester: 'Second Semester', name: 'Elective Course 4', altName: 'اختياري 4 خيار اختر  السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني' },
+  { year: 'fifthYear', semester: 'Second Semester', name: 'Security In Computer Systems', altName: 'أمن أنظمة الحاسوب امن الامن انطمة الحاسوب حاسوب السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني حاسوب امان' },
+  { year: 'fifthYear', semester: 'Second Semester', name: 'Distributed and parallel computerization', altName: ' محوسبة متوزعة ومتوازية  السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني موزعة توزيع ' },
+  { year: 'fifthYear', semester: 'Second Semester', name: 'Renewable energy systems Lab', altName: '   معمل لاب طاقة طاقات متجددة  السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني' },
 ];
 
 
