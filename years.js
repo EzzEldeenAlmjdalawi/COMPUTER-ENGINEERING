@@ -391,6 +391,11 @@ function getLinkFor(subjectName, item) {
             "Recorded Videos": "Assembly_Language_Lab_lec.html",
         },
 
+        "Digital System Design with SystemVerilog (An alternative course to field training)": {
+            "Lab": "https://drive.google.com/drive/folders/10ZgBtY4WWsAouaJcuDyZeno0lS-6Al_-",
+            "Recorded Videos": "https://youtube.com/playlist?list=PLKzJ_un9PrOw&si=uXBK8UqjvNLR3zlc",
+        },
+
 
 
         "Data Communication Lab": {
@@ -526,7 +531,10 @@ function getLinkFor(subjectName, item) {
             "Lab": "https://drive.google.com/drive/folders/18nh8ukbC3uBgmjrTxy5gM7TFirm1N6Ou",
             "Recorded Videos": "https://drive.google.com/drive/folders/18nh8ukbC3uBgmjrTxy5gM7TFirm1N6Ou",
         },
-
+          "Selected Topics Material": {
+            "Lab": "https://drive.google.com/drive/folders/15l-jQXs8CnKEduJwcHvn_kXynKqpN7-6",
+            "Recorded Videos": "Selected Topics Material_Lec.html",
+        },
          "Renewable energy systems Lab": {
             "Lab": "https://drive.google.com/drive/folders/1_Lyhkw6o6NW6MZR0VdakIrQ4w5X6Srr3",
             "Recorded Videos": "https://youtube.com/playlist?list=PLg9pU3bzWXtCqvO3YDttQgP-6-ooLkZMK&si=PCk5jUXkX7LvaVml",
@@ -597,6 +605,7 @@ const allSubjects = [
   { year: 'fourthYear', semester: 'First Semester', name: 'Assembly Language', altName: 'لغة التجميع تجميع امل محفوظ السنة الرابعة سنة رابعة فصل اول الفصل الاو' },
   { year: 'fourthYear', semester: 'First Semester', name: 'Assembly Language Lab', altName: 'مختبر لغة التجميع لاب الاب السنة الرابعة سنة رابعة فصل اول الفصل الاو' },
   { year: 'fourthYear', semester: 'First Semester', name: 'Practical Training 250h', altName: 'تدريب 250 ساعة ميدان ميداني السنة الرابعة سنة رابعة فصل اول الفصل الاو' },
+   { year: 'fourthYear', semester: 'First Semester', name: 'Digital System Design with SystemVerilog (An alternative course to field training)', altName: 'تصميم الأنظمة الرقمية مع SystemVerilog (م-course بديل للتدريب الميداني)' },
   { year: 'fourthYear', semester: 'Second Semester', name: 'Computer Networks', altName: 'شبكات الحاسوب الشبكات شبكة السنة الرابعة سنة رابعة الفصل الثاني فصل ثاني' },
   { year: 'fourthYear', semester: 'Second Semester', name: 'Computer Networks Lab', altName: 'مختبر شبكات الحاسوب لاب الاب الشبكات السنة الرابعة سنة رابعة الفصل الثاني فصل ثاني' },
   { year: 'fourthYear', semester: 'Second Semester', name: 'Embedded Systems', altName: 'الأنظمة المدمجة انظمة مدمجة المدمجة السنة الرابعة سنة رابعة الفصل الثاني فصل ثاني' },
@@ -615,6 +624,7 @@ const allSubjects = [
   { year: 'fifthYear', semester: 'Second Semester', name: 'Security In Computer Systems', altName: 'أمن أنظمة الحاسوب امن الامن انطمة الحاسوب حاسوب السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني حاسوب امان' },
   { year: 'fifthYear', semester: 'Second Semester', name: 'Distributed and parallel computerization', altName: ' محوسبة متوزعة ومتوازية  السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني موزعة توزيع ' },
   { year: 'fifthYear', semester: 'Second Semester', name: 'Renewable energy systems Lab', altName: '   معمل لاب طاقة طاقات متجددة  السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني' },
+    { year: 'fifthYear', semester: 'Second Semester', name: 'Selected Topics Material', altName: ' مواضيع مختارة اختيار خيار سنة خامسة فصل ثاني ' },
 ];
 
 

@@ -12,6 +12,14 @@
 </head> 
 <body>
 
+  <!-- شريط الإشعارات المتحرك -->
+  <div class="ticker-wrap">
+    <div class="ticker-heading"><i class="fa-solid fa-bullhorn"></i> إشعار مهم</div>
+    <div class="ticker-container">
+      <div class="ticker-text">📢 تم بحمد الله إضافة جميع مواد متطلبات الجامعة الخاصة بالخطة الدراسية مع روابط الملفات والمحاضرات الكاملة!</div>
+    </div>
+  </div>
+
   <nav class="main-navbar">
     <div class="navbar-container">
       <div class="nav-logo-zone">
@@ -37,7 +45,7 @@
         </a>
 
         <button id="darkModeToggle" class="dark-mode-btn" onclick="toggleDarkMode()" title="تبديل الوضع الليلي">
-        <i class="fa-solid fa-moon"></i>
+          <i class="fa-solid fa-moon"></i>
         </button>
 
         <button class="toggle-btn" onclick="toggleMenu()">☰</button>
@@ -53,9 +61,11 @@
       <li><a href="thirdYear.html">📁 Third Year </a></li>
       <li><a href="fourthYear.html">📁 Fourth Year </a></li>
       <li><a href="fifthYear.html">📁 Fifth Year </a></li>
+      <li><a href="university-requirements.html">🏛️ متطلبات الجامعة الاسلامية</a></li>
       <li><a href="study-tools.html" class="study-btn-mobile">🎓 ادرس من هان</a></li>
     </ul>
   </div>
+  
 
   <div class="main-layout-holder">
     
@@ -74,12 +84,25 @@
           <div class="semesters-with-image-wrapper">
             
             <div class="semesters">
-              <a class="semester" style="--i:1" href="firstYear.html">First Year 📘</a>
-              <a class="semester" style="--i:5" href="secndYear.html">Second Year 📙</a>
-              <a class="semester" style="--i:10" href="thirdYear.html">Third Year 📕</a>
-              <a class="semester" style="--i:15" href="fourthYear.html">Fourth Year 📒</a>
-              <a class="semester" style="--i:20" href="fifthYear.html">Fifth Year 📗</a>
-            </div>
+           <a class="semester" style="--i:1" href="firstYear.html">
+           <i class="fa-solid fa-cubes"></i> First Year
+           </a>
+           <a class="semester" style="--i:5" href="secndYear.html">
+           <i class="fa-solid fa-microchip"></i> Second Year
+          </a>
+          <a class="semester" style="--i:10" href="thirdYear.html">
+          <i class="fa-solid fa-network-wired"></i> Third Year
+          </a>
+          <a class="semester" style="--i:15" href="fourthYear.html">
+          <i class="fa-solid fa-laptop-code"></i> Fourth Year
+         </a>
+         <a class="semester" style="--i:20" href="fifthYear.html">
+        <i class="fa-solid fa-award"></i> Fifth Year
+        </a>
+        <a class="semester req-btn-highlight" style="--i:25" href="university-requirements.html">
+        <i class="fa-solid fa-graduation-cap"></i> متطلبات الجامعة الإسلامية
+       </a>
+</div>
 
             <div class="top-image-side">
               <img src="Com.png" alt="Top Computer Engineering" class="top-engineer-img">
@@ -139,30 +162,25 @@
   </footer>
 
    <script>
-    // 1. دالة القائمة الجانبية للموبايل
     function toggleMenu() { 
       document.getElementById('menuList').classList.toggle('show'); 
     }
     
-    // 2. دالة تشغيل وإطفاء الـ Dark Mode الذكية وحفظ الخيار
     function toggleDarkMode() {
       const body = document.body;
       const darkModeBtn = document.getElementById('darkModeToggle');
       
-      // تبديل كلاس الوضع المظلم على الـ body
       body.classList.toggle('dark-mode');
       
-      // تغيير شكل الأيقونة وحفظ الحالة في الـ LocalStorage
       if (body.classList.contains('dark-mode')) {
-        darkModeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>'; // أيقونة الشمس للوضع الفاتح
+        darkModeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
         localStorage.setItem('themeMode', 'dark');
       } else {
-        darkModeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>'; // أيقونة القمر للوضع المظلم
+        darkModeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
         localStorage.setItem('themeMode', 'light');
       }
     }
 
-    // 3. فحص الذاكرة عند تحميل الصفحة لتطبيق الوضع المختار تلقائياً
     document.addEventListener('DOMContentLoaded', function() {
       const savedMode = localStorage.getItem('themeMode');
       const darkModeBtn = document.getElementById('darkModeToggle');
