@@ -66,7 +66,7 @@ function copyAllStaticLegacyFiles() {
 }
 
 export default defineConfig({
-  base: './', // 👈 إضافة أساسية لضمان عمل الروابط النسبية على Vercel و GitHub Pages
+  base: '/COMPUTER-ENGINEERING/', // 👈 إضافة أساسية لضمان عمل الروابط النسبية على Vercel و GitHub Pages
   plugins: [
     react(),
     copyAllStaticLegacyFiles(),
