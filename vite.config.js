@@ -66,12 +66,14 @@ function copyAllStaticLegacyFiles() {
 }
 
 export default defineConfig({
+  base: './', // 👈 إضافة أساسية لضمان عمل الروابط النسبية على Vercel و GitHub Pages
   plugins: [
     react(),
     copyAllStaticLegacyFiles(),
   ],
   build: {
     outDir: 'dist',
+    emptyOutDir: true,
     rollupOptions: {
       input: {
         index:                  resolve(__dirname, 'index.html'),
