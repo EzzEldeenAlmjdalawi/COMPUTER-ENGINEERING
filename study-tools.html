@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Study Tools – IUG Computer Engineering</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
     :root {
       --bg:        #0b1f2a;
@@ -305,12 +306,8 @@
   </style>
 </head>
 <body>
+<div id="navbar-root"></div>
 <div id="app">
-  <nav>
-    <a href="index.html" class="nav-back">← الرئيسية</a>
-    <span class="nav-title">🎓 Study Tools</span>
-    <span class="nav-brand">IUG · CE</span>
-  </nav>
   <main>
     <div class="tabs">
       <button class="tab-btn" :class="{active: tab==='notebook'}" @click="tab='notebook'">📝 ملاحظاتي</button>
@@ -840,5 +837,6 @@ createApp({
   }
 }).mount('#app');
 </script>
+<script type="module" src="/src/entries/studyTools.jsx"></script>
 </body>
 </html>

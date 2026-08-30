@@ -1,0 +1,153 @@
+/* ==========================================================================
+   1. زر لوحة الألوان (THEME BUTTON) - النمط الزجاجي العصري
+   ========================================================================== */
+.theme-control {
+  position: fixed;
+  overflow: visible;
+  top: 22px;
+  right: 362px;
+  z-index: 1000;
+}
+
+.theme-btn {
+  width: 50px;
+  height: 42px;
+  border-radius: 12px;
+  /* نمط Glassmorphism متوافق مع الواجهة البيضاء الجديدة */
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(14, 116, 144, 0.15);
+  color: #0e7490; /* اللون الكحلي الهندسي المعتمد */
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.theme-btn:hover {
+  background: #0e7490;
+  color: #ffffff;
+  border-color: #0e7490;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(14, 116, 144, 0.2);
+}
+
+/* ==========================================================================
+   2. قائمة اختيار الألوان (THEME MENU)
+   ========================================================================== */
+.theme-menu {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  left: auto;
+  display: none;
+  flex-wrap: wrap;
+  gap: 8px; /* مسافة مريحة وموزعة بشكل هندسي */
+  padding: 12px;
+  width: 150px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+}
+
+/* الكلاس التزامني لإظهار القائمة بسلاسة */
+.theme-menu.show,
+.theme-menu.show-theme {
+  display: flex;
+}
+
+/* ==========================================================================
+   3. دوائر الألوان التفاعلية (COLOR DOTS)
+   ========================================================================== */
+.color {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #ffffff; /* إطار أبيض داخلي ليفصل اللون ويبرزه */
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.15);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.color:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.3);
+}
+
+/* باليت الألوان المريحة للعين وبدون توهج Cyberpunk الفاقع */
+.color.blue      { background: #3b82f6; }
+.color.green     { background: #10b981; }
+.color.purple    { background: #8b5cf6; }
+.color.orange    { background: #f97316; }
+.color.red       { background: #ef4444; }
+.color.pink      { background: #ec4899; }
+.color.yellow    { background: #eab308; }
+.color.cyan      { background: #06b6d4; }
+.color.lime      { background: #84cc16; }
+.color.teal      { background: #14b8a6; }
+.color.magenta   { background: #d946ef; }
+.color.maroon    { background: #9f1239; }
+.color.navy      { background: #1e3a8a; }
+.color.gray      { background: #64748b; }
+.color.black     { background: #0f172a; }
+.color.off       { background: #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #334155; font-weight: bold; }
+
+/* ==========================================================================
+   4. تأثيرات التناغم اللوني للمنصة (THEMES EFFECTS)
+   بدلاً من تغطية الصفحة بطبقة تحجب الرؤية، الآن نقوم بصبغ حواف الكروت والعناصر برقة 
+   ========================================================================== */
+body.theme-blue .main-container, body.theme-blue .containar  { border-top: 4px solid #3b82f6; }
+body.theme-green .main-container, body.theme-green .containar { border-top: 4px solid #10b981; }
+body.theme-purple .main-container, body.theme-purple .containar { border-top: 4px solid #8b5cf6; }
+body.theme-orange .main-container, body.theme-orange .containar { border-top: 4px solid #f97316; }
+body.theme-red .main-container, body.theme-red .containar    { border-top: 4px solid #ef4444; }
+body.theme-pink .main-container, body.theme-pink .containar   { border-top: 4px solid #ec4899; }
+body.theme-yellow .main-container, body.theme-yellow .containar { border-top: 4px solid #eab308; }
+body.theme-cyan .main-container, body.theme-cyan .containar   { border-top: 4px solid #06b6d4; }
+body.theme-lime .main-container, body.theme-lime .containar   { border-top: 4px solid #84cc16; }
+body.theme-teal .main-container, body.theme-teal .containar   { border-top: 4px solid #14b8a6; }
+body.theme-magenta .main-container, body.theme-magenta .containar { border-top: 4px solid #d946ef; }
+body.theme-maroon .main-container, body.theme-maroon .containar { border-top: 4px solid #9f1239; }
+body.theme-navy .main-container, body.theme-navy .containar   { border-top: 4px solid #1e3a8a; }
+body.theme-gray .main-container, body.theme-gray .containar   { border-top: 4px solid #64748b; }
+body.theme-black .main-container, body.theme-black .containar { border-top: 4px solid #0f172a; }
+
+/* تغيير لون هيدر الفصول ديناميكياً مع الثيم المختار */
+body.theme-blue .semester  { background: rgba(59, 130, 246, 0.08); color: #3b82f6; }
+body.theme-green .semester { background: rgba(16, 185, 129, 0.08); color: #10b981; }
+body.theme-purple .semester{ background: rgba(139, 92, 246, 0.08); color: #8b5cf6; }
+body.theme-orange .semester{ background: rgba(249, 115, 22, 0.08); color: #f97316; }
+body.theme-red .semester   { background: rgba(239, 68, 68, 0.08); color: #ef4444; }
+
+/* ==========================================================================
+   5. الاستجابة مع الشاشات المختلفة (RESPONSIVE FIX)
+   ========================================================================== */
+@media(max-width: 768px) {
+  .theme-control {
+    right: 70px; /* لضمان عدم تداخله مع زر القائمة الجانبية الموبايل */
+    top: 14px;
+  }
+
+  .theme-btn {
+    width: 44px;
+    height: 38px;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+
+  .theme-menu {
+    right: 0;
+    left: auto;
+    width: 130px;
+    gap: 6px;
+    padding: 10px;
+  }
+}
+

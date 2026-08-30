@@ -1,0 +1,295 @@
+/* ==========================================================================
+   1. الإعدادات العامة والخلفية البيضاء الهندسية (Clean & Consistent)
+   ========================================================================== */
+body, html {
+  overflow-x: hidden;
+}
+
+div, nav, aside {
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #f8fafc; /* توحيد لون الخلفية مع الكرت الرئيسي */
+  color: #1e293b;
+  font-family: 'Cairo', Arial, sans-serif; /* الخط العربي الاحترافي الموحد */
+  margin: 0;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #0e7490; /* لون أزرق برمجيات رسمي بدلاً من الفوسفوري القديم */
+  transition: color 0.25s ease;
+}
+
+a:hover {
+  color: #06b6d4;
+}
+
+/* ==========================================================================
+   2. تأثير التوهج الهادئ للعنوان (H1)
+   ========================================================================== */
+h1 {
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 30px;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 12px rgba(14, 116, 144, 0.08);
+  }
+  to {
+    text-shadow: 0 0 18px rgba(6, 182, 212, 0.15);
+  }
+}
+
+/* ==========================================================================
+   3. بطاقات المواد الدراسية (.subject) - المظهر الأنيق الجديد
+   ========================================================================== */
+.subject {
+  background-color: #ffffff;      /* بطاقة بيضاء ناصعة مريحة للعين */
+  border: 1px solid #e2e8f0;      /* إطار رمادي خفيف جداً يحدد الأطراف */
+  color: #1e293b;                 /* لون النص داكن وفخم (كحلي مائل للأسود) لضمان أعلى نسبة وضوح وقراءة */
+  padding: 14px 24px;
+  border-radius: 14px;            /* حواف دائرية ناعمة متناسقة مع الهوية الجديدة */
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 700;               /* خط سميك وبارز للمواد */
+  text-align: center;
+  margin: 15px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.03); /* ظل خفيف جداً يمنع البطاقة من الاختفاء فوق الخلفية */
+  
+  /* لضمان توسط النص والإيموجي تماماً داخل الأيقونة وعدم هروبها */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;                      /* مسافة ثابتة وأنيقة بين اسم المادة والأيقونة المرافق لها */
+  
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* تأثير التمرير (Hover) المطور للمواد */
+.subject:hover {
+  background-color: #0e7490;      /* اللون الأزرق الهندسي الفخم المعتمد للمنصة */
+  color: #ffffff;                 /* ينقلب النص فجأة للأبيض الناصع ليعطي تباين قوي وممتاز */
+  border-color: #0e7490;
+  transform: translateY(-2px);    /* حركة ارتفاع خفيفة وذكية للأعلى */
+  box-shadow: 0 10px 20px rgba(14, 116, 144, 0.15); /* بروز الظل الأزرق بشكل تفاعلي مبهر */
+}
+
+/* ==========================================================================
+   4. القائمة الجانبية وزر التحكم (Sidebar & Toggle Container)
+   ========================================================================== */
+.toggle-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #0e7490;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: 'Cairo', sans-serif;
+  border-radius: 12px;
+  cursor: pointer;
+  z-index: 1001;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(14, 116, 144, 0.2);
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background-color: #0891b2;
+  box-shadow: 0 6px 15px rgba(14, 116, 144, 0.3);
+  transform: scale(1.03);
+}
+
+/* حاوية القائمة الجانبية (.myList) */
+.myList {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  background: #ffffff; /* تحويلها لخلفية بيضاء راقية متجانسة */
+  padding: 40px 20px;
+  transition: left 0.4s cubic-bezier(.4,0,.2,1);
+  z-index: 1000;
+  box-shadow: 10px 0 40px rgba(0, 0, 0, 0.03);
+  animation: slideOut 0.3s forwards;
+  overflow-y: auto;
+  color: #1e293b;
+  border-right: 1px solid #e2e8f0;
+}
+
+.myList.show {
+  left: 0;
+  animation: slideIn 0.4s forwards;
+}
+
+@keyframes slideIn {
+  from { left: -260px; opacity: 0.5; }
+  to { left: 0; opacity: 1; }
+}
+
+@keyframes slideOut {
+  from { left: 0; opacity: 1; }
+  to { left: -260px; opacity: 0.5; }
+}
+
+/* عناصر القائمة الجانبية وروابطها */
+.myList ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.myList ul li {
+  margin: 12px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #475569;
+  padding: 10px 12px;
+  border-bottom: 1px solid #f1f5f9;
+  transition: all 0.25s ease;
+}
+
+.myList ul li a {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #475569;
+  padding: 0;
+  border-bottom: none;
+  transition: all 0.25s ease;
+}
+
+/* تأثيرات التمرير فوق القائمة الجانبية */
+.myList ul li:hover, .myList ul li a:hover {
+  color: #0e7490;
+  background-color: #f0fdfa; /* ومضة سيان ناعمة ومريحة للعين */
+  border-radius: 8px;
+  transform: translateX(4px);
+}
+
+.myList ul li:hover {
+  box-shadow: 0 4px 10px rgba(14, 116, 144, 0.05);
+}
+
+
+
+
+
+/* ==========================================================================
+   الحل الشامل والجذري لكروت الصفحات الداخلية (المحاضرات، الامتحانات، السلايدات)
+   يجبر الرابط على ملء 100% من مساحة الكرت وتصحيح اختفاء النص عند الـ Hover
+   ========================================================================== */
+
+/* 1. تصفير المسافات حول الحاوية الخارجية لأي كرت يحتوي على رابط داخلي */
+.main-layout-holder div:has(> a),
+.containar div:has(> a),
+div[class*="-card"],
+.lecture-card,
+.exam-card {
+  position: relative !important;
+  padding: 0 !important;       /* تصفير الـ Padding الخارجي تماماً ليتمدد الرابط للحواف */
+  overflow: hidden !important;
+  cursor: pointer !important;
+}
+
+/* 2. إجبار الرابط <a> على التمدد والانتشار ليملأ كامل المحيط الأبيض بنسبة 100% */
+.main-layout-holder div:has(> a) a,
+.containar div:has(> a) a,
+div[class*="-card"] a,
+.lecture-card a,
+.exam-card a {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  
+  /* نقل مسافات الأمان والضغط (Padding) إلى داخل الرابط نفسه ليكون الكرت كله هو الرابط */
+  padding: 18px 24px !important; 
+  
+  box-sizing: border-box !important;
+  text-decoration: none !important;
+  font-family: 'Cairo', sans-serif !important;
+  font-weight: 700 !important;
+  
+  /* لون النص الافتراضي الغامق قبل الـ Hover */
+  color: #0e7490 !important; 
+  transition: all 0.2s ease-in-out !important;
+}
+
+/* 3. تصحيح الـ Hover للكرت الخارجي */
+.main-layout-holder div:has(> a):hover,
+.containar div:has(> a):hover,
+div[class*="-card"]:hover,
+.lecture-card:hover,
+.exam-card:hover {
+  background-color: #0e7490 !important; /* يتحول الكرت بالكامل للون الأزرق الغامق */
+  box-shadow: 0 8px 20px rgba(14, 116, 144, 0.2) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* 4. إجبار النص على التحول للون الأبيض عند الـ Hover لمنع اختفائه */
+.main-layout-holder div:has(> a):hover a,
+.containar div:has(> a):hover a,
+div[class*="-card"]:hover a,
+.lecture-card:hover a,
+.exam-card:hover a {
+  color: #ffffff !important; /* يظهر النص باللون الأبيض الناصع فوق الخلفية الغامقة */
+}
+
+/* ==========================================================================
+   المزامنة الشاملة مع الـ Dark Mode (الوضع المظلم)
+   ========================================================================== */
+body.dark-mode .main-layout-holder div:has(> a),
+body.dark-mode .containar div:has(> a),
+body.dark-mode div[class*="-card"],
+body.dark-mode .lecture-card,
+body.dark-mode .exam-card {
+  background-color: #1e293b !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark-mode .main-layout-holder div:has(> a) a,
+body.dark-mode .containar div:has(> a) a,
+body.dark-mode div[class*="-card"] a,
+body.dark-mode .lecture-card a,
+body.dark-mode .exam-card a {
+  color: #38bdf8 !important; /* لون النص الافتراضي ليلاً */
+}
+
+body.dark-mode .main-layout-holder div:has(> a):hover,
+body.dark-mode .containar div:has(> a):hover,
+body.dark-mode div[class*="-card"]:hover,
+body.dark-mode .lecture-card:hover,
+body.dark-mode .exam-card:hover {
+  background-color: #38bdf8 !important; /* لون الكرت عند الـ Hover ليلاً */
+}
+
+body.dark-mode .main-layout-holder div:has(> a):hover a,
+body.dark-mode .containar div:has(> a):hover a,
+body.dark-mode div[class*="-card"]:hover a,
+body.dark-mode .lecture-card:hover a,
+body.dark-mode .exam-card:hover a {
+  color: #0f172a !important; /* لون النص عند الـ Hover ليلاً */
+}
+
+
+
+
+
+
+
+
+
+

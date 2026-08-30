@@ -1,0 +1,1 @@
+import{c as r,j as e,R as t}from"./Navbar-BhB1VpnS.js";import{Y as o}from"./themes-B7NCDNra.js";import"./global-BSleK3LU.js";r.createRoot(document.getElementById("root")).render(e.jsx(t.StrictMode,{children:e.jsx(o,{yearKey:"secndYear"})}));

@@ -1,0 +1,322 @@
+/* Progress Checklist Modal Styles */
+
+.progress-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 15, 29, 0.75);
+  backdrop-filter: blur(10px);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.progress-modal-container {
+  width: 100%;
+  max-width: 820px;
+  max-height: 85vh;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.progress-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-surface-subtle);
+}
+
+.progress-header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.progress-title-icon {
+  font-size: 1.5rem;
+  color: var(--accent-emerald);
+}
+
+.progress-header-title h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.progress-header-title span {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+}
+
+.progress-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+}
+
+.progress-close-btn:hover {
+  background: var(--border-subtle);
+  color: var(--accent-amber);
+}
+
+.progress-modal-body {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar Subject Picker */
+.progress-sidebar {
+  border-left: 1px solid var(--border-subtle);
+  background: var(--bg-surface-subtle);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.progress-filter-group {
+  margin-bottom: 0.75rem;
+}
+
+.progress-filter-group label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-subtle);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.progress-select {
+  width: 100%;
+  padding: 0.45rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-default);
+  background: var(--bg-surface);
+  color: var(--text-main);
+  font-size: 0.85rem;
+  font-weight: 600;
+  outline: none;
+}
+
+.progress-subjects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.progress-sub-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  background: transparent;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.progress-sub-item:hover {
+  background: var(--bg-surface);
+}
+
+.progress-sub-item.active {
+  background: var(--bg-surface);
+  border-color: var(--accent-emerald);
+  box-shadow: var(--shadow-sm);
+}
+
+.progress-sub-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.progress-sub-name {
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--text-main);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.progress-sub-year {
+  font-size: 0.7rem;
+  color: var(--text-subtle);
+}
+
+.progress-mini-badge {
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
+  font-weight: 800;
+  color: var(--accent-emerald);
+  background: rgba(16, 185, 129, 0.1);
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+}
+
+/* Main Content Checklist */
+.progress-checklist-content {
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.progress-active-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.progress-active-title {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+}
+
+.progress-active-meta {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lab-chip-sm {
+  font-size: 0.7rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: var(--radius-sm);
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-emerald);
+  font-weight: 700;
+}
+
+.progress-stat-pill {
+  font-size: 0.85rem;
+  color: var(--text-main);
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-default);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+}
+
+.progress-stat-pill strong {
+  color: var(--accent-emerald);
+}
+
+.progress-bar-track {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-surface-subtle);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-emerald) 0%, var(--accent-teal) 100%);
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+}
+
+.progress-tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.progress-task-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.progress-task-row:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-surface);
+}
+
+.progress-task-row.is-checked {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.task-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent-emerald);
+  cursor: pointer;
+}
+
+.task-icon-box {
+  width: 28px;
+  color: var(--accent-amber);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-task-row.is-checked .task-icon-box {
+  color: var(--accent-emerald);
+}
+
+.task-label-text {
+  flex: 1;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.progress-task-row.is-checked .task-label-text {
+  color: var(--accent-emerald);
+}
+
+.task-done-icon {
+  color: var(--accent-emerald);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .progress-modal-body {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-sidebar {
+    border-left: none;
+    border-bottom: 1px solid var(--border-subtle);
+    max-height: 180px;
+  }
+}

@@ -1,0 +1,147 @@
+/* YearPage Styles */
+
+.year-page-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.year-header-hero {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-default);
+  padding: 2.5rem 0 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.year-header-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--year-accent, var(--accent-amber));
+}
+
+.year-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.year-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--year-accent, var(--accent-amber));
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-default);
+  margin-bottom: 0.85rem;
+}
+
+.year-hero-title {
+  font-family: var(--font-mono);
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.year-hero-desc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.semester-pills-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sem-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.15rem;
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.sem-pill:hover {
+  background: var(--bg-surface);
+  border-color: var(--year-accent, var(--accent-amber));
+  color: var(--year-accent, var(--accent-amber));
+  transform: translateY(-2px);
+}
+
+.pill-count {
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+  font-weight: 600;
+}
+
+/* Main Content Area */
+.year-main-content {
+  padding-top: 2.5rem;
+  padding-bottom: 5rem;
+  flex: 1;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-default);
+  color: var(--text-main);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.back-link:hover {
+  border-color: var(--accent-amber);
+  color: var(--accent-amber);
+}
+
+@media (max-width: 640px) {
+  .year-hero-title {
+    font-size: 1.85rem;
+  }
+  
+  .year-header-hero {
+    padding: 1.75rem 0 1.5rem;
+  }
+
+  .semester-pills-row {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .sem-pill {
+    width: 100%;
+    justify-content: center;
+  }
+}

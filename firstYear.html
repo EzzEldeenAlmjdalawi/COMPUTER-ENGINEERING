@@ -1,93 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Year</title>
-  
-    <link rel="stylesheet" href="themes.css">
-    <link rel="stylesheet" href="theme-synced.css">
-    <link rel="stylesheet" href="years.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First Year — COMPUTER ENGINEERING IUG</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
-<body> 
-  <div class="bg-engineering-text">engineering</div>  
-  <div class="bubble bubble-top-right"></div>
-<div class="bubble bubble-mid-right-1"></div>
-<div class="bubble bubble-mid-right-2"></div>
-<div class="bubble bubble-bottom-right"></div>
-
-<div class="bubble-mini bubble-mini-1"></div>
-<div class="bubble-mini bubble-mini-2"></div>
-<div class="bubble-mini bubble-mini-3"></div>
-
-<div class="bubble bubble-bottom-left"></div>
-<div class="bubble bubble-mid-left"></div>
-    
-<div class="theme-control">
-  <button class="theme-btn" onclick="toggleThemeMenu()">🎨</button>
-
-  <div class="theme-menu" id="themeMenu">
-    <span class="color blue"      onclick="applyTheme('theme-blue')"></span>
-    <span class="color green"     onclick="applyTheme('theme-green')"></span>
-    <span class="color purple"    onclick="applyTheme('theme-purple')"></span>
-    <span class="color orange"    onclick="applyTheme('theme-orange')"></span>
-    <span class="color red"       onclick="applyTheme('theme-red')"></span>
-    <span class="color pink"      onclick="applyTheme('theme-pink')"></span>
-    <span class="color yellow"    onclick="applyTheme('theme-yellow')"></span>
-    <span class="color cyan"      onclick="applyTheme('theme-cyan')"></span>
-    <span class="color lime"      onclick="applyTheme('theme-lime')"></span>
-    <span class="color teal"      onclick="applyTheme('theme-teal')"></span>
-    <span class="color magenta"   onclick="applyTheme('theme-magenta')"></span>
-    <span class="color maroon"    onclick="applyTheme('theme-maroon')"></span>
-    <span class="color navy"      onclick="applyTheme('theme-navy')"></span>
-    <span class="color gray"      onclick="applyTheme('theme-gray')"></span>
-    <span class="color black"     onclick="applyTheme('theme-black')"></span>
-    <span class="color off"       onclick="applyTheme('')">✖</span>
-  </div>
-</div>
-
-<button class="toggle-btn" onclick="toggleMenu()">☰</button>
-
-<div class="myList" id="menuList">
-  <ul>
-    <li><a href="index.html" class="fas fa-home" ></a></li>
-    <li><a href="firstYear.html">📁 First Year </a></li>
-    <li><a href="secndYear.html">📁 Second Year </a></li>
-    <li><a href="thirdYear.html">📁 Third Year </a></li>
-    <li><a href="fourthYear.html">📁 Fourth Year </a></li>
-    <li><a href="fifthYear.html">📁 Fifth Year </a></li>
-    <a href="study-tools.html" class="study-btn">🎓 ادرس من هان</a>
-  </ul>
-</div>
-
-<div class="main-container">
-
-    <h1>First Year</h1>
-    
-    <div class="semester" onclick="toggleSubjects('sec1')">📘 First Semester</div>
-    <div id="sec1" class="subject-list">
-        <div class="subject" onclick="toggleResources(this)" data-lab="true">Scientific Research Methodology </div>               
-        <div class="subject" onclick="toggleResources(this)" data-lab="true">Introduction to Engineering</div>
-        <div class="subject" onclick="toggleResources(this)" data-lab="true">Engineering Drawing</div>
-        <div class="subject" onclick="toggleResources(this)">Calculus A</div>
-        <div class="subject" onclick="toggleResources(this)" data-lab="true">General Physics Lab A</div>
-        <div class="subject" onclick="toggleResources(this)">General Physics A</div>
-    </div>
-
-    <div class="semester" onclick="toggleSubjects('sec2')">📙 Second Semester</div>
-    <div id="sec2" class="subject-list">
-        <div class="subject" onclick="toggleResources(this)">General Chemistry</div>
-        <div class="subject" onclick="toggleResources(this)" data-lab="true">Workshop Technology</div>
-        <div class="subject" onclick="toggleResources(this)">Introduction to Computers</div>
-        <div class="subject" onclick="toggleResources(this)" data-lab="true">Introduction to Computers Lab </div>
-        <div class="subject" onclick="toggleResources(this)">Technical English</div>
-        <div class="subject" onclick="toggleResources(this)">Calculus B</div>
-        <div class="subject" onclick="toggleResources(this)">General Physics B</div>
-    </div>
-
-</div> 
-<script src="years.js"></script>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/entries/firstYear.jsx"></script>
 </body>
 </html>
