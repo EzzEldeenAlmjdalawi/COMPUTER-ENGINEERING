@@ -5,18 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Embedded Systems Chapters</title>
     <link rel="stylesheet" href="subjeces.css">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="themes.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-     <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+     <button type="button" class="toggle-btn" onclick="window.openSidebar()" title="القائمة الجانبية" aria-label="القائمة الجانبية"><i class="fa-solid fa-bars-staggered"></i></button>
+
+  <header class="subpage-hero-banner" dir="rtl">
+    <a href="javascript:history.back()" class="subpage-back-nav">
+      <i class="fa-solid fa-arrow-right"></i>
+      <span>العودة للصفحة السابقة</span>
+    </a>
+    <h1 class="subpage-title">Embedded Systems Chapters</h1>
+    <p class="subpage-desc">قسم هندسة الحاسوب • الجامعة الإسلامية بغزة</p>
+  </header>
+    
 
 <div class="myList" id="menuList">
     <ul>
-         <li><a href="index.html" class="fas fa-home" ></a></li>
-        <li><a href="firstYear.html">📁 First Year </a></li>
-        <li><a href="secndYear.html">📁 Second Year </a></li>
-        <li><a href="thirdYear.html">📁 Third Year </a></li>
-        <li><a href="fourthYear.html">📁 Fourth Year </a></li>
-        <li><a href="fifthYear.html">📁 Fifth Year </a></li>
+         <li><a target="_self" href="index.html" class="fas fa-home" ></a></li>
+        <li><a target="_self" href="firstYear.html">📁 First Year </a></li>
+        <li><a target="_self" href="secndYear.html">📁 Second Year </a></li>
+        <li><a target="_self" href="thirdYear.html">📁 Third Year </a></li>
+        <li><a target="_self" href="fourthYear.html">📁 Fourth Year </a></li>
+        <li><a target="_self" href="fifthYear.html">📁 Fifth Year </a></li>
     </ul>
 </div>
 <div class="containar" >     
@@ -25,5 +39,6 @@
         </div>
 </div> 
     <script src="years.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>

@@ -102,12 +102,14 @@
               ${
                 linkKeys.length > 0
                   ? linkKeys
-                      .map(
-                        (k) =>
-                          `<a href="${links[k]}" target="_blank" rel="noopener noreferrer" class="search-mini-link">${k}</a>`
-                      )
+                      .map((k) => {
+                        const url = links[k];
+                        const isExt = url.startsWith('http://') || url.startsWith('https://') || url.startsWith('//');
+                        const targetAttr = isExt ? 'target="_blank" rel="noopener noreferrer"' : 'target="_self"';
+                        return `<a href="${url}" ${targetAttr} class="search-mini-link">${k}</a>`;
+                      })
                       .join('')
-                  : `<a href="${s.year}.html" class="search-mini-link">عرض في صفحة السنة</a>`
+                  : `<a href="${s.year}.html" class="search-mini-link" target="_self">عرض في صفحة السنة</a>`
               }
             </div>
           </div>

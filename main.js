@@ -63,11 +63,18 @@
   // 2. SIDEBAR DRAWER CONTROLLER
   // ==========================================
   window.openSidebar = function () {
-    const sidebar = document.getElementById('globalSidebar');
-    const backdrop = document.getElementById('sidebarBackdrop');
+    let sidebar = document.getElementById('globalSidebar');
+    let backdrop = document.getElementById('sidebarBackdrop');
+    if (!sidebar) {
+      injectGlobalSidebar();
+      sidebar = document.getElementById('globalSidebar');
+      backdrop = document.getElementById('sidebarBackdrop');
+    }
     if (sidebar) sidebar.classList.add('sidebar-open');
     if (backdrop) backdrop.style.display = 'block';
   };
+
+  window.toggleMenu = window.openSidebar;
 
   window.closeSidebar = function () {
     const sidebar = document.getElementById('globalSidebar');
@@ -75,6 +82,78 @@
     if (sidebar) sidebar.classList.remove('sidebar-open');
     if (backdrop) backdrop.style.display = 'none';
   };
+
+  function injectGlobalSidebar() {
+    if (document.getElementById('globalSidebar')) return;
+
+    const div = document.createElement('div');
+    div.innerHTML = `
+      <div id="sidebarBackdrop" class="sidebar-backdrop" style="display:none;" onclick="window.closeSidebar()"></div>
+      <aside id="globalSidebar" class="collapsible-sidebar" dir="rtl">
+        <div class="sidebar-inner">
+          <div class="sidebar-header">
+            <div style="display:flex; align-items:center; gap:0.65rem;">
+              <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+                <rect width="40" height="40" rx="10" fill="#1B2A4A"/>
+                <rect x="11" y="11" width="18" height="18" rx="4" fill="#0F172A" stroke="#F59E0B" stroke-width="2"/>
+                <circle cx="20" cy="20" r="4" fill="#F59E0B"/>
+              </svg>
+              <div>
+                <span style="font-family:var(--font-mono); font-size:0.95rem; font-weight:900; color:var(--text-main); display:block;">COMPUTER ENG</span>
+                <span style="font-size:0.725rem; color:var(--text-subtle);">IUG القائمة الجانبية</span>
+              </div>
+            </div>
+            <button type="button" class="sidebar-close-btn" onclick="window.closeSidebar()" aria-label="إغلاق">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <nav class="sidebar-nav">
+            <span class="sidebar-section-label">التنقل الأكاديمي</span>
+            <div class="sidebar-links-list">
+              <a href="index.html" class="sidebar-nav-item"><i class="fa-solid fa-house"></i> الرئيسية</a>
+              <a href="firstYear.html" class="sidebar-nav-item"><i class="fa-solid fa-cubes" style="color:#0EA5E9;"></i> السنة الأولى</a>
+              <a href="secndYear.html" class="sidebar-nav-item"><i class="fa-solid fa-microchip" style="color:#10B981;"></i> السنة الثانية</a>
+              <a href="thirdYear.html" class="sidebar-nav-item"><i class="fa-solid fa-network-wired" style="color:#8B5CF6;"></i> السنة الثالثة</a>
+              <a href="fourthYear.html" class="sidebar-nav-item"><i class="fa-solid fa-laptop-code" style="color:#F59E0B;"></i> السنة الرابعة</a>
+              <a href="fifthYear.html" class="sidebar-nav-item"><i class="fa-solid fa-award" style="color:#EC4899;"></i> السنة الخامسة</a>
+              <a href="university-requirements.html" class="sidebar-nav-item"><i class="fa-solid fa-graduation-cap" style="color:#06B6D4;"></i> متطلبات الجامعة</a>
+              <a href="gpa-calculator.html" class="sidebar-nav-item highlight-item"><i class="fa-solid fa-calculator" style="color:#F59E0B;"></i> حاسبة المعدل</a>
+              <a href="study-tools.html" class="sidebar-nav-item"><i class="fa-solid fa-brain" style="color:#10B981;"></i> أدوات الدراسة والسبورة</a>
+              <a href="search.html" class="sidebar-nav-item"><i class="fa-solid fa-magnifying-glass"></i> البحث الشامل</a>
+            </div>
+          </nav>
+
+          <!-- Theme Accent Swatches Section -->
+          <div class="sidebar-theme-section">
+            <div class="sb-theme-head">
+              <span class="sidebar-section-label">تخصيص لون السمة</span>
+              <button type="button" class="sb-theme-reset" onclick="window.applyColorTheme('')">الافتراضي</button>
+            </div>
+            <div class="sb-swatches-grid">
+              <button type="button" class="sb-swatch-btn" data-theme="" style="background-color:#1B2A4A; border-color:#F59E0B;" onclick="window.applyColorTheme('')" title="الافتراضي"></button>
+              <button type="button" class="sb-swatch-btn" data-theme="theme-blue" style="background-color:#3b82f6;" onclick="window.applyColorTheme('theme-blue')" title="Blue"></button>
+              <button type="button" class="sb-swatch-btn" data-theme="theme-green" style="background-color:#10b981;" onclick="window.applyColorTheme('theme-green')" title="Green"></button>
+              <button type="button" class="sb-swatch-btn" data-theme="theme-purple" style="background-color:#8b5cf6;" onclick="window.applyColorTheme('theme-purple')" title="Purple"></button>
+              <button type="button" class="sb-swatch-btn" data-theme="theme-orange" style="background-color:#f97316;" onclick="window.applyColorTheme('theme-orange')" title="Orange"></button>
+              <button type="button" class="sb-swatch-btn" data-theme="theme-red" style="background-color:#ef4444;" onclick="window.applyColorTheme('theme-red')" title="Red"></button>
+              <button type="button" class="sb-swatch-btn" data-theme="theme-pink" style="background-color:#ec4899;" onclick="window.applyColorTheme('theme-pink')" title="Pink"></button>
+              <button type="button" class="sb-swatch-btn" data-theme="theme-cyan" style="background-color:#06b6d4;" onclick="window.applyColorTheme('theme-cyan')" title="Cyan"></button>
+            </div>
+          </div>
+
+          <div class="sidebar-footer">
+            <span class="sidebar-section-label">الدعم والتواصل</span>
+            <div class="sb-contact-quick">
+              <a href="tel:0595346617" class="sb-contact-chip"><i class="fa-solid fa-phone"></i> 0595346617</a>
+              <a href="mailto:mnmaassddll@gmail.com" class="sb-contact-chip" title="راسلني"><i class="fa-solid fa-paper-plane"></i> راسلني</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+    `;
+    document.body.appendChild(div);
+  }
 
   // ==========================================
   // 3. FAVORITES / BOOKMARKS SYSTEM
@@ -428,8 +507,14 @@
   }
 
   // ==========================================
-  // 7. SUBJECT ACCORDION TOGGLER (FOR YEAR PAGES)
+  // 7. SEMESTER & SUBJECT ACCORDION TOGGLERS
   // ==========================================
+  window.toggleSemesterAccordion = function (semId) {
+    const block = document.getElementById(semId);
+    if (!block) return;
+    block.classList.toggle('is-collapsed');
+  };
+
   window.toggleSubjectAccordion = function (cardId) {
     const card = document.getElementById(cardId);
     if (!card) return;
@@ -453,10 +538,18 @@
       }
     });
 
-    // Mobile Hamburger button listener
-    const mobileToggle = document.getElementById('mobileMenuToggle');
-    if (mobileToggle) {
-      mobileToggle.addEventListener('click', window.openSidebar);
+    // Enforce same-tab navigation for internal links
+    document.querySelectorAll('a[href]').forEach((link) => {
+      const href = link.getAttribute('href');
+      if (href && !href.startsWith('http://') && !href.startsWith('https://') && !href.startsWith('//') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
+        link.target = '_self';
+        link.removeAttribute('rel');
+      }
+    });
+
+    // Auto-inject sidebar for sub-pages if not present
+    if (!document.getElementById('globalSidebar')) {
+      injectGlobalSidebar();
     }
   });
 })();

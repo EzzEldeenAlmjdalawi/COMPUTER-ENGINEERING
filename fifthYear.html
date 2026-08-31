@@ -124,16 +124,19 @@
     </div>
   </header>
 
-  <!-- Main Subjects Content -->
+  <!-- Main Subjects Content with Collapsible Semesters -->
   <main class="year-main-content container">
     
       <section id="sem1" class="semester-block">
-        <div class="semester-title-bar">
-          <h2 class="sem-heading">
-            <span>📘</span>
-            <span>الفصل الدراسي الأول</span>
-          </h2>
-          <span class="sem-courses-count">6 مساقات ومختبرات</span>
+        <div class="semester-title-bar" onclick="window.toggleSemesterAccordion('sem1')" title="انقر لطي أو فتح الفصل الدراسي">
+          <div class="sem-header-left">
+            <h2 class="sem-heading">
+              <span>📘</span>
+              <span>الفصل الدراسي الأول</span>
+            </h2>
+            <span class="sem-courses-count">6 مساقات ومختبرات</span>
+          </div>
+          <i class="fa-solid fa-chevron-down sem-chevron"></i>
         </div>
 
         <div class="subjects-accordion-list">
@@ -161,7 +164,7 @@
               <div class="subject-resources-body">
                 <div class="resources-grid">
                   
-                      <a href="Ai.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="Ai.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-flask"></i>
                         <span>Lab</span>
                       </a>
@@ -208,7 +211,7 @@
                         <span>Book & Solutions</span>
                       </a>
                     
-                      <a href="DL_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="DL_lec.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-video"></i>
                         <span>Lectures</span>
                       </a>
@@ -302,7 +305,7 @@
                         <span>Book & Solutions</span>
                       </a>
                     
-                      <a href="Network Security_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="Network Security_lec.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-video"></i>
                         <span>Lectures</span>
                       </a>
@@ -359,7 +362,7 @@
                         <span>Book & Solutions</span>
                       </a>
                     
-                      <a href="DIP_Lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="DIP_Lec.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-video"></i>
                         <span>Lectures</span>
                       </a>
@@ -411,7 +414,7 @@
                         <span>Lab</span>
                       </a>
                     
-                      <a href="Network Security_lec Lab.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="Network Security_lec Lab.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-video"></i>
                         <span>Recorded Videos</span>
                       </a>
@@ -424,12 +427,15 @@
       </section>
     
       <section id="sem2" class="semester-block">
-        <div class="semester-title-bar">
-          <h2 class="sem-heading">
-            <span>📙</span>
-            <span>الفصل الدراسي الثاني</span>
-          </h2>
-          <span class="sem-courses-count">4 مساقات ومختبرات</span>
+        <div class="semester-title-bar" onclick="window.toggleSemesterAccordion('sem2')" title="انقر لطي أو فتح الفصل الدراسي">
+          <div class="sem-header-left">
+            <h2 class="sem-heading">
+              <span>📙</span>
+              <span>الفصل الدراسي الثاني</span>
+            </h2>
+            <span class="sem-courses-count">4 مساقات ومختبرات</span>
+          </div>
+          <i class="fa-solid fa-chevron-down sem-chevron"></i>
         </div>
 
         <div class="subjects-accordion-list">
@@ -467,7 +473,7 @@
                         <span>Book & Solutions</span>
                       </a>
                     
-                      <a href="Security In Computer Systems_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="Security In Computer Systems_lec.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-video"></i>
                         <span>Lectures</span>
                       </a>
@@ -593,7 +599,7 @@
                         <span>Lab</span>
                       </a>
                     
-                      <a href="Selected Topics Material_Lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="Selected Topics Material_Lec.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-video"></i>
                         <span>Recorded Videos</span>
                       </a>
@@ -659,7 +665,7 @@
 
       <div class="footer-bottom">
         <div>جميع الحقوق محفوظة © 2026 • كلية الهندسة — الجامعة الإسلامية بغزة</div>
-        <div>تطوير وبرمجة: <strong>م. عز الدين بسام المجدلاوي</strong> & <strong>م. مصعب موسى الأسود</strong></div>
+        <div>تطوير وبرمجة: <strong>م. مصعب موسى الأسود</strong> & <strong>م. عز الدين بسام المجدلاوي</strong></div>
       </div>
     </div>
   </footer>

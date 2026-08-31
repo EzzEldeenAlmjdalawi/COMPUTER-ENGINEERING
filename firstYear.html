@@ -124,16 +124,19 @@
     </div>
   </header>
 
-  <!-- Main Subjects Content -->
+  <!-- Main Subjects Content with Collapsible Semesters -->
   <main class="year-main-content container">
     
       <section id="sec1" class="semester-block">
-        <div class="semester-title-bar">
-          <h2 class="sem-heading">
-            <span>📘</span>
-            <span>الفصل الدراسي الأول</span>
-          </h2>
-          <span class="sem-courses-count">6 مساقات ومختبرات</span>
+        <div class="semester-title-bar" onclick="window.toggleSemesterAccordion('sec1')" title="انقر لطي أو فتح الفصل الدراسي">
+          <div class="sem-header-left">
+            <h2 class="sem-heading">
+              <span>📘</span>
+              <span>الفصل الدراسي الأول</span>
+            </h2>
+            <span class="sem-courses-count">6 مساقات ومختبرات</span>
+          </div>
+          <i class="fa-solid fa-chevron-down sem-chevron"></i>
         </div>
 
         <div class="subjects-accordion-list">
@@ -272,7 +275,7 @@
               <div class="subject-resources-body">
                 <div class="resources-grid">
                   
-                      <a href="CalculusA_slides.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="CalculusA_slides.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-file-powerpoint"></i>
                         <span>Slides</span>
                       </a>
@@ -282,12 +285,12 @@
                         <span>Book & Solutions</span>
                       </a>
                     
-                      <a href="CalculusA_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="CalculusA_lec.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-video"></i>
                         <span>Lectures</span>
                       </a>
                     
-                      <a href="CalculusA_chapters.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="CalculusA_chapters.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-layer-group"></i>
                         <span>Chapters</span>
                       </a>
@@ -329,7 +332,7 @@
               <div class="subject-resources-body">
                 <div class="resources-grid">
                   
-                      <a href="General Physics Lab A_dis.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="General Physics Lab A_dis.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-flask"></i>
                         <span>Lab</span>
                       </a>
@@ -366,7 +369,7 @@
               <div class="subject-resources-body">
                 <div class="resources-grid">
                   
-                      <a href="General_Physics_A_slides.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="General_Physics_A_slides.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-file-powerpoint"></i>
                         <span>Slides</span>
                       </a>
@@ -376,12 +379,12 @@
                         <span>Book & Solutions</span>
                       </a>
                     
-                      <a href="General_Physics_A_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="General_Physics_A_lec.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-video"></i>
                         <span>Lectures</span>
                       </a>
                     
-                      <a href="General_Physics_A_chapters.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="General_Physics_A_chapters.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-layer-group"></i>
                         <span>Chapters</span>
                       </a>
@@ -404,12 +407,15 @@
       </section>
     
       <section id="sec2" class="semester-block">
-        <div class="semester-title-bar">
-          <h2 class="sem-heading">
-            <span>📙</span>
-            <span>الفصل الدراسي الثاني</span>
-          </h2>
-          <span class="sem-courses-count">7 مساقات ومختبرات</span>
+        <div class="semester-title-bar" onclick="window.toggleSemesterAccordion('sec2')" title="انقر لطي أو فتح الفصل الدراسي">
+          <div class="sem-header-left">
+            <h2 class="sem-heading">
+              <span>📙</span>
+              <span>الفصل الدراسي الثاني</span>
+            </h2>
+            <span class="sem-courses-count">7 مساقات ومختبرات</span>
+          </div>
+          <i class="fa-solid fa-chevron-down sem-chevron"></i>
         </div>
 
         <div class="subjects-accordion-list">
@@ -437,7 +443,7 @@
               <div class="subject-resources-body">
                 <div class="resources-grid">
                   
-                      <a href="General_Chemistry_slides.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="General_Chemistry_slides.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-file-powerpoint"></i>
                         <span>Slides</span>
                       </a>
@@ -447,12 +453,12 @@
                         <span>Book & Solutions</span>
                       </a>
                     
-                      <a href="General_Chemistry_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="General_Chemistry_lec.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-video"></i>
                         <span>Lectures</span>
                       </a>
                     
-                      <a href="General_Chemistry_chapters.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="General_Chemistry_chapters.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-layer-group"></i>
                         <span>Chapters</span>
                       </a>
@@ -494,7 +500,7 @@
               <div class="subject-resources-body">
                 <div class="resources-grid">
                   
-                      <a href="Workshop Technology_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="Workshop Technology_lec.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-flask"></i>
                         <span>Lab</span>
                       </a>
@@ -531,7 +537,7 @@
               <div class="subject-resources-body">
                 <div class="resources-grid">
                   
-                      <a href="Introduction_to_Computers_slides.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="Introduction_to_Computers_slides.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-file-powerpoint"></i>
                         <span>Slides</span>
                       </a>
@@ -541,12 +547,12 @@
                         <span>Book & Solutions</span>
                       </a>
                     
-                      <a href="Introduction_to_Computers_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="Introduction_to_Computers_lec.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-video"></i>
                         <span>Lectures</span>
                       </a>
                     
-                      <a href="Introduction_to_Computers_chapters.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="Introduction_to_Computers_chapters.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-layer-group"></i>
                         <span>Chapters</span>
                       </a>
@@ -588,12 +594,12 @@
               <div class="subject-resources-body">
                 <div class="resources-grid">
                   
-                      <a href="Introduction_to_Computers lab_.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="Introduction_to_Computers lab_.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-flask"></i>
                         <span>Lab</span>
                       </a>
                     
-                      <a href="Introduction_to_Computers lab_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="Introduction_to_Computers lab_lec.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-video"></i>
                         <span>Recorded Videos</span>
                       </a>
@@ -625,7 +631,7 @@
               <div class="subject-resources-body">
                 <div class="resources-grid">
                   
-                      <a href="Technical_English_slides.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="Technical_English_slides.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-file-powerpoint"></i>
                         <span>Slides</span>
                       </a>
@@ -635,12 +641,12 @@
                         <span>Book & Solutions</span>
                       </a>
                     
-                      <a href="Technical_English_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="Technical_English_lec.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-video"></i>
                         <span>Lectures</span>
                       </a>
                     
-                      <a href="Technical_English_chapters.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="Technical_English_chapters.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-layer-group"></i>
                         <span>Chapters</span>
                       </a>
@@ -682,7 +688,7 @@
               <div class="subject-resources-body">
                 <div class="resources-grid">
                   
-                      <a href="Calculus_B_slides.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="Calculus_B_slides.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-file-powerpoint"></i>
                         <span>Slides</span>
                       </a>
@@ -692,12 +698,12 @@
                         <span>Book & Solutions</span>
                       </a>
                     
-                      <a href="Calculus_B_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="Calculus_B_lec.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-video"></i>
                         <span>Lectures</span>
                       </a>
                     
-                      <a href="Calculus_B_chapters.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="Calculus_B_chapters.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-layer-group"></i>
                         <span>Chapters</span>
                       </a>
@@ -739,7 +745,7 @@
               <div class="subject-resources-body">
                 <div class="resources-grid">
                   
-                      <a href="General_Physics_B_slides.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="General_Physics_B_slides.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-file-powerpoint"></i>
                         <span>Slides</span>
                       </a>
@@ -749,12 +755,12 @@
                         <span>Book & Solutions</span>
                       </a>
                     
-                      <a href="General_Physics_B_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="General_Physics_B_lec.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-video"></i>
                         <span>Lectures</span>
                       </a>
                     
-                      <a href="General_Physics_B_chapters.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                      <a href="General_Physics_B_chapters.html" target="_self" class="resource-chip-link">
                         <i class="fa-solid fa-layer-group"></i>
                         <span>Chapters</span>
                       </a>
@@ -830,7 +836,7 @@
 
       <div class="footer-bottom">
         <div>جميع الحقوق محفوظة © 2026 • كلية الهندسة — الجامعة الإسلامية بغزة</div>
-        <div>تطوير وبرمجة: <strong>م. عز الدين بسام المجدلاوي</strong> & <strong>م. مصعب موسى الأسود</strong></div>
+        <div>تطوير وبرمجة: <strong>م. مصعب موسى الأسود</strong> & <strong>م. عز الدين بسام المجدلاوي</strong></div>
       </div>
     </div>
   </footer>

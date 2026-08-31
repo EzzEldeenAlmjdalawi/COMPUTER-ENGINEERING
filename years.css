@@ -69,6 +69,8 @@
   font-size: 0.875rem;
   font-weight: 700;
   text-decoration: none;
+  min-height: 44px;
+  box-sizing: border-box;
   transition: all var(--transition-fast);
 }
 
@@ -93,18 +95,35 @@
   flex: 1;
 }
 
-/* Semester Section */
+/* Collapsible Semester Section (Accordion Logic) */
 .semester-block {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.semester-block:hover {
+  border-color: var(--border-strong);
 }
 
 .semester-title-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 0.85rem;
-  border-bottom: 2px solid var(--border-default);
-  margin-bottom: 1.25rem;
+  padding: 1.25rem 1.75rem;
+  background: var(--bg-surface-subtle);
+  border-bottom: 1px solid var(--border-default);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--transition-fast);
+}
+
+.semester-title-bar:hover {
+  background: var(--bg-surface-hover);
 }
 
 .sem-heading {
@@ -113,13 +132,43 @@
   color: var(--text-main);
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.65rem;
+  margin: 0;
+}
+
+.sem-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
 }
 
 .sem-courses-count {
-  font-size: 0.825rem;
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
   color: var(--text-subtle);
+}
+
+.sem-chevron {
+  font-size: 1.1rem;
+  color: var(--accent-amber);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Collapsed State for Semester Accordion */
+.semester-block.is-collapsed .sem-chevron {
+  transform: rotate(180deg);
+}
+
+.semester-block.is-collapsed .subjects-accordion-list {
+  display: none;
+}
+
+.semester-block.is-collapsed .semester-title-bar {
+  border-bottom: none;
 }
 
 /* Subjects List */
@@ -127,24 +176,27 @@
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
+  padding: 1.5rem 1.75rem 2rem;
+  animation: fadeIn 0.2s ease forwards;
 }
 
 .subject-card {
   background: var(--bg-surface);
-  border: 1px solid var(--border-default);
+  border: 1.5px solid var(--border-default);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 .subject-card:hover {
-  border-color: var(--border-strong);
+  border-color: var(--accent-amber);
+  box-shadow: var(--shadow-md), 0 0 14px var(--accent-amber-glow);
 }
 
 .subject-header-btn {
   width: 100%;
-  padding: 1.1rem 1.35rem;
+  padding: 1.15rem 1.35rem;
   background: transparent;
   border: none;
   display: flex;
@@ -153,6 +205,8 @@
   cursor: pointer;
   text-align: right;
   gap: 1rem;
+  min-height: 52px;
+  box-sizing: border-box;
 }
 
 .subject-info-left {
@@ -163,19 +217,19 @@
 }
 
 .subject-name {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 800;
   color: var(--text-main);
 }
 
 .badge-lab {
-  font-size: 0.7rem;
+  font-size: 0.725rem;
   font-weight: 800;
-  padding: 0.2rem 0.55rem;
+  padding: 0.2rem 0.6rem;
   border-radius: var(--radius-sm);
   background: rgba(16, 185, 129, 0.15);
   color: var(--accent-emerald);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  border: 1px solid rgba(16, 185, 129, 0.35);
 }
 
 .subject-actions-right {
@@ -185,9 +239,9 @@
 }
 
 .subject-tool-btn {
-  width: 34px;
-  height: 34px;
-  border-radius: var(--radius-sm);
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
   background: var(--bg-surface-subtle);
   border: 1px solid var(--border-default);
   color: var(--text-muted);
@@ -195,13 +249,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   transition: all var(--transition-fast);
 }
 
 .subject-tool-btn:hover {
   color: var(--accent-amber);
   border-color: var(--accent-amber);
+  transform: scale(1.08);
 }
 
 .subject-tool-btn.is-fav {
@@ -211,13 +266,14 @@
 }
 
 .accordion-chevron {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--text-subtle);
   transition: transform var(--transition-fast);
 }
 
 .subject-card.is-open .accordion-chevron {
   transform: rotate(180deg);
+  color: var(--accent-amber);
 }
 
 /* Subject Resources Body */
@@ -235,44 +291,61 @@
 
 .resources-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 0.65rem;
-  padding-top: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 0.75rem;
+  padding-top: 1.1rem;
 }
 
 .resource-chip-link {
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: 0.6rem;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1.1rem;
+  min-height: 48px;
+  box-sizing: border-box;
   background: var(--bg-surface);
-  border: 1px solid var(--border-default);
+  border: 1.5px solid var(--border-default);
   border-radius: var(--radius-md);
   color: var(--text-main);
   text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 700;
-  transition: all var(--transition-fast);
+  font-size: 0.875rem;
+  font-weight: 800;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .resource-chip-link:hover {
   border-color: var(--accent-amber);
   color: var(--accent-amber);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 14px var(--accent-amber-glow);
 }
 
 .resource-chip-link i {
   color: var(--accent-teal);
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
+.resource-chip-link:hover i {
+  color: var(--accent-amber);
+}
+
+/* Mobile Responsiveness */
 @media (max-width: 640px) {
   .year-hero-title {
     font-size: 1.7rem;
   }
-
+  .semester-title-bar {
+    padding: 1rem 1.25rem;
+  }
+  .subjects-accordion-list {
+    padding: 1rem 1rem 1.5rem;
+  }
   .resources-grid {
     grid-template-columns: 1fr;
+  }
+  .subject-name {
+    font-size: 1rem;
   }
 }

@@ -724,7 +724,7 @@
     "ادعُ لنفسك ولأحبابك، فالدعاء مستجاب.",
   ];
 
-  window.CE_DATA = {
+  const exportData = {
     subjectLinks,
     allSubjects,
     yearsConfig,
@@ -732,4 +732,11 @@
     normalizeId,
     isLabCourse,
   };
+
+  if (typeof window !== 'undefined') {
+    window.CE_DATA = exportData;
+  }
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = exportData;
+  }
 })();
