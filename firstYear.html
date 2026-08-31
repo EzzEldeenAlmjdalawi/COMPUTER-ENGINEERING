@@ -3,12 +3,960 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>First Year — COMPUTER ENGINEERING IUG</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+  <title>السنة الأولى — هندسة الحاسوب الجامعة الإسلامية بغزة</title>
+  <meta name="description" content="مواد ومختبرات وسلايدات السنة الأولى لقسم هندسة الحاسوب بالجامعة الإسلامية بغزة">
+  <link rel="icon" type="image/png" href="Com.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="years.css">
+  <link rel="stylesheet" href="themes.css">
 </head>
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/entries/firstYear.jsx"></script>
+
+  
+  <!-- Unified Glassmorphic Navbar -->
+  <header class="unified-navbar">
+    <div class="navbar-container">
+      <div class="navbar-left-group">
+        <button type="button" class="sidebar-trigger-btn" onclick="window.openSidebar()" title="فتح القائمة الجانبية" aria-label="القائمة الجانبية">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+        <a href="index.html" class="brand-logo-link">
+          <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="10" fill="#1B2A4A"/>
+            <rect x="11" y="11" width="18" height="18" rx="4" fill="#0F172A" stroke="#F59E0B" stroke-width="2"/>
+            <circle cx="20" cy="20" r="4" fill="#F59E0B"/>
+            <path d="M7 16H11M7 24H11M29 16H33M29 24H33M16 7V11M24 7V11M16 29V33M24 29V33" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div class="brand-text-group">
+            <span class="brand-title">COMPUTER ENGINEERING</span>
+            <span class="brand-sub">IUG <span class="brand-dot"></span> الجامعة الإسلامية</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="navbar-search-area">
+        <div class="search-input-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon-inside"></i>
+          <input type="text" id="globalSearchInput" class="global-search-input" placeholder="ابحث عن مادة، كتاب، أو سلايدات..." autocomplete="off" />
+          <div id="headerSearchResults" class="search-results-dropdown" style="display:none;"></div>
+        </div>
+      </div>
+
+      <div class="navbar-actions">
+        <button type="button" class="action-icon-pill" onclick="window.openFavoritesModal()" title="المواد المفضلة والمحفوظة">
+          <i class="fa-solid fa-star" style="color:var(--accent-amber);"></i>
+          <span>المفضلة</span>
+          <span class="count-tag fav-count-badge" style="display:none;">0</span>
+        </button>
+
+        <button type="button" class="action-icon-pill" onclick="window.openPomodoroModal()" title="مؤقت بومودورو الدراسي">
+          <i class="fa-solid fa-stopwatch" style="color:var(--accent-teal);"></i>
+          <span>بومودورو</span>
+        </button>
+
+        <a href="https://t.me/+lUyeZmUh7KpjM2Fi" target="_blank" rel="noopener noreferrer" class="action-btn tg-btn" title="قناة التليجرام الرسمية">
+          <i class="fa-brands fa-telegram"></i>
+          <span>القناة</span>
+        </a>
+
+        <a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" rel="noopener noreferrer" class="action-btn bot-btn" title="بوت الملفات والبرامج">
+          <i class="fa-solid fa-robot"></i>
+          <span>بوت الملفات</span>
+        </a>
+
+        <button type="button" onclick="window.toggleDarkMode()" class="theme-toggle-btn" title="تبديل الوضع الليلي" aria-label="تبديل الوضع الليلي">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button type="button" id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="القائمة">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Desktop Subnav -->
+    <nav class="desktop-subnav">
+      <div class="subnav-container">
+        <a href="index.html" class="subnav-link "><i class="fa-solid fa-house"></i> الرئيسية</a>
+        <a href="firstYear.html" class="subnav-link active"><i class="fa-solid fa-cubes" style="color:#0EA5E9;"></i> السنة الأولى</a>
+        <a href="secndYear.html" class="subnav-link "><i class="fa-solid fa-microchip" style="color:#10B981;"></i> السنة الثانية</a>
+        <a href="thirdYear.html" class="subnav-link "><i class="fa-solid fa-network-wired" style="color:#8B5CF6;"></i> السنة الثالثة</a>
+        <a href="fourthYear.html" class="subnav-link "><i class="fa-solid fa-laptop-code" style="color:#F59E0B;"></i> السنة الرابعة</a>
+        <a href="fifthYear.html" class="subnav-link "><i class="fa-solid fa-award" style="color:#EC4899;"></i> السنة الخامسة</a>
+        <a href="university-requirements.html" class="subnav-link "><i class="fa-solid fa-graduation-cap" style="color:#06B6D4;"></i> متطلبات الجامعة</a>
+        <a href="gpa-calculator.html" class="subnav-link highlight-btn "><i class="fa-solid fa-calculator"></i> حاسبة المعدل (0-100)</a>
+        <a href="study-tools.html" class="subnav-link "><i class="fa-solid fa-brain" style="color:#10B981;"></i> ادرس من هان 🎓</a>
+      </div>
+    </nav>
+  </header>
+  
+
+  <!-- Year Hero Header -->
+  <header class="year-header-hero">
+    <div class="container">
+      <div class="year-hero-badge">
+        <i class="fa-solid fa-cubes"></i>
+        <span>السنة الأولى</span>
+      </div>
+      <h1 class="year-hero-title">السنة الأولى (First Year)</h1>
+      <p class="year-hero-desc">المقررات التأسيسية للهندسة، الرياضيات والفيزياء ومقدمات البرمجة</p>
+
+      <!-- Semester Navigation Pills -->
+      <div class="semester-pills-row">
+        
+          <a href="#sec1" class="sem-pill">
+            <span>📘</span>
+            <span>الفصل الدراسي الأول</span>
+            <span class="pill-count">(6 مساقات)</span>
+          </a>
+        
+          <a href="#sec2" class="sem-pill">
+            <span>📙</span>
+            <span>الفصل الدراسي الثاني</span>
+            <span class="pill-count">(7 مساقات)</span>
+          </a>
+        
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Subjects Content -->
+  <main class="year-main-content container">
+    
+      <section id="sec1" class="semester-block">
+        <div class="semester-title-bar">
+          <h2 class="sem-heading">
+            <span>📘</span>
+            <span>الفصل الدراسي الأول</span>
+          </h2>
+          <span class="sem-courses-count">6 مساقات ومختبرات</span>
+        </div>
+
+        <div class="subjects-accordion-list">
+          
+            <div id="card_sec1_0" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec1_0')">
+                <div class="subject-info-left">
+                  <span class="subject-name">Scientific Research Methodology</span>
+                  
+                </div>
+
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Scientific Research Methodology" onclick="window.toggleFavorite('Scientific Research Methodology')" title="حفظ في المفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Scientific Research Methodology')" title="متابعة إنجاز المساق">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec1_0')" title="عرض الملفات والمصادر">
+                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="https://drive.google.com/drive/folders/1STKIgYA-LP21Sq83t1hF_Sra-77r8-Jx?usp=sharing" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-flask"></i>
+                        <span>Lab</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1ILQazmvS9dK7uXJnVnn-fHM7Pb_-I4T1?usp=sharing" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-video"></i>
+                        <span>Recorded Videos</span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+          
+            <div id="card_sec1_1" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec1_1')">
+                <div class="subject-info-left">
+                  <span class="subject-name">Introduction to Engineering</span>
+                  
+                </div>
+
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Introduction to Engineering" onclick="window.toggleFavorite('Introduction to Engineering')" title="حفظ في المفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Introduction to Engineering')" title="متابعة إنجاز المساق">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec1_1')" title="عرض الملفات والمصادر">
+                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="https://drive.google.com/file/d/1X8bBSJPwOIjPW2v_vtP346qg6V2GPUHu/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-flask"></i>
+                        <span>Lab</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1csAdjg1956N653D2ojmiXHK8376KTjRf" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-video"></i>
+                        <span>Recorded Videos</span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+          
+            <div id="card_sec1_2" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec1_2')">
+                <div class="subject-info-left">
+                  <span class="subject-name">Engineering Drawing</span>
+                  
+                </div>
+
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Engineering Drawing" onclick="window.toggleFavorite('Engineering Drawing')" title="حفظ في المفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Engineering Drawing')" title="متابعة إنجاز المساق">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec1_2')" title="عرض الملفات والمصادر">
+                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="https://drive.google.com/drive/folders/1YB1cel9cPP4S7uTk3LT9eYOLMrHwIq17" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-flask"></i>
+                        <span>Lab</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/12LWdtyHsIi0lGayQMoW5H2nFq4DhSENd" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-video"></i>
+                        <span>Recorded Videos</span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+          
+            <div id="card_sec1_3" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec1_3')">
+                <div class="subject-info-left">
+                  <span class="subject-name">Calculus A</span>
+                  
+                </div>
+
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Calculus A" onclick="window.toggleFavorite('Calculus A')" title="حفظ في المفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Calculus A')" title="متابعة إنجاز المساق">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec1_3')" title="عرض الملفات والمصادر">
+                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="CalculusA_slides.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-file-powerpoint"></i>
+                        <span>Slides</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1cjCMhjvsrMCHfC4Dz7iklUAD7LsF0MUx?usp=sharing" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-book"></i>
+                        <span>Book & Solutions</span>
+                      </a>
+                    
+                      <a href="CalculusA_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-video"></i>
+                        <span>Lectures</span>
+                      </a>
+                    
+                      <a href="CalculusA_chapters.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span>Chapters</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/15Yt2rb-pVzZfkSfw7gp_wKByxKpxzLX2" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                        <span>Discussion & Problems & Problems solution</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1CQNxFWJ8Oudsw5MTjzJTihUjB0w0V9mg" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Quiz & Exams & Homework</span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+          
+            <div id="card_sec1_4" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec1_4')">
+                <div class="subject-info-left">
+                  <span class="subject-name">General Physics Lab A</span>
+                  <span class="badge-lab">مختبر</span>
+                </div>
+
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="General Physics Lab A" onclick="window.toggleFavorite('General Physics Lab A')" title="حفظ في المفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('General Physics Lab A')" title="متابعة إنجاز المساق">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec1_4')" title="عرض الملفات والمصادر">
+                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="General Physics Lab A_dis.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-flask"></i>
+                        <span>Lab</span>
+                      </a>
+                    
+                      <a href="https://youtube.com/@islamicuniversityphysics8361?feature=shared" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-video"></i>
+                        <span>Recorded Videos</span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+          
+            <div id="card_sec1_5" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec1_5')">
+                <div class="subject-info-left">
+                  <span class="subject-name">General Physics A</span>
+                  
+                </div>
+
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="General Physics A" onclick="window.toggleFavorite('General Physics A')" title="حفظ في المفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('General Physics A')" title="متابعة إنجاز المساق">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec1_5')" title="عرض الملفات والمصادر">
+                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="General_Physics_A_slides.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-file-powerpoint"></i>
+                        <span>Slides</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1qR3Mdf6umHXyTxR_x0IIDhkaArvQZ1H1?usp=sharing" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-book"></i>
+                        <span>Book & Solutions</span>
+                      </a>
+                    
+                      <a href="General_Physics_A_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-video"></i>
+                        <span>Lectures</span>
+                      </a>
+                    
+                      <a href="General_Physics_A_chapters.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span>Chapters</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1rDXiV2IjZHitR6wpJDiT-kQbBpOX7UMt" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                        <span>Discussion & Problems & Problems solution</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1CEBf8YsAUe7X9W33Sm3y4X7UguzIUEId" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Quiz & Exams & Homework</span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+          
+        </div>
+      </section>
+    
+      <section id="sec2" class="semester-block">
+        <div class="semester-title-bar">
+          <h2 class="sem-heading">
+            <span>📙</span>
+            <span>الفصل الدراسي الثاني</span>
+          </h2>
+          <span class="sem-courses-count">7 مساقات ومختبرات</span>
+        </div>
+
+        <div class="subjects-accordion-list">
+          
+            <div id="card_sec2_0" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec2_0')">
+                <div class="subject-info-left">
+                  <span class="subject-name">General Chemistry</span>
+                  
+                </div>
+
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="General Chemistry" onclick="window.toggleFavorite('General Chemistry')" title="حفظ في المفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('General Chemistry')" title="متابعة إنجاز المساق">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec2_0')" title="عرض الملفات والمصادر">
+                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="General_Chemistry_slides.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-file-powerpoint"></i>
+                        <span>Slides</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1-_DW-EAKFrwyrqiOvViaxNK2cwp_cBVd" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-book"></i>
+                        <span>Book & Solutions</span>
+                      </a>
+                    
+                      <a href="General_Chemistry_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-video"></i>
+                        <span>Lectures</span>
+                      </a>
+                    
+                      <a href="General_Chemistry_chapters.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span>Chapters</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1wqWktARE5PP6L0YSpauysGFh9g5IbxEh" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                        <span>Discussion & Problems & Problems solution</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1qs_VN7fUGVQ2npqVOehmseqhXgrGBarQ" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Quiz & Exams & Homework</span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+          
+            <div id="card_sec2_1" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec2_1')">
+                <div class="subject-info-left">
+                  <span class="subject-name">Workshop Technology</span>
+                  
+                </div>
+
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Workshop Technology" onclick="window.toggleFavorite('Workshop Technology')" title="حفظ في المفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Workshop Technology')" title="متابعة إنجاز المساق">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec2_1')" title="عرض الملفات والمصادر">
+                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="Workshop Technology_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-flask"></i>
+                        <span>Lab</span>
+                      </a>
+                    
+                      <a href="https://youtube.com/playlist?list=PLw4p3drzdttSvHxb4IigE9Rv01TcQKXUU&feature=shared" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-video"></i>
+                        <span>Recorded Videos</span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+          
+            <div id="card_sec2_2" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec2_2')">
+                <div class="subject-info-left">
+                  <span class="subject-name">Introduction to Computers</span>
+                  
+                </div>
+
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Introduction to Computers" onclick="window.toggleFavorite('Introduction to Computers')" title="حفظ في المفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Introduction to Computers')" title="متابعة إنجاز المساق">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec2_2')" title="عرض الملفات والمصادر">
+                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="Introduction_to_Computers_slides.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-file-powerpoint"></i>
+                        <span>Slides</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1SsVupb7weX2vcZ8cVnA-6H0780BmjnRu" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-book"></i>
+                        <span>Book & Solutions</span>
+                      </a>
+                    
+                      <a href="Introduction_to_Computers_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-video"></i>
+                        <span>Lectures</span>
+                      </a>
+                    
+                      <a href="Introduction_to_Computers_chapters.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span>Chapters</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1rGyf1Tn9S_DEYdskwOo81CrTX3fNZZk6" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                        <span>Discussion & Problems & Problems solution</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/13agufZwZ13gonWYhl7ahCEmx4ostnO2l" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Quiz & Exams & Homework</span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+          
+            <div id="card_sec2_3" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec2_3')">
+                <div class="subject-info-left">
+                  <span class="subject-name">Introduction to Computers Lab</span>
+                  <span class="badge-lab">مختبر</span>
+                </div>
+
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Introduction to Computers Lab" onclick="window.toggleFavorite('Introduction to Computers Lab')" title="حفظ في المفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Introduction to Computers Lab')" title="متابعة إنجاز المساق">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec2_3')" title="عرض الملفات والمصادر">
+                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="Introduction_to_Computers lab_.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-flask"></i>
+                        <span>Lab</span>
+                      </a>
+                    
+                      <a href="Introduction_to_Computers lab_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-video"></i>
+                        <span>Recorded Videos</span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+          
+            <div id="card_sec2_4" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec2_4')">
+                <div class="subject-info-left">
+                  <span class="subject-name">Technical English</span>
+                  
+                </div>
+
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Technical English" onclick="window.toggleFavorite('Technical English')" title="حفظ في المفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Technical English')" title="متابعة إنجاز المساق">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec2_4')" title="عرض الملفات والمصادر">
+                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="Technical_English_slides.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-file-powerpoint"></i>
+                        <span>Slides</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1YtusCfU9RIrxGpHQc8PTiW1AUYsxzUN-" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-book"></i>
+                        <span>Book & Solutions</span>
+                      </a>
+                    
+                      <a href="Technical_English_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-video"></i>
+                        <span>Lectures</span>
+                      </a>
+                    
+                      <a href="Technical_English_chapters.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span>Chapters</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/18wcuqSGbOCWVMTDSBZnrHY_ty_FNECCT" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                        <span>Discussion & Problems & Problems solution</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1EpbVMEf4JgRvjoHcgz2833jcjkomeJMn" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Quiz & Exams & Homework</span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+          
+            <div id="card_sec2_5" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec2_5')">
+                <div class="subject-info-left">
+                  <span class="subject-name">Calculus B</span>
+                  
+                </div>
+
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Calculus B" onclick="window.toggleFavorite('Calculus B')" title="حفظ في المفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Calculus B')" title="متابعة إنجاز المساق">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec2_5')" title="عرض الملفات والمصادر">
+                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="Calculus_B_slides.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-file-powerpoint"></i>
+                        <span>Slides</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1XPCcMzeAY_U7ctFcDBhLijJknB0JnaB1" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-book"></i>
+                        <span>Book & Solutions</span>
+                      </a>
+                    
+                      <a href="Calculus_B_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-video"></i>
+                        <span>Lectures</span>
+                      </a>
+                    
+                      <a href="Calculus_B_chapters.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span>Chapters</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1rkimAtnG8AiVkKae-xd0Gsu35YKHg-QE" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                        <span>Discussion & Problems & Problems solution</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/14TMKVtzMTj35p7f14fqkb1EtgY5X91Ef" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Quiz & Exams & Homework</span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+          
+            <div id="card_sec2_6" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec2_6')">
+                <div class="subject-info-left">
+                  <span class="subject-name">General Physics B</span>
+                  
+                </div>
+
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="General Physics B" onclick="window.toggleFavorite('General Physics B')" title="حفظ في المفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('General Physics B')" title="متابعة إنجاز المساق">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec2_6')" title="عرض الملفات والمصادر">
+                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="General_Physics_B_slides.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-file-powerpoint"></i>
+                        <span>Slides</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1xfP8Q2JzBybH3uwfzv2Y7t6nLgbE-Yni" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-book"></i>
+                        <span>Book & Solutions</span>
+                      </a>
+                    
+                      <a href="General_Physics_B_lec.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-video"></i>
+                        <span>Lectures</span>
+                      </a>
+                    
+                      <a href="General_Physics_B_chapters.html" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span>Chapters</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1iZJoLIHXoWfMOqSuAaaA7kboNwu6QBBT" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                        <span>Discussion & Problems & Problems solution</span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1EYWJpQpG6Yo7KsRJLTuSnvUH0XSu_YTx" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Quiz & Exams & Homework</span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+          
+        </div>
+      </section>
+    
+  </main>
+
+  
+  <!-- Universal Footer -->
+  <footer class="engineering-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4 class="footer-brand-title">COMPUTER ENGINEERING — IUG</h4>
+          <p class="footer-brand-desc">
+            المنصة الأكاديمية الأولى لطلبة هندسة الحاسوب بالجامعة الإسلامية بغزة. نسعى لتوفير بيئة دراسية متكاملة تدعم التميز والابتكار لمهندسي المستقبل.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-heading"><i class="fa-solid fa-compass"></i> روابط سريعة</h4>
+          <ul class="footer-links-list">
+            <li><a href="firstYear.html"><i class="fa-solid fa-cubes"></i> السنة الأولى</a></li>
+            <li><a href="secndYear.html"><i class="fa-solid fa-microchip"></i> السنة الثانية</a></li>
+            <li><a href="thirdYear.html"><i class="fa-solid fa-network-wired"></i> السنة الثالثة</a></li>
+            <li><a href="fourthYear.html"><i class="fa-solid fa-laptop-code"></i> السنة الرابعة</a></li>
+            <li><a href="fifthYear.html"><i class="fa-solid fa-award"></i> السنة الخامسة</a></li>
+            <li><a href="gpa-calculator.html"><i class="fa-solid fa-calculator"></i> حاسبة المعدل</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-heading"><i class="fa-solid fa-headset"></i> التواصل والدعم الفني</h4>
+          <div class="contact-items-list">
+            <a href="tel:0595346617" class="contact-link-item">
+              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(16, 185, 129, 0.15); color:var(--accent-emerald); display:flex; align-items:center; justify-content:center;">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <span style="font-size:0.725rem; color:var(--text-subtle); display:block;">الهاتف / واتساب:</span>
+                <strong style="font-size:0.9rem; font-family:var(--font-mono);" dir="ltr">0595346617</strong>
+              </div>
+            </a>
+
+            <a href="mailto:mnmaassddll@gmail.com" class="contact-link-item email-action-item" title="راسلني عبر الإيميل">
+              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(14, 165, 233, 0.15); color:var(--accent-teal); display:flex; align-items:center; justify-content:center;">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div>
+                <span style="font-size:0.725rem; color:var(--text-subtle); display:block;">البريد الإلكتروني:</span>
+                <span class="contact-action-badge"><span>راسلني عبر الإيميل</span> <i class="fa-solid fa-paper-plane"></i></span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>جميع الحقوق محفوظة © 2026 • كلية الهندسة — الجامعة الإسلامية بغزة</div>
+        <div>تطوير وبرمجة: <strong>م. عز الدين بسام المجدلاوي</strong> & <strong>م. مصعب موسى الأسود</strong></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Global Collapsible Sidebar -->
+  <div id="sidebarBackdrop" class="sidebar-backdrop" style="display:none;" onclick="window.closeSidebar()"></div>
+  <aside id="globalSidebar" class="collapsible-sidebar" dir="rtl">
+    <div class="sidebar-inner">
+      <div class="sidebar-header">
+        <div style="display:flex; align-items:center; gap:0.65rem;">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="10" fill="#1B2A4A"/>
+            <rect x="11" y="11" width="18" height="18" rx="4" fill="#0F172A" stroke="#F59E0B" stroke-width="2"/>
+            <circle cx="20" cy="20" r="4" fill="#F59E0B"/>
+          </svg>
+          <div>
+            <span style="font-family:var(--font-mono); font-size:0.95rem; font-weight:900; color:var(--text-main); display:block;">COMPUTER ENG</span>
+            <span style="font-size:0.725rem; color:var(--text-subtle);">IUG القائمة الجانبية</span>
+          </div>
+        </div>
+        <button type="button" class="sidebar-close-btn" onclick="window.closeSidebar()" aria-label="إغلاق">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="sidebar-section-label">التنقل الأكاديمي</span>
+        <div class="sidebar-links-list">
+          <a href="index.html" class="sidebar-nav-item "><i class="fa-solid fa-house"></i> الرئيسية</a>
+          <a href="firstYear.html" class="sidebar-nav-item active"><i class="fa-solid fa-cubes" style="color:#0EA5E9;"></i> السنة الأولى</a>
+          <a href="secndYear.html" class="sidebar-nav-item "><i class="fa-solid fa-microchip" style="color:#10B981;"></i> السنة الثانية</a>
+          <a href="thirdYear.html" class="sidebar-nav-item "><i class="fa-solid fa-network-wired" style="color:#8B5CF6;"></i> السنة الثالثة</a>
+          <a href="fourthYear.html" class="sidebar-nav-item "><i class="fa-solid fa-laptop-code" style="color:#F59E0B;"></i> السنة الرابعة</a>
+          <a href="fifthYear.html" class="sidebar-nav-item "><i class="fa-solid fa-award" style="color:#EC4899;"></i> السنة الخامسة</a>
+          <a href="university-requirements.html" class="sidebar-nav-item "><i class="fa-solid fa-graduation-cap" style="color:#06B6D4;"></i> متطلبات الجامعة</a>
+          <a href="gpa-calculator.html" class="sidebar-nav-item highlight-item "><i class="fa-solid fa-calculator" style="color:#F59E0B;"></i> حاسبة المعدل</a>
+          <a href="study-tools.html" class="sidebar-nav-item "><i class="fa-solid fa-brain" style="color:#10B981;"></i> أدوات الدراسة والسبورة</a>
+          <a href="search.html" class="sidebar-nav-item "><i class="fa-solid fa-magnifying-glass"></i> البحث الشامل</a>
+        </div>
+      </nav>
+
+      <!-- Theme Accent Swatches Section -->
+      <div class="sidebar-theme-section">
+        <div class="sb-theme-head">
+          <span class="sidebar-section-label">تخصيص لون السمة</span>
+          <button type="button" class="sb-theme-reset" onclick="window.applyColorTheme('')">الافتراضي</button>
+        </div>
+        <div class="sb-swatches-grid">
+          <button type="button" class="sb-swatch-btn" data-theme="" style="background-color:#1B2A4A; border-color:#F59E0B;" onclick="window.applyColorTheme('')" title="الافتراضي"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-blue" style="background-color:#3b82f6;" onclick="window.applyColorTheme('theme-blue')" title="Blue"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-green" style="background-color:#10b981;" onclick="window.applyColorTheme('theme-green')" title="Green"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-purple" style="background-color:#8b5cf6;" onclick="window.applyColorTheme('theme-purple')" title="Purple"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-orange" style="background-color:#f97316;" onclick="window.applyColorTheme('theme-orange')" title="Orange"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-red" style="background-color:#ef4444;" onclick="window.applyColorTheme('theme-red')" title="Red"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-pink" style="background-color:#ec4899;" onclick="window.applyColorTheme('theme-pink')" title="Pink"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-cyan" style="background-color:#06b6d4;" onclick="window.applyColorTheme('theme-cyan')" title="Cyan"></button>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <span class="sidebar-section-label">الدعم والتواصل</span>
+        <div class="sb-contact-quick">
+          <a href="tel:0595346617" class="sb-contact-chip"><i class="fa-solid fa-phone"></i> 0595346617</a>
+          <a href="mailto:mnmaassddll@gmail.com" class="sb-contact-chip" title="راسلني"><i class="fa-solid fa-paper-plane"></i> راسلني</a>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Favorites Modal -->
+  <div id="favoritesModal" class="ce-modal-backdrop" style="display:none;" onclick="window.closeFavoritesModal()">
+    <div class="ce-modal-card animate-fade-in" onclick="event.stopPropagation()">
+      <div class="ce-modal-header">
+        <h3 class="ce-modal-title"><i class="fa-solid fa-star" style="color:var(--accent-amber);"></i> المواد المحفوظة في المفضلة</h3>
+        <button type="button" class="sidebar-close-btn" onclick="window.closeFavoritesModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="favoritesModalList" class="ce-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Study Checklist Modal -->
+  <div id="checklistModal" class="ce-modal-backdrop" style="display:none;" onclick="window.closeChecklistModal()">
+    <div class="ce-modal-card animate-fade-in" onclick="event.stopPropagation()">
+      <div class="ce-modal-header">
+        <h3 class="ce-modal-title"><i class="fa-solid fa-list-check" style="color:var(--accent-emerald);"></i> متابعة إنجاز: <span id="checklistSubjectTitle"></span></h3>
+        <button type="button" class="sidebar-close-btn" onclick="window.closeChecklistModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="checklistModalBody" class="ce-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Pomodoro Focus Modal -->
+  <div id="pomodoroModal" class="ce-modal-backdrop" style="display:none;" onclick="window.closePomodoroModal()">
+    <div class="ce-modal-card animate-fade-in" style="max-width:440px; text-align:center;" onclick="event.stopPropagation()">
+      <div class="ce-modal-header">
+        <h3 class="ce-modal-title"><i class="fa-solid fa-stopwatch" style="color:var(--accent-teal);"></i> مؤقت التركيز (بومودورو)</h3>
+        <button type="button" class="sidebar-close-btn" onclick="window.closePomodoroModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="ce-modal-body" style="padding:2rem 1.5rem;">
+        <div style="display:flex; justify-content:center; gap:0.5rem; margin-bottom:1.5rem;">
+          <button type="button" class="gpa-tab-btn pomo-mode-btn active" data-mode="focus" onclick="window.setPomoMode('focus')">جلسة تركيز (25 د)</button>
+          <button type="button" class="gpa-tab-btn pomo-mode-btn" data-mode="short" onclick="window.setPomoMode('short')">استراحة (5 د)</button>
+          <button type="button" class="gpa-tab-btn pomo-mode-btn" data-mode="long" onclick="window.setPomoMode('long')">استراحة (15 د)</button>
+        </div>
+        <div id="pomoModalDisplay" style="font-family:var(--font-mono); font-size:3.5rem; font-weight:900; color:var(--accent-amber); margin-bottom:1.5rem;">25:00</div>
+        <div style="display:flex; justify-content:center; gap:0.75rem;">
+          <button type="button" id="pomoToggleBtn" class="gpa-btn-solid" onclick="window.togglePomoTimer()" style="padding:0.75rem 1.75rem; font-size:1rem;">
+            <i class="fa-solid fa-play"></i> بدء المؤقت
+          </button>
+          <button type="button" class="gpa-btn-outline" onclick="window.resetPomoTimer()" style="padding:0.75rem 1.25rem;">
+            <i class="fa-solid fa-rotate-right"></i> إعادة ضبط
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Pomodoro Pill -->
+  <div id="floatingPomoPill" class="floating-pomodoro-pill" onclick="window.openPomodoroModal()" title="فتح مؤقت بومودورو">
+    <i class="fa-solid fa-stopwatch" style="color:var(--accent-amber);"></i>
+    <span id="floatingPomoTime" class="pomo-time-display">25:00</span>
+  </div>
+  
+
+  <!-- Scripts -->
+  <script src="subjects-data.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>

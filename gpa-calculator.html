@@ -3,16 +3,458 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>حاسبة المعدل الجامعي (0–100) — هندسة الحاسوب الجامعة الإسلامية بغزة</title>
-  <meta name="description" content="حاسبة المعدل التراكمي والفصلي لطلبة هندسة الحاسوب بالجامعة الإسلامية بغزة وفق الخطة الرسمية 167 ساعة وتوقع معدل الفصول القادمة">
+  <title>حاسبة المعدل الجامعي التراكمي (0–100) — هندسة الحاسوب IUG</title>
+  <meta name="description" content="حاسبة المعدل التراكمي والفصلي الرسمية لطلبة هندسة الحاسوب بالجامعة الإسلامية بغزة (167 ساعة معتمدة) مع توقع المعدل ومحول أعمال الفصل">
   <link rel="icon" type="image/png" href="Com.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="gpa.css">
+  <link rel="stylesheet" href="themes.css">
 </head>
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/entries/gpaCalculator.jsx"></script>
+
+  <!-- Unified Glassmorphic Navbar -->
+  <header class="unified-navbar">
+    <div class="navbar-container">
+      <div class="navbar-left-group">
+        <button type="button" class="sidebar-trigger-btn" onclick="window.openSidebar()" title="فتح القائمة الجانبية" aria-label="القائمة الجانبية">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+        <a href="index.html" class="brand-logo-link">
+          <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="10" fill="#1B2A4A"/>
+            <rect x="11" y="11" width="18" height="18" rx="4" fill="#0F172A" stroke="#F59E0B" stroke-width="2"/>
+            <circle cx="20" cy="20" r="4" fill="#F59E0B"/>
+            <path d="M7 16H11M7 24H11M29 16H33M29 24H33M16 7V11M24 7V11M16 29V33M24 29V33" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div class="brand-text-group">
+            <span class="brand-title">COMPUTER ENGINEERING</span>
+            <span class="brand-sub">IUG <span class="brand-dot"></span> الجامعة الإسلامية</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="navbar-search-area">
+        <div class="search-input-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon-inside"></i>
+          <input type="text" id="globalSearchInput" class="global-search-input" placeholder="ابحث عن مادة، كتاب، أو سلايدات..." autocomplete="off" />
+          <div id="headerSearchResults" class="search-results-dropdown" style="display:none;"></div>
+        </div>
+      </div>
+
+      <div class="navbar-actions">
+        <button type="button" class="action-icon-pill" onclick="window.openFavoritesModal()" title="المواد المفضلة والمحفوظة">
+          <i class="fa-solid fa-star" style="color:var(--accent-amber);"></i>
+          <span>المفضلة</span>
+          <span class="count-tag fav-count-badge" style="display:none;">0</span>
+        </button>
+
+        <button type="button" class="action-icon-pill" onclick="window.openPomodoroModal()" title="مؤقت بومودورو الدراسي">
+          <i class="fa-solid fa-stopwatch" style="color:var(--accent-teal);"></i>
+          <span>بومودورو</span>
+        </button>
+
+        <a href="https://t.me/+lUyeZmUh7KpjM2Fi" target="_blank" rel="noopener noreferrer" class="action-btn tg-btn" title="قناة التليجرام الرسمية">
+          <i class="fa-brands fa-telegram"></i>
+          <span>القناة</span>
+        </a>
+
+        <a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" rel="noopener noreferrer" class="action-btn bot-btn" title="بوت الملفات والبرامج">
+          <i class="fa-solid fa-robot"></i>
+          <span>بوت الملفات</span>
+        </a>
+
+        <button type="button" onclick="window.toggleDarkMode()" class="theme-toggle-btn" title="تبديل الوضع الليلي" aria-label="تبديل الوضع الليلي">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button type="button" id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="القائمة">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Desktop Subnav -->
+    <nav class="desktop-subnav">
+      <div class="subnav-container">
+        <a href="index.html" class="subnav-link"><i class="fa-solid fa-house"></i> الرئيسية</a>
+        <a href="firstYear.html" class="subnav-link"><i class="fa-solid fa-cubes" style="color:#0EA5E9;"></i> السنة الأولى</a>
+        <a href="secndYear.html" class="subnav-link"><i class="fa-solid fa-microchip" style="color:#10B981;"></i> السنة الثانية</a>
+        <a href="thirdYear.html" class="subnav-link"><i class="fa-solid fa-network-wired" style="color:#8B5CF6;"></i> السنة الثالثة</a>
+        <a href="fourthYear.html" class="subnav-link"><i class="fa-solid fa-laptop-code" style="color:#F59E0B;"></i> السنة الرابعة</a>
+        <a href="fifthYear.html" class="subnav-link"><i class="fa-solid fa-award" style="color:#EC4899;"></i> السنة الخامسة</a>
+        <a href="university-requirements.html" class="subnav-link"><i class="fa-solid fa-graduation-cap" style="color:#06B6D4;"></i> متطلبات الجامعة</a>
+        <a href="gpa-calculator.html" class="subnav-link active highlight-btn"><i class="fa-solid fa-calculator"></i> حاسبة المعدل (0-100)</a>
+        <a href="study-tools.html" class="subnav-link"><i class="fa-solid fa-brain" style="color:#10B981;"></i> ادرس من هان 🎓</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- GPA Header -->
+  <header class="gpa-hero-header">
+    <div class="container">
+      <div class="gpa-hero-badge">
+        <i class="fa-solid fa-calculator"></i>
+        <span>لائحة التقييم الرسمية (0–100) • 167 ساعة معتمدة</span>
+      </div>
+      <h1 class="gpa-hero-title">حاسبة المعدل الجامعي التراكمي والفصلي</h1>
+      <p class="gpa-hero-desc">
+        محسوبة وفق النظام المئوي الرسمي للجامعة الإسلامية بغزة مع إمكانية التوقع الفصلي وتحويل أعمال الفصل.
+      </p>
+
+      <!-- Mode Switcher Tabs -->
+      <div class="gpa-mode-tabs">
+        <button type="button" class="gpa-tab-btn active" data-tab="fullPlan" onclick="window.switchGpaTab('fullPlan')">
+          <i class="fa-solid fa-table-list"></i> الخطة الشاملة (10 فصول)
+        </button>
+        <button type="button" class="gpa-tab-btn" data-tab="whatIf" onclick="window.switchGpaTab('whatIf')">
+          <i class="fa-solid fa-chart-line"></i> توقع معدل الفصل القادم (What-If)
+        </button>
+        <button type="button" class="gpa-tab-btn" data-tab="classwork" onclick="window.switchGpaTab('classwork')">
+          <i class="fa-solid fa-percent"></i> محول درجات أعمال الفصل
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Calculator Panes -->
+  <main class="container gpa-main-content">
+    <!-- TAB A: FULL PLAN -->
+    <div id="tab-fullPlan" class="gpa-tab-pane">
+      <!-- Sticky Cumulative Stats -->
+      <div class="gpa-summary-card">
+        <div class="summary-col">
+          <span class="sum-label">المعدل التراكمي العام (0-100)</span>
+          <div id="sumCumGpaDisplay" class="sum-big-number">--.--%</div>
+          <span id="sumEvalBadge" class="eval-badge" style="display:none;"></span>
+        </div>
+
+        <div class="summary-col">
+          <span class="sum-label">الساعات المنجزة بالخطة</span>
+          <div id="sumHoursDisplay" class="hours-val"><strong>0</strong> / 167 ساعة</div>
+          <div class="hours-progress-track">
+            <div id="sumHoursProgress" class="hours-progress-fill" style="width:0%;"></div>
+          </div>
+          <span id="sumHoursPercent" style="font-size:0.75rem; color:var(--text-subtle);">نسبة إنهاء الخطة: 0.0%</span>
+        </div>
+
+        <div class="summary-col">
+          <span class="sum-label">إجمالي النقاط الموزونة</span>
+          <div id="sumPointsDisplay" class="points-val">0.0</div>
+          <span id="sumEnteredCount" style="font-size:0.75rem; color:var(--text-subtle);">(0) مساقات تم إدخالها</span>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:0.5rem;">
+          <button type="button" class="gpa-btn-solid" onclick="window.print()">
+            <i class="fa-solid fa-print"></i> طباعة التقرير
+          </button>
+          <button type="button" class="gpa-btn-outline" onclick="window.resetFullPlan()" style="color:#EF4444;">
+            <i class="fa-solid fa-trash-can"></i> تفريغ الخطة
+          </button>
+        </div>
+      </div>
+
+      <div class="gpa-instructions-note">
+        <i class="fa-solid fa-circle-info" style="font-size:1.2rem; color:var(--accent-teal);"></i>
+        <div>
+          <strong>ملاحظة هامة:</strong> العلامات تُحفظ تلقائياً في متصفحك. أدخل العلامة من 100 لكل مساق اجتزته لحساب معدلك التراكمي بدقة متناهية.
+        </div>
+      </div>
+
+      <!-- 10 Semesters Table List -->
+      <div id="planSemestersList" class="plan-semesters-list"></div>
+    </div>
+
+    <!-- TAB B: WHAT-IF CALCULATOR -->
+    <div id="tab-whatIf" class="gpa-tab-pane" style="display:none;">
+      <div class="whatif-result-banner">
+        <div class="whatif-res-col">
+          <span class="sum-label">المعدل الفصلي المتوقع</span>
+          <div id="whatifSemGpaDisplay" class="w-number text-amber">--.--%</div>
+          <span id="whatifSemHoursSub" style="font-size:0.85rem; color:var(--text-subtle);">(0 ساعة)</span>
+        </div>
+
+        <div style="width:2px; height:60px; background:var(--border-default);"></div>
+
+        <div class="whatif-res-col">
+          <span class="sum-label">المعدل التراكمي الجديد المتوقع</span>
+          <div id="whatifNewCumDisplay" class="w-number text-emerald">--.--%</div>
+          <span id="whatifDiffBadge" class="w-diff-badge" style="display:none;"></span>
+        </div>
+      </div>
+
+      <!-- Previous Totals Box -->
+      <div class="whatif-prev-box">
+        <div class="prev-box-header">
+          <div>
+            <h3 style="font-size:1.1rem; font-weight:800; color:var(--text-main);">1. إدخال المعدل والساعات السابقة</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted);">أدخل بياناتك الحالية أو قم بمزامنتها من حاسبة الخطة الشاملة</p>
+          </div>
+          <button type="button" class="gpa-btn-solid" onclick="window.syncTotalsFromPlan()">
+            <i class="fa-solid fa-rotate"></i> مزامنة تلقائية من الخطة
+          </button>
+        </div>
+
+        <div class="prev-inputs-grid">
+          <div>
+            <label style="display:block; font-size:0.85rem; font-weight:700; color:var(--text-main); margin-bottom:0.4rem;">عدد الساعات السابقة المنجزة:</label>
+            <input type="number" id="whatifPrevHours" class="prev-input" value="60" min="0" max="167" oninput="window.updateWhatIfCalculations()" />
+          </div>
+          <div>
+            <label style="display:block; font-size:0.85rem; font-weight:700; color:var(--text-main); margin-bottom:0.4rem;">المعدل التراكمي السابق (%):</label>
+            <input type="number" id="whatifPrevGpa" class="prev-input" value="82.5" min="0" max="100" step="0.1" oninput="window.updateWhatIfCalculations()" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Hypothetical Courses Box -->
+      <div class="whatif-courses-box">
+        <div class="whatif-courses-header">
+          <div>
+            <h3 style="font-size:1.1rem; font-weight:800; color:var(--text-main);">2. مساقات الفصل القادم المتوقعة</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted);">أضف المساقات التي تنوي تسجيلها وعلاماتها المتوقعة</p>
+          </div>
+          <button type="button" class="gpa-btn-solid" onclick="window.addHypoCourse()">
+            <i class="fa-solid fa-plus"></i> إضافة مساق جديد
+          </button>
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table class="courses-table">
+            <thead>
+              <tr>
+                <th>اسم المساق</th>
+                <th style="width:110px; text-align:center;">الساعات</th>
+                <th style="width:130px; text-align:center;">العلامة المتوقعة</th>
+                <th style="width:130px; text-align:center;">النقاط الموزونة</th>
+                <th style="width:60px; text-align:center;">إزالة</th>
+              </tr>
+            </thead>
+            <tbody id="whatifCoursesTbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB C: CLASSWORK CONVERTER -->
+    <div id="tab-classwork" class="gpa-tab-pane" style="display:none;">
+      <div class="cw-summary-banner">
+        <div>
+          <span class="sum-label">المعدل الفصلي المكافئ لأعمال الفصل الحالية</span>
+          <div id="cwBigStatDisplay" class="cw-big-stat">--.--%</div>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.4rem;">
+            يتم حساب النسبة المئوية المكافئة لكل علامة وتحويلها تلقائياً إلى نظام النقاط الموزونة.
+          </p>
+        </div>
+        <div style="text-align:left;">
+          <button type="button" class="gpa-btn-solid" onclick="window.transferCwToWhatIf()" style="padding:0.85rem 1.4rem;">
+            <i class="fa-solid fa-arrow-left"></i> ترحيل إلى حاسبة الفصل المتوقع
+          </button>
+        </div>
+      </div>
+
+      <div class="cw-table-card">
+        <div class="cw-table-header">
+          <div>
+            <h3 style="font-size:1.1rem; font-weight:800; color:var(--text-main);">قائمة درجات أعمال الفصل الحالية</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted);">أدخل درجاتك الحالية والدرجة النهائية لكل مادة (مثلاً: 42 من 50)</p>
+          </div>
+          <button type="button" class="gpa-btn-solid" onclick="window.addClassworkCourse()">
+            <i class="fa-solid fa-plus"></i> إضافة مساق جديد
+          </button>
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table class="courses-table">
+            <thead>
+              <tr>
+                <th>اسم المساق</th>
+                <th style="width:110px; text-align:center;">درجتك</th>
+                <th style="width:110px; text-align:center;">الدرجة العظمى</th>
+                <th style="width:100px; text-align:center;">الساعات</th>
+                <th style="width:120px; text-align:center;">النسبة المكافئة</th>
+                <th style="width:120px; text-align:center;">النقاط الموزونة</th>
+                <th style="width:60px; text-align:center;">إزالة</th>
+              </tr>
+            </thead>
+            <tbody id="cwCoursesTbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Universal Footer -->
+  <footer class="engineering-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4 class="footer-brand-title">COMPUTER ENGINEERING — IUG</h4>
+          <p class="footer-brand-desc">
+            المنصة الأكاديمية الأولى لطلبة هندسة الحاسوب بالجامعة الإسلامية بغزة. نسعى لتوفير بيئة دراسية متكاملة تدعم التميز والابتكار لمهندسي المستقبل.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-heading"><i class="fa-solid fa-compass"></i> روابط سريعة</h4>
+          <ul class="footer-links-list">
+            <li><a href="firstYear.html"><i class="fa-solid fa-cubes"></i> السنة الأولى</a></li>
+            <li><a href="secndYear.html"><i class="fa-solid fa-microchip"></i> السنة الثانية</a></li>
+            <li><a href="thirdYear.html"><i class="fa-solid fa-network-wired"></i> السنة الثالثة</a></li>
+            <li><a href="fourthYear.html"><i class="fa-solid fa-laptop-code"></i> السنة الرابعة</a></li>
+            <li><a href="fifthYear.html"><i class="fa-solid fa-award"></i> السنة الخامسة</a></li>
+            <li><a href="gpa-calculator.html"><i class="fa-solid fa-calculator"></i> حاسبة المعدل</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-heading"><i class="fa-solid fa-headset"></i> التواصل والدعم الفني</h4>
+          <div class="contact-items-list">
+            <a href="tel:0595346617" class="contact-link-item">
+              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(16, 185, 129, 0.15); color:var(--accent-emerald); display:flex; align-items:center; justify-content:center;">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <span style="font-size:0.725rem; color:var(--text-subtle); display:block;">الهاتف / واتساب:</span>
+                <strong style="font-size:0.9rem; font-family:var(--font-mono);" dir="ltr">0595346617</strong>
+              </div>
+            </a>
+
+            <a href="mailto:mnmaassddll@gmail.com" class="contact-link-item email-action-item" title="راسلني عبر الإيميل">
+              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(14, 165, 233, 0.15); color:var(--accent-teal); display:flex; align-items:center; justify-content:center;">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div>
+                <span style="font-size:0.725rem; color:var(--text-subtle); display:block;">البريد الإلكتروني:</span>
+                <span class="contact-action-badge"><span>راسلني عبر الإيميل</span> <i class="fa-solid fa-paper-plane"></i></span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>جميع الحقوق محفوظة © 2026 • كلية الهندسة — الجامعة الإسلامية بغزة</div>
+        <div>تطوير وبرمجة: <strong>م. عز الدين بسام المجدلاوي</strong> & <strong>م. مصعب موسى الأسود</strong></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Global Collapsible Sidebar -->
+  <div id="sidebarBackdrop" class="sidebar-backdrop" style="display:none;" onclick="window.closeSidebar()"></div>
+  <aside id="globalSidebar" class="collapsible-sidebar" dir="rtl">
+    <div class="sidebar-inner">
+      <div class="sidebar-header">
+        <div style="display:flex; align-items:center; gap:0.65rem;">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="10" fill="#1B2A4A"/>
+            <rect x="11" y="11" width="18" height="18" rx="4" fill="#0F172A" stroke="#F59E0B" stroke-width="2"/>
+            <circle cx="20" cy="20" r="4" fill="#F59E0B"/>
+          </svg>
+          <div>
+            <span style="font-family:var(--font-mono); font-size:0.95rem; font-weight:900; color:var(--text-main); display:block;">COMPUTER ENG</span>
+            <span style="font-size:0.725rem; color:var(--text-subtle);">IUG القائمة الجانبية</span>
+          </div>
+        </div>
+        <button type="button" class="sidebar-close-btn" onclick="window.closeSidebar()" aria-label="إغلاق">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="sidebar-section-label">التنقل الأكاديمي</span>
+        <div class="sidebar-links-list">
+          <a href="index.html" class="sidebar-nav-item"><i class="fa-solid fa-house"></i> الرئيسية</a>
+          <a href="firstYear.html" class="sidebar-nav-item"><i class="fa-solid fa-cubes" style="color:#0EA5E9;"></i> السنة الأولى</a>
+          <a href="secndYear.html" class="sidebar-nav-item"><i class="fa-solid fa-microchip" style="color:#10B981;"></i> السنة الثانية</a>
+          <a href="thirdYear.html" class="sidebar-nav-item"><i class="fa-solid fa-network-wired" style="color:#8B5CF6;"></i> السنة الثالثة</a>
+          <a href="fourthYear.html" class="sidebar-nav-item"><i class="fa-solid fa-laptop-code" style="color:#F59E0B;"></i> السنة الرابعة</a>
+          <a href="fifthYear.html" class="sidebar-nav-item"><i class="fa-solid fa-award" style="color:#EC4899;"></i> السنة الخامسة</a>
+          <a href="university-requirements.html" class="sidebar-nav-item"><i class="fa-solid fa-graduation-cap" style="color:#06B6D4;"></i> متطلبات الجامعة</a>
+          <a href="gpa-calculator.html" class="sidebar-nav-item active highlight-item"><i class="fa-solid fa-calculator" style="color:#F59E0B;"></i> حاسبة المعدل</a>
+          <a href="study-tools.html" class="sidebar-nav-item"><i class="fa-solid fa-brain" style="color:#10B981;"></i> أدوات الدراسة والسبورة</a>
+          <a href="search.html" class="sidebar-nav-item"><i class="fa-solid fa-magnifying-glass"></i> البحث الشامل</a>
+        </div>
+      </nav>
+
+      <!-- Theme Accent Swatches Section -->
+      <div class="sidebar-theme-section">
+        <div class="sb-theme-head">
+          <span class="sidebar-section-label">تخصيص لون السمة</span>
+          <button type="button" class="sb-theme-reset" onclick="window.applyColorTheme('')">الافتراضي</button>
+        </div>
+        <div class="sb-swatches-grid">
+          <button type="button" class="sb-swatch-btn" data-theme="" style="background-color:#1B2A4A; border-color:#F59E0B;" onclick="window.applyColorTheme('')" title="الافتراضي"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-blue" style="background-color:#3b82f6;" onclick="window.applyColorTheme('theme-blue')" title="Blue"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-green" style="background-color:#10b981;" onclick="window.applyColorTheme('theme-green')" title="Green"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-purple" style="background-color:#8b5cf6;" onclick="window.applyColorTheme('theme-purple')" title="Purple"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-orange" style="background-color:#f97316;" onclick="window.applyColorTheme('theme-orange')" title="Orange"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-red" style="background-color:#ef4444;" onclick="window.applyColorTheme('theme-red')" title="Red"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-pink" style="background-color:#ec4899;" onclick="window.applyColorTheme('theme-pink')" title="Pink"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-cyan" style="background-color:#06b6d4;" onclick="window.applyColorTheme('theme-cyan')" title="Cyan"></button>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <span class="sidebar-section-label">الدعم والتواصل</span>
+        <div class="sb-contact-quick">
+          <a href="tel:0595346617" class="sb-contact-chip"><i class="fa-solid fa-phone"></i> 0595346617</a>
+          <a href="mailto:mnmaassddll@gmail.com" class="sb-contact-chip" title="راسلني"><i class="fa-solid fa-paper-plane"></i> راسلني</a>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Favorites Modal -->
+  <div id="favoritesModal" class="ce-modal-backdrop" style="display:none;" onclick="window.closeFavoritesModal()">
+    <div class="ce-modal-card animate-fade-in" onclick="event.stopPropagation()">
+      <div class="ce-modal-header">
+        <h3 class="ce-modal-title"><i class="fa-solid fa-star" style="color:var(--accent-amber);"></i> المواد المحفوظة في المفضلة</h3>
+        <button type="button" class="sidebar-close-btn" onclick="window.closeFavoritesModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="favoritesModalList" class="ce-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Pomodoro Focus Modal -->
+  <div id="pomodoroModal" class="ce-modal-backdrop" style="display:none;" onclick="window.closePomodoroModal()">
+    <div class="ce-modal-card animate-fade-in" style="max-width:440px; text-align:center;" onclick="event.stopPropagation()">
+      <div class="ce-modal-header">
+        <h3 class="ce-modal-title"><i class="fa-solid fa-stopwatch" style="color:var(--accent-teal);"></i> مؤقت التركيز (بومودورو)</h3>
+        <button type="button" class="sidebar-close-btn" onclick="window.closePomodoroModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="ce-modal-body" style="padding:2rem 1.5rem;">
+        <div style="display:flex; justify-content:center; gap:0.5rem; margin-bottom:1.5rem;">
+          <button type="button" class="gpa-tab-btn pomo-mode-btn active" data-mode="focus" onclick="window.setPomoMode('focus')">جلسة تركيز (25 د)</button>
+          <button type="button" class="gpa-tab-btn pomo-mode-btn" data-mode="short" onclick="window.setPomoMode('short')">استراحة (5 د)</button>
+          <button type="button" class="gpa-tab-btn pomo-mode-btn" data-mode="long" onclick="window.setPomoMode('long')">استراحة (15 د)</button>
+        </div>
+        <div id="pomoModalDisplay" style="font-family:var(--font-mono); font-size:3.5rem; font-weight:900; color:var(--accent-amber); margin-bottom:1.5rem;">25:00</div>
+        <div style="display:flex; justify-content:center; gap:0.75rem;">
+          <button type="button" id="pomoToggleBtn" class="gpa-btn-solid" onclick="window.togglePomoTimer()" style="padding:0.75rem 1.75rem; font-size:1rem;">
+            <i class="fa-solid fa-play"></i> بدء المؤقت
+          </button>
+          <button type="button" class="gpa-btn-outline" onclick="window.resetPomoTimer()" style="padding:0.75rem 1.25rem;">
+            <i class="fa-solid fa-rotate-right"></i> إعادة ضبط
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Pomodoro Pill -->
+  <div id="floatingPomoPill" class="floating-pomodoro-pill" onclick="window.openPomodoroModal()" title="فتح مؤقت بومودورو">
+    <i class="fa-solid fa-stopwatch" style="color:var(--accent-amber);"></i>
+    <span id="floatingPomoTime" class="pomo-time-display">25:00</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="subjects-data.js"></script>
+  <script src="gpa-data.js"></script>
+  <script src="main.js"></script>
+  <script src="gpa-calculator.js"></script>
 </body>
 </html>

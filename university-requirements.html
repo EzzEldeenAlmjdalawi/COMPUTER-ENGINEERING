@@ -3,12 +3,531 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>متطلبات الجامعة — COMPUTER ENGINEERING IUG</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+  <title>متطلبات الجامعة — هندسة الحاسوب الجامعة الإسلامية بغزة</title>
+  <meta name="description" content="كافة الملفات والمحاضرات والتسجيلات الخاصة بمساقات المتطلبات العامة الإجبارية والاختيارية لطلبة كلية الهندسة بالجامعة الإسلامية بغزة">
+  <link rel="icon" type="image/png" href="Com.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="themes.css">
+  <style>
+    .req-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem;
+    }
+    .req-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+      transition: all var(--transition-fast);
+    }
+    .req-card:hover {
+      border-color: var(--accent-amber);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .req-card-top {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .req-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: rgba(6, 182, 212, 0.15);
+      color: #06B6D4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .req-course-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .req-actions {
+      display: flex;
+      gap: 0.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .req-action-link {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.6rem 0.85rem;
+      border-radius: var(--radius-md);
+      font-size: 0.825rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+    }
+    .req-action-link.files {
+      background: rgba(14, 165, 233, 0.12);
+      color: #0284C7;
+      border: 1px solid rgba(14, 165, 233, 0.3);
+    }
+    .req-action-link.files:hover {
+      background: #0284C7;
+      color: #FFFFFF;
+    }
+    .req-action-link.lectures {
+      background: rgba(239, 68, 68, 0.12);
+      color: #DC2626;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+    .req-action-link.lectures:hover {
+      background: #DC2626;
+      color: #FFFFFF;
+    }
+  </style>
 </head>
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/entries/universityRequirements.jsx"></script>
+
+  <!-- Unified Glassmorphic Navbar -->
+  <header class="unified-navbar">
+    <div class="navbar-container">
+      <div class="navbar-left-group">
+        <button type="button" class="sidebar-trigger-btn" onclick="window.openSidebar()" title="فتح القائمة الجانبية" aria-label="القائمة الجانبية">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+        <a href="index.html" class="brand-logo-link">
+          <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="10" fill="#1B2A4A"/>
+            <rect x="11" y="11" width="18" height="18" rx="4" fill="#0F172A" stroke="#F59E0B" stroke-width="2"/>
+            <circle cx="20" cy="20" r="4" fill="#F59E0B"/>
+            <path d="M7 16H11M7 24H11M29 16H33M29 24H33M16 7V11M24 7V11M16 29V33M24 29V33" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div class="brand-text-group">
+            <span class="brand-title">COMPUTER ENGINEERING</span>
+            <span class="brand-sub">IUG <span class="brand-dot"></span> الجامعة الإسلامية</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="navbar-search-area">
+        <div class="search-input-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon-inside"></i>
+          <input type="text" id="globalSearchInput" class="global-search-input" placeholder="ابحث عن مادة، كتاب، أو سلايدات..." autocomplete="off" />
+          <div id="headerSearchResults" class="search-results-dropdown" style="display:none;"></div>
+        </div>
+      </div>
+
+      <div class="navbar-actions">
+        <button type="button" class="action-icon-pill" onclick="window.openFavoritesModal()" title="المواد المفضلة والمحفوظة">
+          <i class="fa-solid fa-star" style="color:var(--accent-amber);"></i>
+          <span>المفضلة</span>
+          <span class="count-tag fav-count-badge" style="display:none;">0</span>
+        </button>
+
+        <button type="button" class="action-icon-pill" onclick="window.openPomodoroModal()" title="مؤقت بومودورو الدراسي">
+          <i class="fa-solid fa-stopwatch" style="color:var(--accent-teal);"></i>
+          <span>بومودورو</span>
+        </button>
+
+        <a href="https://t.me/+lUyeZmUh7KpjM2Fi" target="_blank" rel="noopener noreferrer" class="action-btn tg-btn" title="قناة التليجرام الرسمية">
+          <i class="fa-brands fa-telegram"></i>
+          <span>القناة</span>
+        </a>
+
+        <a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" rel="noopener noreferrer" class="action-btn bot-btn" title="بوت الملفات والبرامج">
+          <i class="fa-solid fa-robot"></i>
+          <span>بوت الملفات</span>
+        </a>
+
+        <button type="button" onclick="window.toggleDarkMode()" class="theme-toggle-btn" title="تبديل الوضع الليلي" aria-label="تبديل الوضع الليلي">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button type="button" id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="القائمة">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Desktop Subnav -->
+    <nav class="desktop-subnav">
+      <div class="subnav-container">
+        <a href="index.html" class="subnav-link"><i class="fa-solid fa-house"></i> الرئيسية</a>
+        <a href="firstYear.html" class="subnav-link"><i class="fa-solid fa-cubes" style="color:#0EA5E9;"></i> السنة الأولى</a>
+        <a href="secndYear.html" class="subnav-link"><i class="fa-solid fa-microchip" style="color:#10B981;"></i> السنة الثانية</a>
+        <a href="thirdYear.html" class="subnav-link"><i class="fa-solid fa-network-wired" style="color:#8B5CF6;"></i> السنة الثالثة</a>
+        <a href="fourthYear.html" class="subnav-link"><i class="fa-solid fa-laptop-code" style="color:#F59E0B;"></i> السنة الرابعة</a>
+        <a href="fifthYear.html" class="subnav-link"><i class="fa-solid fa-award" style="color:#EC4899;"></i> السنة الخامسة</a>
+        <a href="university-requirements.html" class="subnav-link active"><i class="fa-solid fa-graduation-cap" style="color:#06B6D4;"></i> متطلبات الجامعة</a>
+        <a href="gpa-calculator.html" class="subnav-link highlight-btn"><i class="fa-solid fa-calculator"></i> حاسبة المعدل (0-100)</a>
+        <a href="study-tools.html" class="subnav-link"><i class="fa-solid fa-brain" style="color:#10B981;"></i> ادرس من هان 🎓</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Header -->
+  <header style="background:var(--bg-surface); border-bottom:1px solid var(--border-default); padding: 3rem 0 2.5rem; position:relative; overflow:hidden;">
+    <div class="container">
+      <div style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.35rem 0.85rem; background:var(--bg-surface-subtle); border:1px solid var(--border-default); border-radius:var(--radius-full); font-size:0.825rem; font-weight:800; color:#06B6D4; margin-bottom:0.85rem;">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span>الجامعة الإسلامية بغزة</span>
+      </div>
+      <h1 style="font-size:2.2rem; font-weight:900; color:var(--text-main); margin-bottom:0.5rem;">🏛️ متطلبات الجامعة العامة</h1>
+      <p style="font-size:1.05rem; color:var(--text-muted); max-width:780px; line-height:1.6;">
+        كافة الملفات التلخيصية والمحاضرات والتسجيلات الخاصة بمساقات المتطلبات العامة الإجبارية والاختيارية لطلبة كلية الهندسة.
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Grid -->
+  <main class="container" style="padding-top:2.5rem; padding-bottom:4.5rem;">
+    <div class="req-grid">
+      <!-- 1 -->
+      <div class="req-card">
+        <div class="req-card-top">
+          <div class="req-icon-box"><i class="fa-solid fa-book-quran"></i></div>
+          <h3 class="req-course-title">قرآن كريم (1)</h3>
+        </div>
+        <div class="req-actions">
+          <a href="https://drive.google.com/drive/folders/1fFhuXmDCBDtiUUpzBTofT1t1CMZ5pRrQ" target="_blank" rel="noopener noreferrer" class="req-action-link files"><i class="fa-solid fa-folder-open"></i> الملفات</a>
+          <a href="https://youtube.com/playlist?list=PL9fwy3NUQKwYkwPgW-LrOUyyGrsNUkpkd&si=JpDPHe2lZS2XUQiN" target="_blank" rel="noopener noreferrer" class="req-action-link lectures"><i class="fa-solid fa-circle-play"></i> المحاضرات</a>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="req-card">
+        <div class="req-card-top">
+          <div class="req-icon-box"><i class="fa-solid fa-book-quran"></i></div>
+          <h3 class="req-course-title">قرآن كريم (2)</h3>
+        </div>
+        <div class="req-actions">
+          <a href="https://drive.google.com/drive/folders/1Hy6N-p9BXHFxdhcLDJ0rtAuJ_ovg2Bhw" target="_blank" rel="noopener noreferrer" class="req-action-link files"><i class="fa-solid fa-folder-open"></i> الملفات</a>
+          <a href="https://youtube.com/playlist?list=PL9fwy3NUQKwYLTdGERgOVEDNAmlOhVCWK&si=ZjrTHDKcOUSqEhCE" target="_blank" rel="noopener noreferrer" class="req-action-link lectures"><i class="fa-solid fa-circle-play"></i> المحاضرات</a>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="req-card">
+        <div class="req-card-top">
+          <div class="req-icon-box"><i class="fa-solid fa-book-quran"></i></div>
+          <h3 class="req-course-title">قرآن كريم (3)</h3>
+        </div>
+        <div class="req-actions">
+          <a href="https://drive.google.com/drive/folders/1mbv0_YExiI8tmKql3maUlKp7epI3nzUs" target="_blank" rel="noopener noreferrer" class="req-action-link files"><i class="fa-solid fa-folder-open"></i> الملفات</a>
+          <a href="https://youtube.com/playlist?list=PL9fwy3NUQKwZxUrBRx-jdRmTIoerOH1po&si=dTzrMPVGz2Zh1pEq" target="_blank" rel="noopener noreferrer" class="req-action-link lectures"><i class="fa-solid fa-circle-play"></i> المحاضرات</a>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="req-card">
+        <div class="req-card-top">
+          <div class="req-icon-box"><i class="fa-solid fa-book-quran"></i></div>
+          <h3 class="req-course-title">قرآن كريم (4)</h3>
+        </div>
+        <div class="req-actions">
+          <a href="https://drive.google.com/drive/folders/1l3uJD1CWQLoys53cY9ZG3Y51MhUIfODa" target="_blank" rel="noopener noreferrer" class="req-action-link files"><i class="fa-solid fa-folder-open"></i> الملفات</a>
+          <a href="https://youtube.com/playlist?list=PL9fwy3NUQKwaIvb3amW8pzhbBL_vlNZyl&si=OPR11GykzUUYUfB4" target="_blank" rel="noopener noreferrer" class="req-action-link lectures"><i class="fa-solid fa-circle-play"></i> المحاضرات</a>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="req-card">
+        <div class="req-card-top">
+          <div class="req-icon-box"><i class="fa-solid fa-kaaba"></i></div>
+          <h3 class="req-course-title">دراسات في العقيدة</h3>
+        </div>
+        <div class="req-actions">
+          <a href="https://drive.google.com/drive/folders/1wS3XM6eHAwKXR03RqXU2zgqrJ7vM2jAr" target="_blank" rel="noopener noreferrer" class="req-action-link files"><i class="fa-solid fa-folder-open"></i> الملفات</a>
+          <a href="https://youtube.com/playlist?list=PL9fwy3NUQKwbjoJf68eR0YQ1OicsDn0Z_&si=yfg5lRPee3WyUXqT" target="_blank" rel="noopener noreferrer" class="req-action-link lectures"><i class="fa-solid fa-circle-play"></i> المحاضرات</a>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="req-card">
+        <div class="req-card-top">
+          <div class="req-icon-box"><i class="fa-solid fa-scale-balanced"></i></div>
+          <h3 class="req-course-title">دراسات في الفقه</h3>
+        </div>
+        <div class="req-actions">
+          <a href="https://drive.google.com/drive/folders/1tfS2wN47_AWxqdgabUuhYYP1fW1bqWSr" target="_blank" rel="noopener noreferrer" class="req-action-link files"><i class="fa-solid fa-folder-open"></i> الملفات</a>
+          <a href="https://youtube.com/playlist?list=PL9fwy3NUQKwZbdjx5qZuMNgtnza9-PqU5&si=VrKRfS4nBr4OeaeO" target="_blank" rel="noopener noreferrer" class="req-action-link lectures"><i class="fa-solid fa-circle-play"></i> المحاضرات</a>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="req-card">
+        <div class="req-card-top">
+          <div class="req-icon-box"><i class="fa-solid fa-scroll"></i></div>
+          <h3 class="req-course-title">دراسات في الحديث الشريف</h3>
+        </div>
+        <div class="req-actions">
+          <a href="https://drive.google.com/drive/folders/1XN6Nysc9-5ImDzQUyBcmaQr0d_GXRPIo" target="_blank" rel="noopener noreferrer" class="req-action-link files"><i class="fa-solid fa-folder-open"></i> الملفات</a>
+          <a href="https://youtube.com/playlist?list=PL4xB9KuJo6RS_p3XM9ObETgNjdney_lFK&si=jq8ozcUlta13vgwJ" target="_blank" rel="noopener noreferrer" class="req-action-link lectures"><i class="fa-solid fa-circle-play"></i> المحاضرات</a>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="req-card">
+        <div class="req-card-top">
+          <div class="req-icon-box"><i class="fa-solid fa-mosque"></i></div>
+          <h3 class="req-course-title">دراسات في السيرة النبوية</h3>
+        </div>
+        <div class="req-actions">
+          <a href="https://drive.google.com/drive/folders/1IBkh8Y7fDX3s_MGo5OstS6oqh0KmM9Ah" target="_blank" rel="noopener noreferrer" class="req-action-link files"><i class="fa-solid fa-folder-open"></i> الملفات</a>
+          <a href="https://youtube.com/playlist?list=PL9fwy3NUQKwZQEOmOybuIB4gZdqdI5HcQ&si=4aFH0_v2gIRu2DyC" target="_blank" rel="noopener noreferrer" class="req-action-link lectures"><i class="fa-solid fa-circle-play"></i> المحاضرات</a>
+        </div>
+      </div>
+
+      <!-- 9 -->
+      <div class="req-card">
+        <div class="req-card-top">
+          <div class="req-icon-box"><i class="fa-solid fa-book-open"></i></div>
+          <h3 class="req-course-title">دراسات في القرآن وعلومه</h3>
+        </div>
+        <div class="req-actions">
+          <a href="https://drive.google.com/drive/folders/1mENeCEuXEsPdWlxsEz1xKOVyR4GDetYk" target="_blank" rel="noopener noreferrer" class="req-action-link files"><i class="fa-solid fa-folder-open"></i> الملفات</a>
+          <a href="https://youtube.com/playlist?list=PL9fwy3NUQKwaGIlkTCo2tGndokmJ9ZbKr&si=Vb4qt04IPVvNtvsU" target="_blank" rel="noopener noreferrer" class="req-action-link lectures"><i class="fa-solid fa-circle-play"></i> المحاضرات</a>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="req-card">
+        <div class="req-card-top">
+          <div class="req-icon-box"><i class="fa-solid fa-landmark"></i></div>
+          <h3 class="req-course-title">دراسات فلسطينية</h3>
+        </div>
+        <div class="req-actions">
+          <a href="https://drive.google.com/drive/folders/1s0lcXE0gg7_DQ6jtbIhPjBGYYQSNMjZd" target="_blank" rel="noopener noreferrer" class="req-action-link files"><i class="fa-solid fa-folder-open"></i> الملفات</a>
+          <a href="https://youtube.com/playlist?list=PL9fwy3NUQKwb0RqFErSm_cqoiTXH0hLcc&si=TBIHRU3a2CAPjP6p" target="_blank" rel="noopener noreferrer" class="req-action-link lectures"><i class="fa-solid fa-circle-play"></i> المحاضرات</a>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div class="req-card">
+        <div class="req-card-top">
+          <div class="req-icon-box"><i class="fa-solid fa-sitemap"></i></div>
+          <h3 class="req-course-title">النظم الإسلامية</h3>
+        </div>
+        <div class="req-actions">
+          <a href="https://drive.google.com/drive/folders/1HHbLCF6WprxZlmyYf6lbcbj3SKPap9RO" target="_blank" rel="noopener noreferrer" class="req-action-link files"><i class="fa-solid fa-folder-open"></i> الملفات</a>
+          <a href="https://youtube.com/playlist?list=PL9fwy3NUQKwYDVehtFpV9OlrzbElYsCBI&si=8G7QVOYGaLphL1Ha" target="_blank" rel="noopener noreferrer" class="req-action-link lectures"><i class="fa-solid fa-circle-play"></i> المحاضرات</a>
+        </div>
+      </div>
+
+      <!-- 12 -->
+      <div class="req-card">
+        <div class="req-card-top">
+          <div class="req-icon-box"><i class="fa-solid fa-globe"></i></div>
+          <h3 class="req-course-title">حاضر العالم الإسلامي</h3>
+        </div>
+        <div class="req-actions">
+          <a href="https://drive.google.com/drive/folders/1GkQb2MetwgoyIWs7NX_A_ALjglXyPPO7" target="_blank" rel="noopener noreferrer" class="req-action-link files"><i class="fa-solid fa-folder-open"></i> الملفات</a>
+          <a href="https://youtube.com/playlist?list=PL9fwy3NUQKwZZ8ASUiLEKVKvwcEdfmB_y&si=IKlHNtMtbAhzhn9z" target="_blank" rel="noopener noreferrer" class="req-action-link lectures"><i class="fa-solid fa-circle-play"></i> المحاضرات</a>
+        </div>
+      </div>
+
+      <!-- 13 -->
+      <div class="req-card">
+        <div class="req-card-top">
+          <div class="req-icon-box"><i class="fa-solid fa-pen-nib"></i></div>
+          <h3 class="req-course-title">اللغة العربية (النحو والصرف)</h3>
+        </div>
+        <div class="req-actions">
+          <a href="https://drive.google.com/drive/folders/16ol0LUfQWfPLXj9-xSmNLwkJedcqltCz" target="_blank" rel="noopener noreferrer" class="req-action-link files"><i class="fa-solid fa-folder-open"></i> الملفات</a>
+          <a href="https://youtube.com/playlist?list=PL9fwy3NUQKwYhHrX4IIV26LQP7Hwav1eP&si=45Yslj4720QgYw45" target="_blank" rel="noopener noreferrer" class="req-action-link lectures"><i class="fa-solid fa-circle-play"></i> المحاضرات</a>
+        </div>
+      </div>
+
+      <!-- 14 -->
+      <div class="req-card">
+        <div class="req-card-top">
+          <div class="req-icon-box"><i class="fa-solid fa-kit-medical"></i></div>
+          <h3 class="req-course-title">إسعافات أولية</h3>
+        </div>
+        <div class="req-actions">
+          <a href="https://drive.google.com/drive/folders/1_WA5rIKI366AOERHzNMD686HUZCZqfuR" target="_blank" rel="noopener noreferrer" class="req-action-link files"><i class="fa-solid fa-folder-open"></i> الملفات</a>
+          <a href="https://youtube.com/playlist?list=PL9fwy3NUQKwbs5iCdNevE7eKvPQcWdrWJ&si=yvRwU3i7TPngBkZ_" target="_blank" rel="noopener noreferrer" class="req-action-link lectures"><i class="fa-solid fa-circle-play"></i> المحاضرات</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Universal Footer -->
+  <footer class="engineering-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4 class="footer-brand-title">COMPUTER ENGINEERING — IUG</h4>
+          <p class="footer-brand-desc">
+            المنصة الأكاديمية الأولى لطلبة هندسة الحاسوب بالجامعة الإسلامية بغزة. نسعى لتوفير بيئة دراسية متكاملة تدعم التميز والابتكار لمهندسي المستقبل.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-heading"><i class="fa-solid fa-compass"></i> روابط سريعة</h4>
+          <ul class="footer-links-list">
+            <li><a href="firstYear.html"><i class="fa-solid fa-cubes"></i> السنة الأولى</a></li>
+            <li><a href="secndYear.html"><i class="fa-solid fa-microchip"></i> السنة الثانية</a></li>
+            <li><a href="thirdYear.html"><i class="fa-solid fa-network-wired"></i> السنة الثالثة</a></li>
+            <li><a href="fourthYear.html"><i class="fa-solid fa-laptop-code"></i> السنة الرابعة</a></li>
+            <li><a href="fifthYear.html"><i class="fa-solid fa-award"></i> السنة الخامسة</a></li>
+            <li><a href="gpa-calculator.html"><i class="fa-solid fa-calculator"></i> حاسبة المعدل</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-heading"><i class="fa-solid fa-headset"></i> التواصل والدعم الفني</h4>
+          <div class="contact-items-list">
+            <a href="tel:0595346617" class="contact-link-item">
+              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(16, 185, 129, 0.15); color:var(--accent-emerald); display:flex; align-items:center; justify-content:center;">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <span style="font-size:0.725rem; color:var(--text-subtle); display:block;">الهاتف / واتساب:</span>
+                <strong style="font-size:0.9rem; font-family:var(--font-mono);" dir="ltr">0595346617</strong>
+              </div>
+            </a>
+
+            <a href="mailto:mnmaassddll@gmail.com" class="contact-link-item email-action-item" title="راسلني عبر الإيميل">
+              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(14, 165, 233, 0.15); color:var(--accent-teal); display:flex; align-items:center; justify-content:center;">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div>
+                <span style="font-size:0.725rem; color:var(--text-subtle); display:block;">البريد الإلكتروني:</span>
+                <span class="contact-action-badge"><span>راسلني عبر الإيميل</span> <i class="fa-solid fa-paper-plane"></i></span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>جميع الحقوق محفوظة © 2026 • كلية الهندسة — الجامعة الإسلامية بغزة</div>
+        <div>تطوير وبرمجة: <strong>م. عز الدين بسام المجدلاوي</strong> & <strong>م. مصعب موسى الأسود</strong></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Global Collapsible Sidebar -->
+  <div id="sidebarBackdrop" class="sidebar-backdrop" style="display:none;" onclick="window.closeSidebar()"></div>
+  <aside id="globalSidebar" class="collapsible-sidebar" dir="rtl">
+    <div class="sidebar-inner">
+      <div class="sidebar-header">
+        <div style="display:flex; align-items:center; gap:0.65rem;">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="10" fill="#1B2A4A"/>
+            <rect x="11" y="11" width="18" height="18" rx="4" fill="#0F172A" stroke="#F59E0B" stroke-width="2"/>
+            <circle cx="20" cy="20" r="4" fill="#F59E0B"/>
+          </svg>
+          <div>
+            <span style="font-family:var(--font-mono); font-size:0.95rem; font-weight:900; color:var(--text-main); display:block;">COMPUTER ENG</span>
+            <span style="font-size:0.725rem; color:var(--text-subtle);">IUG القائمة الجانبية</span>
+          </div>
+        </div>
+        <button type="button" class="sidebar-close-btn" onclick="window.closeSidebar()" aria-label="إغلاق">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="sidebar-section-label">التنقل الأكاديمي</span>
+        <div class="sidebar-links-list">
+          <a href="index.html" class="sidebar-nav-item"><i class="fa-solid fa-house"></i> الرئيسية</a>
+          <a href="firstYear.html" class="sidebar-nav-item"><i class="fa-solid fa-cubes" style="color:#0EA5E9;"></i> السنة الأولى</a>
+          <a href="secndYear.html" class="sidebar-nav-item"><i class="fa-solid fa-microchip" style="color:#10B981;"></i> السنة الثانية</a>
+          <a href="thirdYear.html" class="sidebar-nav-item"><i class="fa-solid fa-network-wired" style="color:#8B5CF6;"></i> السنة الثالثة</a>
+          <a href="fourthYear.html" class="sidebar-nav-item"><i class="fa-solid fa-laptop-code" style="color:#F59E0B;"></i> السنة الرابعة</a>
+          <a href="fifthYear.html" class="sidebar-nav-item"><i class="fa-solid fa-award" style="color:#EC4899;"></i> السنة الخامسة</a>
+          <a href="university-requirements.html" class="sidebar-nav-item active"><i class="fa-solid fa-graduation-cap" style="color:#06B6D4;"></i> متطلبات الجامعة</a>
+          <a href="gpa-calculator.html" class="sidebar-nav-item highlight-item"><i class="fa-solid fa-calculator" style="color:#F59E0B;"></i> حاسبة المعدل</a>
+          <a href="study-tools.html" class="sidebar-nav-item"><i class="fa-solid fa-brain" style="color:#10B981;"></i> أدوات الدراسة والسبورة</a>
+          <a href="search.html" class="sidebar-nav-item"><i class="fa-solid fa-magnifying-glass"></i> البحث الشامل</a>
+        </div>
+      </nav>
+
+      <!-- Theme Accent Swatches Section -->
+      <div class="sidebar-theme-section">
+        <div class="sb-theme-head">
+          <span class="sidebar-section-label">تخصيص لون السمة</span>
+          <button type="button" class="sb-theme-reset" onclick="window.applyColorTheme('')">الافتراضي</button>
+        </div>
+        <div class="sb-swatches-grid">
+          <button type="button" class="sb-swatch-btn" data-theme="" style="background-color:#1B2A4A; border-color:#F59E0B;" onclick="window.applyColorTheme('')" title="الافتراضي"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-blue" style="background-color:#3b82f6;" onclick="window.applyColorTheme('theme-blue')" title="Blue"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-green" style="background-color:#10b981;" onclick="window.applyColorTheme('theme-green')" title="Green"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-purple" style="background-color:#8b5cf6;" onclick="window.applyColorTheme('theme-purple')" title="Purple"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-orange" style="background-color:#f97316;" onclick="window.applyColorTheme('theme-orange')" title="Orange"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-red" style="background-color:#ef4444;" onclick="window.applyColorTheme('theme-red')" title="Red"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-pink" style="background-color:#ec4899;" onclick="window.applyColorTheme('theme-pink')" title="Pink"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-cyan" style="background-color:#06b6d4;" onclick="window.applyColorTheme('theme-cyan')" title="Cyan"></button>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <span class="sidebar-section-label">الدعم والتواصل</span>
+        <div class="sb-contact-quick">
+          <a href="tel:0595346617" class="sb-contact-chip"><i class="fa-solid fa-phone"></i> 0595346617</a>
+          <a href="mailto:mnmaassddll@gmail.com" class="sb-contact-chip" title="راسلني"><i class="fa-solid fa-paper-plane"></i> راسلني</a>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Favorites Modal -->
+  <div id="favoritesModal" class="ce-modal-backdrop" style="display:none;" onclick="window.closeFavoritesModal()">
+    <div class="ce-modal-card animate-fade-in" onclick="event.stopPropagation()">
+      <div class="ce-modal-header">
+        <h3 class="ce-modal-title"><i class="fa-solid fa-star" style="color:var(--accent-amber);"></i> المواد المحفوظة في المفضلة</h3>
+        <button type="button" class="sidebar-close-btn" onclick="window.closeFavoritesModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="favoritesModalList" class="ce-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Pomodoro Focus Modal -->
+  <div id="pomodoroModal" class="ce-modal-backdrop" style="display:none;" onclick="window.closePomodoroModal()">
+    <div class="ce-modal-card animate-fade-in" style="max-width:440px; text-align:center;" onclick="event.stopPropagation()">
+      <div class="ce-modal-header">
+        <h3 class="ce-modal-title"><i class="fa-solid fa-stopwatch" style="color:var(--accent-teal);"></i> مؤقت التركيز (بومودورو)</h3>
+        <button type="button" class="sidebar-close-btn" onclick="window.closePomodoroModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="ce-modal-body" style="padding:2rem 1.5rem;">
+        <div style="display:flex; justify-content:center; gap:0.5rem; margin-bottom:1.5rem;">
+          <button type="button" class="gpa-tab-btn pomo-mode-btn active" data-mode="focus" onclick="window.setPomoMode('focus')">جلسة تركيز (25 د)</button>
+          <button type="button" class="gpa-tab-btn pomo-mode-btn" data-mode="short" onclick="window.setPomoMode('short')">استراحة (5 د)</button>
+          <button type="button" class="gpa-tab-btn pomo-mode-btn" data-mode="long" onclick="window.setPomoMode('long')">استراحة (15 د)</button>
+        </div>
+        <div id="pomoModalDisplay" style="font-family:var(--font-mono); font-size:3.5rem; font-weight:900; color:var(--accent-amber); margin-bottom:1.5rem;">25:00</div>
+        <div style="display:flex; justify-content:center; gap:0.75rem;">
+          <button type="button" id="pomoToggleBtn" class="gpa-btn-solid" onclick="window.togglePomoTimer()" style="padding:0.75rem 1.75rem; font-size:1rem;">
+            <i class="fa-solid fa-play"></i> بدء المؤقت
+          </button>
+          <button type="button" class="gpa-btn-outline" onclick="window.resetPomoTimer()" style="padding:0.75rem 1.25rem;">
+            <i class="fa-solid fa-rotate-right"></i> إعادة ضبط
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Pomodoro Pill -->
+  <div id="floatingPomoPill" class="floating-pomodoro-pill" onclick="window.openPomodoroModal()" title="فتح مؤقت بومودورو">
+    <i class="fa-solid fa-stopwatch" style="color:var(--accent-amber);"></i>
+    <span id="floatingPomoTime" class="pomo-time-display">25:00</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="subjects-data.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
