@@ -52,14 +52,19 @@
       background: rgba(11,31,42,0.95);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
-      padding: 0 clamp(10px, 3vw, 20px); height: clamp(56px, 8vw, 62px);
+      padding: 0 clamp(8px, 2.5vw, 20px); height: clamp(56px, 8vw, 62px);
       display: flex; align-items: center; justify-content: space-between;
-      gap: 10px;
+      gap: 8px;
       width: 100%;
       box-sizing: border-box;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
-    .nav-left-box { display: flex; align-items: center; gap: clamp(8px, 2vw, 14px); }
-    .nav-brand-group { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .study-top-nav::-webkit-scrollbar { display: none; }
+    .nav-left-box { display: flex; align-items: center; gap: clamp(6px, 2vw, 12px); flex-shrink: 0; }
+    .nav-brand-group { display: flex; align-items: center; gap: 8px; text-decoration: none; flex-shrink: 0; }
     .nav-brand-title { font-family: var(--font-mono); font-size: clamp(11px, 2.5vw, 13px); font-weight: 700; color: var(--cyan); letter-spacing: 0.5px; white-space: nowrap; }
     .nav-brand-sub { font-size: 11px; color: var(--text-dim); white-space: nowrap; }
     
@@ -68,19 +73,20 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 14px;
+      padding: 6px 12px;
       border-radius: 50px;
       background: rgba(245, 158, 11, 0.14);
       border: 1.5px solid #F59E0B;
       color: #F59E0B;
-      font-size: clamp(11px, 2.5vw, 13px);
+      font-size: clamp(11px, 2.2vw, 13px);
       font-weight: 800;
       text-decoration: none;
       transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
       white-space: nowrap;
-      min-height: 38px;
+      min-height: 40px;
       box-sizing: border-box;
       touch-action: manipulation;
+      flex-shrink: 0;
     }
     .nav-home-btn:hover {
       background: #F59E0B;
@@ -103,6 +109,10 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      min-height: 40px;
+      box-sizing: border-box;
+      touch-action: manipulation;
+      flex-shrink: 0;
     }
     .nav-back:hover { color: var(--cyan); border-color: var(--cyan); background: var(--cyan-glow); }
 
