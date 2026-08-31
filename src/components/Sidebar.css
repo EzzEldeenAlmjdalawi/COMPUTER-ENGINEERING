@@ -240,3 +240,67 @@
   border-color: var(--accent-amber);
   color: var(--text-main);
 }
+
+/* Sidebar Theme Swatches Section */
+.sidebar-theme-section {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.sb-theme-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.65rem;
+}
+
+.sb-theme-reset {
+  background: transparent;
+  border: none;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-teal);
+  cursor: pointer;
+  padding: 0;
+}
+
+.sb-theme-reset:hover {
+  text-decoration: underline;
+}
+
+.sb-swatches-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0.45rem;
+  justify-items: center;
+}
+
+.sb-swatch-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  padding: 0;
+}
+
+.sb-swatch-btn:hover {
+  transform: scale(1.2);
+}
+
+.sb-swatch-btn.selected {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px var(--accent-amber-glow), var(--shadow-md);
+}
+
+.sb-swatch-btn i {
+  color: #FFFFFF;
+  font-size: 0.65rem;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.8));
+}

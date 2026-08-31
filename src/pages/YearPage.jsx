@@ -1,6 +1,5 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-import ThemePicker from '../components/ThemePicker';
 import SubjectAccordion from '../components/SubjectAccordion';
 import Footer from '../components/Footer';
 import { yearsConfig } from '../data/subjects';
@@ -25,9 +24,6 @@ export default function YearPage({ yearKey }) {
     <div className="year-page-root" dir="rtl">
       {/* Unified Global Navbar */}
       <Navbar activePage={yearKey} />
-
-      {/* Floating Theme Color Picker */}
-      <ThemePicker />
 
       {/* Year Hero Header */}
       <header className="year-header-hero">

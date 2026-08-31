@@ -1,0 +1,1 @@
+import{c as a,j as t,R as o,N as r}from"./Navbar-BFkisv_l.js";/* empty css                      */const e=document.getElementById("navbar-root");e&&a.createRoot(e).render(t.jsx(o.StrictMode,{children:t.jsx(r,{activePage:"studyTools"})}));
