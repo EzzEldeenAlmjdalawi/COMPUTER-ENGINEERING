@@ -23,12 +23,18 @@
       --font-mono: 'Space Mono', monospace;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+      width: 100%;
+    }
     body {
       background: var(--bg);
       color: var(--text);
       font-family: var(--font-ar);
       min-height: 100vh;
-      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
     }
     body::before {
       content: '';
@@ -43,35 +49,38 @@
     /* NAV */
     .study-top-nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(11,31,42,0.94);
+      background: rgba(11,31,42,0.95);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
-      padding: 0 20px; height: 62px;
+      padding: 0 clamp(10px, 3vw, 20px); height: clamp(56px, 8vw, 62px);
       display: flex; align-items: center; justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
+      width: 100%;
+      box-sizing: border-box;
     }
-    .nav-left-box { display: flex; align-items: center; gap: 14px; }
-    .nav-brand-group { display: flex; align-items: center; gap: 9px; text-decoration: none; }
-    .nav-brand-title { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--cyan); letter-spacing: 0.5px; }
-    .nav-brand-sub { font-size: 11px; color: var(--text-dim); }
+    .nav-left-box { display: flex; align-items: center; gap: clamp(8px, 2vw, 14px); }
+    .nav-brand-group { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .nav-brand-title { font-family: var(--font-mono); font-size: clamp(11px, 2.5vw, 13px); font-weight: 700; color: var(--cyan); letter-spacing: 0.5px; white-space: nowrap; }
+    .nav-brand-sub { font-size: 11px; color: var(--text-dim); white-space: nowrap; }
     
     /* Prominent Return to Home Button */
     .nav-home-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 18px;
+      gap: 6px;
+      padding: 6px 14px;
       border-radius: 50px;
       background: rgba(245, 158, 11, 0.14);
       border: 1.5px solid #F59E0B;
       color: #F59E0B;
-      font-size: 13px;
+      font-size: clamp(11px, 2.5vw, 13px);
       font-weight: 800;
       text-decoration: none;
       transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
       white-space: nowrap;
-      min-height: 40px;
+      min-height: 38px;
       box-sizing: border-box;
+      touch-action: manipulation;
     }
     .nav-home-btn:hover {
       background: #F59E0B;
@@ -79,7 +88,7 @@
       transform: translateY(-1px);
       box-shadow: 0 0 18px rgba(245, 158, 11, 0.45);
     }
-    .nav-home-btn i { font-size: 14px; }
+    .nav-home-btn i { font-size: 13px; }
 
     .nav-back {
       font-size: 12px;
