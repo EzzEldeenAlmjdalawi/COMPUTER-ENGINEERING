@@ -548,6 +548,14 @@
     }
   }
 
+  window.triggerGpaPrint = function () {
+    // Open all semesters so grades in all years print properly
+    document.querySelectorAll('.sem-accordion').forEach((el) => el.classList.add('open'));
+    setTimeout(function () {
+      window.print();
+    }, 200);
+  };
+
   document.addEventListener('DOMContentLoaded', function () {
     loadSavedData();
     window.switchGpaTab(activeTab);

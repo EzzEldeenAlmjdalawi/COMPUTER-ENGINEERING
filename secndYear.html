@@ -41,7 +41,7 @@
       <div class="navbar-search-area">
         <div class="search-input-wrapper">
           <i class="fa-solid fa-magnifying-glass search-icon-inside"></i>
-          <input type="text" id="globalSearchInput" class="global-search-input" placeholder="ابحث عن مادة، كتاب، أو سلايدات..." autocomplete="off" />
+          <input type="text" id="globalSearchInput" class="global-search-input" placeholder="ابحث عن مادة، كود، أو سلايدات (مثال: ECOM 2401)..." autocomplete="off" />
           <div id="headerSearchResults" class="search-results-dropdown" style="display:none;"></div>
         </div>
       </div>
@@ -70,10 +70,6 @@
 
         <button type="button" onclick="window.toggleDarkMode()" class="theme-toggle-btn" title="تبديل الوضع الليلي" aria-label="تبديل الوضع الليلي">
           <i class="fa-solid fa-moon"></i>
-        </button>
-
-        <button type="button" id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="القائمة">
-          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
@@ -144,20 +140,21 @@
             <div id="card_sec1_0" class="subject-card">
               <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec1_0')">
                 <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">ECOM 2401</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                    
+                  </div>
                   <span class="subject-name">Computer Programming 1</span>
-                  
                 </div>
-
                 <div class="subject-actions-right" onclick="event.stopPropagation()">
-                  <button type="button" class="subject-tool-btn star-btn" data-subject="Computer Programming 1" onclick="window.toggleFavorite('Computer Programming 1')" title="حفظ في المفضلة">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Computer Programming 1" onclick="window.toggleFavorite('Computer Programming 1')" title="إضافة للمفضلة">
                     <i class="fa-regular fa-star"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Computer Programming 1')" title="متابعة إنجاز المساق">
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Computer Programming 1')" title="قائمة متابعة المادة">
                     <i class="fa-solid fa-list-check"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec1_0')" title="عرض الملفات والمصادر">
-                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
-                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
                 </div>
               </div>
 
@@ -175,46 +172,47 @@
                       </a>
                     
                       <a href="Computer_Programming_1_lec.html" target="_self" class="resource-chip-link">
-                        <i class="fa-solid fa-video"></i>
+                        <i class="fa-solid fa-chalkboard-user"></i>
                         <span>Lectures</span>
                       </a>
                     
                       <a href="Computer_Programming_1_chapters.html" target="_self" class="resource-chip-link">
-                        <i class="fa-solid fa-layer-group"></i>
+                        <i class="fa-solid fa-list-ol"></i>
                         <span>Chapters</span>
                       </a>
                     
                       <a href="https://drive.google.com/drive/folders/13am7B6TSJGMoNLgd4kDVVpOjVReT_QDR" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
-                        <i class="fa-solid fa-pen-ruler"></i>
+                        <i class="fa-solid fa-folder-open"></i>
                         <span>Discussion & Problems & Problems solution</span>
                       </a>
                     
                       <a href="https://drive.google.com/drive/folders/12Uib4yWveUOx8ERirBP2KuaHiI6EEsQX" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
-                        <i class="fa-solid fa-graduation-cap"></i>
+                        <i class="fa-solid fa-file-circle-check"></i>
                         <span>Quiz & Exams & Homework</span>
                       </a>
                     
                 </div>
               </div>
             </div>
-          
+            
             <div id="card_sec1_1" class="subject-card">
               <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec1_1')">
                 <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">ECOM 2401</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                    <span class="badge-lab">مختبر / عملي</span>
+                  </div>
                   <span class="subject-name">Computer Programming Lab 1</span>
-                  <span class="badge-lab">مختبر</span>
                 </div>
-
                 <div class="subject-actions-right" onclick="event.stopPropagation()">
-                  <button type="button" class="subject-tool-btn star-btn" data-subject="Computer Programming Lab 1" onclick="window.toggleFavorite('Computer Programming Lab 1')" title="حفظ في المفضلة">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Computer Programming Lab 1" onclick="window.toggleFavorite('Computer Programming Lab 1')" title="إضافة للمفضلة">
                     <i class="fa-regular fa-star"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Computer Programming Lab 1')" title="متابعة إنجاز المساق">
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Computer Programming Lab 1')" title="قائمة متابعة المادة">
                     <i class="fa-solid fa-list-check"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec1_1')" title="عرض الملفات والمصادر">
-                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
-                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
                 </div>
               </div>
 
@@ -227,31 +225,32 @@
                       </a>
                     
                       <a href="https://youtube.com/playlist?list=PLq5FW85cJhv5wkNk8ngddqoaK47jGQxBY&feature=shared" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
-                        <i class="fa-solid fa-video"></i>
+                        <i class="fa-brands fa-youtube"></i>
                         <span>Recorded Videos</span>
                       </a>
                     
                 </div>
               </div>
             </div>
-          
+            
             <div id="card_sec1_2" class="subject-card">
               <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec1_2')">
                 <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">ECOM 2411</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                    
+                  </div>
                   <span class="subject-name">Digital Design 1</span>
-                  
                 </div>
-
                 <div class="subject-actions-right" onclick="event.stopPropagation()">
-                  <button type="button" class="subject-tool-btn star-btn" data-subject="Digital Design 1" onclick="window.toggleFavorite('Digital Design 1')" title="حفظ في المفضلة">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Digital Design 1" onclick="window.toggleFavorite('Digital Design 1')" title="إضافة للمفضلة">
                     <i class="fa-regular fa-star"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Digital Design 1')" title="متابعة إنجاز المساق">
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Digital Design 1')" title="قائمة متابعة المادة">
                     <i class="fa-solid fa-list-check"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec1_2')" title="عرض الملفات والمصادر">
-                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
-                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
                 </div>
               </div>
 
@@ -269,46 +268,47 @@
                       </a>
                     
                       <a href="Digital_Design_1_lec.html" target="_self" class="resource-chip-link">
-                        <i class="fa-solid fa-video"></i>
+                        <i class="fa-solid fa-chalkboard-user"></i>
                         <span>Lectures</span>
                       </a>
                     
                       <a href="Digital_Design_1_chapters.html" target="_self" class="resource-chip-link">
-                        <i class="fa-solid fa-layer-group"></i>
+                        <i class="fa-solid fa-list-ol"></i>
                         <span>Chapters</span>
                       </a>
                     
                       <a href="https://drive.google.com/drive/folders/14NYD0oogHrsUSWeU9fyfIz4jxPamwek3" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
-                        <i class="fa-solid fa-pen-ruler"></i>
+                        <i class="fa-solid fa-folder-open"></i>
                         <span>Discussion & Problems & Problems solution</span>
                       </a>
                     
                       <a href="https://drive.google.com/drive/folders/14E_f1fKi3wvv8tHWJQFeAI-ZFulUHPlz" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
-                        <i class="fa-solid fa-graduation-cap"></i>
+                        <i class="fa-solid fa-file-circle-check"></i>
                         <span>Quiz & Exams & Homework</span>
                       </a>
                     
                 </div>
               </div>
             </div>
-          
+            
             <div id="card_sec1_3" class="subject-card">
               <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec1_3')">
                 <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">ECOM 2411</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                    <span class="badge-lab">مختبر / عملي</span>
+                  </div>
                   <span class="subject-name">Digital Design Lab 1</span>
-                  <span class="badge-lab">مختبر</span>
                 </div>
-
                 <div class="subject-actions-right" onclick="event.stopPropagation()">
-                  <button type="button" class="subject-tool-btn star-btn" data-subject="Digital Design Lab 1" onclick="window.toggleFavorite('Digital Design Lab 1')" title="حفظ في المفضلة">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Digital Design Lab 1" onclick="window.toggleFavorite('Digital Design Lab 1')" title="إضافة للمفضلة">
                     <i class="fa-regular fa-star"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Digital Design Lab 1')" title="متابعة إنجاز المساق">
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Digital Design Lab 1')" title="قائمة متابعة المادة">
                     <i class="fa-solid fa-list-check"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec1_3')" title="عرض الملفات والمصادر">
-                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
-                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
                 </div>
               </div>
 
@@ -321,31 +321,32 @@
                       </a>
                     
                       <a href="Digital Design Lab 1_lec.html" target="_self" class="resource-chip-link">
-                        <i class="fa-solid fa-video"></i>
+                        <i class="fa-brands fa-youtube"></i>
                         <span>Recorded Videos</span>
                       </a>
                     
                 </div>
               </div>
             </div>
-          
+            
             <div id="card_sec1_4" class="subject-card">
               <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec1_4')">
                 <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">EELE 2310</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                    
+                  </div>
                   <span class="subject-name">Electric Circuits 1</span>
-                  
                 </div>
-
                 <div class="subject-actions-right" onclick="event.stopPropagation()">
-                  <button type="button" class="subject-tool-btn star-btn" data-subject="Electric Circuits 1" onclick="window.toggleFavorite('Electric Circuits 1')" title="حفظ في المفضلة">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Electric Circuits 1" onclick="window.toggleFavorite('Electric Circuits 1')" title="إضافة للمفضلة">
                     <i class="fa-regular fa-star"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Electric Circuits 1')" title="متابعة إنجاز المساق">
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Electric Circuits 1')" title="قائمة متابعة المادة">
                     <i class="fa-solid fa-list-check"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec1_4')" title="عرض الملفات والمصادر">
-                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
-                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
                 </div>
               </div>
 
@@ -363,46 +364,47 @@
                       </a>
                     
                       <a href="Electric_Circuits_1_lec.html" target="_self" class="resource-chip-link">
-                        <i class="fa-solid fa-video"></i>
+                        <i class="fa-solid fa-chalkboard-user"></i>
                         <span>Lectures</span>
                       </a>
                     
                       <a href="Electric_Circuits_1_chapters.html" target="_self" class="resource-chip-link">
-                        <i class="fa-solid fa-layer-group"></i>
+                        <i class="fa-solid fa-list-ol"></i>
                         <span>Chapters</span>
                       </a>
                     
                       <a href="https://drive.google.com/drive/folders/15Dh0YCXQdoHf2Wk4Y7FEqCWGc9rf1Woi" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
-                        <i class="fa-solid fa-pen-ruler"></i>
+                        <i class="fa-solid fa-folder-open"></i>
                         <span>Discussion & Problems & Problems solution</span>
                       </a>
                     
                       <a href="https://drive.google.com/drive/folders/15Kdhi5ezaZsvVneZ_4vfR7BGMx9Y-Zdd" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
-                        <i class="fa-solid fa-graduation-cap"></i>
+                        <i class="fa-solid fa-file-circle-check"></i>
                         <span>Quiz & Exams & Homework</span>
                       </a>
                     
                 </div>
               </div>
             </div>
-          
+            
             <div id="card_sec1_5" class="subject-card">
               <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec1_5')">
                 <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">EELE 2110</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                    <span class="badge-lab">مختبر / عملي</span>
+                  </div>
                   <span class="subject-name">Electric Circuits Lab 1</span>
-                  <span class="badge-lab">مختبر</span>
                 </div>
-
                 <div class="subject-actions-right" onclick="event.stopPropagation()">
-                  <button type="button" class="subject-tool-btn star-btn" data-subject="Electric Circuits Lab 1" onclick="window.toggleFavorite('Electric Circuits Lab 1')" title="حفظ في المفضلة">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Electric Circuits Lab 1" onclick="window.toggleFavorite('Electric Circuits Lab 1')" title="إضافة للمفضلة">
                     <i class="fa-regular fa-star"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Electric Circuits Lab 1')" title="متابعة إنجاز المساق">
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Electric Circuits Lab 1')" title="قائمة متابعة المادة">
                     <i class="fa-solid fa-list-check"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec1_5')" title="عرض الملفات والمصادر">
-                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
-                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
                 </div>
               </div>
 
@@ -415,17 +417,17 @@
                       </a>
                     
                       <a href="https://www.youtube.com/watch?v=_ZRJbBljj9A" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
-                        <i class="fa-solid fa-video"></i>
+                        <i class="fa-brands fa-youtube"></i>
                         <span>Recorded Videos</span>
                       </a>
                     
                 </div>
               </div>
             </div>
-          
+            
         </div>
       </section>
-    
+      
       <section id="sec2" class="semester-block">
         <div class="semester-title-bar" onclick="window.toggleSemesterAccordion('sec2')" title="انقر لطي أو فتح الفصل الدراسي">
           <div class="sem-header-left">
@@ -443,20 +445,21 @@
             <div id="card_sec2_0" class="subject-card">
               <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec2_0')">
                 <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">MATH 2341</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                    
+                  </div>
                   <span class="subject-name">Linear Algebra</span>
-                  
                 </div>
-
                 <div class="subject-actions-right" onclick="event.stopPropagation()">
-                  <button type="button" class="subject-tool-btn star-btn" data-subject="Linear Algebra" onclick="window.toggleFavorite('Linear Algebra')" title="حفظ في المفضلة">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Linear Algebra" onclick="window.toggleFavorite('Linear Algebra')" title="إضافة للمفضلة">
                     <i class="fa-regular fa-star"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Linear Algebra')" title="متابعة إنجاز المساق">
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Linear Algebra')" title="قائمة متابعة المادة">
                     <i class="fa-solid fa-list-check"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec2_0')" title="عرض الملفات والمصادر">
-                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
-                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
                 </div>
               </div>
 
@@ -474,46 +477,47 @@
                       </a>
                     
                       <a href="Linear_Algebra_lec.html" target="_self" class="resource-chip-link">
-                        <i class="fa-solid fa-video"></i>
+                        <i class="fa-solid fa-chalkboard-user"></i>
                         <span>Lectures</span>
                       </a>
                     
                       <a href="Linear_Algebra_chapters.html" target="_self" class="resource-chip-link">
-                        <i class="fa-solid fa-layer-group"></i>
+                        <i class="fa-solid fa-list-ol"></i>
                         <span>Chapters</span>
                       </a>
                     
                       <a href="https://drive.google.com/drive/folders/17jq3wgYFMNbRBtTCY1BdvWrBiuJWe_v6" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
-                        <i class="fa-solid fa-pen-ruler"></i>
+                        <i class="fa-solid fa-folder-open"></i>
                         <span>Discussion & Problems & Problems solution</span>
                       </a>
                     
                       <a href="https://drive.google.com/drive/folders/17bhCjglZDL2UJTKvA6E8KpmiMXipyUdD" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
-                        <i class="fa-solid fa-graduation-cap"></i>
+                        <i class="fa-solid fa-file-circle-check"></i>
                         <span>Quiz & Exams & Homework</span>
                       </a>
                     
                 </div>
               </div>
             </div>
-          
+            
             <div id="card_sec2_1" class="subject-card">
               <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec2_1')">
                 <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">ECOM 2402</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                    
+                  </div>
                   <span class="subject-name">Computer Programming 2</span>
-                  
                 </div>
-
                 <div class="subject-actions-right" onclick="event.stopPropagation()">
-                  <button type="button" class="subject-tool-btn star-btn" data-subject="Computer Programming 2" onclick="window.toggleFavorite('Computer Programming 2')" title="حفظ في المفضلة">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Computer Programming 2" onclick="window.toggleFavorite('Computer Programming 2')" title="إضافة للمفضلة">
                     <i class="fa-regular fa-star"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Computer Programming 2')" title="متابعة إنجاز المساق">
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Computer Programming 2')" title="قائمة متابعة المادة">
                     <i class="fa-solid fa-list-check"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec2_1')" title="عرض الملفات والمصادر">
-                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
-                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
                 </div>
               </div>
 
@@ -531,46 +535,47 @@
                       </a>
                     
                       <a href="Computer_Programming_2_lec.html" target="_self" class="resource-chip-link">
-                        <i class="fa-solid fa-video"></i>
+                        <i class="fa-solid fa-chalkboard-user"></i>
                         <span>Lectures</span>
                       </a>
                     
                       <a href="Computer_Programming_2_chapters.html" target="_self" class="resource-chip-link">
-                        <i class="fa-solid fa-layer-group"></i>
+                        <i class="fa-solid fa-list-ol"></i>
                         <span>Chapters</span>
                       </a>
                     
                       <a href="https://drive.google.com/drive/folders/16b9uOnYi2Jw1IDdU7F1aAyfNIy8TtZYq" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
-                        <i class="fa-solid fa-pen-ruler"></i>
+                        <i class="fa-solid fa-folder-open"></i>
                         <span>Discussion & Problems & Problems solution</span>
                       </a>
                     
                       <a href="https://drive.google.com/drive/folders/16JCZjfU0Kzxgn3vVp21ij7IHY8Opn48o" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
-                        <i class="fa-solid fa-graduation-cap"></i>
+                        <i class="fa-solid fa-file-circle-check"></i>
                         <span>Quiz & Exams & Homework</span>
                       </a>
                     
                 </div>
               </div>
             </div>
-          
+            
             <div id="card_sec2_2" class="subject-card">
               <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec2_2')">
                 <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">ECOM 2402</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                    <span class="badge-lab">مختبر / عملي</span>
+                  </div>
                   <span class="subject-name">Computer Programming Lab 2</span>
-                  <span class="badge-lab">مختبر</span>
                 </div>
-
                 <div class="subject-actions-right" onclick="event.stopPropagation()">
-                  <button type="button" class="subject-tool-btn star-btn" data-subject="Computer Programming Lab 2" onclick="window.toggleFavorite('Computer Programming Lab 2')" title="حفظ في المفضلة">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Computer Programming Lab 2" onclick="window.toggleFavorite('Computer Programming Lab 2')" title="إضافة للمفضلة">
                     <i class="fa-regular fa-star"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Computer Programming Lab 2')" title="متابعة إنجاز المساق">
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Computer Programming Lab 2')" title="قائمة متابعة المادة">
                     <i class="fa-solid fa-list-check"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec2_2')" title="عرض الملفات والمصادر">
-                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
-                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
                 </div>
               </div>
 
@@ -583,31 +588,32 @@
                       </a>
                     
                       <a href="https://youtube.com/playlist?list=PLq5FW85cJhv7QyI_bq1dQ1rIoLy_7S9pq&feature=shared" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
-                        <i class="fa-solid fa-video"></i>
+                        <i class="fa-brands fa-youtube"></i>
                         <span>Recorded Videos</span>
                       </a>
                     
                 </div>
               </div>
             </div>
-          
+            
             <div id="card_sec2_3" class="subject-card">
               <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec2_3')">
                 <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">ECOM 2421</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                    
+                  </div>
                   <span class="subject-name">Digital Design 2</span>
-                  
                 </div>
-
                 <div class="subject-actions-right" onclick="event.stopPropagation()">
-                  <button type="button" class="subject-tool-btn star-btn" data-subject="Digital Design 2" onclick="window.toggleFavorite('Digital Design 2')" title="حفظ في المفضلة">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Digital Design 2" onclick="window.toggleFavorite('Digital Design 2')" title="إضافة للمفضلة">
                     <i class="fa-regular fa-star"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Digital Design 2')" title="متابعة إنجاز المساق">
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Digital Design 2')" title="قائمة متابعة المادة">
                     <i class="fa-solid fa-list-check"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec2_3')" title="عرض الملفات والمصادر">
-                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
-                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
                 </div>
               </div>
 
@@ -625,46 +631,47 @@
                       </a>
                     
                       <a href="Digital_Design_2_lec.html" target="_self" class="resource-chip-link">
-                        <i class="fa-solid fa-video"></i>
+                        <i class="fa-solid fa-chalkboard-user"></i>
                         <span>Lectures</span>
                       </a>
                     
                       <a href="Digital_Design_2_chapters.html" target="_self" class="resource-chip-link">
-                        <i class="fa-solid fa-layer-group"></i>
+                        <i class="fa-solid fa-list-ol"></i>
                         <span>Chapters</span>
                       </a>
                     
                       <a href="https://drive.google.com/drive/folders/1773l2-ytwDT_wu27XGOcx7YohNvho7vk" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
-                        <i class="fa-solid fa-pen-ruler"></i>
+                        <i class="fa-solid fa-folder-open"></i>
                         <span>Discussion & Problems & Problems solution</span>
                       </a>
                     
                       <a href="https://drive.google.com/drive/folders/177PQZamd5p2IH144QAqrZ8HRI12UbH6J" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
-                        <i class="fa-solid fa-graduation-cap"></i>
+                        <i class="fa-solid fa-file-circle-check"></i>
                         <span>Quiz & Exams & Homework</span>
                       </a>
                     
                 </div>
               </div>
             </div>
-          
+            
             <div id="card_sec2_4" class="subject-card">
               <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec2_4')">
                 <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">ECOM 2421</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                    <span class="badge-lab">مختبر / عملي</span>
+                  </div>
                   <span class="subject-name">Digital Design Lab 2</span>
-                  <span class="badge-lab">مختبر</span>
                 </div>
-
                 <div class="subject-actions-right" onclick="event.stopPropagation()">
-                  <button type="button" class="subject-tool-btn star-btn" data-subject="Digital Design Lab 2" onclick="window.toggleFavorite('Digital Design Lab 2')" title="حفظ في المفضلة">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Digital Design Lab 2" onclick="window.toggleFavorite('Digital Design Lab 2')" title="إضافة للمفضلة">
                     <i class="fa-regular fa-star"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Digital Design Lab 2')" title="متابعة إنجاز المساق">
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Digital Design Lab 2')" title="قائمة متابعة المادة">
                     <i class="fa-solid fa-list-check"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec2_4')" title="عرض الملفات والمصادر">
-                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
-                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
                 </div>
               </div>
 
@@ -677,31 +684,32 @@
                       </a>
                     
                       <a href="Digital Design Lab 2_lec.html" target="_self" class="resource-chip-link">
-                        <i class="fa-solid fa-video"></i>
+                        <i class="fa-brands fa-youtube"></i>
                         <span>Recorded Videos</span>
                       </a>
                     
                 </div>
               </div>
             </div>
-          
+            
             <div id="card_sec2_5" class="subject-card">
               <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec2_5')">
                 <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">EELE 2120</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                    <span class="badge-lab">مختبر / عملي</span>
+                  </div>
                   <span class="subject-name">Electronics Lab 1</span>
-                  <span class="badge-lab">مختبر</span>
                 </div>
-
                 <div class="subject-actions-right" onclick="event.stopPropagation()">
-                  <button type="button" class="subject-tool-btn star-btn" data-subject="Electronics Lab 1" onclick="window.toggleFavorite('Electronics Lab 1')" title="حفظ في المفضلة">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Electronics Lab 1" onclick="window.toggleFavorite('Electronics Lab 1')" title="إضافة للمفضلة">
                     <i class="fa-regular fa-star"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Electronics Lab 1')" title="متابعة إنجاز المساق">
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Electronics Lab 1')" title="قائمة متابعة المادة">
                     <i class="fa-solid fa-list-check"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec2_5')" title="عرض الملفات والمصادر">
-                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
-                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
                 </div>
               </div>
 
@@ -714,31 +722,32 @@
                       </a>
                     
                       <a href="Electronic 1_lab_lec.html" target="_self" class="resource-chip-link">
-                        <i class="fa-solid fa-video"></i>
+                        <i class="fa-brands fa-youtube"></i>
                         <span>Recorded Videos</span>
                       </a>
                     
                 </div>
               </div>
             </div>
-          
+            
             <div id="card_sec2_6" class="subject-card">
               <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec2_6')">
                 <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">EELE 2320</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                    
+                  </div>
                   <span class="subject-name">Electronics 1</span>
-                  
                 </div>
-
                 <div class="subject-actions-right" onclick="event.stopPropagation()">
-                  <button type="button" class="subject-tool-btn star-btn" data-subject="Electronics 1" onclick="window.toggleFavorite('Electronics 1')" title="حفظ في المفضلة">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Electronics 1" onclick="window.toggleFavorite('Electronics 1')" title="إضافة للمفضلة">
                     <i class="fa-regular fa-star"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Electronics 1')" title="متابعة إنجاز المساق">
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Electronics 1')" title="قائمة متابعة المادة">
                     <i class="fa-solid fa-list-check"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec2_6')" title="عرض الملفات والمصادر">
-                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
-                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
                 </div>
               </div>
 
@@ -756,46 +765,47 @@
                       </a>
                     
                       <a href="Electronics_1_lec.html" target="_self" class="resource-chip-link">
-                        <i class="fa-solid fa-video"></i>
+                        <i class="fa-solid fa-chalkboard-user"></i>
                         <span>Lectures</span>
                       </a>
                     
                       <a href="Electronics_1_chapters.html" target="_self" class="resource-chip-link">
-                        <i class="fa-solid fa-layer-group"></i>
+                        <i class="fa-solid fa-list-ol"></i>
                         <span>Chapters</span>
                       </a>
                     
                       <a href="https://drive.google.com/drive/folders/17OMK75pTTbJeWgYmbHnPHibsLOQGQZll" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
-                        <i class="fa-solid fa-pen-ruler"></i>
+                        <i class="fa-solid fa-folder-open"></i>
                         <span>Discussion & Problems & Problems solution</span>
                       </a>
                     
                       <a href="https://drive.google.com/drive/folders/17P9scKBxXXnBPDycaiKQ_X2f_bCD6-fb" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
-                        <i class="fa-solid fa-graduation-cap"></i>
+                        <i class="fa-solid fa-file-circle-check"></i>
                         <span>Quiz & Exams & Homework</span>
                       </a>
                     
                 </div>
               </div>
             </div>
-          
+            
             <div id="card_sec2_7" class="subject-card">
               <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_sec2_7')">
                 <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">MATH 2302</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                    
+                  </div>
                   <span class="subject-name">Ordinary Differential Equations</span>
-                  
                 </div>
-
                 <div class="subject-actions-right" onclick="event.stopPropagation()">
-                  <button type="button" class="subject-tool-btn star-btn" data-subject="Ordinary Differential Equations" onclick="window.toggleFavorite('Ordinary Differential Equations')" title="حفظ في المفضلة">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Ordinary Differential Equations" onclick="window.toggleFavorite('Ordinary Differential Equations')" title="إضافة للمفضلة">
                     <i class="fa-regular fa-star"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.openChecklistModal('Ordinary Differential Equations')" title="متابعة إنجاز المساق">
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Ordinary Differential Equations')" title="قائمة متابعة المادة">
                     <i class="fa-solid fa-list-check"></i>
                   </button>
-                  <button type="button" class="subject-tool-btn" onclick="window.toggleSubjectAccordion('card_sec2_7')" title="عرض الملفات والمصادر">
-                    <i class="fa-solid fa-chevron-down accordion-chevron"></i>
-                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
                 </div>
               </div>
 
@@ -813,32 +823,32 @@
                       </a>
                     
                       <a href="Ordinary_Differential_Equations_lec.html" target="_self" class="resource-chip-link">
-                        <i class="fa-solid fa-video"></i>
+                        <i class="fa-solid fa-chalkboard-user"></i>
                         <span>Lectures</span>
                       </a>
                     
                       <a href="Ordinary_Differential_Equations_chapters.html" target="_self" class="resource-chip-link">
-                        <i class="fa-solid fa-layer-group"></i>
+                        <i class="fa-solid fa-list-ol"></i>
                         <span>Chapters</span>
                       </a>
                     
                       <a href="https://drive.google.com/drive/folders/18Mg15_PD97L1NywvyAJyq8BWieKYF8Nt" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
-                        <i class="fa-solid fa-pen-ruler"></i>
+                        <i class="fa-solid fa-folder-open"></i>
                         <span>Discussion & Problems & Problems solution</span>
                       </a>
                     
                       <a href="https://drive.google.com/drive/folders/18ICQIRy_saOtiix4Ww_vuPvlj9-5b8X8" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
-                        <i class="fa-solid fa-graduation-cap"></i>
+                        <i class="fa-solid fa-file-circle-check"></i>
                         <span>Quiz & Exams & Homework</span>
                       </a>
                     
                 </div>
               </div>
             </div>
-          
+            
         </div>
       </section>
-    
+      
   </main>
 
   
@@ -868,13 +878,33 @@
         <div>
           <h4 class="footer-col-heading"><i class="fa-solid fa-headset"></i> التواصل والدعم الفني</h4>
           <div class="contact-items-list">
-            <a href="tel:0595346617" class="contact-link-item">
-              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(16, 185, 129, 0.15); color:var(--accent-emerald); display:flex; align-items:center; justify-content:center;">
-                <i class="fa-solid fa-phone"></i>
+            <a href="https://t.me/+lUyeZmUh7KpjM2Fi" target="_blank" rel="noopener noreferrer" class="contact-link-item" title="قناة التليجرام الرسمية">
+              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(14, 165, 233, 0.15); color:var(--accent-teal); display:flex; align-items:center; justify-content:center;">
+                <i class="fa-brands fa-telegram"></i>
               </div>
               <div>
-                <span style="font-size:0.725rem; color:var(--text-subtle); display:block;">الهاتف / واتساب:</span>
-                <strong style="font-size:0.9rem; font-family:var(--font-mono);" dir="ltr">0595346617</strong>
+                <span style="font-size:0.725rem; color:var(--text-subtle); display:block;">قناة التليجرام الرسمية:</span>
+                <strong style="font-size:0.875rem; color:var(--accent-teal);">قناة هندسة الحاسوب</strong>
+              </div>
+            </a>
+
+            <a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" rel="noopener noreferrer" class="contact-link-item" title="بوت الملفات والبرامج">
+              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(245, 158, 11, 0.15); color:var(--accent-amber); display:flex; align-items:center; justify-content:center;">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+              <div>
+                <span style="font-size:0.725rem; color:var(--text-subtle); display:block;">بوت الملفات التفاعلي:</span>
+                <strong style="font-size:0.875rem; color:var(--accent-amber);">بوت الملفات والبرامج</strong>
+              </div>
+            </a>
+
+            <a href="https://wa.me/972595346617" target="_blank" rel="noopener noreferrer" class="contact-link-item" title="تواصل عبر واتساب">
+              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(16, 185, 129, 0.15); color:var(--accent-emerald); display:flex; align-items:center; justify-content:center;">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+              <div>
+                <span style="font-size:0.725rem; color:var(--text-subtle); display:block;">واتساب / اتصال:</span>
+                <strong style="font-size:0.9rem; font-family:var(--font-mono);" dir="ltr">+972 59-534-6617</strong>
               </div>
             </a>
 
@@ -954,10 +984,30 @@
       </div>
 
       <div class="sidebar-footer">
-        <span class="sidebar-section-label">الدعم والتواصل</span>
+        <span class="sidebar-section-label">قنوات وتطبيقات المنصة</span>
+        <div class="sb-contact-quick" style="margin-bottom:0.75rem;">
+          <a href="https://t.me/+lUyeZmUh7KpjM2Fi" target="_blank" rel="noopener noreferrer" class="sb-contact-chip" style="background:rgba(14,165,233,0.12); color:var(--accent-teal); border-color:rgba(14,165,233,0.3);">
+            <i class="fa-brands fa-telegram"></i> قناة التليجرام الرسمية
+          </a>
+          <a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" rel="noopener noreferrer" class="sb-contact-chip" style="background:rgba(245,158,11,0.12); color:var(--accent-amber); border-color:rgba(245,158,11,0.3);">
+            <i class="fa-solid fa-robot"></i> بوت الملفات والبرامج
+          </a>
+          <a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" rel="noopener noreferrer" class="sb-contact-chip sb-bot-callout" style="background:linear-gradient(135deg, rgba(14,165,233,0.18), rgba(245,158,11,0.18)); border:1.5px solid var(--accent-amber); font-weight:800; color:var(--text-main);">
+            <i class="fa-brands fa-telegram" style="color:var(--accent-teal);"></i> <span>استخدم الموقع عبر بوت التليجرام</span>
+          </a>
+        </div>
+
+        <span class="sidebar-section-label">الدعم والتواصل الفني</span>
         <div class="sb-contact-quick">
-          <a href="tel:0595346617" class="sb-contact-chip"><i class="fa-solid fa-phone"></i> 0595346617</a>
-          <a href="mailto:mnmaassddll@gmail.com" class="sb-contact-chip" title="راسلني"><i class="fa-solid fa-paper-plane"></i> راسلني</a>
+          <a href="https://wa.me/972595346617" target="_blank" rel="noopener noreferrer" class="sb-contact-chip" title="تواصل عبر واتساب">
+            <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> <span dir="ltr">+972 59-534-6617</span>
+          </a>
+          <a href="tel:+972595346617" class="sb-contact-chip" title="اتصال هاتفي">
+            <i class="fa-solid fa-phone" style="color:var(--accent-emerald);"></i> <span dir="ltr">0595346617</span>
+          </a>
+          <a href="mailto:mnmaassddll@gmail.com" class="sb-contact-chip" title="راسلني عبر البريد الإلكتروني">
+            <i class="fa-solid fa-paper-plane" style="color:var(--accent-teal);"></i> راسلني عبر الإيميل
+          </a>
         </div>
       </div>
     </div>
@@ -1021,5 +1071,6 @@
   <!-- Scripts -->
   <script src="subjects-data.js"></script>
   <script src="main.js"></script>
+  <script src="years.js"></script>
 </body>
 </html>

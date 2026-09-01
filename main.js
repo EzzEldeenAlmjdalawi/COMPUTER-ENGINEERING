@@ -143,10 +143,30 @@
           </div>
 
           <div class="sidebar-footer">
-            <span class="sidebar-section-label">الدعم والتواصل</span>
+            <span class="sidebar-section-label">قنوات وتطبيقات المنصة</span>
+            <div class="sb-contact-quick" style="margin-bottom:0.75rem;">
+              <a href="https://t.me/+lUyeZmUh7KpjM2Fi" target="_blank" rel="noopener noreferrer" class="sb-contact-chip" style="background:rgba(14,165,233,0.12); color:var(--accent-teal); border-color:rgba(14,165,233,0.3);">
+                <i class="fa-brands fa-telegram"></i> قناة التليجرام الرسمية
+              </a>
+              <a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" rel="noopener noreferrer" class="sb-contact-chip" style="background:rgba(245,158,11,0.12); color:var(--accent-amber); border-color:rgba(245,158,11,0.3);">
+                <i class="fa-solid fa-robot"></i> بوت الملفات والبرامج
+              </a>
+              <a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" rel="noopener noreferrer" class="sb-contact-chip sb-bot-callout" style="background:linear-gradient(135deg, rgba(14,165,233,0.18), rgba(245,158,11,0.18)); border:1.5px solid var(--accent-amber); font-weight:800; color:var(--text-main);">
+                <i class="fa-brands fa-telegram" style="color:var(--accent-teal);"></i> <span>استخدم الموقع عبر بوت التليجرام</span>
+              </a>
+            </div>
+
+            <span class="sidebar-section-label">الدعم والتواصل الفني</span>
             <div class="sb-contact-quick">
-              <a href="tel:0595346617" class="sb-contact-chip"><i class="fa-solid fa-phone"></i> 0595346617</a>
-              <a href="mailto:mnmaassddll@gmail.com" class="sb-contact-chip" title="راسلني"><i class="fa-solid fa-paper-plane"></i> راسلني</a>
+              <a href="https://wa.me/972595346617" target="_blank" rel="noopener noreferrer" class="sb-contact-chip" title="تواصل عبر واتساب">
+                <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> <span dir="ltr">+972 59-534-6617</span>
+              </a>
+              <a href="tel:+972595346617" class="sb-contact-chip" title="اتصال هاتفي">
+                <i class="fa-solid fa-phone" style="color:var(--accent-emerald);"></i> <span dir="ltr">0595346617</span>
+              </a>
+              <a href="mailto:mnmaassddll@gmail.com" class="sb-contact-chip" title="راسلني عبر البريد الإلكتروني">
+                <i class="fa-solid fa-paper-plane" style="color:var(--accent-teal);"></i> راسلني عبر الإيميل
+              </a>
             </div>
           </div>
         </div>
@@ -446,47 +466,116 @@
   // ==========================================
   // 6. LIVE HEADER SEARCH
   // ==========================================
+  function normalizeSearchQuery(str) {
+    if (!str) return '';
+    return str
+      .toLowerCase()
+      .replace(/[\u064B-\u065F]/g, '')
+      .replace(/[أإآ]/g, 'ا')
+      .replace(/ة/g, 'ه')
+      .replace(/ى/g, 'ي')
+      .replace(/[\s\-_–—,.:/\\()]+/g, '');
+  }
+
   function initHeaderSearch() {
     const input = document.getElementById('globalSearchInput');
     const dropdown = document.getElementById('headerSearchResults');
     if (!input || !dropdown) return;
 
     input.addEventListener('input', function () {
-      const q = input.value.trim().toLowerCase();
-      if (!q) {
+      const rawQ = input.value.trim();
+      const normQ = normalizeSearchQuery(rawQ);
+      const lowerQ = rawQ.toLowerCase();
+
+      if (!rawQ) {
         dropdown.style.display = 'none';
         dropdown.innerHTML = '';
         return;
       }
 
       const allSubs = (window.CE_DATA && window.CE_DATA.allSubjects) || [];
+      const linksData = (window.CE_DATA && window.CE_DATA.subjectLinks) || {};
+
       const matches = allSubs.filter((s) => {
+        const normName = normalizeSearchQuery(s.name);
+        const normCode = normalizeSearchQuery(s.code);
+        const normAlt = normalizeSearchQuery(s.altName);
+        const normCat = normalizeSearchQuery(s.category);
+
         return (
-          s.name.toLowerCase().includes(q) ||
-          (s.altName && s.altName.toLowerCase().includes(q))
+          normName.includes(normQ) ||
+          normCode.includes(normQ) ||
+          normAlt.includes(normQ) ||
+          normCat.includes(normQ) ||
+          (s.name && s.name.toLowerCase().includes(lowerQ)) ||
+          (s.code && s.code.toLowerCase().includes(lowerQ)) ||
+          (s.altName && s.altName.toLowerCase().includes(lowerQ))
         );
-      }).slice(0, 7);
+      }).slice(0, 6);
 
       if (matches.length === 0) {
         dropdown.innerHTML = `
-          <div style="padding: 0.75rem; text-align:center; font-size:0.85rem; color:var(--text-muted);">
-            لا توجد نتائج مطابقة لـ "${input.value}"
+          <div class="search-dropdown-empty">
+            <i class="fa-solid fa-magnifying-glass" style="font-size:1.4rem; color:var(--text-subtle); margin-bottom:0.4rem; display:block;"></i>
+            <span>لا توجد نتائج مطابقة لـ "<strong>${rawQ}</strong>"</span>
+            <a href="search.html?q=${encodeURIComponent(rawQ)}" class="search-dropdown-all-btn" style="margin-top:0.6rem;">
+              الانتقال إلى صفحة البحث الشامل <i class="fa-solid fa-arrow-left"></i>
+            </a>
           </div>
         `;
       } else {
-        dropdown.innerHTML = matches
+        const itemsHtml = matches
           .map((s) => {
+            const links = linksData[s.name] || {};
+            const linkKeys = Object.keys(links).slice(0, 3);
+            const isLab = s.isLab || (window.CE_DATA && window.CE_DATA.isLabCourse(s.name));
+
             return `
-              <a href="${s.year}.html#${s.name}" class="search-item-result">
-                <div>
-                  <strong style="display:block; font-size:0.9rem;">${s.name}</strong>
-                  <span style="font-size:0.75rem; color:var(--text-subtle);">${s.yearTitleAr} • ${s.semesterTitleAr}</span>
-                </div>
-                <i class="fa-solid fa-chevron-left" style="font-size:0.75rem; color:var(--accent-amber);"></i>
-              </a>
+              <div class="search-dropdown-item">
+                <a href="${s.year}.html#${s.name}" class="search-dropdown-main-link" target="_self">
+                  <div style="flex:1;">
+                    <div style="display:flex; align-items:center; gap:0.4rem; margin-bottom:0.2rem; flex-wrap:wrap;">
+                      ${s.code ? `<span class="search-dd-code">${s.code}</span>` : ''}
+                      ${s.category ? `<span class="search-dd-cat">${s.category}</span>` : ''}
+                      ${isLab ? `<span class="search-dd-lab">مختبر</span>` : ''}
+                    </div>
+                    <strong class="search-dd-title">${s.name}</strong>
+                    <span class="search-dd-meta">${s.yearTitleAr || ''} • ${s.semesterTitleAr || ''}</span>
+                  </div>
+                  <i class="fa-solid fa-chevron-left search-dd-arrow"></i>
+                </a>
+                ${
+                  linkKeys.length > 0
+                    ? `
+                  <div class="search-dd-quick-links">
+                    ${linkKeys
+                      .map((k) => {
+                        const url = links[k];
+                        const isExt = url.startsWith('http://') || url.startsWith('https://') || url.startsWith('//');
+                        const targetAttr = isExt ? 'target="_blank" rel="noopener noreferrer"' : 'target="_self"';
+                        return `<a href="${url}" ${targetAttr} class="search-dd-pill">${k}</a>`;
+                      })
+                      .join('')}
+                  </div>
+                `
+                    : ''
+                }
+              </div>
             `;
           })
           .join('');
+
+        dropdown.innerHTML = `
+          <div class="search-dropdown-header">
+            <span>النتائج السريعة (${matches.length})</span>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">اضغط Enter للبحث الشامل</span>
+          </div>
+          <div class="search-dropdown-list">${itemsHtml}</div>
+          <a href="search.html?q=${encodeURIComponent(rawQ)}" class="search-dropdown-all-btn">
+            <span>عرض كافة النتائج في صفحة البحث الشامل</span>
+            <i class="fa-solid fa-arrow-left"></i>
+          </a>
+        `;
       }
 
       dropdown.style.display = 'block';
@@ -501,7 +590,12 @@
 
     input.addEventListener('keydown', function (e) {
       if (e.key === 'Enter') {
-        window.location.href = `search.html?q=${encodeURIComponent(input.value.trim())}`;
+        const val = input.value.trim();
+        if (val) {
+          window.location.href = `search.html?q=${encodeURIComponent(val)}`;
+        }
+      } else if (e.key === 'Escape') {
+        dropdown.style.display = 'none';
       }
     });
   }

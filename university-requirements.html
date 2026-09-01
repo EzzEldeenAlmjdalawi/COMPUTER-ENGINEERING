@@ -122,12 +122,12 @@
       <div class="navbar-search-area">
         <div class="search-input-wrapper">
           <i class="fa-solid fa-magnifying-glass search-icon-inside"></i>
-          <input type="text" id="globalSearchInput" class="global-search-input" placeholder="ابحث عن مادة، كتاب، أو سلايدات..." autocomplete="off" />
+          <input type="text" id="globalSearchInput" class="global-search-input" placeholder="ابحث عن مادة، كود، أو سلايدات (مثال: ECOM 2401)..." autocomplete="off" />
           <div id="headerSearchResults" class="search-results-dropdown" style="display:none;"></div>
         </div>
       </div>
 
-      <div class="navbar-actions">
+                  <div class="navbar-actions">
         <button type="button" class="action-icon-pill" onclick="window.openFavoritesModal()" title="المواد المفضلة والمحفوظة">
           <i class="fa-solid fa-star" style="color:var(--accent-amber);"></i>
           <span>المفضلة</span>
@@ -151,10 +151,6 @@
 
         <button type="button" onclick="window.toggleDarkMode()" class="theme-toggle-btn" title="تبديل الوضع الليلي" aria-label="تبديل الوضع الليلي">
           <i class="fa-solid fa-moon"></i>
-        </button>
-
-        <button type="button" id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="القائمة">
-          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
@@ -385,16 +381,36 @@
           </ul>
         </div>
 
-        <div>
+                <div>
           <h4 class="footer-col-heading"><i class="fa-solid fa-headset"></i> التواصل والدعم الفني</h4>
           <div class="contact-items-list">
-            <a href="tel:0595346617" class="contact-link-item">
-              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(16, 185, 129, 0.15); color:var(--accent-emerald); display:flex; align-items:center; justify-content:center;">
-                <i class="fa-solid fa-phone"></i>
+            <a href="https://t.me/+lUyeZmUh7KpjM2Fi" target="_blank" rel="noopener noreferrer" class="contact-link-item" title="قناة التليجرام الرسمية">
+              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(14, 165, 233, 0.15); color:var(--accent-teal); display:flex; align-items:center; justify-content:center;">
+                <i class="fa-brands fa-telegram"></i>
               </div>
               <div>
-                <span style="font-size:0.725rem; color:var(--text-subtle); display:block;">الهاتف / واتساب:</span>
-                <strong style="font-size:0.9rem; font-family:var(--font-mono);" dir="ltr">0595346617</strong>
+                <span style="font-size:0.725rem; color:var(--text-subtle); display:block;">قناة التليجرام الرسمية:</span>
+                <strong style="font-size:0.875rem; color:var(--accent-teal);">قناة هندسة الحاسوب</strong>
+              </div>
+            </a>
+
+            <a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" rel="noopener noreferrer" class="contact-link-item" title="بوت الملفات والبرامج">
+              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(245, 158, 11, 0.15); color:var(--accent-amber); display:flex; align-items:center; justify-content:center;">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+              <div>
+                <span style="font-size:0.725rem; color:var(--text-subtle); display:block;">بوت الملفات التفاعلي:</span>
+                <strong style="font-size:0.875rem; color:var(--accent-amber);">بوت الملفات والبرامج</strong>
+              </div>
+            </a>
+
+            <a href="https://wa.me/972595346617" target="_blank" rel="noopener noreferrer" class="contact-link-item" title="تواصل عبر واتساب">
+              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(16, 185, 129, 0.15); color:var(--accent-emerald); display:flex; align-items:center; justify-content:center;">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+              <div>
+                <span style="font-size:0.725rem; color:var(--text-subtle); display:block;">واتساب / اتصال:</span>
+                <strong style="font-size:0.9rem; font-family:var(--font-mono);" dir="ltr">+972 59-534-6617</strong>
               </div>
             </a>
 
@@ -473,11 +489,31 @@
         </div>
       </div>
 
-      <div class="sidebar-footer">
-        <span class="sidebar-section-label">الدعم والتواصل</span>
+            <div class="sidebar-footer">
+        <span class="sidebar-section-label">قنوات وتطبيقات المنصة</span>
+        <div class="sb-contact-quick" style="margin-bottom:0.75rem;">
+          <a href="https://t.me/+lUyeZmUh7KpjM2Fi" target="_blank" rel="noopener noreferrer" class="sb-contact-chip" style="background:rgba(14,165,233,0.12); color:var(--accent-teal); border-color:rgba(14,165,233,0.3);">
+            <i class="fa-brands fa-telegram"></i> قناة التليجرام الرسمية
+          </a>
+          <a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" rel="noopener noreferrer" class="sb-contact-chip" style="background:rgba(245,158,11,0.12); color:var(--accent-amber); border-color:rgba(245,158,11,0.3);">
+            <i class="fa-solid fa-robot"></i> بوت الملفات والبرامج
+          </a>
+          <a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" rel="noopener noreferrer" class="sb-contact-chip sb-bot-callout" style="background:linear-gradient(135deg, rgba(14,165,233,0.18), rgba(245,158,11,0.18)); border:1.5px solid var(--accent-amber); font-weight:800; color:var(--text-main);">
+            <i class="fa-brands fa-telegram" style="color:var(--accent-teal);"></i> <span>استخدم الموقع عبر بوت التليجرام</span>
+          </a>
+        </div>
+
+        <span class="sidebar-section-label">الدعم والتواصل الفني</span>
         <div class="sb-contact-quick">
-          <a href="tel:0595346617" class="sb-contact-chip"><i class="fa-solid fa-phone"></i> 0595346617</a>
-          <a href="mailto:mnmaassddll@gmail.com" class="sb-contact-chip" title="راسلني"><i class="fa-solid fa-paper-plane"></i> راسلني</a>
+          <a href="https://wa.me/972595346617" target="_blank" rel="noopener noreferrer" class="sb-contact-chip" title="تواصل عبر واتساب">
+            <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> <span dir="ltr">+972 59-534-6617</span>
+          </a>
+          <a href="tel:+972595346617" class="sb-contact-chip" title="اتصال هاتفي">
+            <i class="fa-solid fa-phone" style="color:var(--accent-emerald);"></i> <span dir="ltr">0595346617</span>
+          </a>
+          <a href="mailto:mnmaassddll@gmail.com" class="sb-contact-chip" title="راسلني عبر البريد الإلكتروني">
+            <i class="fa-solid fa-paper-plane" style="color:var(--accent-teal);"></i> راسلني عبر الإيميل
+          </a>
         </div>
       </div>
     </div>
