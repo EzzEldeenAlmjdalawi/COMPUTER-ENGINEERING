@@ -482,7 +482,7 @@
     const dropdown = document.getElementById('headerSearchResults');
     if (!input || !dropdown) return;
 
-    input.addEventListener('input', function () {
+    function doSearch() {
       const rawQ = input.value.trim();
       const normQ = normalizeSearchQuery(rawQ);
       const lowerQ = rawQ.toLowerCase();
@@ -493,8 +493,8 @@
         return;
       }
 
-      const allSubs = (window.CE_DATA && window.CE_DATA.allSubjects) || [];
-      const linksData = (window.CE_DATA && window.CE_DATA.subjectLinks) || {};
+      const allSubs = (window.CE_DATA && window.CE_DATA.allSubjects) || (window.allSubjects) || [];
+      const linksData = (window.CE_DATA && window.CE_DATA.subjectLinks) || (window.subjectLinks) || {};
 
       const matches = allSubs.filter((s) => {
         const normName = normalizeSearchQuery(s.name);
@@ -529,10 +529,13 @@
             const links = linksData[s.name] || {};
             const linkKeys = Object.keys(links).slice(0, 3);
             const isLab = s.isLab || (window.CE_DATA && window.CE_DATA.isLabCourse(s.name));
+            const isUnivReq = s.category === 'متطلب جامعة' || (s.category && s.category.includes('جامعة'));
+            const targetUrl = isUnivReq ? 'university-requirements.html' : `${s.year}.html#${encodeURIComponent(s.name)}`;
+            const subMeta = isUnivReq ? 'متطلب جامعة عام' : `${s.yearTitleAr || ''} • ${s.semesterTitleAr || ''}`;
 
             return `
               <div class="search-dropdown-item">
-                <a href="${s.year}.html#${s.name}" class="search-dropdown-main-link" target="_self">
+                <a href="${targetUrl}" class="search-dropdown-main-link" target="_self">
                   <div style="flex:1;">
                     <div style="display:flex; align-items:center; gap:0.4rem; margin-bottom:0.2rem; flex-wrap:wrap;">
                       ${s.code ? `<span class="search-dd-code">${s.code}</span>` : ''}
@@ -540,7 +543,7 @@
                       ${isLab ? `<span class="search-dd-lab">مختبر</span>` : ''}
                     </div>
                     <strong class="search-dd-title">${s.name}</strong>
-                    <span class="search-dd-meta">${s.yearTitleAr || ''} • ${s.semesterTitleAr || ''}</span>
+                    <span class="search-dd-meta">${subMeta}</span>
                   </div>
                   <i class="fa-solid fa-chevron-left search-dd-arrow"></i>
                 </a>
@@ -567,19 +570,22 @@
 
         dropdown.innerHTML = `
           <div class="search-dropdown-header">
-            <span>النتائج السريعة (${matches.length})</span>
+            <span>النتائج والمقترحات السريعة (${matches.length})</span>
             <span style="font-size:0.75rem; color:var(--text-subtle);">اضغط Enter للبحث الشامل</span>
           </div>
           <div class="search-dropdown-list">${itemsHtml}</div>
           <a href="search.html?q=${encodeURIComponent(rawQ)}" class="search-dropdown-all-btn">
-            <span>عرض كافة النتائج في صفحة البحث الشامل</span>
+            <span>عرض كافة النتائج في صفحة البحث الشامل 🔍</span>
             <i class="fa-solid fa-arrow-left"></i>
           </a>
         `;
       }
 
       dropdown.style.display = 'block';
-    });
+    }
+
+    input.addEventListener('input', doSearch);
+    input.addEventListener('focus', doSearch);
 
     // Close on outside click
     document.addEventListener('click', function (e) {
@@ -600,6 +606,8 @@
     });
   }
 
+  window.initHeaderSearch = initHeaderSearch;
+
   // ==========================================
   // 7. SEMESTER & SUBJECT ACCORDION TOGGLERS
   // ==========================================
@@ -618,7 +626,7 @@
   // ==========================================
   // 8. DOM READY INITIALIZER
   // ==========================================
-  document.addEventListener('DOMContentLoaded', function () {
+  function initAllApp() {
     initTheme();
     initHeaderSearch();
     updateFavoritesUI();
@@ -645,5 +653,11 @@
     if (!document.getElementById('globalSidebar')) {
       injectGlobalSidebar();
     }
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAllApp);
+  } else {
+    initAllApp();
+  }
 })();

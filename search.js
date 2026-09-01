@@ -125,6 +125,10 @@
         const linkKeys = Object.keys(links);
         const isLab = s.isLab || (window.CE_DATA && window.CE_DATA.isLabCourse(s.name));
         const isFav = favs.includes(s.name);
+        const isUnivReq = s.category === 'متطلب جامعة' || (s.category && s.category.includes('جامعة'));
+        const pageUrl = isUnivReq ? 'university-requirements.html' : `${s.year}.html`;
+        const pageLabel = isUnivReq ? 'صفحة المتطلبات' : 'عرض في صفحة السنة';
+        const pageIcon = isUnivReq ? 'fa-solid fa-graduation-cap' : 'fa-solid fa-book-open';
 
         return `
           <div class="search-result-card animate-fade-in">
@@ -136,7 +140,7 @@
                   ${isLab ? '<span class="badge-lab">مختبر / عملي</span>' : ''}
                 </div>
                 <h3 class="search-card-name">${s.name}</h3>
-                <span style="font-size:0.8rem; color:var(--text-subtle);">${s.yearTitleAr || ''} • ${s.semesterTitleAr || ''}</span>
+                <span style="font-size:0.8rem; color:var(--text-subtle);">${isUnivReq ? 'متطلب جامعة عام' : (s.yearTitleAr || '') + ' • ' + (s.semesterTitleAr || '')}</span>
               </div>
               <button type="button" class="search-fav-btn ${isFav ? 'is-fav' : ''}" onclick="window.toggleFavorite('${s.name}'); window.renderSearchResults && window.renderSearchResults();" title="${isFav ? 'إزالة من المفضلة' : 'حفظ في المفضلة'}">
                 <i class="${isFav ? 'fa-solid fa-star' : 'fa-regular fa-star'}"></i>
@@ -161,7 +165,7 @@
                         return `<a href="${url}" ${targetAttr} class="search-mini-link"><i class="${iconClass}"></i> ${k}</a>`;
                       })
                       .join('')
-                  : `<a href="${s.year}.html" class="search-mini-link" target="_self"><i class="fa-solid fa-book-open"></i> عرض في صفحة السنة</a>`
+                  : `<a href="${pageUrl}" class="search-mini-link" target="_self"><i class="${pageIcon}"></i> ${pageLabel}</a>`
               }
             </div>
           </div>
