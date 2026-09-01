@@ -10,8 +10,24 @@
   // ==========================================
   // 1. THEME & DARK MODE MANAGER
   // ==========================================
+  function safeGetStorage(key) {
+    try {
+      if (typeof localStorage !== 'undefined') return localStorage.getItem(key);
+    } catch (e) {}
+    return null;
+  }
+
+  function safeSetStorage(key, val) {
+    try {
+      if (typeof localStorage !== 'undefined') {
+        if (val === null) localStorage.removeItem(key);
+        else localStorage.setItem(key, val);
+      }
+    } catch (e) {}
+  }
+
   function initTheme() {
-    const savedMode = localStorage.getItem('themeMode');
+    const savedMode = safeGetStorage('themeMode');
     if (savedMode === 'dark') {
       document.body.classList.add('dark-mode');
     } else if (savedMode === 'light') {
@@ -20,7 +36,7 @@
       document.body.classList.add('dark-mode');
     }
 
-    const savedColor = localStorage.getItem('ui-theme');
+    const savedColor = safeGetStorage('ui-theme');
     if (savedColor) {
       document.body.classList.add(savedColor);
     }
@@ -28,7 +44,7 @@
 
   window.toggleDarkMode = function () {
     const isDark = document.body.classList.toggle('dark-mode');
-    localStorage.setItem('themeMode', isDark ? 'dark' : 'light');
+    safeSetStorage('themeMode', isDark ? 'dark' : 'light');
     updateThemeToggleIcons(isDark);
   };
 
@@ -589,7 +605,7 @@
 
     // Close on outside click
     document.addEventListener('click', function (e) {
-      if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+      if (e && e.target && !input.contains(e.target) && !dropdown.contains(e.target)) {
         dropdown.style.display = 'none';
       }
     });
