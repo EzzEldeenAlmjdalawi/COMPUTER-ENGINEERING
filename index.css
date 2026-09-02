@@ -523,6 +523,16 @@ button, input, select, textarea {
   border-radius: var(--radius-full);
 }
 
+.mobile-search-btn {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-search-btn {
+    display: inline-flex !important;
+  }
+}
+
 .action-btn {
   display: inline-flex;
   align-items: center;
