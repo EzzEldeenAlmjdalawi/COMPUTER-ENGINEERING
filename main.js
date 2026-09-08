@@ -677,7 +677,7 @@
     }
   }
 
-  // ==========================================
+    // ==========================================
   // 9. PWA & OFFLINE SERVICE WORKER
   // ==========================================
   if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
@@ -696,24 +696,319 @@
     showPwaInstallToast();
   });
 
+  window.addEventListener('appinstalled', function () {
+    deferredPwaPrompt = null;
+    window.dismissPwaToast();
+    window.closePwaInstallModal();
+    showToastNotification('🎉 تم تثبيت تطبيق هندسة الحاسوب بنجاح!');
+  });
+
+  function getClientEnvironment() {
+    const ua = navigator.userAgent || navigator.vendor || window.opera || '';
+    const isTelegram = /Telegram/i.test(ua);
+    const isWhatsApp = /WhatsApp/i.test(ua);
+    const isMessenger = /FBAN|FBAV|Messenger/i.test(ua);
+    const isInstagram = /Instagram/i.test(ua);
+    const isFacebook = /FB_IAB|FB4A|FBIOS/i.test(ua);
+    const isInApp = isTelegram || isWhatsApp || isMessenger || isInstagram || isFacebook || /Line|MicroMessenger|Snapchat|Bytedance|TikTok/i.test(ua);
+    const isIos = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+    const isAndroid = /Android/i.test(ua);
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+    const isSafari = isIos || (/Safari/i.test(ua) && !/Chrome|CriOS|FxiOS|EdgiOS/i.test(ua));
+    
+    let appSource = '';
+    if (isTelegram) appSource = 'تطبيق تليجرام (Telegram)';
+    else if (isWhatsApp) appSource = 'تطبيق واتساب (WhatsApp)';
+    else if (isMessenger) appSource = 'تطبيق مسنجر (Messenger)';
+    else if (isInstagram) appSource = 'تطبيق انستغرام (Instagram)';
+    else if (isFacebook) appSource = 'تطبيق فيسبوك (Facebook)';
+    else if (isInApp) appSource = 'المتصفح الداخلي للتطبيق';
+
+    return { ua, isInApp, appSource, isIos, isAndroid, isStandalone, isSafari, isTelegram };
+  }
+
   window.triggerPwaInstall = function () {
+    const env = getClientEnvironment();
+
+    if (env.isStandalone) {
+      showToastNotification('✨ التطبيق مثبت بالفعل ويعمل بأعلى سرعة وبدون إنترنت!');
+      return;
+    }
+
     if (deferredPwaPrompt) {
       deferredPwaPrompt.prompt();
       deferredPwaPrompt.userChoice.then(function (choice) {
         if (choice && choice.outcome === 'accepted') {
           window.dismissPwaToast();
+          window.closePwaInstallModal();
+          showToastNotification('🎉 جاري تثبيت التطبيق...');
         }
         deferredPwaPrompt = null;
       });
+      return;
+    }
+
+    // Otherwise open the rich interactive guide modal
+    window.openPwaInstallModal();
+  };
+
+  window.openPwaInstallModal = function () {
+    const env = getClientEnvironment();
+    let modal = document.getElementById('pwaInstallModal');
+    if (modal) modal.remove();
+
+    let guideHtml = '';
+
+    if (env.isInApp) {
+      guideHtml = `
+        <div class="pwa-env-badge inapp-badge">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <span>أنت تتصفح الآن من داخل ${env.appSource}</span>
+        </div>
+        <p class="pwa-modal-intro">المتصفحات الداخلية للتطبيقات تمنع التثبيت المباشر. لتنزيل التطبيق بأيقونته الرسمية على هاتفك، اتبع الخطوات البسيطة التالية:</p>
+        <div class="pwa-steps-container">
+          <div class="pwa-step-card">
+            <div class="pwa-step-num">1</div>
+            <div class="pwa-step-text">
+              <strong>اضغط على أيقونة الخيارات</strong>
+              <span>انقر على النقاط الثلاث (⋮) أو (⋯) أعلى أو أسفل شاشة التطبيق.</span>
+            </div>
+          </div>
+          <div class="pwa-step-card">
+            <div class="pwa-step-num">2</div>
+            <div class="pwa-step-text">
+              <strong>اختر "فتح في المتصفح"</strong>
+              <span>اختر <b>Open in Chrome</b> للأندرويد أو <b>Open in Safari</b> للآيفون.</span>
+            </div>
+          </div>
+          <div class="pwa-step-card">
+            <div class="pwa-step-num">3</div>
+            <div class="pwa-step-text">
+              <strong>تثبيت فوري</strong>
+              <span>عند فتح الصفحة في متصفحك الأساسي، اضغط على <b>"تثبيت التطبيق"</b> وسيظهر على شاشة هاتفك فوراً!</span>
+            </div>
+          </div>
+        </div>
+        <div class="pwa-modal-actions-grid">
+          <button type="button" class="pwa-btn-primary" onclick="window.copySiteUrl()">
+            <i class="fa-solid fa-copy"></i> نسخ رابط المنصة
+          </button>
+          ${env.isAndroid ? `
+          <a href="intent://${window.location.host}${window.location.pathname}#Intent;scheme=https;package=com.android.chrome;end;" class="pwa-btn-chrome" target="_blank">
+            <i class="fa-brands fa-chrome"></i> فتح في Chrome فوراً
+          </a>
+          ` : ''}
+        </div>
+      `;
+    } else if (env.isIos) {
+      guideHtml = `
+        <div class="pwa-env-badge ios-badge">
+          <i class="fa-brands fa-apple"></i>
+          <span>تثبيت التطبيق على آيفون و iPad (iOS)</span>
+        </div>
+        <p class="pwa-modal-intro">يمكنك تثبيت منصة هندسة الحاسوب كتطبيق أصلي سريع على شاشتك الرئيسية عبر خطوات بسيطة:</p>
+        <div class="pwa-steps-container">
+          <div class="pwa-step-card">
+            <div class="pwa-step-num">1</div>
+            <div class="pwa-step-text">
+              <strong>اضغط على زر المشاركة</strong>
+              <span>انقر على زر المشاركة (Share <i class="fa-solid fa-arrow-up-from-bracket" style="color:#0EA5E9;"></i>) في شريط Safari بالأسفل.</span>
+            </div>
+          </div>
+          <div class="pwa-step-card">
+            <div class="pwa-step-num">2</div>
+            <div class="pwa-step-text">
+              <strong>اختر "إضافة إلى الصفحة الرئيسية"</strong>
+              <span>مرر لأسفل القائمة واضغط على <b>Add to Home Screen ➕</b>.</span>
+            </div>
+          </div>
+          <div class="pwa-step-card">
+            <div class="pwa-step-num">3</div>
+            <div class="pwa-step-text">
+              <strong>اضغط "إضافة" (Add)</strong>
+              <span>انقر على <b>إضافة</b> في الزاوية العلوية، وستظهر أيقونة التطبيق الذهبية الفخمة على جهازك!</span>
+            </div>
+          </div>
+        </div>
+        <div class="pwa-modal-actions-grid">
+          <button type="button" class="pwa-btn-primary" onclick="window.copySiteUrl()">
+            <i class="fa-solid fa-copy"></i> نسخ الرابط
+          </button>
+          <button type="button" class="pwa-btn-secondary" onclick="window.closePwaInstallModal()">
+            فهمت ذلك ✓
+          </button>
+        </div>
+      `;
+    } else if (env.isAndroid) {
+      guideHtml = `
+        <div class="pwa-env-badge android-badge">
+          <i class="fa-brands fa-android"></i>
+          <span>تثبيت التطبيق على نظام أندرويد</span>
+        </div>
+        <p class="pwa-modal-intro">لتثبيت التطبيق واستخدامه بدون إنترنت وبكامل سرعته:</p>
+        <div class="pwa-steps-container">
+          <div class="pwa-step-card">
+            <div class="pwa-step-num">1</div>
+            <div class="pwa-step-text">
+              <strong>قائمة المتصفح</strong>
+              <span>اضغط على النقاط الثلاث (⋮) أعلى يمين متصفح Chrome أو متصفحك الحالي.</span>
+            </div>
+          </div>
+          <div class="pwa-step-card">
+            <div class="pwa-step-num">2</div>
+            <div class="pwa-step-text">
+              <strong>تثبيت التطبيق أو إضافة للشاشة</strong>
+              <span>اختر <b>"تثبيت التطبيق" (Install app)</b> أو <b>"إضافة إلى الشاشة الرئيسية"</b>.</span>
+            </div>
+          </div>
+          <div class="pwa-step-card">
+            <div class="pwa-step-num">3</div>
+            <div class="pwa-step-text">
+              <strong>تأكيد التثبيت</strong>
+              <span>اضغط "تثبيت"، وسيظهر التطبيق بين تطبيقات هاتفك بأيقونته الرسمية فوراً!</span>
+            </div>
+          </div>
+        </div>
+        <div class="pwa-modal-actions-grid">
+          <button type="button" class="pwa-btn-primary" onclick="window.copySiteUrl()">
+            <i class="fa-solid fa-copy"></i> نسخ الرابط
+          </button>
+          <button type="button" class="pwa-btn-secondary" onclick="window.closePwaInstallModal()">
+            إغلاق
+          </button>
+        </div>
+      `;
     } else {
-      const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-      if (isIos) {
-        alert('📲 لتثبيت التطبيق على أجهزة آيفون (iOS):\n1. اضغط على زر المشاركة (Share 📤) في متصفح Safari.\n2. اختر "إضافة إلى الشاشة الرئيسية" (Add to Home Screen).');
-      } else {
-        alert('📲 لتثبيت التطبيق:\nاضغط على قائمة المتصفح (⋮) في الأعلى ثم اختر "تثبيت التطبيق" أو "إضافة إلى الشاشة الرئيسية".');
-      }
+      guideHtml = `
+        <div class="pwa-env-badge desktop-badge">
+          <i class="fa-solid fa-laptop"></i>
+          <span>تثبيت التطبيق على الكمبيوتر واللابتوب</span>
+        </div>
+        <p class="pwa-modal-intro">يمكنك تنزيل الموقع كتطبيق ديسكتوب خفيف وسريع على Windows / Mac:</p>
+        <div class="pwa-steps-container">
+          <div class="pwa-step-card">
+            <div class="pwa-step-num">1</div>
+            <div class="pwa-step-text">
+              <strong>أيقونة التثبيت في شريط العنوان</strong>
+              <span>انقر على أيقونة التنزيل <i class="fa-solid fa-circle-down" style="color:var(--accent-amber);"></i> الموجودة في شريط عنوان المتصفح (URL bar) بالأعلى.</span>
+            </div>
+          </div>
+          <div class="pwa-step-card">
+            <div class="pwa-step-num">2</div>
+            <div class="pwa-step-text">
+              <strong>أو من قائمة المتصفح</strong>
+              <span>اضغط على قائمة المتصفح (⋮) واختر <b>"تثبيت تطبيق هندسة الحاسوب"</b> (Install App).</span>
+            </div>
+          </div>
+          <div class="pwa-step-card">
+            <div class="pwa-step-num">3</div>
+            <div class="pwa-step-text">
+              <strong>تشغيل فوري</strong>
+              <span>ستحصل على اختصار فخم على سطح المكتب مع دعم العمل بدون إنترنت!</span>
+            </div>
+          </div>
+        </div>
+        <div class="pwa-modal-actions-grid">
+          <button type="button" class="pwa-btn-primary" onclick="window.copySiteUrl()">
+            <i class="fa-solid fa-copy"></i> نسخ الرابط
+          </button>
+          <button type="button" class="pwa-btn-secondary" onclick="window.closePwaInstallModal()">
+            إغلاق
+          </button>
+        </div>
+      `;
+    }
+
+    modal = document.createElement('div');
+    modal.id = 'pwaInstallModal';
+    modal.className = 'pwa-install-modal-overlay animate-fade-in';
+    modal.innerHTML = `
+      <div class="pwa-install-modal-container" role="dialog" aria-modal="true" dir="rtl">
+        <button type="button" class="pwa-modal-close-btn" onclick="window.closePwaInstallModal()" aria-label="إغلاق">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        
+        <div class="pwa-modal-header">
+          <div class="pwa-app-badge-box">
+            <img src="icon-192.png" alt="شعار هندسة الحاسوب" class="pwa-app-icon-img" />
+            <div class="pwa-app-badge-glow"></div>
+          </div>
+          <h2 class="pwa-modal-title">تطبيق هندسة الحاسوب — IUG</h2>
+          <p class="pwa-modal-subtitle">المنصة الأكاديمية الرسمية الشاملة لمهندسي الحاسوب</p>
+        </div>
+
+        <div class="pwa-perks-row">
+          <div class="pwa-perk-item"><i class="fa-solid fa-bolt" style="color:#F59E0B;"></i> بدون إنترنت</div>
+          <div class="pwa-perk-item"><i class="fa-solid fa-gauge-high" style="color:#0EA5E9;"></i> سرعة فائقة</div>
+          <div class="pwa-perk-item"><i class="fa-solid fa-mobile-screen" style="color:#10B981;"></i> خفيف ومجاني</div>
+        </div>
+
+        <div class="pwa-modal-body">
+          ${guideHtml}
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+    document.body.style.overflow = 'hidden';
+
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) window.closePwaInstallModal();
+    });
+  };
+
+  window.closePwaInstallModal = function () {
+    const modal = document.getElementById('pwaInstallModal');
+    if (modal) {
+      modal.classList.add('animate-fade-out');
+      setTimeout(function () {
+        if (modal) modal.remove();
+        document.body.style.overflow = '';
+      }, 200);
     }
   };
+
+  window.copySiteUrl = function () {
+    const url = window.location.href;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(function () {
+        showToastNotification('📋 تم نسخ رابط الموقع بنجاح! الصقه في Chrome أو Safari.');
+      }).catch(function () {
+        fallbackCopy(url);
+      });
+    } else {
+      fallbackCopy(url);
+    }
+  };
+
+  function fallbackCopy(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand('copy');
+      showToastNotification('📋 تم نسخ رابط الموقع بنجاح!');
+    } catch (e) {
+      prompt('انسخ الرابط التالي:', text);
+    }
+    ta.remove();
+  }
+
+  function showToastNotification(msg) {
+    let toast = document.getElementById('globalFeedbackToast');
+    if (toast) toast.remove();
+    toast = document.createElement('div');
+    toast.id = 'globalFeedbackToast';
+    toast.className = 'global-feedback-toast animate-fade-in';
+    toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${msg}</span>`;
+    document.body.appendChild(toast);
+    setTimeout(function () {
+      if (toast) toast.remove();
+    }, 3800);
+  }
 
   function showPwaInstallToast() {
     try {
@@ -726,10 +1021,10 @@
     banner.className = 'pwa-install-banner animate-fade-in';
     banner.innerHTML = `
       <div class="pwa-banner-header">
-        <img src="Com.png" alt="App Icon" class="pwa-banner-icon" />
+        <img src="icon-192.png" alt="App Icon" class="pwa-banner-icon" />
         <div>
           <div class="pwa-banner-title">تطبيق هندسة الحاسوب IUG</div>
-          <div class="pwa-banner-desc">ثبّت الموقع كتطبيق للوصول السريع بدون إنترنت</div>
+          <div class="pwa-banner-desc">ثبّت الموقع كتطبيق للوصول السريع بدون إنترنت 📲</div>
         </div>
       </div>
       <div class="pwa-banner-actions">
@@ -751,6 +1046,8 @@
       sessionStorage.setItem('pwa_toast_dismissed', 'true');
     } catch (e) {}
   };
+
+
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initAllApp);
