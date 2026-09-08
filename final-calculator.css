@@ -1,0 +1,432 @@
+/* ==========================================================================
+   FINAL EXAM TARGET CALCULATOR CSS
+   Computer Engineering IUG
+   ========================================================================== */
+
+.final-calc-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 3vw, 2.5rem) clamp(0.75rem, 3vw, 1.25rem) 5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Hero Header */
+.final-hero-box {
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.final-hero-title {
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+  font-weight: 900;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.final-hero-desc {
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  color: var(--text-muted);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Two-Column Layout on Desktop, 1 Column on Mobile */
+.final-calc-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .final-calc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card Boxes */
+.final-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  box-shadow: var(--shadow-sm);
+  box-sizing: border-box;
+}
+
+.final-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.final-card-title {
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Form Controls */
+.final-form-group {
+  margin-bottom: 1.15rem;
+}
+
+.final-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.45rem;
+}
+
+.final-label-sub {
+  font-size: 0.75rem;
+  font-weight: normal;
+  color: var(--text-subtle);
+  margin-right: 0.35rem;
+}
+
+.final-input,
+.final-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-default);
+  background: var(--bg-surface-subtle);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  outline: none;
+  min-height: 46px;
+  box-sizing: border-box;
+  transition: all var(--transition-fast);
+}
+
+.final-input:focus,
+.final-select:focus {
+  border-color: var(--accent-amber);
+  background: var(--bg-surface);
+  box-shadow: 0 0 0 3px var(--accent-amber-glow);
+}
+
+/* Preset Target Buttons / Chips */
+.final-preset-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.45rem;
+}
+
+.preset-chip {
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-default);
+  color: var(--text-muted);
+  font-size: 0.825rem;
+  font-weight: 700;
+  cursor: pointer;
+  min-height: 38px;
+  touch-action: manipulation;
+  transition: all var(--transition-fast);
+}
+
+.preset-chip:hover {
+  border-color: var(--border-strong);
+  color: var(--text-main);
+}
+
+.preset-chip.active {
+  background: var(--primary-slate);
+  color: #FFFFFF;
+  border-color: var(--accent-amber);
+  box-shadow: 0 0 0 2px var(--accent-amber-glow);
+}
+
+/* Course Breakdown Toggle */
+.calc-mode-switch {
+  display: flex;
+  background: var(--bg-surface-subtle);
+  padding: 4px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-default);
+  gap: 4px;
+  margin-bottom: 1.25rem;
+}
+
+.mode-switch-btn {
+  flex: 1;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.825rem;
+  font-weight: 700;
+  cursor: pointer;
+  min-height: 38px;
+  touch-action: manipulation;
+  transition: all var(--transition-fast);
+}
+
+.mode-switch-btn.active {
+  background: var(--bg-surface);
+  color: var(--text-main);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-default);
+}
+
+/* Detailed Marks Subgrid */
+.detailed-marks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+@media (max-width: 480px) {
+  .detailed-marks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Results Display Box */
+.final-result-box {
+  background: var(--bg-surface-subtle);
+  border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  text-align: center;
+  margin-top: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.result-main-number {
+  font-family: var(--font-mono);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--accent-amber);
+  margin: 0.5rem 0;
+}
+
+.result-main-max {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--text-subtle);
+  font-weight: 700;
+}
+
+.result-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin-top: 0.5rem;
+}
+
+.status-easy {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.status-medium {
+  background: rgba(14, 165, 233, 0.15);
+  color: #0EA5E9;
+  border: 1px solid rgba(14, 165, 233, 0.35);
+}
+
+.status-hard {
+  background: rgba(245, 158, 11, 0.15);
+  color: #F59E0B;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.status-critical {
+  background: rgba(239, 68, 68, 0.15);
+  color: #EF4444;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.status-impossible {
+  background: rgba(220, 38, 38, 0.2);
+  color: #DC2626;
+  border: 1px solid rgba(220, 38, 38, 0.5);
+}
+
+.result-advice-p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  line-height: 1.5;
+}
+
+/* Action Buttons */
+.final-btn-row {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.final-primary-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  background: var(--accent-amber);
+  color: #0F172A;
+  font-weight: 800;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  min-height: 48px;
+  touch-action: manipulation;
+  transition: all var(--transition-fast);
+}
+
+.final-primary-btn:hover {
+  background: #D97706;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.final-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-subtle);
+  border: 1.5px solid var(--border-default);
+  color: var(--text-main);
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  min-height: 48px;
+  touch-action: manipulation;
+  transition: all var(--transition-fast);
+}
+
+.final-secondary-btn:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-surface);
+}
+
+/* Saved Courses List */
+.saved-courses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.saved-course-card {
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  transition: all var(--transition-fast);
+}
+
+.saved-course-card:hover {
+  border-color: var(--accent-amber);
+  transform: translateY(-2px);
+}
+
+.saved-course-info {
+  flex: 1;
+}
+
+.saved-course-name {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+}
+
+.saved-course-meta {
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+}
+
+.saved-course-req {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--accent-amber);
+  text-align: left;
+}
+
+.saved-course-del {
+  background: transparent;
+  border: none;
+  color: var(--text-subtle);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+}
+
+.saved-course-del:hover {
+  color: #EF4444;
+}
+
+/* Print Styles */
+@media print {
+  .unified-navbar,
+  .desktop-subnav,
+  .final-btn-row,
+  .footer-full,
+  .floating-pomodoro-pill,
+  .mode-switch-btn,
+  .saved-course-del,
+  .final-form-group {
+    display: none !important;
+  }
+
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+
+  .final-card,
+  .final-result-box,
+  .saved-course-card {
+    border: 1px solid #CCCCCC !important;
+    box-shadow: none !important;
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+
+  .final-hero-title,
+  .saved-course-name {
+    color: #000000 !important;
+  }
+}

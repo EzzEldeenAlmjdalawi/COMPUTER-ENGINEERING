@@ -1,0 +1,409 @@
+/* ==========================================================================
+   WEEKLY SCHEDULE BUILDER CSS
+   Computer Engineering IUG
+   ========================================================================== */
+
+.schedule-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 3vw, 2.5rem) clamp(0.75rem, 3vw, 1.25rem) 5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Hero Section */
+.schedule-hero-box {
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.schedule-hero-title {
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+  font-weight: 900;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.schedule-hero-desc {
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  color: var(--text-muted);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Top Actions Bar */
+.schedule-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  padding: 0.85rem 1.25rem;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.schedule-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.sch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  min-height: 42px;
+  touch-action: manipulation;
+  transition: all var(--transition-fast);
+  border: 1px solid var(--border-default);
+  background: var(--bg-surface-subtle);
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.sch-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--border-strong);
+}
+
+.sch-btn.primary {
+  background: var(--accent-amber);
+  color: #0F172A;
+  border-color: var(--accent-amber);
+}
+
+.sch-btn.primary:hover {
+  background: #D97706;
+  box-shadow: var(--shadow-md);
+}
+
+.sch-btn.export {
+  background: rgba(14, 165, 233, 0.15);
+  color: #0284C7;
+  border-color: rgba(14, 165, 233, 0.35);
+}
+
+.sch-btn.export:hover {
+  background: #0284C7;
+  color: #FFFFFF;
+}
+
+.sch-btn.danger:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #EF4444;
+  border-color: #EF4444;
+}
+
+/* Add Class Modal Form Card */
+.sch-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.sch-modal-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  box-shadow: var(--shadow-lg);
+  box-sizing: border-box;
+}
+
+.sch-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+}
+
+@media (max-width: 520px) {
+  .sch-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sch-form-group {
+  margin-bottom: 0.85rem;
+}
+
+.sch-form-group.full {
+  grid-column: 1 / -1;
+}
+
+.sch-label {
+  display: block;
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+.sch-input,
+.sch-select {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-default);
+  background: var(--bg-surface-subtle);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  outline: none;
+  min-height: 42px;
+  box-sizing: border-box;
+  transition: all var(--transition-fast);
+}
+
+.sch-input:focus,
+.sch-select:focus {
+  border-color: var(--accent-amber);
+  background: var(--bg-surface);
+  box-shadow: 0 0 0 3px var(--accent-amber-glow);
+}
+
+/* Color Palette Select */
+.sch-color-palette {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.35rem;
+}
+
+.sch-color-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2.5px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.sch-color-dot.selected {
+  transform: scale(1.15);
+  border-color: #FFFFFF;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Days Checkboxes Group */
+.sch-days-checkboxes {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  margin-top: 0.35rem;
+}
+
+.sch-day-chip {
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-default);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  touch-action: manipulation;
+  transition: all var(--transition-fast);
+}
+
+.sch-day-chip.active {
+  background: var(--primary-slate);
+  color: #FFFFFF;
+  border-color: var(--accent-amber);
+}
+
+/* Timetable Grid View */
+.timetable-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  padding: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.timetable-grid {
+  display: grid;
+  grid-template-columns: 80px repeat(6, minmax(130px, 1fr));
+  min-width: 860px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tt-header-cell {
+  background: var(--bg-surface-subtle);
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+  font-weight: 800;
+  font-size: 0.875rem;
+  color: var(--text-main);
+  border-bottom: 2px solid var(--border-default);
+  border-left: 1px solid var(--border-subtle);
+}
+
+.tt-time-cell {
+  background: var(--bg-surface-subtle);
+  padding: 0.6rem 0.4rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  border-left: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tt-slot-cell {
+  position: relative;
+  min-height: 64px;
+  border-bottom: 1px solid var(--border-subtle);
+  border-left: 1px solid var(--border-subtle);
+  padding: 2px;
+  transition: background var(--transition-fast);
+}
+
+.tt-slot-cell:hover {
+  background: rgba(245, 158, 11, 0.03);
+}
+
+/* Course Card Inside Timetable */
+.tt-course-block {
+  background: var(--primary-slate);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.5rem;
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  margin-bottom: 2px;
+}
+
+.tt-course-block:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  z-index: 5;
+}
+
+.tt-cb-name {
+  font-weight: 800;
+  font-size: 0.8rem;
+  line-height: 1.25;
+  margin-bottom: 0.2rem;
+  white-space: normal;
+}
+
+.tt-cb-meta {
+  font-size: 0.675rem;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.tt-cb-time {
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+/* Theme Color Styles for Blocks */
+.block-color-blue   { background: #1E3A8A !important; border-left: 3px solid #3B82F6 !important; }
+.block-color-amber  { background: #78350F !important; border-left: 3px solid #F59E0B !important; }
+.block-color-green  { background: #064E3B !important; border-left: 3px solid #10B981 !important; }
+.block-color-purple { background: #4C1D95 !important; border-left: 3px solid #8B5CF6 !important; }
+.block-color-rose   { background: #831843 !important; border-left: 3px solid #F43F5E !important; }
+.block-color-cyan   { background: #164E63 !important; border-left: 3px solid #06B6D4 !important; }
+.block-color-orange { background: #7C2D12 !important; border-left: 3px solid #F97316 !important; }
+
+/* Empty Timetable Banner */
+.timetable-empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--text-subtle);
+}
+
+.timetable-empty-state i {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.5;
+  display: block;
+}
+
+/* Print Styles */
+@media print {
+  .unified-navbar,
+  .desktop-subnav,
+  .schedule-action-bar,
+  .footer-full,
+  .floating-pomodoro-pill,
+  .sch-modal-backdrop {
+    display: none !important;
+  }
+
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+
+  .timetable-wrapper {
+    box-shadow: none !important;
+    border: 1px solid #000000 !important;
+    padding: 0 !important;
+  }
+
+  .timetable-grid {
+    min-width: 100% !important;
+  }
+
+  .tt-header-cell,
+  .tt-time-cell,
+  .tt-slot-cell {
+    border: 1px solid #CCCCCC !important;
+    color: #000000 !important;
+  }
+
+  .tt-course-block {
+    background: #EEEEEE !important;
+    color: #000000 !important;
+    border: 1px solid #333333 !important;
+  }
+}

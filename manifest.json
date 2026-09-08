@@ -1,0 +1,26 @@
+{
+  "name": "هندسة الحاسوب — الجامعة الإسلامية بغزة",
+  "short_name": "هندسة الحاسوب IUG",
+  "description": "المنصة الأكاديمية الشاملة لطلبة قسم هندسة الحاسوب، السلايدات، الكتب، المحاضرات، الحاسبات، وصانع الجداول.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0F172A",
+  "theme_color": "#1B2A4A",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "Com.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "Com.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

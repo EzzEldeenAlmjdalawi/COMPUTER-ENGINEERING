@@ -106,87 +106,93 @@
     div.innerHTML = `
       <div id="sidebarBackdrop" class="sidebar-backdrop" style="display:none;" onclick="window.closeSidebar()"></div>
       <aside id="globalSidebar" class="collapsible-sidebar" dir="rtl">
-        <div class="sidebar-inner">
-          <div class="sidebar-header">
-            <div style="display:flex; align-items:center; gap:0.65rem;">
-              <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
-                <rect width="40" height="40" rx="10" fill="#1B2A4A"/>
-                <rect x="11" y="11" width="18" height="18" rx="4" fill="#0F172A" stroke="#F59E0B" stroke-width="2"/>
-                <circle cx="20" cy="20" r="4" fill="#F59E0B"/>
-              </svg>
-              <div>
-                <span style="font-family:var(--font-mono); font-size:0.95rem; font-weight:900; color:var(--text-main); display:block;">COMPUTER ENG</span>
-                <span style="font-size:0.725rem; color:var(--text-subtle);">IUG القائمة الجانبية</span>
-              </div>
-            </div>
-            <button type="button" class="sidebar-close-btn" onclick="window.closeSidebar()" aria-label="إغلاق">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-          </div>
-
-          <nav class="sidebar-nav">
-            <span class="sidebar-section-label">التنقل الأكاديمي</span>
-            <div class="sidebar-links-list">
-              <a href="index.html" class="sidebar-nav-item"><i class="fa-solid fa-house"></i> الرئيسية</a>
-              <a href="firstYear.html" class="sidebar-nav-item"><i class="fa-solid fa-cubes" style="color:#0EA5E9;"></i> السنة الأولى</a>
-              <a href="secndYear.html" class="sidebar-nav-item"><i class="fa-solid fa-microchip" style="color:#10B981;"></i> السنة الثانية</a>
-              <a href="thirdYear.html" class="sidebar-nav-item"><i class="fa-solid fa-network-wired" style="color:#8B5CF6;"></i> السنة الثالثة</a>
-              <a href="fourthYear.html" class="sidebar-nav-item"><i class="fa-solid fa-laptop-code" style="color:#F59E0B;"></i> السنة الرابعة</a>
-              <a href="fifthYear.html" class="sidebar-nav-item"><i class="fa-solid fa-award" style="color:#EC4899;"></i> السنة الخامسة</a>
-              <a href="university-requirements.html" class="sidebar-nav-item"><i class="fa-solid fa-graduation-cap" style="color:#06B6D4;"></i> متطلبات الجامعة</a>
-              <a href="gpa-calculator.html" class="sidebar-nav-item highlight-item"><i class="fa-solid fa-calculator" style="color:#F59E0B;"></i> حاسبة المعدل</a>
-              <a href="study-tools.html" class="sidebar-nav-item"><i class="fa-solid fa-brain" style="color:#10B981;"></i> أدوات الدراسة والسبورة</a>
-              <a href="search.html" class="sidebar-nav-item"><i class="fa-solid fa-magnifying-glass"></i> البحث الشامل</a>
-            </div>
-          </nav>
-
-          <!-- Theme Accent Swatches Section -->
-          <div class="sidebar-theme-section">
-            <div class="sb-theme-head">
-              <span class="sidebar-section-label">تخصيص لون السمة</span>
-              <button type="button" class="sb-theme-reset" onclick="window.applyColorTheme('')">الافتراضي</button>
-            </div>
-            <div class="sb-swatches-grid">
-              <button type="button" class="sb-swatch-btn" data-theme="" style="background-color:#1B2A4A; border-color:#F59E0B;" onclick="window.applyColorTheme('')" title="الافتراضي"></button>
-              <button type="button" class="sb-swatch-btn" data-theme="theme-blue" style="background-color:#3b82f6;" onclick="window.applyColorTheme('theme-blue')" title="Blue"></button>
-              <button type="button" class="sb-swatch-btn" data-theme="theme-green" style="background-color:#10b981;" onclick="window.applyColorTheme('theme-green')" title="Green"></button>
-              <button type="button" class="sb-swatch-btn" data-theme="theme-purple" style="background-color:#8b5cf6;" onclick="window.applyColorTheme('theme-purple')" title="Purple"></button>
-              <button type="button" class="sb-swatch-btn" data-theme="theme-orange" style="background-color:#f97316;" onclick="window.applyColorTheme('theme-orange')" title="Orange"></button>
-              <button type="button" class="sb-swatch-btn" data-theme="theme-red" style="background-color:#ef4444;" onclick="window.applyColorTheme('theme-red')" title="Red"></button>
-              <button type="button" class="sb-swatch-btn" data-theme="theme-pink" style="background-color:#ec4899;" onclick="window.applyColorTheme('theme-pink')" title="Pink"></button>
-              <button type="button" class="sb-swatch-btn" data-theme="theme-cyan" style="background-color:#06b6d4;" onclick="window.applyColorTheme('theme-cyan')" title="Cyan"></button>
-            </div>
-          </div>
-
-          <div class="sidebar-footer">
-            <span class="sidebar-section-label">قنوات وتطبيقات المنصة</span>
-            <div class="sb-contact-quick" style="margin-bottom:0.75rem;">
-              <a href="https://t.me/+lUyeZmUh7KpjM2Fi" target="_blank" rel="noopener noreferrer" class="sb-contact-chip" style="background:rgba(14,165,233,0.12); color:var(--accent-teal); border-color:rgba(14,165,233,0.3);">
-                <i class="fa-brands fa-telegram"></i> قناة التليجرام الرسمية
-              </a>
-              <a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" rel="noopener noreferrer" class="sb-contact-chip" style="background:rgba(245,158,11,0.12); color:var(--accent-amber); border-color:rgba(245,158,11,0.3);">
-                <i class="fa-solid fa-robot"></i> بوت الملفات والبرامج
-              </a>
-              <a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" rel="noopener noreferrer" class="sb-contact-chip sb-bot-callout" style="background:linear-gradient(135deg, rgba(14,165,233,0.18), rgba(245,158,11,0.18)); border:1.5px solid var(--accent-amber); font-weight:800; color:var(--text-main);">
-                <i class="fa-brands fa-telegram" style="color:var(--accent-teal);"></i> <span>استخدم الموقع عبر بوت التليجرام</span>
-              </a>
-            </div>
-
-            <span class="sidebar-section-label">الدعم والتواصل الفني</span>
-            <div class="sb-contact-quick">
-              <a href="https://wa.me/972595346617" target="_blank" rel="noopener noreferrer" class="sb-contact-chip" title="تواصل عبر واتساب">
-                <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> <span dir="ltr">+972 59-534-6617</span>
-              </a>
-              <a href="tel:+972595346617" class="sb-contact-chip" title="اتصال هاتفي">
-                <i class="fa-solid fa-phone" style="color:var(--accent-emerald);"></i> <span dir="ltr">0595346617</span>
-              </a>
-              <a href="mailto:mnmaassddll@gmail.com" class="sb-contact-chip" title="راسلني عبر البريد الإلكتروني">
-                <i class="fa-solid fa-paper-plane" style="color:var(--accent-teal);"></i> راسلني عبر الإيميل
-              </a>
-            </div>
+    <div class="sidebar-inner">
+      <div class="sidebar-header">
+        <div style="display:flex; align-items:center; gap:0.65rem;">
+          <svg width="30" height="30" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="10" fill="#1B2A4A"/>
+            <rect x="11" y="11" width="18" height="18" rx="4" fill="#0F172A" stroke="#F59E0B" stroke-width="2"/>
+            <circle cx="20" cy="20" r="4" fill="#F59E0B"/>
+          </svg>
+          <div>
+            <span style="font-family:var(--font-mono); font-size:0.9rem; font-weight:900; color:var(--text-main); display:block;">COMPUTER ENG</span>
+            <span style="font-size:0.7rem; color:var(--text-subtle);">IUG القائمة الأكاديمية الشاملة</span>
           </div>
         </div>
-      </aside>
+        <button type="button" class="sidebar-close-btn" onclick="window.closeSidebar()" aria-label="إغلاق">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="sb-pwa-card" onclick="window.triggerPwaInstall()">
+        <div class="sb-pwa-icon">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+        </div>
+        <div class="sb-pwa-text">
+          <strong>تثبيت التطبيق على هاتفك 📲</strong>
+          <span>وصول فوري للمساقات بدون إنترنت</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="sidebar-section-label">التنقل والأدوات الأكاديمية</span>
+        <div class="sidebar-links-list">
+          <a href="index.html" class="sidebar-nav-item "><i class="fa-solid fa-house"></i> <span>الرئيسية</span></a>
+          <a href="firstYear.html" class="sidebar-nav-item "><i class="fa-solid fa-cubes" style="color:#0EA5E9;"></i> <span>السنة الأولى</span></a>
+          <a href="secndYear.html" class="sidebar-nav-item "><i class="fa-solid fa-microchip" style="color:#10B981;"></i> <span>السنة الثانية</span></a>
+          <a href="thirdYear.html" class="sidebar-nav-item "><i class="fa-solid fa-network-wired" style="color:#8B5CF6;"></i> <span>السنة الثالثة</span></a>
+          <a href="fourthYear.html" class="sidebar-nav-item "><i class="fa-solid fa-laptop-code" style="color:#F59E0B;"></i> <span>السنة الرابعة</span></a>
+          <a href="fifthYear.html" class="sidebar-nav-item "><i class="fa-solid fa-award" style="color:#EC4899;"></i> <span>السنة الخامسة</span></a>
+          <a href="university-requirements.html" class="sidebar-nav-item "><i class="fa-solid fa-graduation-cap" style="color:#06B6D4;"></i> <span>متطلبات الجامعة</span></a>
+          <a href="gpa-calculator.html" class="sidebar-nav-item "><i class="fa-solid fa-calculator" style="color:#F59E0B;"></i> <span>حاسبة المعدل التراكمي</span></a>
+          <a href="final-calculator.html" class="sidebar-nav-item "><i class="fa-solid fa-bullseye" style="color:#F59E0B;"></i> <span>حاسبة علامة الفاينل 🎯</span></a>
+          <a href="schedule-builder.html" class="sidebar-nav-item "><i class="fa-solid fa-calendar-days" style="color:#0EA5E9;"></i> <span>صانع الجدول الأسبوعي 📅</span></a>
+          <a href="degree-tracker.html" class="sidebar-nav-item highlight-item "><i class="fa-solid fa-network-wired" style="color:#10B981;"></i> <span>شجرة المتطلبات والخطة 🌳</span></a>
+          <a href="study-tools.html" class="sidebar-nav-item "><i class="fa-solid fa-brain" style="color:#10B981;"></i> <span>أدوات الدراسة والوايت بورد</span></a>
+          <a href="search.html" class="sidebar-nav-item "><i class="fa-solid fa-magnifying-glass"></i> <span>البحث الشامل في المواد</span></a>
+        </div>
+      </nav>
+
+      <div class="sidebar-theme-section">
+        <div class="sb-theme-head">
+          <span class="sidebar-section-label">تخصيص لون السمة</span>
+          <button type="button" class="sb-theme-reset" onclick="window.applyColorTheme('')">الافتراضي</button>
+        </div>
+        <div class="sb-swatches-grid">
+          <button type="button" class="sb-swatch-btn" data-theme="" style="background-color:#1B2A4A; border-color:#F59E0B;" onclick="window.applyColorTheme('')" title="الافتراضي"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-blue" style="background-color:#3b82f6;" onclick="window.applyColorTheme('theme-blue')" title="Blue"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-green" style="background-color:#10b981;" onclick="window.applyColorTheme('theme-green')" title="Green"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-purple" style="background-color:#8b5cf6;" onclick="window.applyColorTheme('theme-purple')" title="Purple"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-orange" style="background-color:#f97316;" onclick="window.applyColorTheme('theme-orange')" title="Orange"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-red" style="background-color:#ef4444;" onclick="window.applyColorTheme('theme-red')" title="Red"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-pink" style="background-color:#ec4899;" onclick="window.applyColorTheme('theme-pink')" title="Pink"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="theme-cyan" style="background-color:#06b6d4;" onclick="window.applyColorTheme('theme-cyan')" title="Cyan"></button>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <span class="sidebar-section-label">قنوات ومجتمع القسم</span>
+        <div class="sb-channels-grid">
+          <a href="https://t.me/+lUyeZmUh7KpjM2Fi" target="_blank" rel="noopener noreferrer" class="sb-channel-btn tg" title="قناة التليجرام الرسمية">
+            <i class="fa-brands fa-telegram"></i> <span>قناة التليجرام</span>
+          </a>
+          <a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" rel="noopener noreferrer" class="sb-channel-btn bot" title="بوت الملفات والبرامج">
+            <i class="fa-solid fa-robot"></i> <span>بوت الملفات</span>
+          </a>
+        </div>
+
+        <span class="sidebar-section-label" style="margin-top:0.65rem;">التواصل المباشر والدعم</span>
+        <div class="sb-contact-grid">
+          <a href="https://wa.me/972595346617" target="_blank" rel="noopener noreferrer" class="sb-contact-btn wa" title="واتساب">
+            <i class="fa-brands fa-whatsapp"></i> <span dir="ltr">+972 59-534-6617</span>
+          </a>
+          <a href="mailto:mnmaassddll@gmail.com" class="sb-contact-btn email" title="راسلني عبر الإيميل">
+            <i class="fa-solid fa-envelope"></i> <span>راسلني عبر الإيميل</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </aside>
     `;
     document.body.appendChild(div);
   }
@@ -670,6 +676,81 @@
       injectGlobalSidebar();
     }
   }
+
+  // ==========================================
+  // 9. PWA & OFFLINE SERVICE WORKER
+  // ==========================================
+  if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('service-worker.js').catch(function (err) {
+        console.warn('SW registration:', err);
+      });
+    });
+  }
+
+  let deferredPwaPrompt = null;
+
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();
+    deferredPwaPrompt = e;
+    showPwaInstallToast();
+  });
+
+  window.triggerPwaInstall = function () {
+    if (deferredPwaPrompt) {
+      deferredPwaPrompt.prompt();
+      deferredPwaPrompt.userChoice.then(function (choice) {
+        if (choice && choice.outcome === 'accepted') {
+          window.dismissPwaToast();
+        }
+        deferredPwaPrompt = null;
+      });
+    } else {
+      const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      if (isIos) {
+        alert('📲 لتثبيت التطبيق على أجهزة آيفون (iOS):\n1. اضغط على زر المشاركة (Share 📤) في متصفح Safari.\n2. اختر "إضافة إلى الشاشة الرئيسية" (Add to Home Screen).');
+      } else {
+        alert('📲 لتثبيت التطبيق:\nاضغط على قائمة المتصفح (⋮) في الأعلى ثم اختر "تثبيت التطبيق" أو "إضافة إلى الشاشة الرئيسية".');
+      }
+    }
+  };
+
+  function showPwaInstallToast() {
+    try {
+      if (sessionStorage.getItem('pwa_toast_dismissed')) return;
+    } catch (e) {}
+    if (document.getElementById('pwaInstallBanner')) return;
+
+    const banner = document.createElement('div');
+    banner.id = 'pwaInstallBanner';
+    banner.className = 'pwa-install-banner animate-fade-in';
+    banner.innerHTML = `
+      <div class="pwa-banner-header">
+        <img src="Com.png" alt="App Icon" class="pwa-banner-icon" />
+        <div>
+          <div class="pwa-banner-title">تطبيق هندسة الحاسوب IUG</div>
+          <div class="pwa-banner-desc">ثبّت الموقع كتطبيق للوصول السريع بدون إنترنت</div>
+        </div>
+      </div>
+      <div class="pwa-banner-actions">
+        <button type="button" class="pwa-banner-install-btn" onclick="window.triggerPwaInstall()">
+          <i class="fa-solid fa-download"></i> تثبيت الآن
+        </button>
+        <button type="button" class="pwa-banner-close-btn" onclick="window.dismissPwaToast()">
+          لاحقاً
+        </button>
+      </div>
+    `;
+    document.body.appendChild(banner);
+  }
+
+  window.dismissPwaToast = function () {
+    const b = document.getElementById('pwaInstallBanner');
+    if (b) b.remove();
+    try {
+      sessionStorage.setItem('pwa_toast_dismissed', 'true');
+    } catch (e) {}
+  };
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initAllApp);

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حاسبة علامة الفاينل المطلوبة 🎯 — هندسة الحاسوب IUG</title>
+  <meta name="description" content="أداة حساب العلامة المطلوبة في الامتحان النهائي لتحقيق التقدير والهدف المطلوب لطلبة هندسة الحاسوب بالجامعة الإسلامية بغزة">
+  <link rel="icon" type="image/png" href="Com.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="final-calculator.css">
+  <link rel="stylesheet" href="themes.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1B2A4A">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="هندسة الحاسوب IUG">
+  <link rel="apple-touch-icon" href="Com.png">
+</head>
+<body>
+
+  <!-- Unified Glassmorphic Navbar -->
+  <header class="unified-navbar">
+    <div class="navbar-container">
+      <div class="navbar-left-group">
+        <button type="button" class="sidebar-trigger-btn" onclick="window.openSidebar()" title="فتح القائمة الجانبية" aria-label="القائمة الجانبية">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+        <a href="index.html" class="brand-logo-link">
+          <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="10" fill="#1B2A4A"/>
+            <rect x="11" y="11" width="18" height="18" rx="4" fill="#0F172A" stroke="#F59E0B" stroke-width="2"/>
+            <circle cx="20" cy="20" r="4" fill="#F59E0B"/>
+            <path d="M7 16H11M7 24H11M29 16H33M29 24H33M16 7V11M24 7V11M16 29V33M24 29V33" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div class="brand-text-group">
+            <span class="brand-title">COMPUTER ENGINEERING</span>
+            <span class="brand-sub">IUG <span class="brand-dot"></span> الجامعة الإسلامية</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="navbar-search-area">
+        <div class="search-input-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon-inside"></i>
+          <input type="text" id="globalSearchInput" class="global-search-input" placeholder="ابحث عن مادة، كود، أو سلايدات (مثال: ECOM 2401)..." autocomplete="off" />
+          <div id="headerSearchResults" class="search-results-dropdown" style="display:none;"></div>
+        </div>
+      </div>
+
+      <div class="navbar-actions">
+        <button type="button" onclick="window.triggerPwaInstall()" class="action-icon-pill pwa-navbar-btn" title="تثبيت التطبيق على الجوال 📲">
+          <i class="fa-solid fa-mobile-screen-button" style="color:#10B981;"></i>
+          <span>تثبيت التطبيق</span>
+        </button>
+
+        <a href="search.html" class="action-icon-pill mobile-search-btn" title="البحث عن مادة">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+
+        <button type="button" class="action-icon-pill" onclick="window.openFavoritesModal()" title="المواد المفضلة والمحفوظة">
+          <i class="fa-solid fa-star" style="color:var(--accent-amber);"></i>
+          <span>المفضلة</span>
+          <span class="count-tag fav-count-badge" style="display:none;">0</span>
+        </button>
+
+        <button type="button" class="action-icon-pill" onclick="window.openPomodoroModal()" title="مؤقت بومودورو الدراسي">
+          <i class="fa-solid fa-stopwatch" style="color:var(--accent-teal);"></i>
+          <span>بومودورو</span>
+        </button>
+
+        <a href="https://t.me/+lUyeZmUh7KpjM2Fi" target="_blank" rel="noopener noreferrer" class="action-btn tg-btn" title="قناة التليجرام الرسمية">
+          <i class="fa-brands fa-telegram"></i>
+          <span>القناة</span>
+        </a>
+
+        <a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" rel="noopener noreferrer" class="action-btn bot-btn" title="بوت الملفات والبرامج">
+          <i class="fa-solid fa-robot"></i>
+          <span>بوت الملفات</span>
+        </a>
+
+        <button type="button" onclick="window.toggleDarkMode()" class="theme-toggle-btn" title="تبديل الوضع الليلي" aria-label="تبديل الوضع الليلي">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Desktop Subnav -->
+    <nav class="desktop-subnav">
+      <div class="subnav-container">
+        <a href="index.html" class="subnav-link "><i class="fa-solid fa-house"></i> الرئيسية</a>
+        <a href="firstYear.html" class="subnav-link "><i class="fa-solid fa-cubes" style="color:#0EA5E9;"></i> السنة الأولى</a>
+        <a href="secndYear.html" class="subnav-link "><i class="fa-solid fa-microchip" style="color:#10B981;"></i> السنة الثانية</a>
+        <a href="thirdYear.html" class="subnav-link "><i class="fa-solid fa-network-wired" style="color:#8B5CF6;"></i> السنة الثالثة</a>
+        <a href="fourthYear.html" class="subnav-link "><i class="fa-solid fa-laptop-code" style="color:#F59E0B;"></i> السنة الرابعة</a>
+        <a href="fifthYear.html" class="subnav-link "><i class="fa-solid fa-award" style="color:#EC4899;"></i> السنة الخامسة</a>
+        <a href="university-requirements.html" class="subnav-link "><i class="fa-solid fa-graduation-cap" style="color:#06B6D4;"></i> متطلبات الجامعة</a>
+        <a href="gpa-calculator.html" class="subnav-link "><i class="fa-solid fa-calculator"></i> حاسبة المعدل (0-100)</a>
+        <a href="final-calculator.html" class="subnav-link active"><i class="fa-solid fa-bullseye" style="color:#F59E0B;"></i> حاسبة الفاينل 🎯</a>
+        <a href="schedule-builder.html" class="subnav-link "><i class="fa-solid fa-calendar-days" style="color:#0EA5E9;"></i> صانع الجدول 📅</a>
+        <a href="degree-tracker.html" class="subnav-link highlight-btn "><i class="fa-solid fa-network-wired" style="color:#10B981;"></i> شجرة الخطة 🌳</a>
+        <a href="study-tools.html" class="subnav-link "><i class="fa-solid fa-brain" style="color:#10B981;"></i> ادرس من هان 🎓</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Calculator Content -->
+  <main class="final-calc-container">
+    <div class="final-hero-box">
+      <h1 class="final-hero-title">
+        <i class="fa-solid fa-bullseye" style="color:var(--accent-amber);"></i>
+        حاسبة علامة الفاينل المطلوبة
+      </h1>
+      <p class="final-hero-desc">
+        احسب بدقة العلامة التي تحتاجها في الامتحان النهائي لتحقيق التقدير أو المعدل الذي تطمح إليه، مع متابعة أهداف مساقات الفصل الدراسي كاملة.
+      </p>
+    </div>
+
+    <div class="final-calc-grid">
+      <!-- Left Column: Input Form & Calculator -->
+      <section class="final-card animate-fade-in">
+        <div class="final-card-header">
+          <h2 class="final-card-title">
+            <i class="fa-solid fa-sliders" style="color:var(--accent-amber);"></i>
+            بيانات أعمال الفصل والهدف
+          </h2>
+          <span style="font-size:0.75rem; color:var(--text-subtle);">حساب فوري</span>
+        </div>
+
+        <!-- Course Select / Name -->
+        <div class="final-form-group">
+          <label class="final-label" for="calcCourseSelect">اختر المساق الدراسي <span class="final-label-sub">(اختياري)</span></label>
+          <select id="calcCourseSelect" class="final-select"></select>
+        </div>
+
+        <div class="final-form-group">
+          <label class="final-label" for="customCourseName">اسم المساق أو الرمز</label>
+          <input type="text" id="customCourseName" class="final-input" placeholder="مثال: برمجة حاسوب 1 (ECOM 2401)" />
+        </div>
+
+        <!-- Mode Switch: Simple / Detailed -->
+        <div class="final-form-group">
+          <label class="final-label">طريقة إدخال أعمال الفصل</label>
+          <div class="calc-mode-switch">
+            <button type="button" id="modeSimpleBtn" class="mode-switch-btn active">مجموع أعمال الفصل الإجمالي</button>
+            <button type="button" id="modeDetailedBtn" class="mode-switch-btn">تفصيل (ميدتيرم، كويزات، عملي)</button>
+          </div>
+        </div>
+
+        <!-- Simple Input -->
+        <div id="simpleInputsGroup" class="final-form-group">
+          <label class="final-label" for="courseWorkScore">علامة أعمال الفصل الحالية <span class="final-label-sub">(من 50 أو 60)</span></label>
+          <input type="number" id="courseWorkScore" class="final-input" placeholder="مثال: 45" min="0" max="100" step="0.5" value="45" />
+        </div>
+
+        <!-- Detailed Inputs -->
+        <div id="detailedInputsGroup" class="final-form-group" style="display:none;">
+          <div class="detailed-marks-grid">
+            <div>
+              <label class="final-label" for="dMidterm">الامتحان النصفي (Midterm)</label>
+              <input type="number" id="dMidterm" class="final-input" placeholder="مثال: 24" min="0" max="50" step="0.5" />
+            </div>
+            <div>
+              <label class="final-label" for="dQuiz">الكويزات والواجبات</label>
+              <input type="number" id="dQuiz" class="final-input" placeholder="مثال: 10" min="0" max="30" step="0.5" />
+            </div>
+            <div>
+              <label class="final-label" for="dLab">المختبر / العملي</label>
+              <input type="number" id="dLab" class="final-input" placeholder="مثال: 15" min="0" max="30" step="0.5" />
+            </div>
+            <div>
+              <label class="final-label" for="dHw">المشاريع والمشاركات</label>
+              <input type="number" id="dHw" class="final-input" placeholder="مثال: 5" min="0" max="20" step="0.5" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Final Exam Weight -->
+        <div class="final-form-group">
+          <label class="final-label" for="finalWeightSelect">وزن الامتحان النهائي في المساق</label>
+          <select id="finalWeightSelect" class="final-select">
+            <option value="40" selected>40% (أعمال الفصل 60%)</option>
+            <option value="50">50% (أعمال الفصل 50%)</option>
+            <option value="35">35% (أعمال الفصل 65%)</option>
+            <option value="60">60% (أعمال الفصل 40%)</option>
+          </select>
+        </div>
+
+        <!-- Target Grade -->
+        <div class="final-form-group">
+          <label class="final-label" for="targetGradeInput">العلامة أو التقدير المستهدف في المادة (%)</label>
+          <input type="number" id="targetGradeInput" class="final-input" placeholder="مثال: 85" min="50" max="100" step="1" value="85" />
+          
+          <div class="final-preset-chips">
+            <button type="button" class="preset-chip" data-val="95">امتياز مرتفع A+ (95%)</button>
+            <button type="button" class="preset-chip" data-val="90">امتياز A (90%)</button>
+            <button type="button" class="preset-chip active" data-val="85">جيد جداً مرتفع B+ (85%)</button>
+            <button type="button" class="preset-chip" data-val="80">جيد جداً B (80%)</button>
+            <button type="button" class="preset-chip" data-val="75">جيد مرتفع C+ (75%)</button>
+            <button type="button" class="preset-chip" data-val="60">النجاح في المادة C (60%)</button>
+          </div>
+        </div>
+
+        <!-- Result Box -->
+        <div class="final-result-box">
+          <span style="font-size:0.875rem; font-weight:700; color:var(--text-subtle);">العلامة المطلوبة في الامتحان النهائي</span>
+          <div class="result-main-number">
+            <span id="resultDisplayNumber">40.0</span>
+            <span id="resultDisplayMax" class="result-main-max">/ 40</span>
+          </div>
+          <div id="resultStatusBadge" class="result-status-badge status-medium">
+            <i class="fa-solid fa-thumbs-up"></i> ممتازة مع دراسة منظمة 🔵
+          </div>
+          <p id="resultAdviceText" class="result-advice-p">
+            تحتاج إلى مراجعة وافية للمسائل وسلايدات المساق لتحقيق هذا الهدف بإذن الله.
+          </p>
+        </div>
+
+        <!-- Add to Semester Button -->
+        <div class="final-btn-row">
+          <button type="button" id="addCourseBtn" class="final-primary-btn">
+            <i class="fa-solid fa-plus-circle"></i> إضافة إلى جدول مساقات الفصل
+          </button>
+        </div>
+      </section>
+
+      <!-- Right Column: Saved Semester Courses Dashboard -->
+      <section class="final-card animate-fade-in">
+        <div class="final-card-header">
+          <h2 class="final-card-title">
+            <i class="fa-solid fa-list-check" style="color:var(--accent-teal);"></i>
+            جدول أهداف الفصل (<span id="savedCountBadge">0</span>)
+          </h2>
+          <div style="display:flex; gap:0.4rem;">
+            <button type="button" id="printReportBtn" class="final-secondary-btn" title="طباعة تقرير الأهداف">
+              <i class="fa-solid fa-print"></i>
+            </button>
+            <button type="button" id="clearAllBtn" class="final-secondary-btn" title="مسح الكل">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </div>
+
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;">
+          احفظ أهدافك لجميع مواد الفصل الحالي لتبقى على اطلاع مستمر بما تحتاجه في كل امتحان نهائي.
+        </p>
+
+        <div id="savedCoursesList" class="saved-courses-list"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer-full">
+    <div class="footer-grid">
+      <div class="footer-col brand-col">
+        <div class="footer-brand-header">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="10" fill="#1B2A4A"/>
+            <rect x="11" y="11" width="18" height="18" rx="4" fill="#0F172A" stroke="#F59E0B" stroke-width="2"/>
+            <circle cx="20" cy="20" r="4" fill="#F59E0B"/>
+            <path d="M7 16H11M7 24H11M29 16H33M29 24H33M16 7V11M24 7V11M16 29V33M24 29V33" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span class="footer-brand-title">هندسة الحاسوب — الجامعة الإسلامية بغزة</span>
+        </div>
+        <p class="footer-desc">
+          المنصة الأكاديمية الشاملة لطلبة قسم هندسة الحاسوب، توفر السلايدات، الكتب، المحاضرات، أدوات الدراسة التفاعلية، شجرة المتطلبات السابقة، وحاسبات المعدل والفاينل وصانع الجداول.
+        </p>
+      </div>
+
+      <div class="footer-col links-col">
+        <h4 class="footer-heading">روابط سريعة وأدوات</h4>
+        <ul class="footer-links-list">
+          <li><a href="index.html"><i class="fa-solid fa-chevron-left"></i> الصفحة الرئيسية</a></li>
+          <li><a href="degree-tracker.html"><i class="fa-solid fa-chevron-left"></i> شجرة المتطلبات ومتابع الخطة</a></li>
+          <li><a href="schedule-builder.html"><i class="fa-solid fa-chevron-left"></i> صانع الجدول الأسبوعي</a></li>
+          <li><a href="final-calculator.html"><i class="fa-solid fa-chevron-left"></i> حاسبة علامة الفاينل المطلوبة</a></li>
+          <li><a href="gpa-calculator.html"><i class="fa-solid fa-chevron-left"></i> حاسبة المعدل التراكمي</a></li>
+          <li><a href="study-tools.html"><i class="fa-solid fa-chevron-left"></i> أدوات الدراسة والوايت بورد</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col contact-col">
+        <h4 class="footer-heading">تواصل وتطبيقات المنصة</h4>
+        <ul class="footer-links-list">
+          <li>
+            <a href="javascript:void(0)" onclick="window.triggerPwaInstall()" style="color:#10B981; font-weight:800;">
+              <i class="fa-solid fa-mobile-screen-button"></i> <strong>تثبيت التطبيق على هاتفك 📲</strong>
+            </a>
+          </li>
+          <li><a href="https://t.me/+lUyeZmUh7KpjM2Fi" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-telegram" style="color:#0EA5E9;"></i> قناة التليجرام الرسمية</a></li>
+          <li><a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-robot" style="color:#10B981;"></i> بوت المواد والملفات</a></li>
+          <li><a href="https://wa.me/972595346617" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> واتساب: +972 59-534-6617</a></li>
+          <li><a href="mailto:mnmaassddll@gmail.com"><i class="fa-solid fa-envelope" style="color:#F59E0B;"></i> راسلني عبر الإيميل</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>جميع الحقوق محفوظة © قسم هندسة الحاسوب — الجامعة الإسلامية بغزة (IUG)</p>
+      <p class="dev-credits">تطوير وبرمجة: <strong>م. مصعب موسى الأسود</strong> & <strong>م. عز الدين بسام المجدلاوي</strong></p>
+    </div>
+  </footer>
+
+  <!-- Scripts in proper order -->
+  <script src="subjects-data.js"></script>
+  <script src="main.js"></script>
+  <script src="final-calculator.js"></script>
+</body>
+</html>

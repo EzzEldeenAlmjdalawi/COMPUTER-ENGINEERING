@@ -1,0 +1,363 @@
+/* ==========================================================================
+   DEGREE TRACKER & PREREQUISITES TREE CSS
+   Computer Engineering IUG
+   ========================================================================== */
+
+.tracker-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 3vw, 2.5rem) clamp(0.75rem, 3vw, 1.25rem) 5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Hero Box */
+.tracker-hero-box {
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.tracker-hero-title {
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+  font-weight: 900;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.tracker-hero-desc {
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  color: var(--text-muted);
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Stats Progress Banner */
+.tracker-stats-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  align-items: center;
+}
+
+@media (max-width: 840px) {
+  .tracker-stats-card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .tracker-stats-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.t-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.t-stat-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-subtle);
+}
+
+.t-stat-val {
+  font-family: var(--font-mono);
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 900;
+  color: var(--accent-amber);
+  line-height: 1.1;
+}
+
+.t-progress-wrap {
+  grid-column: 1 / -1;
+  margin-top: 0.5rem;
+}
+
+.t-progress-bar {
+  height: 10px;
+  background: var(--bg-surface-subtle);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+}
+
+.t-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10B981, #0EA5E9, #F59E0B);
+  border-radius: var(--radius-full);
+  transition: width 0.4s ease;
+}
+
+/* Control & Filter Chips Bar */
+.tracker-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.t-filter-chips {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.t-chip {
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-default);
+  color: var(--text-muted);
+  font-size: 0.825rem;
+  font-weight: 700;
+  cursor: pointer;
+  min-height: 38px;
+  touch-action: manipulation;
+  transition: all var(--transition-fast);
+}
+
+.t-chip:hover {
+  border-color: var(--border-strong);
+  color: var(--text-main);
+}
+
+.t-chip.active {
+  background: var(--primary-slate);
+  color: #FFFFFF;
+  border-color: var(--accent-amber);
+  box-shadow: 0 0 0 2px var(--accent-amber-glow);
+}
+
+.t-actions-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.t-action-btn {
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-default);
+  color: var(--text-main);
+  font-size: 0.825rem;
+  font-weight: 700;
+  cursor: pointer;
+  min-height: 38px;
+  touch-action: manipulation;
+  transition: all var(--transition-fast);
+}
+
+.t-action-btn:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-surface);
+}
+
+/* Grid of Courses */
+.tracker-years-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tracker-year-group {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  box-shadow: var(--shadow-sm);
+}
+
+.tracker-year-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.tracker-year-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tracker-courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.85rem;
+}
+
+/* Single Course Card in Tracker */
+.tracker-course-card {
+  background: var(--bg-surface-subtle);
+  border: 1.5px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.6rem;
+  position: relative;
+  user-select: none;
+}
+
+.tracker-course-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Card States */
+.tracker-course-card.is-passed {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: #10B981;
+}
+
+.tracker-course-card.is-passed .tc-check-circle {
+  background: #10B981;
+  color: #FFFFFF;
+  border-color: #10B981;
+}
+
+.tracker-course-card.is-eligible {
+  border-color: var(--accent-teal);
+  box-shadow: 0 0 0 1px var(--accent-teal);
+}
+
+.tracker-course-card.is-locked {
+  opacity: 0.65;
+  border-style: dashed;
+}
+
+/* Card Elements */
+.tc-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.tc-badges-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.25rem;
+}
+
+.tc-code-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-sm);
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--accent-amber);
+}
+
+.tc-hours-badge {
+  font-size: 0.675rem;
+  font-weight: 700;
+  padding: 0.1rem 0.4rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  color: var(--text-subtle);
+  border: 1px solid var(--border-default);
+}
+
+.tc-name {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.35;
+}
+
+.tc-check-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid var(--border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: transparent;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+/* Prereq Bottom Text */
+.tc-prereq-info {
+  font-size: 0.725rem;
+  color: var(--text-subtle);
+  padding-top: 0.45rem;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.tc-prereq-info strong {
+  color: var(--text-main);
+}
+
+.tc-status-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-sm);
+}
+
+.tag-passed { background: rgba(16, 185, 129, 0.18); color: #10B981; }
+.tag-open   { background: rgba(14, 165, 233, 0.18); color: #0EA5E9; }
+.tag-locked { background: rgba(239, 68, 68, 0.18); color: #EF4444; }
+
+/* Print Styles */
+@media print {
+  .unified-navbar,
+  .desktop-subnav,
+  .tracker-filter-bar,
+  .footer-full,
+  .floating-pomodoro-pill {
+    display: none !important;
+  }
+
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+
+  .tracker-stats-card,
+  .tracker-year-group,
+  .tracker-course-card {
+    border: 1px solid #CCCCCC !important;
+    box-shadow: none !important;
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+}
