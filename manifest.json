@@ -10,7 +10,11 @@
   "theme_color": "#1B2A4A",
   "lang": "ar",
   "dir": "rtl",
-  "categories": ["education", "productivity", "utilities"],
+  "categories": [
+    "education",
+    "productivity",
+    "utilities"
+  ],
   "icons": [
     {
       "src": "favicon.png",
@@ -51,34 +55,70 @@
   ],
   "shortcuts": [
     {
+      "name": "الورد القرآني اليومي",
+      "short_name": "الورد اليومي",
+      "url": "quran-wird.html",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
       "name": "حاسبة المعدل التراكمي",
       "short_name": "حاسبة المعدل",
       "url": "gpa-calculator.html",
-      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     },
     {
       "name": "حاسبة علامة الفاينل",
       "short_name": "حاسبة الفاينل",
       "url": "final-calculator.html",
-      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     },
     {
       "name": "صانع الجدول الأسبوعي",
       "short_name": "صانع الجدول",
       "url": "schedule-builder.html",
-      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     },
     {
       "name": "شجرة الخطة والمتطلبات",
       "short_name": "شجرة الخطة",
       "url": "degree-tracker.html",
-      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     },
     {
       "name": "البحث الشامل في المواد",
       "short_name": "البحث",
       "url": "search.html",
-      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ]
 }

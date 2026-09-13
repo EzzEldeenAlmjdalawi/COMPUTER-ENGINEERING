@@ -138,6 +138,7 @@
         <span class="sidebar-section-label">التنقل والأدوات الأكاديمية</span>
         <div class="sidebar-links-list">
           <a href="index.html" class="sidebar-nav-item "><i class="fa-solid fa-house"></i> <span>الرئيسية</span></a>
+          <a href="quran-wird.html" class="sidebar-nav-item "><i class="fa-solid fa-book-quran" style="color:#D4AF37;"></i> <span>الورد اليومي 📖</span></a>
           <a href="firstYear.html" class="sidebar-nav-item "><i class="fa-solid fa-cubes" style="color:#0EA5E9;"></i> <span>السنة الأولى</span></a>
           <a href="secndYear.html" class="sidebar-nav-item "><i class="fa-solid fa-microchip" style="color:#10B981;"></i> <span>السنة الثانية</span></a>
           <a href="thirdYear.html" class="sidebar-nav-item "><i class="fa-solid fa-network-wired" style="color:#8B5CF6;"></i> <span>السنة الثالثة</span></a>
