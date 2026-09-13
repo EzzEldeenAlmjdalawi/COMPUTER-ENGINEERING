@@ -264,7 +264,50 @@
 
   </main>
 
-  <!-- Footer -->
+  <!-- Favorites Modal -->
+  <div id="favoritesModal" class="ce-modal-backdrop" style="display:none;" onclick="window.closeFavoritesModal()">
+    <div class="ce-modal-card animate-fade-in" onclick="event.stopPropagation()">
+      <div class="ce-modal-header">
+        <h3 class="ce-modal-title"><i class="fa-solid fa-star" style="color:var(--accent-amber);"></i> المواد المحفوظة في المفضلة</h3>
+        <button type="button" class="sidebar-close-btn" onclick="window.closeFavoritesModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="favoritesModalList" class="ce-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Pomodoro Focus Modal -->
+  <div id="pomodoroModal" class="ce-modal-backdrop" style="display:none;" onclick="window.closePomodoroModal()">
+    <div class="ce-modal-card animate-fade-in" style="max-width:440px; text-align:center;" onclick="event.stopPropagation()">
+      <div class="ce-modal-header">
+        <h3 class="ce-modal-title"><i class="fa-solid fa-stopwatch" style="color:var(--accent-teal);"></i> مؤقت التركيز (بومودورو)</h3>
+        <button type="button" class="sidebar-close-btn" onclick="window.closePomodoroModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="ce-modal-body" style="padding:2rem 1.5rem;">
+        <div style="display:flex; justify-content:center; gap:0.5rem; margin-bottom:1.5rem;">
+          <button type="button" class="gpa-tab-btn pomo-mode-btn active" data-mode="focus" onclick="window.setPomoMode('focus')">جلسة تركيز (25 د)</button>
+          <button type="button" class="gpa-tab-btn pomo-mode-btn" data-mode="short" onclick="window.setPomoMode('short')">استراحة (5 د)</button>
+          <button type="button" class="gpa-tab-btn pomo-mode-btn" data-mode="long" onclick="window.setPomoMode('long')">استراحة (15 د)</button>
+        </div>
+        <div id="pomoModalDisplay" style="font-family:var(--font-mono); font-size:3.5rem; font-weight:900; color:var(--accent-amber); margin-bottom:1.5rem;">25:00</div>
+        <div style="display:flex; justify-content:center; gap:0.75rem;">
+          <button type="button" id="pomoToggleBtn" class="gpa-btn-solid" onclick="window.togglePomoTimer()" style="padding:0.75rem 1.75rem; font-size:1rem;">
+            <i class="fa-solid fa-play"></i> بدء المؤقت
+          </button>
+          <button type="button" class="gpa-btn-outline" onclick="window.resetPomoTimer()" style="padding:0.75rem 1.25rem;">
+            <i class="fa-solid fa-rotate-right"></i> إعادة ضبط
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Pomodoro Pill -->
+  <div id="floatingPomoPill" class="floating-pomodoro-pill" onclick="window.openPomodoroModal()" title="فتح مؤقت بومودورو">
+    <i class="fa-solid fa-stopwatch" style="color:var(--accent-amber);"></i>
+    <span id="floatingPomoTime" class="pomo-time-display">25:00</span>
+  </div>
+
+  <!-- Scripts -->
   <script src="subjects-data.js"></script>
   <script src="main.js"></script>
   <script src="quran-data.js"></script>

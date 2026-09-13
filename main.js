@@ -244,11 +244,34 @@
     });
   }
 
+  function injectFavoritesModal() {
+    if (document.getElementById('favoritesModal')) return;
+    const div = document.createElement('div');
+    div.innerHTML = `
+      <div id="favoritesModal" class="ce-modal-backdrop" style="display:none;" onclick="window.closeFavoritesModal()">
+        <div class="ce-modal-card animate-fade-in" onclick="event.stopPropagation()">
+          <div class="ce-modal-header">
+            <h3 class="ce-modal-title"><i class="fa-solid fa-star" style="color:var(--accent-amber);"></i> المواد المحفوظة في المفضلة</h3>
+            <button type="button" class="sidebar-close-btn" onclick="window.closeFavoritesModal()"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div id="favoritesModalList" class="ce-modal-body"></div>
+        </div>
+      </div>
+    `;
+    const el = div.firstElementChild;
+    if (el) document.body.appendChild(el);
+  }
+
   window.openFavoritesModal = function () {
-    const favs = window.getFavorites();
-    const modal = document.getElementById('favoritesModal');
-    const listEl = document.getElementById('favoritesModalList');
+    let modal = document.getElementById('favoritesModal');
+    let listEl = document.getElementById('favoritesModalList');
+    if (!modal || !listEl) {
+      injectFavoritesModal();
+      modal = document.getElementById('favoritesModal');
+      listEl = document.getElementById('favoritesModalList');
+    }
     if (!modal || !listEl) return;
+    const favs = window.getFavorites();
 
     if (favs.length === 0) {
       listEl.innerHTML = `
@@ -473,8 +496,50 @@
     });
   }
 
+  function injectPomodoroModal() {
+    if (document.getElementById('pomodoroModal')) return;
+    const div = document.createElement('div');
+    div.innerHTML = `
+      <div id="pomodoroModal" class="ce-modal-backdrop" style="display:none;" onclick="window.closePomodoroModal()">
+        <div class="ce-modal-card animate-fade-in" style="max-width:440px; text-align:center;" onclick="event.stopPropagation()">
+          <div class="ce-modal-header">
+            <h3 class="ce-modal-title"><i class="fa-solid fa-stopwatch" style="color:var(--accent-teal);"></i> مؤقت التركيز (بومودورو)</h3>
+            <button type="button" class="sidebar-close-btn" onclick="window.closePomodoroModal()"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div class="ce-modal-body" style="padding:2rem 1.5rem;">
+            <div style="display:flex; justify-content:center; gap:0.5rem; margin-bottom:1.5rem;">
+              <button type="button" class="gpa-tab-btn pomo-mode-btn active" data-mode="focus" onclick="window.setPomoMode('focus')">جلسة تركيز (25 د)</button>
+              <button type="button" class="gpa-tab-btn pomo-mode-btn" data-mode="short" onclick="window.setPomoMode('short')">استراحة (5 د)</button>
+              <button type="button" class="gpa-tab-btn pomo-mode-btn" data-mode="long" onclick="window.setPomoMode('long')">استراحة (15 د)</button>
+            </div>
+            <div id="pomoModalDisplay" style="font-family:var(--font-mono); font-size:3.5rem; font-weight:900; color:var(--accent-amber); margin-bottom:1.5rem;">25:00</div>
+            <div style="display:flex; justify-content:center; gap:0.75rem;">
+              <button type="button" id="pomoToggleBtn" class="gpa-btn-solid" onclick="window.togglePomoTimer()" style="padding:0.75rem 1.75rem; font-size:1rem;">
+                <i class="fa-solid fa-play"></i> بدء المؤقت
+              </button>
+              <button type="button" class="gpa-btn-outline" onclick="window.resetPomoTimer()" style="padding:0.75rem 1.25rem;">
+                <i class="fa-solid fa-rotate-right"></i> إعادة ضبط
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="floatingPomoPill" class="floating-pomodoro-pill" onclick="window.openPomodoroModal()" title="فتح مؤقت بومودورو">
+        <i class="fa-solid fa-stopwatch" style="color:var(--accent-amber);"></i>
+        <span id="floatingPomoTime" class="pomo-time-display">25:00</span>
+      </div>
+    `;
+    while (div.firstChild) {
+      document.body.appendChild(div.firstChild);
+    }
+  }
+
   window.openPomodoroModal = function () {
-    const modal = document.getElementById('pomodoroModal');
+    let modal = document.getElementById('pomodoroModal');
+    if (!modal) {
+      injectPomodoroModal();
+      modal = document.getElementById('pomodoroModal');
+    }
     if (modal) {
       modal.style.display = 'flex';
       updatePomoUI();
