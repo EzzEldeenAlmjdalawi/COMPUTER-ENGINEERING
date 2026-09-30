@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="themes.css">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#1B2A4A">
+  <meta name="theme-color" content="#050811">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="هندسة الحاسوب IUG">
@@ -32,13 +32,13 @@
         <a href="index.html" class="brand-logo-link">
           <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="40" height="40" rx="10" fill="url(#logo_grad_home)"/>
-            <rect x="11" y="11" width="18" height="18" rx="4" fill="#0F172A" stroke="#F59E0B" stroke-width="2"/>
-            <circle cx="20" cy="20" r="4" fill="#F59E0B"/>
-            <path d="M7 16H11M7 24H11M29 16H33M29 24H33M16 7V11M24 7V11M16 29V33M24 29V33" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round"/>
+            <rect x="11" y="11" width="18" height="18" rx="4" fill="#0A0F1D" stroke="#FFB800" stroke-width="2"/>
+            <circle cx="20" cy="20" r="4" fill="#FF1E56"/>
+            <path d="M7 16H11M7 24H11M29 16H33M29 24H33M16 7V11M24 7V11M16 29V33M24 29V33" stroke="#00D2FF" stroke-width="2" stroke-linecap="round"/>
             <defs>
               <linearGradient id="logo_grad_home" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#1B2A4A"/>
-                <stop offset="1" stop-color="#0F172A"/>
+                <stop stop-color="#0C1322"/>
+                <stop offset="1" stop-color="#050811"/>
               </linearGradient>
             </defs>
           </svg>
@@ -49,6 +49,7 @@
         </a>
       </div>
 
+      <!-- Spacious High-Tech Global Search Area -->
       <div class="navbar-search-area">
         <div class="search-input-wrapper">
           <i class="fa-solid fa-magnifying-glass search-icon-inside"></i>
@@ -57,9 +58,20 @@
         </div>
       </div>
 
-                  <div class="navbar-actions">
+      <div class="navbar-actions">
+        <!-- Prominent Dark/Light Theme Toggle Button -->
+        <button type="button" onclick="window.toggleDarkMode()" class="theme-toggle-btn" title="تبديل الوضع الليلي والنهاري" aria-label="تبديل الوضع الليلي">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <!-- Glowing Ruby CTA Pill (Matching Reference Design) -->
+        <a href="degree-tracker.html" class="nav-cta-ruby-btn" title="عرض شجرة الخطة الدراسية">
+          <i class="fa-solid fa-network-wired"></i>
+          <span>شجرة الخطة 🌳</span>
+        </a>
+
         <button type="button" onclick="window.triggerPwaInstall()" class="action-icon-pill pwa-navbar-btn" title="تثبيت التطبيق على الجوال 📲">
-          <i class="fa-solid fa-mobile-screen-button" style="color:#10B981;"></i>
+          <i class="fa-solid fa-mobile-screen-button" style="color:#00FF9D;"></i>
           <span>تثبيت التطبيق</span>
         </button>
 
@@ -87,10 +99,6 @@
           <i class="fa-solid fa-robot"></i>
           <span>بوت الملفات</span>
         </a>
-
-        <button type="button" onclick="window.toggleDarkMode()" class="theme-toggle-btn" title="تبديل الوضع الليلي" aria-label="تبديل الوضع الليلي">
-          <i class="fa-solid fa-moon"></i>
-        </button>
       </div>
     </div>
 
@@ -98,82 +106,357 @@
     <nav class="desktop-subnav">
       <div class="subnav-container">
         <a href="index.html" class="subnav-link active"><i class="fa-solid fa-house"></i> الرئيسية</a>
-        <a href="quran-wird.html" class="subnav-link "><i class="fa-solid fa-book-quran" style="color:#D4AF37;"></i> الورد اليومي 📖</a>
-        <a href="firstYear.html" class="subnav-link "><i class="fa-solid fa-cubes" style="color:#0EA5E9;"></i> السنة الأولى</a>
-        <a href="secndYear.html" class="subnav-link "><i class="fa-solid fa-microchip" style="color:#10B981;"></i> السنة الثانية</a>
-        <a href="thirdYear.html" class="subnav-link "><i class="fa-solid fa-network-wired" style="color:#8B5CF6;"></i> السنة الثالثة</a>
-        <a href="fourthYear.html" class="subnav-link "><i class="fa-solid fa-laptop-code" style="color:#F59E0B;"></i> السنة الرابعة</a>
-        <a href="fifthYear.html" class="subnav-link "><i class="fa-solid fa-award" style="color:#EC4899;"></i> السنة الخامسة</a>
-        <a href="university-requirements.html" class="subnav-link "><i class="fa-solid fa-graduation-cap" style="color:#06B6D4;"></i> متطلبات الجامعة</a>
-        <a href="gpa-calculator.html" class="subnav-link "><i class="fa-solid fa-calculator"></i> حاسبة المعدل</a>
-        <a href="final-calculator.html" class="subnav-link "><i class="fa-solid fa-bullseye" style="color:#F59E0B;"></i> حاسبة الفاينل 🎯</a>
-        <a href="schedule-builder.html" class="subnav-link "><i class="fa-solid fa-calendar-days" style="color:#0EA5E9;"></i> صانع الجدول 📅</a>
-        <a href="degree-tracker.html" class="subnav-link highlight-btn "><i class="fa-solid fa-network-wired" style="color:#10B981;"></i> شجرة الخطة 🌳</a>
-        <a href="study-tools.html" class="subnav-link "><i class="fa-solid fa-brain" style="color:#10B981;"></i> ادرس من هان 🎓</a>
+        <a href="quran-wird.html" class="subnav-link"><i class="fa-solid fa-book-quran" style="color:#FFB800;"></i> الورد اليومي 📖</a>
+        <a href="firstYear.html" class="subnav-link"><i class="fa-solid fa-cubes" style="color:#00D2FF;"></i> السنة الأولى</a>
+        <a href="secndYear.html" class="subnav-link"><i class="fa-solid fa-microchip" style="color:#00FF9D;"></i> السنة الثانية</a>
+        <a href="thirdYear.html" class="subnav-link"><i class="fa-solid fa-network-wired" style="color:#9D4EDD;"></i> السنة الثالثة</a>
+        <a href="fourthYear.html" class="subnav-link"><i class="fa-solid fa-laptop-code" style="color:#FFB800;"></i> السنة الرابعة</a>
+        <a href="fifthYear.html" class="subnav-link"><i class="fa-solid fa-award" style="color:#FF2E93;"></i> السنة الخامسة</a>
+        <a href="university-requirements.html" class="subnav-link"><i class="fa-solid fa-graduation-cap" style="color:#00D2FF;"></i> متطلبات الجامعة</a>
+        <a href="gpa-calculator.html" class="subnav-link"><i class="fa-solid fa-calculator" style="color:#FFB800;"></i> حاسبة المعدل</a>
+        <a href="final-calculator.html" class="subnav-link"><i class="fa-solid fa-bullseye" style="color:#FF1E56;"></i> حاسبة الفاينل 🎯</a>
+        <a href="schedule-builder.html" class="subnav-link"><i class="fa-solid fa-calendar-days" style="color:#00D2FF;"></i> صانع الجدول 📅</a>
+        <a href="degree-tracker.html" class="subnav-link highlight-btn"><i class="fa-solid fa-network-wired" style="color:#00FF9D;"></i> شجرة الخطة 🌳</a>
+        <a href="study-tools.html" class="subnav-link"><i class="fa-solid fa-brain" style="color:#00FF9D;"></i> ادرس من هان 🎓</a>
       </div>
     </nav>
   </header>
 
-  <!-- Hero Banner -->
-  <!-- Hero Banner -->
-  <section class="hero-section">
-    <div class="container hero-grid-layout">
-      <div>
-        <div style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.35rem 0.85rem; background:var(--bg-surface-subtle); border:1px solid var(--border-default); border-radius:var(--radius-full); font-size:0.825rem; font-weight:800; color:var(--accent-amber); margin-bottom:1.25rem;">
-          <i class="fa-solid fa-microchip"></i>
-          <span>المنصة التعليمية الأولى لمهندسي الحاسوب • IUG</span>
+  <!-- Epic Hero Section (High-Tech Cyber Engineering with Silicon Heart & Branching Circuit Trees) -->
+  <section class="hero-epic-section">
+    <div class="hero-grid-bg-overlay"></div>
+    <div class="container hero-epic-content-grid">
+      
+      <!-- Text & CTA Column -->
+      <div class="hero-text-col reveal-on-scroll">
+        <div class="hero-status-pill">
+          <span class="status-live-dot"></span>
+          <span>المنصة الهندسية الرسمية لطلبة هندسة الحاسوب • IUG</span>
         </div>
-        <h1 class="hero-title-main">
-          هندسة الحاسوب — <span style="color:var(--accent-amber);">الجامعة الإسلامية بغزة</span>
+        <h1 class="hero-epic-title">
+          هندسة الحاسوب — <span class="hero-title-highlight">الجامعة الإسلامية</span>
         </h1>
-        <p class="hero-sub-p">
-          منصتك الأكاديمية الشاملة للوصول إلى كافة المراجع، السلايدات، المحاضرات، الامتحانات السابقة، حاسبة المعدل 0–100 الرسمية، وأدوات الدراسة التفاعلية.
+        <p class="hero-epic-lead">
+          منصتك الأكاديمية الشاملة للوصول إلى كافة المقررات، السلايدات، المحاضرات، بنك الامتحانات السابقة، حاسبة المعدل التراكمي الرسمية (167 ساعة معتمدة)، وأدوات التميز الهندسي.
         </p>
 
-        <div class="hero-actions-row">
-          <a href="firstYear.html" class="gpa-btn-solid" style="padding:0.85rem 1.6rem; font-size:0.95rem;">
-            <i class="fa-solid fa-book-open-reader"></i> تصفح المواد الدراسية
+        <div class="hero-cta-button-group">
+          <a href="firstYear.html" class="hero-primary-glow-btn">
+            <i class="fa-solid fa-book-open-reader"></i>
+            <span>تصفح المقررات الدراسية</span>
           </a>
-          <a href="gpa-calculator.html" class="gpa-btn-outline" style="padding:0.85rem 1.4rem; font-size:0.95rem;">
-            <i class="fa-solid fa-calculator" style="color:var(--accent-amber);"></i> حاسبة المعدل (167 ساعة)
+          <a href="gpa-calculator.html" class="hero-secondary-glass-btn">
+            <i class="fa-solid fa-calculator" style="color:var(--accent-amber);"></i>
+            <span>حاسبة المعدل (167 ساعة)</span>
           </a>
-          <a href="search.html" class="gpa-btn-outline" style="padding:0.85rem 1.4rem; font-size:0.95rem;">
-            <i class="fa-solid fa-magnifying-glass" style="color:var(--accent-teal);"></i> البحث الشامل
+          <a href="degree-tracker.html" class="hero-secondary-glass-btn">
+            <i class="fa-solid fa-network-wired" style="color:var(--accent-emerald);"></i>
+            <span>شجرة الخطة 🌳</span>
           </a>
+        </div>
+
+        <div class="hero-quick-metrics-row">
+          <div class="hero-metric-item">
+            <span class="hero-metric-number" style="color:var(--accent-amber);">5</span>
+            <span class="hero-metric-label">سنوات دراسية</span>
+          </div>
+          <div class="hero-metric-item">
+            <span class="hero-metric-number" style="color:var(--accent-emerald);">167</span>
+            <span class="hero-metric-label">ساعة معتمدة</span>
+          </div>
+          <div class="hero-metric-item">
+            <span class="hero-metric-number" style="color:var(--accent-teal);">50+</span>
+            <span class="hero-metric-label">مساقاً ومختبراً</span>
+          </div>
+          <div class="hero-metric-item">
+            <span class="hero-metric-number" style="color:var(--accent-ruby);">100%</span>
+            <span class="hero-metric-label">محتوى مفتوح</span>
+          </div>
         </div>
       </div>
 
-      <!-- Hero Microchip SVG Illustration -->
-      <div class="hero-chip-svg-wrap">
-        <svg width="340" height="340" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:100%; height:auto;">
-          <rect x="20" y="20" width="300" height="300" rx="30" fill="var(--bg-surface-subtle)" stroke="var(--border-default)" stroke-width="2"/>
-          <rect x="70" y="70" width="200" height="200" rx="20" fill="url(#hero_chip_bg)" stroke="#1B2A4A" stroke-width="4"/>
-          <rect x="110" y="110" width="120" height="120" rx="12" fill="#0F172A" stroke="#F59E0B" stroke-width="3"/>
-          <circle cx="170" cy="170" r="28" fill="url(#hero_core_glow)"/>
-          <path d="M30 130H70M30 170H70M30 210H70M270 130H310M270 170H310M270 210H310M130 30V70M170 30V70M210 30V70M130 270V310M170 270V310M210 270V310" stroke="#0EA5E9" stroke-width="3" stroke-linecap="round"/>
-          <circle cx="30" cy="130" r="4" fill="#F59E0B"/>
-          <circle cx="30" cy="210" r="4" fill="#10B981"/>
-          <circle cx="310" cy="170" r="4" fill="#F59E0B"/>
-          <circle cx="170" cy="30" r="4" fill="#10B981"/>
-          <circle cx="170" cy="310" r="4" fill="#0EA5E9"/>
+      <!-- Centerpiece Visual Column (Cybernetic Silicon Heart & Majestic Branching Circuit Trees) -->
+      <div class="hero-centerpiece-visual reveal-on-scroll">
+        
+        <!-- Floating HUD Badges -->
+        <div class="floating-hud-badge hud-top-left">
+          <i class="fa-solid fa-microchip" style="color:#00D2FF;"></i>
+          <span>Architecture: RISC-V 64b</span>
+        </div>
+
+        <div class="floating-hud-badge hud-bottom-right">
+          <i class="fa-solid fa-brain" style="color:#FF1E56;"></i>
+          <span>Neural Engine: 64 TOPS</span>
+        </div>
+
+        <div class="floating-hud-badge hud-bottom-left">
+          <i class="fa-solid fa-bolt" style="color:#FFB800;"></i>
+          <span>Real-Time I/O: 1.2 TB/s</span>
+        </div>
+
+        <!-- Custom Masterpiece: Cybernetic Silicon Heart with Majestic Branching Circuit Trees -->
+        <svg class="hero-circuit-tree-container" viewBox="0 0 760 480" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="القلب السيليكوني الهجين وشجرة المسارات والدوائر الإلكترونية">
           <defs>
-            <linearGradient id="hero_chip_bg" x1="70" y1="70" x2="270" y2="270" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#1B2A4A"/>
-              <stop offset="1" stop-color="#0F172A"/>
-            </linearGradient>
-            <radialGradient id="hero_core_glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(170 170) rotate(90) scale(28)">
-              <stop stop-color="#F59E0B"/>
-              <stop offset="1" stop-color="#0EA5E9" stop-opacity="0.2"/>
+            <!-- Atmospheric Radial Glows (Ruby, Amber & Cyber Cyan) -->
+            <radialGradient id="ruby_heart_aura" cx="380" cy="240" r="230" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FF1E56" stop-opacity="0.25"/>
+              <stop offset="0.5" stop-color="#FFB800" stop-opacity="0.12"/>
+              <stop offset="1" stop-color="#00D2FF" stop-opacity="0"/>
             </radialGradient>
+
+            <radialGradient id="die_core_plasma" cx="380" cy="240" r="55" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FF1E56" stop-opacity="0.95"/>
+              <stop offset="0.45" stop-color="#FFB800" stop-opacity="0.8"/>
+              <stop offset="1" stop-color="#00D2FF" stop-opacity="0"/>
+            </radialGradient>
+
+            <linearGradient id="die_plate_3d" x1="300" y1="160" x2="460" y2="320" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#162238"/>
+              <stop offset="0.5" stop-color="#0C1322"/>
+              <stop offset="1" stop-color="#050811"/>
+            </linearGradient>
+
+            <!-- Glow Filters -->
+            <filter id="neon_laser_filter" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="6" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+            <filter id="core_ruby_glow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="12" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
           </defs>
+
+          <!-- Ambient Atmospheric Light -->
+          <circle cx="380" cy="240" r="230" fill="url(#ruby_heart_aura)" />
+
+          <!-- Left Branching Circuit Tree -->
+          <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <!-- Major Branch 1 -->
+            <path d="M300 200 H230 L160 120 H90 L50 70" stroke="#00D2FF" stroke-width="2.5" opacity="0.85"/>
+            <path class="svg-bus-flow" d="M300 200 H230 L160 120 H90 L50 70" stroke="#00FF9D" stroke-width="2.5"/>
+            <path d="M230 120 V80 H140 L100 45" stroke="#00D2FF" stroke-width="1.8" opacity="0.65"/>
+            <path d="M160 120 V160 H110 L70 190" stroke="#FFB800" stroke-width="1.8" opacity="0.7"/>
+
+            <!-- Major Branch 2 -->
+            <path d="M300 240 H210 L150 240 H90 L40 220" stroke="#00D2FF" stroke-width="2.5" opacity="0.85"/>
+            <path class="svg-bus-flow-reverse" d="M300 240 H210 L150 240 H90 L40 220" stroke="#FF1E56" stroke-width="2.5"/>
+            <path d="M210 240 L170 280 H100 L60 300" stroke="#FFB800" stroke-width="1.8" opacity="0.75"/>
+            <path d="M150 240 L120 200 H60 L30 170" stroke="#00D2FF" stroke-width="1.8" opacity="0.65"/>
+
+            <!-- Major Branch 3 -->
+            <path d="M300 280 H230 L170 360 H100 L50 410" stroke="#FFB800" stroke-width="2.5" opacity="0.85"/>
+            <path class="svg-bus-flow" d="M300 280 H230 L170 360 H100 L50 410" stroke="#00D2FF" stroke-width="2.5"/>
+            <path d="M230 360 V400 H150 L110 440" stroke="#00FF9D" stroke-width="1.8" opacity="0.7"/>
+            <path d="M170 360 V310 H110 L70 330" stroke="#FF1E56" stroke-width="1.8" opacity="0.65"/>
+
+            <!-- Node Endpoints -->
+            <g fill="#0C1322" stroke="#00D2FF" stroke-width="2">
+              <circle cx="50" cy="70" r="4.5" fill="#00D2FF" filter="url(#neon_laser_filter)"/>
+              <circle cx="100" cy="45" r="3.5" fill="#00FF9D"/>
+              <circle cx="70" cy="190" r="4" fill="#FFB800"/>
+              <circle cx="40" cy="220" r="5" fill="#FF1E56" filter="url(#neon_laser_filter)"/>
+              <circle cx="30" cy="170" r="3.5" fill="#00D2FF"/>
+              <circle cx="60" cy="300" r="4" fill="#FFB800"/>
+              <circle cx="50" cy="410" r="5" fill="#00D2FF" filter="url(#neon_laser_filter)"/>
+              <circle cx="110" cy="440" r="3.5" fill="#00FF9D"/>
+              <circle cx="70" cy="330" r="4" fill="#FF1E56"/>
+            </g>
+
+            <!-- Components -->
+            <rect x="195" y="108" width="22" height="14" rx="3" fill="#0E172E" stroke="#00D2FF" stroke-width="1.5"/>
+            <text x="206" y="119" fill="#00D2FF" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="900" text-anchor="middle">AND</text>
+
+            <rect x="180" y="272" width="22" height="14" rx="3" fill="#0E172E" stroke="#FFB800" stroke-width="1.5"/>
+            <text x="191" y="283" fill="#FFB800" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="900" text-anchor="middle">XOR</text>
+
+            <rect x="185" y="388" width="24" height="14" rx="3" fill="#0E172E" stroke="#00FF9D" stroke-width="1.5"/>
+            <text x="197" y="399" fill="#00FF9D" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="900" text-anchor="middle">FPGA</text>
+          </g>
+
+          <!-- Right Branching Circuit Tree -->
+          <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <!-- Major Branch 1 -->
+            <path d="M460 200 H530 L600 120 H670 L710 70" stroke="#FFB800" stroke-width="2.5" opacity="0.85"/>
+            <path class="svg-bus-flow-reverse" d="M460 200 H530 L600 120 H670 L710 70" stroke="#00D2FF" stroke-width="2.5"/>
+            <path d="M530 120 V80 H620 L660 45" stroke="#FF1E56" stroke-width="1.8" opacity="0.7"/>
+            <path d="M600 120 V160 H650 L690 190" stroke="#00FF9D" stroke-width="1.8" opacity="0.75"/>
+
+            <!-- Major Branch 2 -->
+            <path d="M460 240 H550 L610 240 H670 L720 220" stroke="#FF1E56" stroke-width="2.5" opacity="0.85"/>
+            <path class="svg-bus-flow" d="M460 240 H550 L610 240 H670 L720 220" stroke="#FFB800" stroke-width="2.5"/>
+            <path d="M550 240 L590 280 H660 L700 300" stroke="#00D2FF" stroke-width="1.8" opacity="0.75"/>
+            <path d="M610 240 L640 200 H700 L730 170" stroke="#FFB800" stroke-width="1.8" opacity="0.65"/>
+
+            <!-- Major Branch 3 -->
+            <path d="M460 280 H530 L590 360 H660 L710 410" stroke="#00D2FF" stroke-width="2.5" opacity="0.85"/>
+            <path class="svg-bus-flow-reverse" d="M460 280 H530 L590 360 H660 L710 410" stroke="#00FF9D" stroke-width="2.5"/>
+            <path d="M530 360 V400 H610 L650 440" stroke="#FFB800" stroke-width="1.8" opacity="0.7"/>
+            <path d="M590 360 V310 H650 L690 330" stroke="#00D2FF" stroke-width="1.8" opacity="0.65"/>
+
+            <!-- Node Endpoints -->
+            <g fill="#0C1322" stroke="#FFB800" stroke-width="2">
+              <circle cx="710" cy="70" r="4.5" fill="#FFB800" filter="url(#neon_laser_filter)"/>
+              <circle cx="660" cy="45" r="3.5" fill="#FF1E56"/>
+              <circle cx="690" cy="190" r="4" fill="#00FF9D"/>
+              <circle cx="720" cy="220" r="5" fill="#00D2FF" filter="url(#neon_laser_filter)"/>
+              <circle cx="730" cy="170" r="3.5" fill="#FFB800"/>
+              <circle cx="700" cy="300" r="4" fill="#00D2FF"/>
+              <circle cx="710" cy="410" r="5" fill="#FF1E56" filter="url(#neon_laser_filter)"/>
+              <circle cx="650" cy="440" r="3.5" fill="#FFB800"/>
+              <circle cx="690" cy="330" r="4" fill="#00FF9D"/>
+            </g>
+
+            <!-- Components -->
+            <rect x="543" y="108" width="22" height="14" rx="3" fill="#0E172E" stroke="#FF1E56" stroke-width="1.5"/>
+            <text x="554" y="119" fill="#FF1E56" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="900" text-anchor="middle">NOT</text>
+
+            <rect x="558" y="272" width="22" height="14" rx="3" fill="#0E172E" stroke="#00D2FF" stroke-width="1.5"/>
+            <text x="569" y="283" fill="#00D2FF" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="900" text-anchor="middle">OR</text>
+
+            <rect x="551" y="388" width="24" height="14" rx="3" fill="#0E172E" stroke="#FFB800" stroke-width="1.5"/>
+            <text x="563" y="399" fill="#FFB800" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="900" text-anchor="middle">DSP</text>
+          </g>
+
+          <!-- Central Silicon Heart Processor -->
+          <rect x="290" y="150" width="180" height="180" rx="22" fill="url(#die_plate_3d)" stroke="#223354" stroke-width="3"/>
+          <rect x="306" y="166" width="148" height="148" rx="16" fill="#070C1B" stroke="#FFB800" stroke-width="2.5"/>
+
+          <!-- 32 Gold CPU Pins -->
+          <g stroke="#FFB800" stroke-width="2.5" stroke-linecap="round">
+            <path d="M330 150V138 M355 150V138 M380 150V132 M405 150V138 M430 150V138"/>
+            <path d="M330 330V342 M355 330V342 M380 330V348 M405 330V342 M430 330V342"/>
+            <path d="M290 190H278 M290 215H278 M290 240H272 M290 265H278 M290 290H278"/>
+            <path d="M470 190H482 M470 215H482 M470 240H488 M470 265H482 M470 290H482"/>
+          </g>
+
+          <!-- Core Sub-Blocks -->
+          <g fill="#0F1A30" stroke="rgba(0, 210, 255, 0.25)" stroke-width="1.2">
+            <rect x="316" y="176" width="58" height="58" rx="7"/>
+            <rect x="386" y="176" width="58" height="58" rx="7"/>
+            <rect x="316" y="246" width="58" height="58" rx="7"/>
+            <rect x="386" y="246" width="58" height="58" rx="7"/>
+          </g>
+
+          <text x="345" y="202" fill="#00D2FF" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="900" text-anchor="middle">ALU</text>
+          <text x="345" y="217" fill="#627494" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" text-anchor="middle">64-BIT</text>
+
+          <text x="415" y="202" fill="#FFB800" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="900" text-anchor="middle">CTRL</text>
+          <text x="415" y="217" fill="#627494" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" text-anchor="middle">DECODE</text>
+
+          <text x="345" y="272" fill="#00FF9D" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="900" text-anchor="middle">CACHE</text>
+          <text x="345" y="287" fill="#627494" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" text-anchor="middle">L1/L2</text>
+
+          <text x="415" y="272" fill="#FF1E56" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="900" text-anchor="middle">NPU</text>
+          <text x="415" y="287" fill="#627494" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" text-anchor="middle">64 TOPS</text>
+
+          <!-- Orbital Spin Rings -->
+          <g class="svg-orbital-spin">
+            <circle cx="380" cy="240" r="110" stroke="rgba(0, 210, 255, 0.4)" stroke-width="1.2" stroke-dasharray="10 25" fill="none"/>
+            <circle cx="380" cy="130" r="4" fill="#00D2FF" filter="url(#neon_laser_filter)"/>
+            <circle cx="380" cy="350" r="4" fill="#00D2FF" filter="url(#neon_laser_filter)"/>
+          </g>
+
+          <g class="svg-orbital-spin-reverse">
+            <circle cx="380" cy="240" r="85" stroke="rgba(255, 184, 0, 0.45)" stroke-width="1.2" stroke-dasharray="8 20" fill="none"/>
+            <circle cx="440" cy="180" r="3.5" fill="#FF1E56" filter="url(#neon_laser_filter)"/>
+            <circle cx="320" cy="300" r="3.5" fill="#FFB800" filter="url(#neon_laser_filter)"/>
+          </g>
+
+          <!-- Core Engine Plasma Heart -->
+          <circle class="svg-core-pulse" cx="380" cy="240" r="32" fill="url(#die_core_plasma)" filter="url(#core_ruby_glow)"/>
+          <circle cx="380" cy="240" r="14" fill="#070C1B" stroke="#FF1E56" stroke-width="2.5"/>
+          <circle cx="380" cy="240" r="5" fill="#FFB800"/>
         </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Future Engineer & AI Excellence Interactive 3-Image Showcase Section -->
+  <section class="engineer-ai-showcase-section">
+    <div class="container">
+      <div class="engineer-ai-grid">
+        
+        <!-- Text, Heading, Tabs & Metric Cards -->
+        <div class="reveal-on-scroll">
+          <div class="section-eyebrow-badge">
+            <i class="fa-solid fa-brain"></i>
+            <span>الريادة الهندسية والذكاء الاصطناعي</span>
+          </div>
+          <h2 class="section-main-heading">
+            صناعة مهندس المستقبل — <span class="hero-title-highlight">خبرة برمجية وعتادية فائقة</span>
+          </h2>
+          <p class="section-lead-p" style="margin-bottom:1.25rem;">
+            في قسم هندسة الحاسوب بالجامعة الإسلامية بغزة، لا نقتصر على تدريس النظريات فحسب، بل نبني معك مسيرة هندسية تطبيقية متكاملة تجمع بين معمارية المعالجات، هندسة البرمجيات، الأنظمة الذكية المدمجة، والذكاء الاصطناعي لتأهيلك لأقوى الفرص المهنية العالمية.
+          </p>
+
+          <!-- Interactive 3-Track Showcase Tabs -->
+          <div class="showcase-tabs-nav">
+            <button type="button" class="showcase-tab-btn active" onclick="window.switchShowcaseGallery(0)">
+              <i class="fa-solid fa-brain" style="color:#00D2FF;"></i>
+              <span>الذكاء الاصطناعي</span>
+            </button>
+            <button type="button" class="showcase-tab-btn" onclick="window.switchShowcaseGallery(1)">
+              <i class="fa-solid fa-robot" style="color:#00FF9D;"></i>
+              <span>الأنظمة المدمجة والروبوتات</span>
+            </button>
+            <button type="button" class="showcase-tab-btn" onclick="window.switchShowcaseGallery(2)">
+              <i class="fa-solid fa-microchip" style="color:#FFB800;"></i>
+              <span>معمارية المعالجات الكمية</span>
+            </button>
+          </div>
+
+          <div class="showcase-stat-pill-row">
+            <div class="showcase-stat-card">
+              <span class="showcase-stat-val" style="color:var(--accent-amber);">167</span>
+              <span class="showcase-stat-lbl">ساعة معتمدة بالخطة</span>
+            </div>
+            <div class="showcase-stat-card">
+              <span class="showcase-stat-val" style="color:var(--accent-teal);">+50</span>
+              <span class="showcase-stat-lbl">مساقاً ومختبراً هندسياً</span>
+            </div>
+            <div class="showcase-stat-card">
+              <span class="showcase-stat-val" style="color:var(--accent-ruby);">24/7</span>
+              <span class="showcase-stat-lbl">محتوى متاح ومستمر</span>
+            </div>
+          </div>
+
+          <div class="hero-cta-button-group" style="margin-top:1.5rem;">
+            <a href="degree-tracker.html" class="hero-primary-glow-btn">
+              <i class="fa-solid fa-network-wired"></i>
+              <span>استكشف شجرة الخطة 🌳</span>
+            </a>
+            <a href="study-tools.html" class="hero-secondary-glass-btn">
+              <i class="fa-solid fa-brain" style="color:var(--accent-teal);"></i>
+              <span>أدوات الدراسة والتركيز</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Visual Interactive Image Showcase Frame with 3D Parallax Tilt -->
+        <div class="reveal-on-scroll" style="position:relative;">
+          <div class="engineer-showcase-visual-frame" id="showcaseVisualContainer">
+            <img id="showcaseMainImg" src="engineer_ai_male.jpg" alt="مهندس حاسوب وشبكات الذكاء الاصطناعي الهولوغرافية" class="engineer-showcase-img" />
+            
+            <!-- Floating Holographic Overlay Badges -->
+            <div id="showcaseHudTop" class="floating-hud-badge" style="top:14px; left:14px; border-color:rgba(0, 210, 255, 0.45);">
+              <i class="fa-solid fa-microchip" style="color:#00D2FF;"></i>
+              <span>AI Neural Interface</span>
+            </div>
+            <div id="showcaseHudBottom" class="floating-hud-badge" style="bottom:14px; right:14px; border-color:rgba(255, 184, 0, 0.45);">
+              <i class="fa-solid fa-bolt" style="color:#FFB800;"></i>
+              <span>Real-Time Quantum Bus</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- Quick Stats Bar -->
   <section class="stats-section">
-    <div class="container stats-grid-layout">
+    <div class="container stats-grid-layout reveal-on-scroll">
       <div>
         <span class="stat-number" style="color:var(--accent-amber);">5</span>
         <span class="stat-label">سنوات دراسية كاملة</span>
@@ -187,123 +470,127 @@
         <span class="stat-label">مساقاً ومختبراً هندسياً</span>
       </div>
       <div>
-        <span class="stat-number" style="color:var(--accent-pink);">100%</span>
+        <span class="stat-number" style="color:var(--accent-ruby);">100%</span>
         <span class="stat-label">مجاني ومتاح لكافة الطلبة</span>
       </div>
     </div>
   </section>
 
   <!-- Academic Years Grid -->
-  <main class="container" style="padding-top:3rem; padding-bottom:4rem;">
-    <div style="margin-bottom:2rem; text-align:center;">
-      <h2 style="font-size:clamp(1.5rem, 3.5vw, 2rem); font-weight:900; color:var(--text-main); margin-bottom:0.5rem;">السنوات والمقررات الدراسية</h2>
-      <p style="font-size:clamp(0.875rem, 2vw, 1rem); color:var(--text-muted);">اختر سنتك الدراسية للوصول إلى كافة المواد والمختبرات والمراجع</p>
+  <main class="container" style="padding-top:clamp(2.5rem, 5vw, 4rem); padding-bottom:clamp(2.5rem, 5vw, 4rem);">
+    <div class="section-title-wrap reveal-on-scroll">
+      <div class="section-eyebrow-badge">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span>الخطة الأكاديمية الشاملة</span>
+      </div>
+      <h2 class="section-main-heading">السنوات والمقررات الدراسية</h2>
+      <p class="section-lead-p">اختر سنتك الدراسية للوصول إلى كافة المواد والمختبرات والمراجع والامتحانات السابقة</p>
     </div>
 
     <div class="academic-years-grid">
       <!-- Year 1 -->
-      <a href="firstYear.html" class="subject-card">
+      <a href="firstYear.html" class="subject-card reveal-on-scroll">
         <div>
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
-            <div style="width:48px; height:48px; border-radius:var(--radius-md); background:rgba(14, 165, 233, 0.15); color:#0EA5E9; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
+            <div style="width:48px; height:48px; border-radius:var(--radius-md); background:rgba(0, 210, 255, 0.15); color:#00D2FF; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
               <i class="fa-solid fa-cubes"></i>
             </div>
-            <span style="font-size:0.75rem; font-weight:800; padding:0.2rem 0.6rem; border-radius:var(--radius-sm); background:var(--bg-surface-subtle); color:#0EA5E9;">1st Year</span>
+            <span style="font-size:0.75rem; font-weight:800; padding:0.2rem 0.6rem; border-radius:var(--radius-sm); background:var(--bg-surface-subtle); color:#00D2FF;">1st Year</span>
           </div>
           <h3 style="font-size:1.35rem; font-weight:900; color:var(--text-main); margin-bottom:0.4rem;">السنة الأولى</h3>
           <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.6;">المقررات التأسيسية للهندسة، الرياضيات، الفيزياء، ومقدمات البرمجة والرسم الهندسي.</p>
         </div>
-        <div style="display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; font-weight:800; color:#0EA5E9; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
+        <div style="display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; font-weight:800; color:#00D2FF; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
           <span>13 مساقاً ومختبراً</span>
           <i class="fa-solid fa-arrow-left"></i>
         </div>
       </a>
 
       <!-- Year 2 -->
-      <a href="secndYear.html" class="subject-card">
+      <a href="secndYear.html" class="subject-card reveal-on-scroll">
         <div>
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
-            <div style="width:48px; height:48px; border-radius:var(--radius-md); background:rgba(16, 185, 129, 0.15); color:#10B981; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
+            <div style="width:48px; height:48px; border-radius:var(--radius-md); background:rgba(0, 255, 157, 0.15); color:#00FF9D; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
               <i class="fa-solid fa-microchip"></i>
             </div>
-            <span style="font-size:0.75rem; font-weight:800; padding:0.2rem 0.6rem; border-radius:var(--radius-sm); background:var(--bg-surface-subtle); color:#10B981;">2nd Year</span>
+            <span style="font-size:0.75rem; font-weight:800; padding:0.2rem 0.6rem; border-radius:var(--radius-sm); background:var(--bg-surface-subtle); color:#00FF9D;">2nd Year</span>
           </div>
           <h3 style="font-size:1.35rem; font-weight:900; color:var(--text-main); margin-bottom:0.4rem;">السنة الثانية</h3>
           <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.6;">أساسيات البرمجة الكائنية، الدوائر الكهربائية، التصميم المنطقي، والإلكترونيات.</p>
         </div>
-        <div style="display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; font-weight:800; color:#10B981; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
+        <div style="display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; font-weight:800; color:#00FF9D; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
           <span>14 مساقاً ومختبراً</span>
           <i class="fa-solid fa-arrow-left"></i>
         </div>
       </a>
 
       <!-- Year 3 -->
-      <a href="thirdYear.html" class="subject-card">
+      <a href="thirdYear.html" class="subject-card reveal-on-scroll">
         <div>
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
-            <div style="width:48px; height:48px; border-radius:var(--radius-md); background:rgba(139, 92, 246, 0.15); color:#8B5CF6; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
+            <div style="width:48px; height:48px; border-radius:var(--radius-md); background:rgba(157, 78, 221, 0.15); color:#9D4EDD; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
               <i class="fa-solid fa-network-wired"></i>
             </div>
-            <span style="font-size:0.75rem; font-weight:800; padding:0.2rem 0.6rem; border-radius:var(--radius-sm); background:var(--bg-surface-subtle); color:#8B5CF6;">3rd Year</span>
+            <span style="font-size:0.75rem; font-weight:800; padding:0.2rem 0.6rem; border-radius:var(--radius-sm); background:var(--bg-surface-subtle); color:#9D4EDD;">3rd Year</span>
           </div>
           <h3 style="font-size:1.35rem; font-weight:900; color:var(--text-main); margin-bottom:0.4rem;">السنة الثالثة</h3>
           <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.6;">معمارية الحاسوب، هياكل البيانات، قواعد البيانات، الإشارات والأنظمة، والتحكم الخطي.</p>
         </div>
-        <div style="display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; font-weight:800; color:#8B5CF6; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
+        <div style="display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; font-weight:800; color:#9D4EDD; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
           <span>15 مساقاً ومختبراً</span>
           <i class="fa-solid fa-arrow-left"></i>
         </div>
       </a>
 
       <!-- Year 4 -->
-      <a href="fourthYear.html" class="subject-card">
+      <a href="fourthYear.html" class="subject-card reveal-on-scroll">
         <div>
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
-            <div style="width:48px; height:48px; border-radius:var(--radius-md); background:rgba(245, 158, 11, 0.15); color:#F59E0B; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
+            <div style="width:48px; height:48px; border-radius:var(--radius-md); background:rgba(255, 184, 0, 0.15); color:#FFB800; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
               <i class="fa-solid fa-laptop-code"></i>
             </div>
-            <span style="font-size:0.75rem; font-weight:800; padding:0.2rem 0.6rem; border-radius:var(--radius-sm); background:var(--bg-surface-subtle); color:#F59E0B;">4th Year</span>
+            <span style="font-size:0.75rem; font-weight:800; padding:0.2rem 0.6rem; border-radius:var(--radius-sm); background:var(--bg-surface-subtle); color:#FFB800;">4th Year</span>
           </div>
           <h3 style="font-size:1.35rem; font-weight:900; color:var(--text-main); margin-bottom:0.4rem;">السنة الرابعة</h3>
           <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.6;">نظم التشغيل، شبكات الحاسوب، الأنظمة المدمجة، لغة التجميع، ولغات توصيف العتاد VHDL.</p>
         </div>
-        <div style="display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; font-weight:800; color:#F59E0B; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
+        <div style="display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; font-weight:800; color:#FFB800; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
           <span>13 مساقاً ومختبراً</span>
           <i class="fa-solid fa-arrow-left"></i>
         </div>
       </a>
 
       <!-- Year 5 -->
-      <a href="fifthYear.html" class="subject-card">
+      <a href="fifthYear.html" class="subject-card reveal-on-scroll">
         <div>
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
-            <div style="width:48px; height:48px; border-radius:var(--radius-md); background:rgba(236, 72, 153, 0.15); color:#EC4899; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
+            <div style="width:48px; height:48px; border-radius:var(--radius-md); background:rgba(255, 46, 147, 0.15); color:#FF2E93; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
               <i class="fa-solid fa-award"></i>
             </div>
-            <span style="font-size:0.75rem; font-weight:800; padding:0.2rem 0.6rem; border-radius:var(--radius-sm); background:var(--bg-surface-subtle); color:#EC4899;">5th Year</span>
+            <span style="font-size:0.75rem; font-weight:800; padding:0.2rem 0.6rem; border-radius:var(--radius-sm); background:var(--bg-surface-subtle); color:#FF2E93;">5th Year</span>
           </div>
           <h3 style="font-size:1.35rem; font-weight:900; color:var(--text-main); margin-bottom:0.4rem;">السنة الخامسة</h3>
           <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.6;">الذكاء الاصطناعي، أمن المعلومات والشبكات، معالجة الصور الرقمية، ومشاريع التخرج.</p>
         </div>
-        <div style="display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; font-weight:800; color:#EC4899; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
+        <div style="display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; font-weight:800; color:#FF2E93; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
           <span>10 مساقات تخصصية</span>
           <i class="fa-solid fa-arrow-left"></i>
         </div>
       </a>
 
       <!-- University Requirements Card -->
-      <a href="university-requirements.html" class="subject-card">
+      <a href="university-requirements.html" class="subject-card reveal-on-scroll">
         <div>
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
-            <div style="width:48px; height:48px; border-radius:var(--radius-md); background:rgba(6, 182, 212, 0.15); color:#06B6D4; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
+            <div style="width:48px; height:48px; border-radius:var(--radius-md); background:rgba(0, 210, 255, 0.15); color:#00D2FF; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
               <i class="fa-solid fa-graduation-cap"></i>
             </div>
-            <span style="font-size:0.75rem; font-weight:800; padding:0.2rem 0.6rem; border-radius:var(--radius-sm); background:var(--bg-surface-subtle); color:#06B6D4;">متطلبات عامة</span>
+            <span style="font-size:0.75rem; font-weight:800; padding:0.2rem 0.6rem; border-radius:var(--radius-sm); background:var(--bg-surface-subtle); color:#00D2FF;">متطلبات عامة</span>
           </div>
           <h3 style="font-size:1.35rem; font-weight:900; color:var(--text-main); margin-bottom:0.4rem;">متطلبات الجامعة</h3>
           <p style="font-size:0.875rem; color:var(--text-muted); line-height:1.6;">كافة المتطلبات الإجبارية والاختيارية للجامعة الإسلامية بغزة وسلايداتها وملخصاتها.</p>
         </div>
-        <div style="display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; font-weight:800; color:#06B6D4; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
+        <div style="display:flex; align-items:center; justify-content:space-between; font-size:0.85rem; font-weight:800; color:#00D2FF; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
           <span>المتطلبات الإجبارية والاختيارية</span>
           <i class="fa-solid fa-arrow-left"></i>
         </div>
@@ -311,14 +598,14 @@
     </div>
 
     <!-- GPA Calculator Highlight Banner -->
-    <div class="gpa-index-banner">
+    <div class="gpa-index-banner reveal-on-scroll">
       <div>
-        <div style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.25rem 0.75rem; border-radius:var(--radius-full); background:rgba(245, 158, 11, 0.2); color:var(--accent-amber); font-size:0.8rem; font-weight:800; margin-bottom:0.85rem;">
+        <div style="display:inline-flex; align-items:center; gap:0.4rem; padding:0.25rem 0.75rem; border-radius:var(--radius-full); background:rgba(255, 184, 0, 0.2); color:var(--accent-amber); font-size:0.8rem; font-weight:800; margin-bottom:0.85rem;">
           <i class="fa-solid fa-calculator"></i> الخطة الرسمية 167 ساعة معتمدة
         </div>
         <h3 style="font-size:clamp(1.4rem, 3vw, 1.85rem); font-weight:900; margin-bottom:0.5rem;">حاسبة المعدل الجامعي التراكمي (0–100)</h3>
         <p style="font-size:clamp(0.85rem, 2vw, 0.95rem); color:#CBD5E1; line-height:1.6; margin-bottom:1.5rem;">
-          احسب معدلك التراكمي والفصلي بدقة، وتوقع معدل الفصل القادم (What-If)، وحوّل درجات أعمال الفصل بنقرة زر واحدة.
+          احسب معدلك التراكمي والفصلي بدقة، وتوقع معدل الفصل القادم (What-If)، وحوّل درجات أعمال الفصل، مع إمكانية طباعة وتصدير كشف العلامات PDF.
         </p>
         <a href="gpa-calculator.html" class="gpa-btn-solid" style="padding:0.75rem 1.4rem; display:inline-flex; min-height:44px; align-items:center;">
           <i class="fa-solid fa-play"></i> فتح حاسبة المعدل الآن
@@ -331,7 +618,297 @@
     </div>
   </main>
 
-  <!-- Universal Footer -->
+  <!-- Core Computer Engineering Fields & Domains Showcase -->
+  <section class="engineering-domains-section">
+    <div class="container">
+      <div class="section-title-wrap reveal-on-scroll">
+        <div class="section-eyebrow-badge">
+          <i class="fa-solid fa-microchip"></i>
+          <span>مسارات وهندسة المستقبل</span>
+        </div>
+        <h2 class="section-main-heading">مجالات وهندسة الحاسوب بالجامعة الإسلامية</h2>
+        <p class="section-lead-p">نغطي في المنصة كافة المعارف العلمية والعملية عبر 6 مسارات تقنية متقدمة تدمج العتاد بالبرمجيات الحديثة:</p>
+      </div>
+
+      <div class="engineering-domains-grid">
+        
+        <!-- Domain 1: Embedded Systems & Architecture -->
+        <div class="domain-interactive-card reveal-on-scroll" style="--card-accent:#00D2FF; --icon-bg:rgba(0, 210, 255, 0.12);">
+          <div>
+            <div class="domain-icon-box">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <h3 class="domain-card-title">معمارية الحاسوب والأنظمة المدمجة</h3>
+            <p class="domain-card-desc">دراسة تصميم المعالجات، المتحكمات الدقيقة (Microcontrollers)، لغات توصيف العتاد VHDL، ورقاقات FPGA، ولغة التجميع Assembly.</p>
+          </div>
+          <div class="domain-tags-row">
+            <span class="domain-chip-tag">RISC-V</span>
+            <span class="domain-chip-tag">ARM</span>
+            <span class="domain-chip-tag">VHDL / FPGA</span>
+            <span class="domain-chip-tag">Microcontrollers</span>
+          </div>
+        </div>
+
+        <!-- Domain 2: Software Engineering & Algorithms -->
+        <div class="domain-interactive-card reveal-on-scroll" style="--card-accent:#00FF9D; --icon-bg:rgba(0, 255, 157, 0.12);">
+          <div>
+            <div class="domain-icon-box">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <h3 class="domain-card-title">البرمجة وهندسة البرمجيات</h3>
+            <p class="domain-card-desc">البرمجة الكائنية المتقدمة OOP، هياكل البيانات المعقدة، تحليل وتصميم الخوارزميات، وهندسة النظم وقواعد البيانات العلائقية.</p>
+          </div>
+          <div class="domain-tags-row">
+            <span class="domain-chip-tag">C++ / Java</span>
+            <span class="domain-chip-tag">Data Structures</span>
+            <span class="domain-chip-tag">Algorithms</span>
+            <span class="domain-chip-tag">SQL & DB</span>
+          </div>
+        </div>
+
+        <!-- Domain 3: Computer Networks & IoT -->
+        <div class="domain-interactive-card reveal-on-scroll" style="--card-accent:#9D4EDD; --icon-bg:rgba(157, 78, 221, 0.12);">
+          <div>
+            <div class="domain-icon-box">
+              <i class="fa-solid fa-network-wired"></i>
+            </div>
+            <h3 class="domain-card-title">شبكات الحاسوب وإنترنت الأشياء</h3>
+            <p class="domain-card-desc">بروتوكولات الإنترنت TCP/IP، توجيه البيانات Routing & Switching، شبكات الحساسات اللاسلكية، وتطبيقات إنترنت الأشياء الذكية IoT.</p>
+          </div>
+          <div class="domain-tags-row">
+            <span class="domain-chip-tag">TCP/IP</span>
+            <span class="domain-chip-tag">Cisco Routing</span>
+            <span class="domain-chip-tag">IoT Protocols</span>
+            <span class="domain-chip-tag">Wireless Sensors</span>
+          </div>
+        </div>
+
+        <!-- Domain 4: AI & Deep Learning -->
+        <div class="domain-interactive-card reveal-on-scroll" style="--card-accent:#FFB800; --icon-bg:rgba(255, 184, 0, 0.12);">
+          <div>
+            <div class="domain-icon-box">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <h3 class="domain-card-title">الذكاء الاصطناعي وتعلم الآلة</h3>
+            <p class="domain-card-desc">الشبكات العصبية الاصطناعية، التعلم العميق Deep Learning، معالجة الصور الرقمية، وخوارزميات الرؤية الحاسوبية ومعالجة اللغات الطبيعية.</p>
+          </div>
+          <div class="domain-tags-row">
+            <span class="domain-chip-tag">Neural Networks</span>
+            <span class="domain-chip-tag">Deep Learning</span>
+            <span class="domain-chip-tag">Computer Vision</span>
+            <span class="domain-chip-tag">Image Processing</span>
+          </div>
+        </div>
+
+        <!-- Domain 5: Cybersecurity & Cryptography -->
+        <div class="domain-interactive-card reveal-on-scroll" style="--card-accent:#FF1E56; --icon-bg:rgba(255, 30, 86, 0.12);">
+          <div>
+            <div class="domain-icon-box">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 class="domain-card-title">أمن المعلومات والسيبرانية</h3>
+            <p class="domain-card-desc">علم التشفير Cryptography، حماية الشبكات والخوادم، تحليل الثغرات الأمنية، والمصادقة الرقمية وحماية البيانات من الهجمات السيبرانية.</p>
+          </div>
+          <div class="domain-tags-row">
+            <span class="domain-chip-tag">Cryptography</span>
+            <span class="domain-chip-tag">Network Defense</span>
+            <span class="domain-chip-tag">Authentication</span>
+            <span class="domain-chip-tag">Ethical Hacking</span>
+          </div>
+        </div>
+
+        <!-- Domain 6: Operating Systems & Digital Control -->
+        <div class="domain-interactive-card reveal-on-scroll" style="--card-accent:#00D2FF; --icon-bg:rgba(0, 210, 255, 0.12);">
+          <div>
+            <div class="domain-icon-box">
+              <i class="fa-solid fa-sliders"></i>
+            </div>
+            <h3 class="domain-card-title">نظم التشغيل والتحكم الرقمي</h3>
+            <p class="domain-card-desc">بنية أنظمة التشغيل وإدارة العمليات والذاكرة (Linux/Unix)، أنظمة الزمن الحقيقي RTOS، ونظم التحكم الآلي والإشارات الرقمية DSP.</p>
+          </div>
+          <div class="domain-tags-row">
+            <span class="domain-chip-tag">Linux / Unix Kernel</span>
+            <span class="domain-chip-tag">RTOS</span>
+            <span class="domain-chip-tag">Linear Control</span>
+            <span class="domain-chip-tag">Signals & Systems</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Academic Tools Suite -->
+  <section class="academic-tools-section">
+    <div class="container">
+      <div class="section-title-wrap reveal-on-scroll">
+        <div class="section-eyebrow-badge">
+          <i class="fa-solid fa-toolbox"></i>
+          <span>حزمة الأدوات الذكية</span>
+        </div>
+        <h2 class="section-main-heading">أدوات هندسية صُممت لتسهيل مسيرتك الجامعية</h2>
+        <p class="section-lead-p">مجموعة متكاملة من الآلات الحاسبة التفاعلية وأدوات تنظيم الوقت المخصصة لطلبة كلية الهندسة:</p>
+      </div>
+
+      <div class="tools-suite-grid">
+        
+        <!-- Tool 1: GPA Calculator -->
+        <a href="gpa-calculator.html" class="tool-suite-card reveal-on-scroll">
+          <div>
+            <div style="width:44px; height:44px; border-radius:var(--radius-md); background:rgba(255, 184, 0, 0.15); color:var(--accent-amber); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1rem;">
+              <i class="fa-solid fa-calculator"></i>
+            </div>
+            <h3 style="font-size:1.15rem; font-weight:800; color:var(--text-main); margin-bottom:0.4rem;">حاسبة المعدل التراكمي</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5; margin-bottom:1rem;">حساب المعدل التراكمي والفصلي وفق لائحة 167 ساعة، سيناريوهات التوقع (What-If)، وتصدير النتائج.</p>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
+            <span style="font-size:0.8rem; font-weight:700; color:var(--accent-amber);">افتح الحاسبة</span>
+            <i class="fa-solid fa-arrow-left tool-card-arrow"></i>
+          </div>
+        </a>
+
+        <!-- Tool 2: Final Calculator -->
+        <a href="final-calculator.html" class="tool-suite-card reveal-on-scroll">
+          <div>
+            <div style="width:44px; height:44px; border-radius:var(--radius-md); background:rgba(255, 30, 86, 0.15); color:var(--accent-ruby); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1rem;">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h3 style="font-size:1.15rem; font-weight:800; color:var(--text-main); margin-bottom:0.4rem;">حاسبة علامة الفاينل 🎯</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5; margin-bottom:1rem;">احسب العلامة الأدنى المطلوبة في الاختبار النهائي لتحقيق الدرجة أو التقدير المستهدف في أي مساق.</p>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
+            <span style="font-size:0.8rem; font-weight:700; color:var(--accent-ruby);">احسب علامتك</span>
+            <i class="fa-solid fa-arrow-left tool-card-arrow"></i>
+          </div>
+        </a>
+
+        <!-- Tool 3: Schedule Builder -->
+        <a href="schedule-builder.html" class="tool-suite-card reveal-on-scroll">
+          <div>
+            <div style="width:44px; height:44px; border-radius:var(--radius-md); background:rgba(0, 210, 255, 0.15); color:var(--accent-teal); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1rem;">
+              <i class="fa-solid fa-calendar-days"></i>
+            </div>
+            <h3 style="font-size:1.15rem; font-weight:800; color:var(--text-main); margin-bottom:0.4rem;">صانع الجدول الأسبوعي 📅</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5; margin-bottom:1rem;">نظّم جدول محاضراتك الأسبوعي والمختبرات بتصميم تفاعلي جذاب وكاشف للتعارضات وتصدير صورة.</p>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
+            <span style="font-size:0.8rem; font-weight:700; color:var(--accent-teal);">ابنِ جدولك</span>
+            <i class="fa-solid fa-arrow-left tool-card-arrow"></i>
+          </div>
+        </a>
+
+        <!-- Tool 4: Degree Tracker -->
+        <a href="degree-tracker.html" class="tool-suite-card reveal-on-scroll">
+          <div>
+            <div style="width:44px; height:44px; border-radius:var(--radius-md); background:rgba(0, 255, 157, 0.15); color:var(--accent-emerald); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1rem;">
+              <i class="fa-solid fa-network-wired"></i>
+            </div>
+            <h3 style="font-size:1.15rem; font-weight:800; color:var(--text-main); margin-bottom:0.4rem;">شجرة الخطة والتخصص 🌳</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5; margin-bottom:1rem;">خريطة شجرية بصرية لكافة المساقات والمتطلبات السابقة وتتبع نسبة إنجاز ساعات الخطة الـ 167.</p>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
+            <span style="font-size:0.8rem; font-weight:700; color:var(--accent-emerald);">استعرض الشجرة</span>
+            <i class="fa-solid fa-arrow-left tool-card-arrow"></i>
+          </div>
+        </a>
+
+        <!-- Tool 5: Quran Wird Reader -->
+        <a href="quran-wird.html" class="tool-suite-card reveal-on-scroll">
+          <div>
+            <div style="width:44px; height:44px; border-radius:var(--radius-md); background:rgba(255, 184, 0, 0.15); color:var(--accent-amber); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1rem;">
+              <i class="fa-solid fa-book-quran"></i>
+            </div>
+            <h3 style="font-size:1.15rem; font-weight:800; color:var(--text-main); margin-bottom:0.4rem;">الورد القرآني والتفسير 📖</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5; margin-bottom:1rem;">مصحف رقمي تفاعلي، قراءة الورد اليومي مع التفسير الميسر لكل آية، تلاوات صوتية، وحفظ موضع القراءة.</p>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
+            <span style="font-size:0.8rem; font-weight:700; color:var(--accent-amber);">اقرأ الورد</span>
+            <i class="fa-solid fa-arrow-left tool-card-arrow"></i>
+          </div>
+        </a>
+
+        <!-- Tool 6: Study Hub & Whiteboard -->
+        <a href="study-tools.html" class="tool-suite-card reveal-on-scroll">
+          <div>
+            <div style="width:44px; height:44px; border-radius:var(--radius-md); background:rgba(157, 78, 221, 0.15); color:var(--accent-purple); display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:1rem;">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <h3 style="font-size:1.15rem; font-weight:800; color:var(--text-main); margin-bottom:0.4rem;">أدوات الدراسة والوايت بورد 🎓</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.5; margin-bottom:1rem;">لوح رسم تفاعلي لحل المسائل الهندسية، مؤقتات جلسات التركيز المتقدمة، وقوائم مهام المذاكرة.</p>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
+            <span style="font-size:0.8rem; font-weight:700; color:var(--accent-purple);">ابدأ المذاكرة</span>
+            <i class="fa-solid fa-arrow-left tool-card-arrow"></i>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Community & Student Hub -->
+  <section class="community-hub-section">
+    <div class="container">
+      <div class="section-title-wrap reveal-on-scroll">
+        <div class="section-eyebrow-badge">
+          <i class="fa-solid fa-users"></i>
+          <span>مجتمع مهندسي الحاسوب</span>
+        </div>
+        <h2 class="section-main-heading">انضم إلى قنواتنا وتواصل مع زملائك</h2>
+        <p class="section-lead-p">قنوات التليجرام الرسمية، بوت الملفات الأكاديمي، وروابط الدعم المباشر لخدمة طلبة القسم:</p>
+      </div>
+
+      <div class="community-grid-container">
+        
+        <!-- Community 1: Telegram Channel -->
+        <a href="https://t.me/+lUyeZmUh7KpjM2Fi" target="_blank" rel="noopener noreferrer" class="community-card-item reveal-on-scroll" style="--card-hover-border:#00D2FF;">
+          <div class="comm-icon-box comm-tg-icon">
+            <i class="fa-brands fa-telegram"></i>
+          </div>
+          <div>
+            <strong style="font-size:1.05rem; color:var(--text-main); display:block; margin-bottom:0.25rem;">قناة التليجرام الرسمية</strong>
+            <span style="font-size:0.825rem; color:var(--text-muted); line-height:1.5; display:block;">إعلانات القسم، التحديثات الأكاديمية، والملفات المحدثة أولاً بأول.</span>
+          </div>
+        </a>
+
+        <!-- Community 2: Telegram Bot -->
+        <a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" rel="noopener noreferrer" class="community-card-item reveal-on-scroll" style="--card-hover-border:#FFB800;">
+          <div class="comm-icon-box comm-bot-icon">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div>
+            <strong style="font-size:1.05rem; color:var(--text-main); display:block; margin-bottom:0.25rem;">بوت الملفات والبرامج</strong>
+            <span style="font-size:0.825rem; color:var(--text-muted); line-height:1.5; display:block;">تحميل فوري للسلايدات، بيئات التطوير، الامتحانات، والتلاخيص.</span>
+          </div>
+        </a>
+
+        <!-- Community 3: WhatsApp Direct -->
+        <a href="https://wa.me/972595346617" target="_blank" rel="noopener noreferrer" class="community-card-item reveal-on-scroll" style="--card-hover-border:#00FF9D;">
+          <div class="comm-icon-box comm-wa-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <div>
+            <strong style="font-size:1.05rem; color:var(--text-main); display:block; margin-bottom:0.25rem;">التواصل المباشر عبر واتساب</strong>
+            <span style="font-size:0.825rem; color:var(--text-muted); line-height:1.5; display:block;">للاستفسارات الهندسية، الدعم الفني، والملاحظات الأكاديمية.</span>
+          </div>
+        </a>
+
+        <!-- Community 4: PWA Install -->
+        <div onclick="window.triggerPwaInstall()" class="community-card-item reveal-on-scroll" style="--card-hover-border:#FF1E56; cursor:pointer;">
+          <div class="comm-icon-box comm-pwa-icon" style="background:rgba(255, 30, 86, 0.15); color:#FF1E56;">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+          </div>
+          <div>
+            <strong style="font-size:1.05rem; color:var(--text-main); display:block; margin-bottom:0.25rem;">تثبيت التطبيق على جهازك 📲</strong>
+            <span style="font-size:0.825rem; color:var(--text-muted); line-height:1.5; display:block;">تطبيق PWA سريع وخفيف يعمل على الجوال والحاسوب بدون استهلاك بيانات.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Universal High-Tech Footer -->
   <footer class="engineering-footer">
     <div class="container">
       <div class="footer-grid">
@@ -354,11 +931,11 @@
           </ul>
         </div>
 
-                <div>
+        <div>
           <h4 class="footer-col-heading"><i class="fa-solid fa-headset"></i> التواصل والدعم الفني</h4>
           <div class="contact-items-list">
             <a href="https://t.me/+lUyeZmUh7KpjM2Fi" target="_blank" rel="noopener noreferrer" class="contact-link-item" title="قناة التليجرام الرسمية">
-              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(14, 165, 233, 0.15); color:var(--accent-teal); display:flex; align-items:center; justify-content:center;">
+              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(0, 210, 255, 0.15); color:var(--accent-teal); display:flex; align-items:center; justify-content:center;">
                 <i class="fa-brands fa-telegram"></i>
               </div>
               <div>
@@ -368,7 +945,7 @@
             </a>
 
             <a href="http://t.me/iug_computer_Enfuneering_bot" target="_blank" rel="noopener noreferrer" class="contact-link-item" title="بوت الملفات والبرامج">
-              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(245, 158, 11, 0.15); color:var(--accent-amber); display:flex; align-items:center; justify-content:center;">
+              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(255, 184, 0, 0.15); color:var(--accent-amber); display:flex; align-items:center; justify-content:center;">
                 <i class="fa-solid fa-robot"></i>
               </div>
               <div>
@@ -378,7 +955,7 @@
             </a>
 
             <a href="https://wa.me/972595346617" target="_blank" rel="noopener noreferrer" class="contact-link-item" title="تواصل عبر واتساب">
-              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(16, 185, 129, 0.15); color:var(--accent-emerald); display:flex; align-items:center; justify-content:center;">
+              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(0, 255, 157, 0.15); color:var(--accent-emerald); display:flex; align-items:center; justify-content:center;">
                 <i class="fa-brands fa-whatsapp"></i>
               </div>
               <div>
@@ -388,7 +965,7 @@
             </a>
 
             <a href="mailto:mnmaassddll@gmail.com" class="contact-link-item email-action-item" title="راسلني عبر الإيميل">
-              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(14, 165, 233, 0.15); color:var(--accent-teal); display:flex; align-items:center; justify-content:center;">
+              <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:rgba(0, 210, 255, 0.15); color:var(--accent-teal); display:flex; align-items:center; justify-content:center;">
                 <i class="fa-solid fa-envelope"></i>
               </div>
               <div>
@@ -414,9 +991,9 @@
       <div class="sidebar-header">
         <div style="display:flex; align-items:center; gap:0.65rem;">
           <svg width="30" height="30" viewBox="0 0 40 40" fill="none">
-            <rect width="40" height="40" rx="10" fill="#1B2A4A"/>
-            <rect x="11" y="11" width="18" height="18" rx="4" fill="#0F172A" stroke="#F59E0B" stroke-width="2"/>
-            <circle cx="20" cy="20" r="4" fill="#F59E0B"/>
+            <rect width="40" height="40" rx="10" fill="#0C1322"/>
+            <rect x="11" y="11" width="18" height="18" rx="4" fill="#050811" stroke="#FFB800" stroke-width="2"/>
+            <circle cx="20" cy="20" r="4" fill="#FF1E56"/>
           </svg>
           <div>
             <span style="font-family:var(--font-mono); font-size:0.9rem; font-weight:900; color:var(--text-main); display:block;">COMPUTER ENG</span>
@@ -442,19 +1019,19 @@
         <span class="sidebar-section-label">التنقل والأدوات الأكاديمية</span>
         <div class="sidebar-links-list">
           <a href="index.html" class="sidebar-nav-item active"><i class="fa-solid fa-house"></i> <span>الرئيسية</span></a>
-          <a href="quran-wird.html" class="sidebar-nav-item "><i class="fa-solid fa-book-quran" style="color:#D4AF37;"></i> <span>الورد اليومي 📖</span></a>
-          <a href="firstYear.html" class="sidebar-nav-item "><i class="fa-solid fa-cubes" style="color:#0EA5E9;"></i> <span>السنة الأولى</span></a>
-          <a href="secndYear.html" class="sidebar-nav-item "><i class="fa-solid fa-microchip" style="color:#10B981;"></i> <span>السنة الثانية</span></a>
-          <a href="thirdYear.html" class="sidebar-nav-item "><i class="fa-solid fa-network-wired" style="color:#8B5CF6;"></i> <span>السنة الثالثة</span></a>
-          <a href="fourthYear.html" class="sidebar-nav-item "><i class="fa-solid fa-laptop-code" style="color:#F59E0B;"></i> <span>السنة الرابعة</span></a>
-          <a href="fifthYear.html" class="sidebar-nav-item "><i class="fa-solid fa-award" style="color:#EC4899;"></i> <span>السنة الخامسة</span></a>
-          <a href="university-requirements.html" class="sidebar-nav-item "><i class="fa-solid fa-graduation-cap" style="color:#06B6D4;"></i> <span>متطلبات الجامعة</span></a>
-          <a href="gpa-calculator.html" class="sidebar-nav-item "><i class="fa-solid fa-calculator" style="color:#F59E0B;"></i> <span>حاسبة المعدل التراكمي</span></a>
-          <a href="final-calculator.html" class="sidebar-nav-item "><i class="fa-solid fa-bullseye" style="color:#F59E0B;"></i> <span>حاسبة علامة الفاينل 🎯</span></a>
-          <a href="schedule-builder.html" class="sidebar-nav-item "><i class="fa-solid fa-calendar-days" style="color:#0EA5E9;"></i> <span>صانع الجدول الأسبوعي 📅</span></a>
-          <a href="degree-tracker.html" class="sidebar-nav-item highlight-item "><i class="fa-solid fa-network-wired" style="color:#10B981;"></i> <span>شجرة المتطلبات والخطة 🌳</span></a>
-          <a href="study-tools.html" class="sidebar-nav-item "><i class="fa-solid fa-brain" style="color:#10B981;"></i> <span>أدوات الدراسة والوايت بورد</span></a>
-          <a href="search.html" class="sidebar-nav-item "><i class="fa-solid fa-magnifying-glass"></i> <span>البحث الشامل في المواد</span></a>
+          <a href="quran-wird.html" class="sidebar-nav-item"><i class="fa-solid fa-book-quran" style="color:#FFB800;"></i> <span>الورد اليومي 📖</span></a>
+          <a href="firstYear.html" class="sidebar-nav-item"><i class="fa-solid fa-cubes" style="color:#00D2FF;"></i> <span>السنة الأولى</span></a>
+          <a href="secndYear.html" class="sidebar-nav-item"><i class="fa-solid fa-microchip" style="color:#00FF9D;"></i> <span>السنة الثانية</span></a>
+          <a href="thirdYear.html" class="sidebar-nav-item"><i class="fa-solid fa-network-wired" style="color:#9D4EDD;"></i> <span>السنة الثالثة</span></a>
+          <a href="fourthYear.html" class="sidebar-nav-item"><i class="fa-solid fa-laptop-code" style="color:#FFB800;"></i> <span>السنة الرابعة</span></a>
+          <a href="fifthYear.html" class="sidebar-nav-item"><i class="fa-solid fa-award" style="color:#FF2E93;"></i> <span>السنة الخامسة</span></a>
+          <a href="university-requirements.html" class="sidebar-nav-item"><i class="fa-solid fa-graduation-cap" style="color:#00D2FF;"></i> <span>متطلبات الجامعة</span></a>
+          <a href="gpa-calculator.html" class="sidebar-nav-item"><i class="fa-solid fa-calculator" style="color:#FFB800;"></i> <span>حاسبة المعدل التراكمي</span></a>
+          <a href="final-calculator.html" class="sidebar-nav-item"><i class="fa-solid fa-bullseye" style="color:#FF1E56;"></i> <span>حاسبة علامة الفاينل 🎯</span></a>
+          <a href="schedule-builder.html" class="sidebar-nav-item"><i class="fa-solid fa-calendar-days" style="color:#00D2FF;"></i> <span>صانع الجدول الأسبوعي 📅</span></a>
+          <a href="degree-tracker.html" class="sidebar-nav-item highlight-item"><i class="fa-solid fa-network-wired" style="color:#00FF9D;"></i> <span>شجرة المتطلبات والخطة 🌳</span></a>
+          <a href="study-tools.html" class="sidebar-nav-item"><i class="fa-solid fa-brain" style="color:#00FF9D;"></i> <span>أدوات الدراسة والوايت بورد</span></a>
+          <a href="search.html" class="sidebar-nav-item"><i class="fa-solid fa-magnifying-glass"></i> <span>البحث الشامل في المواد</span></a>
         </div>
       </nav>
 
@@ -464,7 +1041,7 @@
           <button type="button" class="sb-theme-reset" onclick="window.applyColorTheme('')">الافتراضي</button>
         </div>
         <div class="sb-swatches-grid">
-          <button type="button" class="sb-swatch-btn" data-theme="" style="background-color:#1B2A4A; border-color:#F59E0B;" onclick="window.applyColorTheme('')" title="الافتراضي"></button>
+          <button type="button" class="sb-swatch-btn" data-theme="" style="background-color:#0C1322; border-color:#FFB800;" onclick="window.applyColorTheme('')" title="الافتراضي"></button>
           <button type="button" class="sb-swatch-btn" data-theme="theme-blue" style="background-color:#3b82f6;" onclick="window.applyColorTheme('theme-blue')" title="Blue"></button>
           <button type="button" class="sb-swatch-btn" data-theme="theme-green" style="background-color:#10b981;" onclick="window.applyColorTheme('theme-green')" title="Green"></button>
           <button type="button" class="sb-swatch-btn" data-theme="theme-purple" style="background-color:#8b5cf6;" onclick="window.applyColorTheme('theme-purple')" title="Purple"></button>
@@ -541,6 +1118,11 @@
     <i class="fa-solid fa-stopwatch" style="color:var(--accent-amber);"></i>
     <span id="floatingPomoTime" class="pomo-time-display">25:00</span>
   </div>
+
+  <!-- Floating Back to Top Button -->
+  <button type="button" id="floatingBackToTop" class="floating-back-to-top" title="العودة للأعلى" aria-label="العودة للأعلى">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
   <!-- Scripts -->
   <script src="subjects-data.js"></script>

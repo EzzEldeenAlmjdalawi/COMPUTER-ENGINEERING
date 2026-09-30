@@ -712,13 +712,150 @@
   };
 
   // ==========================================
-  // 8. DOM READY INITIALIZER
+  // 8. DOM READY INITIALIZER & MOTION OBSERVER
   // ==========================================
+  function initScrollObserver() {
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('is-revealed'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+        } else {
+          // Re-trigger animation when scrolling back up and down
+          if (entry.boundingClientRect.top > (window.innerHeight || document.documentElement.clientHeight)) {
+            entry.target.classList.remove('is-revealed');
+          }
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -20px 0px'
+    });
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  }
+
+  // Interactive 3D Cursor Parallax & Gyro Tilt
+  function init3DParallaxTilt() {
+    const tiltElements = document.querySelectorAll(
+      '.engineer-showcase-visual-frame, .hero-centerpiece-visual, .domain-interactive-card, .tool-suite-card, .subject-card'
+    );
+
+    tiltElements.forEach((card) => {
+      card.addEventListener('mousemove', function (e) {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const xPct = (x / rect.width) - 0.5;
+        const yPct = (y / rect.height) - 0.5;
+
+        const rotX = -yPct * 12;
+        const rotY = xPct * 12;
+
+        card.style.transform = `perspective(850px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-3px) scale3d(1.015, 1.015, 1.015)`;
+
+        // Shift floating HUD badges for layered depth
+        const badges = card.querySelectorAll('.floating-hud-badge');
+        badges.forEach((b) => {
+          b.style.transform = `translate3d(${xPct * 18}px, ${yPct * 18}px, 20px)`;
+        });
+      });
+
+      card.addEventListener('mouseleave', function () {
+        card.style.transform = '';
+        card.style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
+        const badges = card.querySelectorAll('.floating-hud-badge');
+        badges.forEach((b) => {
+          b.style.transform = '';
+          b.style.transition = 'transform 0.45s ease';
+        });
+        setTimeout(() => {
+          card.style.transition = '';
+          badges.forEach(b => b.style.transition = '');
+        }, 450);
+      });
+    });
+  }
+
+  // 3-Image Interactive Holographic Showcase Gallery Switcher
+  window.switchShowcaseGallery = function (tabIndex) {
+    const imgEl = document.getElementById('showcaseMainImg');
+    const badgeTop = document.getElementById('showcaseHudTop');
+    const badgeBottom = document.getElementById('showcaseHudBottom');
+    const buttons = document.querySelectorAll('.showcase-tab-btn');
+
+    if (!imgEl) return;
+
+    buttons.forEach((btn, idx) => {
+      btn.classList.toggle('active', idx === tabIndex);
+    });
+
+    imgEl.style.opacity = '0.3';
+    imgEl.style.transform = 'scale(0.96)';
+
+    setTimeout(() => {
+      if (tabIndex === 0) {
+        imgEl.src = 'engineer_ai_male.jpg';
+        imgEl.alt = 'مهندس حاسوب وشبكات الذكاء الاصطناعي الهولوغرافية';
+        if (badgeTop) badgeTop.innerHTML = '<i class="fa-solid fa-microchip" style="color:#00D2FF;"></i> <span>AI Neural Interface</span>';
+        if (badgeBottom) badgeBottom.innerHTML = '<i class="fa-solid fa-bolt" style="color:#FFB800;"></i> <span>Real-Time Quantum Bus</span>';
+      } else if (tabIndex === 1) {
+        imgEl.src = 'engineer_hardware_male.jpg';
+        imgEl.alt = 'مهندس أنظمة مدمجة وعتاد FPGA وروبوتات';
+        if (badgeTop) badgeTop.innerHTML = '<i class="fa-solid fa-robot" style="color:#00FF9D;"></i> <span>Robotics & FPGA Matrix</span>';
+        if (badgeBottom) badgeBottom.innerHTML = '<i class="fa-solid fa-gauge-high" style="color:#FF1E56;"></i> <span>Oscilloscope 100MHz</span>';
+      } else if (tabIndex === 2) {
+        imgEl.src = 'future_engineer_chip.jpg';
+        imgEl.alt = 'معمارية المعالجات واللوحات الأم الكمية';
+        if (badgeTop) badgeTop.innerHTML = '<i class="fa-solid fa-microchip" style="color:#FFB800;"></i> <span>Quantum Processor Die</span>';
+        if (badgeBottom) badgeBottom.innerHTML = '<i class="fa-solid fa-shield-halved" style="color:#00D2FF;"></i> <span>Hardware Security Active</span>';
+      }
+
+      imgEl.style.opacity = '1';
+      imgEl.style.transform = 'scale(1)';
+    }, 200);
+  };
+
+  function initBackToTop() {
+    let btn = document.getElementById('backToTopBtn');
+    if (!btn) {
+      btn = document.createElement('button');
+      btn.id = 'backToTopBtn';
+      btn.type = 'button';
+      btn.className = 'floating-back-to-top';
+      btn.setAttribute('aria-label', 'العودة لأعلى الصفحة');
+      btn.setAttribute('title', 'العودة لأعلى الصفحة ⬆️');
+      btn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
+      document.body.appendChild(btn);
+    }
+
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 350) {
+        btn.classList.add('is-active');
+      } else {
+        btn.classList.remove('is-active');
+      }
+    }, { passive: true });
+  }
+
   function initAllApp() {
     initTheme();
     initHeaderSearch();
     updateFavoritesUI();
     updatePomoUI();
+    initScrollObserver();
+    init3DParallaxTilt();
+    initBackToTop();
 
     // Sticky Navbar Scroll Listener
     window.addEventListener('scroll', function () {
@@ -726,7 +863,7 @@
       if (nav) {
         nav.classList.toggle('is-scrolled', window.scrollY > 20);
       }
-    });
+    }, { passive: true });
 
     // Enforce same-tab navigation for internal links
     document.querySelectorAll('a[href]').forEach((link) => {
