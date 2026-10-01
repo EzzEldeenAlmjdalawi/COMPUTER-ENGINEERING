@@ -79,6 +79,7 @@
   // 2. SIDEBAR DRAWER CONTROLLER
   // ==========================================
   window.openSidebar = function () {
+    const trigger = document.querySelector('.sidebar-trigger-btn');
     let sidebar = document.getElementById('globalSidebar');
     let backdrop = document.getElementById('sidebarBackdrop');
     if (!sidebar) {
@@ -86,8 +87,12 @@
       sidebar = document.getElementById('globalSidebar');
       backdrop = document.getElementById('sidebarBackdrop');
     }
-    if (sidebar) sidebar.classList.add('sidebar-open');
+    if (sidebar) {
+      sidebar.classList.add('sidebar-open');
+      sidebar.querySelector('.sidebar-close-btn')?.focus();
+    }
     if (backdrop) backdrop.style.display = 'block';
+    if (trigger) trigger.setAttribute('aria-expanded', 'true');
   };
 
   window.toggleMenu = window.openSidebar;
@@ -97,7 +102,18 @@
     const backdrop = document.getElementById('sidebarBackdrop');
     if (sidebar) sidebar.classList.remove('sidebar-open');
     if (backdrop) backdrop.style.display = 'none';
+    const trigger = document.querySelector('.sidebar-trigger-btn');
+    if (trigger) {
+      trigger.setAttribute('aria-expanded', 'false');
+      trigger.focus();
+    }
   };
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && document.getElementById('globalSidebar')?.classList.contains('sidebar-open')) {
+      window.closeSidebar();
+    }
+  });
 
   function injectGlobalSidebar() {
     if (document.getElementById('globalSidebar')) return;
@@ -715,8 +731,14 @@
   // 8. DOM READY INITIALIZER & MOTION OBSERVER
   // ==========================================
   function initScrollObserver() {
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      revealElements.forEach(el => el.classList.add('is-revealed'));
+      return;
+    }
+
     if (!('IntersectionObserver' in window)) {
-      document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('is-revealed'));
+      revealElements.forEach(el => el.classList.add('is-revealed'));
       return;
     }
 
@@ -724,11 +746,7 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-revealed');
-        } else {
-          // Re-trigger animation when scrolling back up and down
-          if (entry.boundingClientRect.top > (window.innerHeight || document.documentElement.clientHeight)) {
-            entry.target.classList.remove('is-revealed');
-          }
+          observer.unobserve(entry.target);
         }
       });
     }, {
@@ -736,16 +754,14 @@
       rootMargin: '0px 0px -20px 0px'
     });
 
-    document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+    revealElements.forEach(el => {
       observer.observe(el);
     });
   }
 
   // Interactive 3D Cursor Parallax & Gyro Tilt
   function init3DParallaxTilt() {
-    const tiltElements = document.querySelectorAll(
-      '.engineer-showcase-visual-frame, .hero-centerpiece-visual, .domain-interactive-card, .tool-suite-card, .subject-card'
-    );
+    const tiltElements = document.querySelectorAll('.tool-suite-card, .subject-card');
 
     tiltElements.forEach((card) => {
       card.addEventListener('mousemove', function (e) {

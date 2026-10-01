@@ -175,7 +175,7 @@
         </div>
       </div>
 
-      <!-- Centerpiece Visual Column (Cybernetic Silicon Heart & Majestic Branching Circuit Trees) -->
+      <!-- Computer engineer hero photo with animated technical overlays -->
       <div class="hero-centerpiece-visual reveal-on-scroll">
         
         <!-- Floating HUD Badges -->
@@ -194,180 +194,8 @@
           <span>Real-Time I/O: 1.2 TB/s</span>
         </div>
 
-        <!-- Custom Masterpiece: Cybernetic Silicon Heart with Majestic Branching Circuit Trees -->
-        <svg class="hero-circuit-tree-container" viewBox="0 0 760 480" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="القلب السيليكوني الهجين وشجرة المسارات والدوائر الإلكترونية">
-          <defs>
-            <!-- Atmospheric Radial Glows (Ruby, Amber & Cyber Cyan) -->
-            <radialGradient id="ruby_heart_aura" cx="380" cy="240" r="230" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#FF1E56" stop-opacity="0.25"/>
-              <stop offset="0.5" stop-color="#FFB800" stop-opacity="0.12"/>
-              <stop offset="1" stop-color="#00D2FF" stop-opacity="0"/>
-            </radialGradient>
-
-            <radialGradient id="die_core_plasma" cx="380" cy="240" r="55" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#FF1E56" stop-opacity="0.95"/>
-              <stop offset="0.45" stop-color="#FFB800" stop-opacity="0.8"/>
-              <stop offset="1" stop-color="#00D2FF" stop-opacity="0"/>
-            </radialGradient>
-
-            <linearGradient id="die_plate_3d" x1="300" y1="160" x2="460" y2="320" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#162238"/>
-              <stop offset="0.5" stop-color="#0C1322"/>
-              <stop offset="1" stop-color="#050811"/>
-            </linearGradient>
-
-            <!-- Glow Filters -->
-            <filter id="neon_laser_filter" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="6" result="blur" />
-              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-            </filter>
-            <filter id="core_ruby_glow" x="-30%" y="-30%" width="160%" height="160%">
-              <feGaussianBlur stdDeviation="12" result="blur" />
-              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-            </filter>
-          </defs>
-
-          <!-- Ambient Atmospheric Light -->
-          <circle cx="380" cy="240" r="230" fill="url(#ruby_heart_aura)" />
-
-          <!-- Left Branching Circuit Tree -->
-          <g stroke-linecap="round" stroke-linejoin="round" fill="none">
-            <!-- Major Branch 1 -->
-            <path d="M300 200 H230 L160 120 H90 L50 70" stroke="#00D2FF" stroke-width="2.5" opacity="0.85"/>
-            <path class="svg-bus-flow" d="M300 200 H230 L160 120 H90 L50 70" stroke="#00FF9D" stroke-width="2.5"/>
-            <path d="M230 120 V80 H140 L100 45" stroke="#00D2FF" stroke-width="1.8" opacity="0.65"/>
-            <path d="M160 120 V160 H110 L70 190" stroke="#FFB800" stroke-width="1.8" opacity="0.7"/>
-
-            <!-- Major Branch 2 -->
-            <path d="M300 240 H210 L150 240 H90 L40 220" stroke="#00D2FF" stroke-width="2.5" opacity="0.85"/>
-            <path class="svg-bus-flow-reverse" d="M300 240 H210 L150 240 H90 L40 220" stroke="#FF1E56" stroke-width="2.5"/>
-            <path d="M210 240 L170 280 H100 L60 300" stroke="#FFB800" stroke-width="1.8" opacity="0.75"/>
-            <path d="M150 240 L120 200 H60 L30 170" stroke="#00D2FF" stroke-width="1.8" opacity="0.65"/>
-
-            <!-- Major Branch 3 -->
-            <path d="M300 280 H230 L170 360 H100 L50 410" stroke="#FFB800" stroke-width="2.5" opacity="0.85"/>
-            <path class="svg-bus-flow" d="M300 280 H230 L170 360 H100 L50 410" stroke="#00D2FF" stroke-width="2.5"/>
-            <path d="M230 360 V400 H150 L110 440" stroke="#00FF9D" stroke-width="1.8" opacity="0.7"/>
-            <path d="M170 360 V310 H110 L70 330" stroke="#FF1E56" stroke-width="1.8" opacity="0.65"/>
-
-            <!-- Node Endpoints -->
-            <g fill="#0C1322" stroke="#00D2FF" stroke-width="2">
-              <circle cx="50" cy="70" r="4.5" fill="#00D2FF" filter="url(#neon_laser_filter)"/>
-              <circle cx="100" cy="45" r="3.5" fill="#00FF9D"/>
-              <circle cx="70" cy="190" r="4" fill="#FFB800"/>
-              <circle cx="40" cy="220" r="5" fill="#FF1E56" filter="url(#neon_laser_filter)"/>
-              <circle cx="30" cy="170" r="3.5" fill="#00D2FF"/>
-              <circle cx="60" cy="300" r="4" fill="#FFB800"/>
-              <circle cx="50" cy="410" r="5" fill="#00D2FF" filter="url(#neon_laser_filter)"/>
-              <circle cx="110" cy="440" r="3.5" fill="#00FF9D"/>
-              <circle cx="70" cy="330" r="4" fill="#FF1E56"/>
-            </g>
-
-            <!-- Components -->
-            <rect x="195" y="108" width="22" height="14" rx="3" fill="#0E172E" stroke="#00D2FF" stroke-width="1.5"/>
-            <text x="206" y="119" fill="#00D2FF" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="900" text-anchor="middle">AND</text>
-
-            <rect x="180" y="272" width="22" height="14" rx="3" fill="#0E172E" stroke="#FFB800" stroke-width="1.5"/>
-            <text x="191" y="283" fill="#FFB800" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="900" text-anchor="middle">XOR</text>
-
-            <rect x="185" y="388" width="24" height="14" rx="3" fill="#0E172E" stroke="#00FF9D" stroke-width="1.5"/>
-            <text x="197" y="399" fill="#00FF9D" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="900" text-anchor="middle">FPGA</text>
-          </g>
-
-          <!-- Right Branching Circuit Tree -->
-          <g stroke-linecap="round" stroke-linejoin="round" fill="none">
-            <!-- Major Branch 1 -->
-            <path d="M460 200 H530 L600 120 H670 L710 70" stroke="#FFB800" stroke-width="2.5" opacity="0.85"/>
-            <path class="svg-bus-flow-reverse" d="M460 200 H530 L600 120 H670 L710 70" stroke="#00D2FF" stroke-width="2.5"/>
-            <path d="M530 120 V80 H620 L660 45" stroke="#FF1E56" stroke-width="1.8" opacity="0.7"/>
-            <path d="M600 120 V160 H650 L690 190" stroke="#00FF9D" stroke-width="1.8" opacity="0.75"/>
-
-            <!-- Major Branch 2 -->
-            <path d="M460 240 H550 L610 240 H670 L720 220" stroke="#FF1E56" stroke-width="2.5" opacity="0.85"/>
-            <path class="svg-bus-flow" d="M460 240 H550 L610 240 H670 L720 220" stroke="#FFB800" stroke-width="2.5"/>
-            <path d="M550 240 L590 280 H660 L700 300" stroke="#00D2FF" stroke-width="1.8" opacity="0.75"/>
-            <path d="M610 240 L640 200 H700 L730 170" stroke="#FFB800" stroke-width="1.8" opacity="0.65"/>
-
-            <!-- Major Branch 3 -->
-            <path d="M460 280 H530 L590 360 H660 L710 410" stroke="#00D2FF" stroke-width="2.5" opacity="0.85"/>
-            <path class="svg-bus-flow-reverse" d="M460 280 H530 L590 360 H660 L710 410" stroke="#00FF9D" stroke-width="2.5"/>
-            <path d="M530 360 V400 H610 L650 440" stroke="#FFB800" stroke-width="1.8" opacity="0.7"/>
-            <path d="M590 360 V310 H650 L690 330" stroke="#00D2FF" stroke-width="1.8" opacity="0.65"/>
-
-            <!-- Node Endpoints -->
-            <g fill="#0C1322" stroke="#FFB800" stroke-width="2">
-              <circle cx="710" cy="70" r="4.5" fill="#FFB800" filter="url(#neon_laser_filter)"/>
-              <circle cx="660" cy="45" r="3.5" fill="#FF1E56"/>
-              <circle cx="690" cy="190" r="4" fill="#00FF9D"/>
-              <circle cx="720" cy="220" r="5" fill="#00D2FF" filter="url(#neon_laser_filter)"/>
-              <circle cx="730" cy="170" r="3.5" fill="#FFB800"/>
-              <circle cx="700" cy="300" r="4" fill="#00D2FF"/>
-              <circle cx="710" cy="410" r="5" fill="#FF1E56" filter="url(#neon_laser_filter)"/>
-              <circle cx="650" cy="440" r="3.5" fill="#FFB800"/>
-              <circle cx="690" cy="330" r="4" fill="#00FF9D"/>
-            </g>
-
-            <!-- Components -->
-            <rect x="543" y="108" width="22" height="14" rx="3" fill="#0E172E" stroke="#FF1E56" stroke-width="1.5"/>
-            <text x="554" y="119" fill="#FF1E56" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="900" text-anchor="middle">NOT</text>
-
-            <rect x="558" y="272" width="22" height="14" rx="3" fill="#0E172E" stroke="#00D2FF" stroke-width="1.5"/>
-            <text x="569" y="283" fill="#00D2FF" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="900" text-anchor="middle">OR</text>
-
-            <rect x="551" y="388" width="24" height="14" rx="3" fill="#0E172E" stroke="#FFB800" stroke-width="1.5"/>
-            <text x="563" y="399" fill="#FFB800" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="900" text-anchor="middle">DSP</text>
-          </g>
-
-          <!-- Central Silicon Heart Processor -->
-          <rect x="290" y="150" width="180" height="180" rx="22" fill="url(#die_plate_3d)" stroke="#223354" stroke-width="3"/>
-          <rect x="306" y="166" width="148" height="148" rx="16" fill="#070C1B" stroke="#FFB800" stroke-width="2.5"/>
-
-          <!-- 32 Gold CPU Pins -->
-          <g stroke="#FFB800" stroke-width="2.5" stroke-linecap="round">
-            <path d="M330 150V138 M355 150V138 M380 150V132 M405 150V138 M430 150V138"/>
-            <path d="M330 330V342 M355 330V342 M380 330V348 M405 330V342 M430 330V342"/>
-            <path d="M290 190H278 M290 215H278 M290 240H272 M290 265H278 M290 290H278"/>
-            <path d="M470 190H482 M470 215H482 M470 240H488 M470 265H482 M470 290H482"/>
-          </g>
-
-          <!-- Core Sub-Blocks -->
-          <g fill="#0F1A30" stroke="rgba(0, 210, 255, 0.25)" stroke-width="1.2">
-            <rect x="316" y="176" width="58" height="58" rx="7"/>
-            <rect x="386" y="176" width="58" height="58" rx="7"/>
-            <rect x="316" y="246" width="58" height="58" rx="7"/>
-            <rect x="386" y="246" width="58" height="58" rx="7"/>
-          </g>
-
-          <text x="345" y="202" fill="#00D2FF" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="900" text-anchor="middle">ALU</text>
-          <text x="345" y="217" fill="#627494" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" text-anchor="middle">64-BIT</text>
-
-          <text x="415" y="202" fill="#FFB800" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="900" text-anchor="middle">CTRL</text>
-          <text x="415" y="217" fill="#627494" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" text-anchor="middle">DECODE</text>
-
-          <text x="345" y="272" fill="#00FF9D" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="900" text-anchor="middle">CACHE</text>
-          <text x="345" y="287" fill="#627494" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" text-anchor="middle">L1/L2</text>
-
-          <text x="415" y="272" fill="#FF1E56" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="900" text-anchor="middle">NPU</text>
-          <text x="415" y="287" fill="#627494" font-family="'JetBrains Mono', monospace" font-size="7" font-weight="700" text-anchor="middle">64 TOPS</text>
-
-          <!-- Orbital Spin Rings -->
-          <g class="svg-orbital-spin">
-            <circle cx="380" cy="240" r="110" stroke="rgba(0, 210, 255, 0.4)" stroke-width="1.2" stroke-dasharray="10 25" fill="none"/>
-            <circle cx="380" cy="130" r="4" fill="#00D2FF" filter="url(#neon_laser_filter)"/>
-            <circle cx="380" cy="350" r="4" fill="#00D2FF" filter="url(#neon_laser_filter)"/>
-          </g>
-
-          <g class="svg-orbital-spin-reverse">
-            <circle cx="380" cy="240" r="85" stroke="rgba(255, 184, 0, 0.45)" stroke-width="1.2" stroke-dasharray="8 20" fill="none"/>
-            <circle cx="440" cy="180" r="3.5" fill="#FF1E56" filter="url(#neon_laser_filter)"/>
-            <circle cx="320" cy="300" r="3.5" fill="#FFB800" filter="url(#neon_laser_filter)"/>
-          </g>
-
-          <!-- Core Engine Plasma Heart -->
-          <circle class="svg-core-pulse" cx="380" cy="240" r="32" fill="url(#die_core_plasma)" filter="url(#core_ruby_glow)"/>
-          <circle cx="380" cy="240" r="14" fill="#070C1B" stroke="#FF1E56" stroke-width="2.5"/>
-          <circle cx="380" cy="240" r="5" fill="#FFB800"/>
-        </svg>
+        <!-- Existing engineer-at-work photo, animated with a subtle heartbeat pulse -->
+        <img class="hero-engineer-photo" src="Com.png" alt="مهندس حاسوب يستخدم حاسوبًا محمولًا داخل مختبر تقني" fetchpriority="high" decoding="async" />
       </div>
     </div>
   </section>
@@ -634,7 +462,10 @@
         
         <!-- Domain 1: Embedded Systems & Architecture -->
         <div class="domain-interactive-card reveal-on-scroll" style="--card-accent:#00D2FF; --icon-bg:rgba(0, 210, 255, 0.12);">
-          <div>
+          <figure class="domain-card-visual">
+            <img src="future_engineer_chip.jpg" alt="معالج إلكتروني ولوحة دوائر لمعمارية الحاسوب" loading="lazy" decoding="async" />
+          </figure>
+          <div class="domain-card-content">
             <div class="domain-icon-box">
               <i class="fa-solid fa-microchip"></i>
             </div>
@@ -651,7 +482,10 @@
 
         <!-- Domain 2: Software Engineering & Algorithms -->
         <div class="domain-interactive-card reveal-on-scroll" style="--card-accent:#00FF9D; --icon-bg:rgba(0, 255, 157, 0.12);">
-          <div>
+          <figure class="domain-card-visual">
+            <img src="engineer.png" alt="مهندس يكتب الشيفرة على لوحة مفاتيح الحاسوب" loading="lazy" decoding="async" />
+          </figure>
+          <div class="domain-card-content">
             <div class="domain-icon-box">
               <i class="fa-solid fa-code"></i>
             </div>
@@ -668,7 +502,10 @@
 
         <!-- Domain 3: Computer Networks & IoT -->
         <div class="domain-interactive-card reveal-on-scroll" style="--card-accent:#9D4EDD; --icon-bg:rgba(157, 78, 221, 0.12);">
-          <div>
+          <figure class="domain-card-visual">
+            <img src="engineer_ai_male.jpg" alt="مهندس يتفاعل مع شبكة رقمية ومسارات اتصال" loading="lazy" decoding="async" />
+          </figure>
+          <div class="domain-card-content">
             <div class="domain-icon-box">
               <i class="fa-solid fa-network-wired"></i>
             </div>
@@ -685,7 +522,10 @@
 
         <!-- Domain 4: AI & Deep Learning -->
         <div class="domain-interactive-card reveal-on-scroll" style="--card-accent:#FFB800; --icon-bg:rgba(255, 184, 0, 0.12);">
-          <div>
+          <figure class="domain-card-visual">
+            <img src="engineer_ai_interface.jpg" alt="مهندسة تعمل على واجهة ذكاء اصطناعي وشبكات عصبية" loading="lazy" decoding="async" />
+          </figure>
+          <div class="domain-card-content">
             <div class="domain-icon-box">
               <i class="fa-solid fa-brain"></i>
             </div>
@@ -702,7 +542,10 @@
 
         <!-- Domain 5: Cybersecurity & Cryptography -->
         <div class="domain-interactive-card reveal-on-scroll" style="--card-accent:#FF1E56; --icon-bg:rgba(255, 30, 86, 0.12);">
-          <div>
+          <figure class="domain-card-visual">
+            <img src="engineer_hardware_male.jpg" alt="مختبر عتاد حاسوبي وشاشات فحص رقمية" loading="lazy" decoding="async" />
+          </figure>
+          <div class="domain-card-content">
             <div class="domain-icon-box">
               <i class="fa-solid fa-shield-halved"></i>
             </div>
@@ -719,7 +562,10 @@
 
         <!-- Domain 6: Operating Systems & Digital Control -->
         <div class="domain-interactive-card reveal-on-scroll" style="--card-accent:#00D2FF; --icon-bg:rgba(0, 210, 255, 0.12);">
-          <div>
+          <figure class="domain-card-visual">
+            <img src="Com.png" alt="طالب حاسوب يعمل على نظام حاسوبي باستخدام الحاسوب المحمول" loading="lazy" decoding="async" />
+          </figure>
+          <div class="domain-card-content">
             <div class="domain-icon-box">
               <i class="fa-solid fa-sliders"></i>
             </div>
