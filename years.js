@@ -513,7 +513,22 @@ function getLinkFor(subjectName, item) {
             "Chapters":"https://drive.google.com/drive/folders/1yJ-anXjW6LhskjbN7QkjKBOvvhiNbKaf",
             "Discussion & Problems & Problems solution":"https://drive.google.com/drive/folders/1DVh8vqgd8NJGt_1D1D1f5xKpmzy9P1P4",
             "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1-Ar7678c7LJpPFLOjLi-SGl5Jce8H8gF",
-               
+        },
+        "Deep learning Lab": {
+            "Lab": "https://drive.google.com/drive/folders/1_sI2igOduDHjFSsE8UNk4FqZEb8ukEFm",
+            "Recorded Videos": "https://youtu.be/m01QAamci7Y?si=et2KbRpByAa4_VR-",
+        },
+        "Advanced Computer Architectures": {
+            "Lab": "https://drive.google.com/drive/folders/17YCbd8EfhIDafzPclXpdX0b_F4Apu18N",
+            "Recorded Videos": "https://youtube.com/playlist?list=PLOV-kML4TcKI&si=2otACd5zQSUq3HIY",
+        },
+        "Graduation Project 1": {
+            "Lab": "https://drive.google.com/drive/folders/1QgwoODHp7o4DUu5Q-zmtU63yZoSfgIGd",
+            "Lectures": "https://drive.google.com/drive/folders/1QgwoODHp7o4DUu5Q-zmtU63yZoSfgIGd",
+        },
+        "Graduation Project 2": {
+            "Lab": "https://drive.google.com/drive/folders/1N1M8liUZ2VTPct2el8IbQkw7AISy-5i0",
+            "Lectures": "https://drive.google.com/drive/folders/1N1M8liUZ2VTPct2el8IbQkw7AISy-5i0",
         },
 
 
@@ -615,16 +630,20 @@ const allSubjects = [
   { year: 'fourthYear', semester: 'Second Semester', name: 'Software Engineering', altName: 'هندسة البرمجيات الهندسة برمجيات  السنة الرابعة سنة رابعة الفصل الثاني فصل ثاني' },
 
   // السنة الخامسة
-  { year: 'fifthYear', semester: 'First Semester', name: 'AI', altName: 'الذكاء الاصطناعي ذكاء اصطياعي اصطناعي السنة الخامسة الفصل الاول سنة خامسة فصل اول' },
-  { year: 'fifthYear', semester: 'First Semester', name: 'Deep learning', altName: 'الذكاء الاصطناعي ذكاء اصطياعي اصطناعي السنة الخامسة الفصل الاول سنة خامسة فصل اول تعلم عميق التعلم' },
+  { year: 'fifthYear', semester: 'First Semester', name: 'AI', altName: 'الذكاء الاصطناعي ذكاء اصطناعي اصطناعي السنة الخامسة الفصل الاول سنة خامسة فصل اول' },
+  { year: 'fifthYear', semester: 'First Semester', name: 'Deep learning', altName: 'الذكاء الاصطناعي ذكاء اصطناعي اصطناعي السنة الخامسة الفصل الاول سنة خامسة فصل اول تعلم عميق ديب ليرنينج' },
+  { year: 'fifthYear', semester: 'First Semester', name: 'Deep learning Lab', altName: 'معمل تعلم عميق مختبر التعلم العميق ديب ليرنينج لاب سنة خامسة فصل اول' },
   { year: 'fifthYear', semester: 'First Semester', name: 'AI Lab', altName: 'مختبر الذكاء الاصطناعي لاب الاب ذكاء اصطناعي السنة الخامسة الفصل الاول سنة خامسة فصل اول' },
   { year: 'fifthYear', semester: 'First Semester', name: 'Network Security', altName: 'أمن الشبكات امن الامن شبكات شبكة السنة الخامسة الفصل الاول سنة خامسة فصل اول' },
-  { year: 'fifthYear', semester: 'First Semester', name: ' Digital Image Processing', altName: 'معالجة صور رقمية DIP السنة الخامسة الفصل الاول سنة خامسة فصل اول' },
   { year: 'fifthYear', semester: 'First Semester', name: 'Network Security Lab', altName: 'مختبر أمن الشبكات لاب الاب شبكة السنة الخامسة الفصل الاول سنة خامسة فصل اول' },
-  { year: 'fifthYear', semester: 'Second Semester', name: 'Security In Computer Systems', altName: 'أمن أنظمة الحاسوب امن الامن انطمة الحاسوب حاسوب السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني حاسوب امان' },
-  { year: 'fifthYear', semester: 'Second Semester', name: 'Distributed and parallel computerization', altName: ' محوسبة متوزعة ومتوازية  السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني موزعة توزيع ' },
-  { year: 'fifthYear', semester: 'Second Semester', name: 'Renewable energy systems Lab', altName: '   معمل لاب طاقة طاقات متجددة  السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني' },
-    { year: 'fifthYear', semester: 'Second Semester', name: 'Selected Topics Material', altName: ' مواضيع مختارة اختيار خيار سنة خامسة فصل ثاني ' },
+  { year: 'fifthYear', semester: 'First Semester', name: 'Digital Image Processing', altName: 'معالجة صور رقمية DIP السنة الخامسة الفصل الاول سنة خامسة فصل اول' },
+  { year: 'fifthYear', semester: 'First Semester', name: 'Advanced Computer Architectures', altName: 'عمارة حاسبات متقدمة معمارية حاسوب متقدمة سنة خامسة فصل اول' },
+  { year: 'fifthYear', semester: 'First Semester', name: 'Graduation Project 1', altName: 'مشروع تخرج 1 graduation project 1 سنة خامسة فصل اول' },
+  { year: 'fifthYear', semester: 'Second Semester', name: 'Security In Computer Systems', altName: 'أمن أنظمة الحاسوب امن الامن انظمة الحاسوب حاسوب السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني حاسوب امان' },
+  { year: 'fifthYear', semester: 'Second Semester', name: 'Distributed and parallel computerization', altName: 'محوسبة متوزعة ومتوازية السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني موزعة توزيع' },
+  { year: 'fifthYear', semester: 'Second Semester', name: 'Renewable energy systems Lab', altName: 'معمل لاب طاقة طاقات متجددة السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني' },
+  { year: 'fifthYear', semester: 'Second Semester', name: 'Selected Topics Material', altName: 'مواضيع مختارة اختيار خيار سنة خامسة فصل ثاني' },
+  { year: 'fifthYear', semester: 'Second Semester', name: 'Graduation Project 2', altName: 'مشروع تخرج 2 graduation project 2 سنة خامسة فصل ثاني' },
 ];
 
 

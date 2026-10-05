@@ -161,6 +161,7 @@
                         else if (k.toLowerCase().includes('lec')) iconClass = 'fa-solid fa-chalkboard-user';
                         else if (k.toLowerCase().includes('chap')) iconClass = 'fa-solid fa-list-ol';
                         else if (k.toLowerCase().includes('lab')) iconClass = 'fa-solid fa-flask';
+                        else if (k.toLowerCase().includes('video') || k.toLowerCase().includes('youtube')) iconClass = 'fa-brands fa-youtube';
                         else if (k.toLowerCase().includes('exam') || k.toLowerCase().includes('quiz')) iconClass = 'fa-solid fa-file-circle-check';
                         return `<a href="${url}" ${targetAttr} class="search-mini-link"><i class="${iconClass}"></i> ${k}</a>`;
                       })

@@ -385,6 +385,30 @@
       "Discussion & Problems & Problems solution": "https://drive.google.com/drive/folders/1DVh8vqgd8NJGt_1D1D1f5xKpmzy9P1P4",
       "Quiz & Exams & Homework": "https://drive.google.com/drive/folders/1-Ar7678c7LJpPFLOjLi-SGl5Jce8H8gF",
     },
+    "Deep learning Lab": {
+      "Lab": "https://drive.google.com/drive/folders/1_sI2igOduDHjFSsE8UNk4FqZEb8ukEFm",
+      "Recorded Videos": "https://youtu.be/m01QAamci7Y?si=et2KbRpByAa4_VR-",
+    },
+    "Advanced Computer Architectures": {
+      "Lab": "https://drive.google.com/drive/folders/17YCbd8EfhIDafzPclXpdX0b_F4Apu18N",
+      "Recorded Videos": "https://youtube.com/playlist?list=PLOV-kML4TcKI&si=2otACd5zQSUq3HIY",
+    },
+    "Graduation Project 1": {
+      "Lab": "https://drive.google.com/drive/folders/1QgwoODHp7o4DUu5Q-zmtU63yZoSfgIGd",
+      "Lectures": "https://drive.google.com/drive/folders/1QgwoODHp7o4DUu5Q-zmtU63yZoSfgIGd",
+    },
+    "Graduation Project 2": {
+      "Lab": "https://drive.google.com/drive/folders/1N1M8liUZ2VTPct2el8IbQkw7AISy-5i0",
+      "Lectures": "https://drive.google.com/drive/folders/1N1M8liUZ2VTPct2el8IbQkw7AISy-5i0",
+    },
+    "مشروع تخرج (1)": {
+      "Lab": "https://drive.google.com/drive/folders/1QgwoODHp7o4DUu5Q-zmtU63yZoSfgIGd",
+      "Lectures": "https://drive.google.com/drive/folders/1QgwoODHp7o4DUu5Q-zmtU63yZoSfgIGd",
+    },
+    "مشروع تخرج (2)": {
+      "Lab": "https://drive.google.com/drive/folders/1N1M8liUZ2VTPct2el8IbQkw7AISy-5i0",
+      "Lectures": "https://drive.google.com/drive/folders/1N1M8liUZ2VTPct2el8IbQkw7AISy-5i0",
+    },
     "Security In Computer Systems": {
       "Slides": "https://drive.google.com/drive/folders/1y3uKwBZ5QrKqfPrGaooAy0Qd4_DEySsh",
       "Book & Solutions": "https://drive.google.com/drive/folders/1i4njOu8R0sNNq8b-JBVVWPbJEjpOQb7O",
@@ -486,14 +510,18 @@
     // Fifth Year
     { year: 'fifthYear', yearTitleAr: 'السنة الخامسة', semester: 'First Semester', semesterTitleAr: 'الفصل الأول', name: 'AI', altName: 'الذكاء الاصطناعي ذكاء اصطناعي اصطناعي السنة الخامسة الفصل الاول سنة خامسة فصل اول', isLab: true },
     { year: 'fifthYear', yearTitleAr: 'السنة الخامسة', semester: 'First Semester', semesterTitleAr: 'الفصل الأول', name: 'Deep learning', code: 'ECOM 5448', category: 'تخصص اختياري', altName: 'ECOM 5448 الذكاء الاصطناعي ذكاء اصطناعي اصطناعي السنة الخامسة الفصل الاول سنة خامسة فصل اول تعلم عميق ديب ليرنينج', isLab: false },
+    { year: 'fifthYear', yearTitleAr: 'السنة الخامسة', semester: 'First Semester', semesterTitleAr: 'الفصل الأول', name: 'Deep learning Lab', code: 'ECOM 5448', category: 'تخصص اختياري', altName: 'ECOM 5448 معمل تعلم عميق مختبر التعلم العميق ديب ليرنينج لاب سنة خامسة فصل اول', isLab: true },
     { year: 'fifthYear', yearTitleAr: 'السنة الخامسة', semester: 'First Semester', semesterTitleAr: 'الفصل الأول', name: 'AI Lab', altName: 'مختبر الذكاء الاصطناعي لاب الاب ذكاء اصطناعي السنة الخامسة الفصل الاول سنة خامسة فصل اول', isLab: true },
     { year: 'fifthYear', yearTitleAr: 'السنة الخامسة', semester: 'First Semester', semesterTitleAr: 'الفصل الأول', name: 'Network Security', code: 'ECOM 5401', category: 'تخصص اختياري', altName: 'ECOM 5401 أمن الشبكات امن الامن شبكات شبكة السنة الخامسة الفصل الاول سنة خامسة فصل اول', isLab: false },
-    { year: 'fifthYear', yearTitleAr: 'السنة الخامسة', semester: 'First Semester', semesterTitleAr: 'الفصل الأول', name: 'Digital Image Processing', code: 'EELE 5426', category: 'تخصص اختياري', altName: 'EELE 5426 معالجة صور رقمية DIP السنة الخامسة الفصل الاول سنة خامسة فصل اول', isLab: false },
     { year: 'fifthYear', yearTitleAr: 'السنة الخامسة', semester: 'First Semester', semesterTitleAr: 'الفصل الأول', name: 'Network Security Lab', code: 'ECOM 5401', category: 'تخصص اختياري', altName: 'ECOM 5401 مختبر أمن الشبكات لاب الاب شبكة السنة الخامسة الفصل الاول سنة خامسة فصل اول', isLab: true },
+    { year: 'fifthYear', yearTitleAr: 'السنة الخامسة', semester: 'First Semester', semesterTitleAr: 'الفصل الأول', name: 'Digital Image Processing', code: 'EELE 5426', category: 'تخصص اختياري', altName: 'EELE 5426 معالجة صور رقمية DIP السنة الخامسة الفصل الاول سنة خامسة فصل اول', isLab: false },
+    { year: 'fifthYear', yearTitleAr: 'السنة الخامسة', semester: 'First Semester', semesterTitleAr: 'الفصل الأول', name: 'Advanced Computer Architectures', code: 'ECOM 5422', category: 'تخصص اختياري', altName: 'ECOM 5422 عمارة حاسبات متقدمة معمارية حاسوب متقدمة معمارية متقدمة سنة خامسة فصل اول', isLab: false },
+    { year: 'fifthYear', yearTitleAr: 'السنة الخامسة', semester: 'First Semester', semesterTitleAr: 'الفصل الأول', name: 'Graduation Project 1', code: 'ECOM 5301', category: 'تخصص', altName: 'ECOM 5301 مشروع تخرج 1 مشروع تخرج (1) graduation project 1 سنة خامسة فصل اول', isLab: false },
     { year: 'fifthYear', yearTitleAr: 'السنة الخامسة', semester: 'Second Semester', semesterTitleAr: 'الفصل الثاني', name: 'Security In Computer Systems', code: 'ECOM 5401', category: 'تخصص اختياري', altName: 'ECOM 5401 أمن أنظمة الحاسوب امن الامن انظمة الحاسوب حاسوب السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني حاسوب امان', isLab: true },
     { year: 'fifthYear', yearTitleAr: 'السنة الخامسة', semester: 'Second Semester', semesterTitleAr: 'الفصل الثاني', name: 'Distributed and parallel computerization', code: 'ECOM 5416', category: 'تخصص اختياري', altName: 'ECOM 5416 محوسبة متوزعة ومتوازية السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني موزعة توزيع', isLab: true },
     { year: 'fifthYear', yearTitleAr: 'السنة الخامسة', semester: 'Second Semester', semesterTitleAr: 'الفصل الثاني', name: 'Renewable energy systems Lab', code: 'ESMA 4106', category: 'تخصص اختياري', altName: 'ESMA 4106 معمل لاب طاقة طاقات متجددة السنة الخامسة الفصل الثاني سنة خامسة فصل ثاني', isLab: true },
     { year: 'fifthYear', yearTitleAr: 'السنة الخامسة', semester: 'Second Semester', semesterTitleAr: 'الفصل الثاني', name: 'Selected Topics Material', code: 'ECOM 5400', category: 'تخصص اختياري', altName: 'ECOM 5400 مواضيع مختارة اختيار خيار سنة خامسة فصل ثاني', isLab: true },
+    { year: 'fifthYear', yearTitleAr: 'السنة الخامسة', semester: 'Second Semester', semesterTitleAr: 'الفصل الثاني', name: 'Graduation Project 2', code: 'ECOM 5302', category: 'تخصص', altName: 'ECOM 5302 مشروع تخرج 2 مشروع تخرج (2) graduation project 2 سنة خامسة فصل ثاني', isLab: false },
     // متطلبات الجامعة (University Requirements)
     { year: 'firstYear', yearTitleAr: 'السنة الأولى', semester: 'First Semester', semesterTitleAr: 'الفصل الأول', name: 'اللغة العربية (نحو وصرف)', code: 'ARAB 1202', category: 'متطلب جامعة', altName: 'ARAB 1202 اللغة العربية نحو وصرف عربي متطلب جامعة سنة اولى', isLab: false },
     { year: 'firstYear', yearTitleAr: 'السنة الأولى', semester: 'First Semester', semesterTitleAr: 'الفصل الأول', name: 'قرآن كريم (1)', code: 'QURN 1101', category: 'متطلب جامعة', altName: 'QURN 1101 قرآن كريم 1 متطلب جامعة سنة اولى', isLab: false },
@@ -690,10 +718,13 @@
           subjects: [
             { name: 'AI', isLab: true },
             { name: 'Deep learning', code: 'ECOM 5448', category: 'تخصص اختياري', isLab: false },
+            { name: 'Deep learning Lab', code: 'ECOM 5448', category: 'تخصص اختياري', isLab: true },
             { name: 'AI Lab', isLab: true },
             { name: 'Network Security', code: 'ECOM 5401', category: 'تخصص اختياري', isLab: false },
-            { name: 'Digital Image Processing', code: 'EELE 5426', category: 'تخصص اختياري', isLab: false },
             { name: 'Network Security Lab', code: 'ECOM 5401', category: 'تخصص اختياري', isLab: true },
+            { name: 'Digital Image Processing', code: 'EELE 5426', category: 'تخصص اختياري', isLab: false },
+            { name: 'Advanced Computer Architectures', code: 'ECOM 5422', category: 'تخصص اختياري', isLab: false },
+            { name: 'Graduation Project 1', code: 'ECOM 5301', category: 'تخصص', isLab: false },
           ],
         },
         {
@@ -706,6 +737,7 @@
             { name: 'Distributed and parallel computerization', code: 'ECOM 5416', category: 'تخصص اختياري', isLab: true },
             { name: 'Renewable energy systems Lab', code: 'ESMA 4106', category: 'تخصص اختياري', isLab: true },
             { name: 'Selected Topics Material', code: 'ECOM 5400', category: 'تخصص اختياري', isLab: true },
+            { name: 'Graduation Project 2', code: 'ECOM 5302', category: 'تخصص', isLab: false },
           ],
         },
       ],
