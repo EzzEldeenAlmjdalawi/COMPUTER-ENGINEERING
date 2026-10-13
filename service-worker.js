@@ -3,7 +3,7 @@
  * Offline Cache & High-Speed Asset Acceleration
  */
 
-const CACHE_NAME = 'ce-iug-pwa-v2';
+const CACHE_NAME = 'ce-iug-pwa-v6';
 
 const PRECACHE_ASSETS = [
   './',
@@ -12,6 +12,9 @@ const PRECACHE_ASSETS = [
   './main.js',
   './subjects-data.js',
   './themes.css',
+  './welcome.css',
+  './site-language.js',
+  './entry-splash.js',
   './manifest.json',
   './favicon.png',
   './icon-180.png',

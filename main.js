@@ -27,52 +27,133 @@
   }
 
   function initTheme() {
-    const savedMode = safeGetStorage('themeMode');
-    if (savedMode === 'dark') {
-      document.body.classList.add('dark-mode');
-    } else if (savedMode === 'light') {
-      document.body.classList.remove('dark-mode');
-    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.body.classList.add('dark-mode');
-    }
-
+    const themes = getThemeOptions();
     const savedColor = safeGetStorage('ui-theme');
-    if (savedColor) {
-      document.body.classList.add(savedColor);
-    }
+    const savedMode = safeGetStorage('themeMode');
+    const current = themes.find((theme) => theme.id === savedColor);
+    const selected = current || themes.find((theme) => theme.id === (savedMode === 'light' ? 'palette-light' : 'palette-dark'));
+    document.body.classList.remove(...Array.from(document.body.classList).filter((name) => name.startsWith('theme-') || name.startsWith('palette-')));
+    document.body.classList.add(selected.id);
+    document.body.classList.toggle('dark-mode', selected.dark);
+    safeSetStorage('ui-theme', selected.id);
+    safeSetStorage('themeMode', selected.dark ? 'dark' : 'light');
+    updateThemeToggleIcons(selected.dark);
+    updateThemeSelection(selected.id);
   }
 
   window.toggleDarkMode = function () {
-    const isDark = document.body.classList.toggle('dark-mode');
-    safeSetStorage('themeMode', isDark ? 'dark' : 'light');
-    updateThemeToggleIcons(isDark);
+    const current = safeGetStorage('ui-theme');
+    window.applyColorTheme(current === 'palette-light' ? 'palette-dark' : 'palette-light');
   };
+
+  function getThemeOptions() {
+    return [
+      { id: 'palette-dark', name: 'داكن', colors: ['#08101c', '#13203a', '#3aa8e0', '#2fc4a4'], dark: true },
+      { id: 'palette-light', name: 'فاتح', colors: ['#eef3f9', '#ffffff', '#0068a9', '#0e9384'], dark: false },
+      { id: 'palette-aurora', name: 'الشفق', colors: ['#0a0620', '#24165a', '#b18cff', '#3cf2c8'], dark: true },
+      { id: 'palette-pearl', name: 'اللؤلؤ', colors: ['#f7f1ed', '#fffaf7', '#b4536b', '#c9965f'], dark: false },
+      { id: 'palette-nebula', name: 'السديم', colors: ['#120a1e', '#241634', '#d77bff', '#ff8fa8'], dark: true },
+      { id: 'palette-olive', name: 'الزيتون', colors: ['#06110d', '#16241c', '#9ccc65', '#e2b866'], dark: true },
+      { id: 'palette-silver', name: 'الفضة', colors: ['#d8dfe7', '#f6f8fb', '#0b9be0', '#7b8ea6'], dark: false },
+      { id: 'palette-sunset', name: 'الغروب', colors: ['#150c0a', '#2a1711', '#ff8a4c', '#ffd166'], dark: true },
+      { id: 'palette-lavender', name: 'الخزامى', colors: ['#f3f0fb', '#ffffff', '#7c5cff', '#e879a8'], dark: false },
+      { id: 'palette-ocean', name: 'المحيط', colors: ['#031a1f', '#0b2c33', '#2dd4bf', '#7dd3fc'], dark: true }
+    ];
+  }
+
+  function updateThemeSelection(themeId) {
+    document.querySelectorAll('.sb-swatch-btn, .portal-theme-btn').forEach((btn) => {
+      btn.classList.toggle('selected', btn.dataset.theme === themeId);
+      btn.setAttribute('aria-pressed', btn.dataset.theme === themeId ? 'true' : 'false');
+    });
+  }
+
+  function themePickerMarkup(buttonClass) {
+    return getThemeOptions().map((theme) => `
+      <button type="button" class="${buttonClass}" data-theme="${theme.id}" onclick="window.applyColorTheme('${theme.id}')" title="${theme.name}" aria-label="${theme.name}" aria-pressed="false">
+        <span class="theme-preview-dots" aria-hidden="true"><i style="background:${theme.colors[0]}"></i><i style="background:${theme.colors[2]}"></i><i style="background:${theme.colors[3]}"></i></span>
+        <small>${theme.name}</small>
+      </button>`).join('');
+  }
+
+  function sidebarNavigationMarkup() {
+    const path = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    const groups = [
+      { title: 'السنوات الدراسية', icon: 'fa-graduation-cap', open: true, links: [
+        ['firstYear.html', 'السنة الأولى', 'fa-cubes'], ['secndYear.html', 'السنة الثانية', 'fa-microchip'], ['thirdYear.html', 'السنة الثالثة', 'fa-network-wired'], ['fourthYear.html', 'السنة الرابعة', 'fa-laptop-code'], ['fifthYear.html', 'السنة الخامسة', 'fa-award']
+      ] },
+      { title: 'متطلبات الجامعة والخطة', icon: 'fa-diagram-project', open: false, links: [
+        ['university-requirements.html', 'متطلبات الجامعة', 'fa-building-columns'], ['degree-tracker.html', 'شجرة المتطلبات والخطة', 'fa-diagram-project']
+      ] },
+      { title: 'الأدوات الأكاديمية', icon: 'fa-screwdriver-wrench', open: false, links: [
+        ['search.html', 'البحث الشامل في المواد', 'fa-magnifying-glass'], ['gpa-calculator.html', 'حاسبة المعدل التراكمي', 'fa-calculator'], ['final-calculator.html', 'حاسبة علامة الفاينل', 'fa-bullseye'], ['schedule-builder.html', 'صانع الجدول الأسبوعي', 'fa-calendar-days'], ['study-tools.html', 'أدوات الدراسة والوايت بورد', 'fa-brain'], ['quran-wird.html', 'الورد اليومي', 'fa-book-quran']
+      ] }
+    ];
+    return `<nav class="sidebar-nav" aria-label="التنقل والأدوات الأكاديمية"><a href="index.html" class="sidebar-nav-item sidebar-home-link ${path === 'index.html' ? 'active' : ''}"><i class="fa-solid fa-house"></i><span>الرئيسية</span></a>${groups.map((group) => `
+      <details class="sidebar-nav-group" ${group.open ? 'open' : ''}>
+        <summary><i class="fa-solid ${group.icon}"></i><span>${group.title}</span><b>${group.links.length}</b></summary>
+        <div class="sidebar-links-list">${group.links.map(([href, label, icon]) => `<a href="${href}" class="sidebar-nav-item ${path === href.toLowerCase() ? 'active' : ''}"><i class="fa-solid ${icon}"></i><span>${label}</span></a>`).join('')}</div>
+      </details>`).join('')}</nav>`;
+  }
+
+  function initGroupedNavigation() {
+    const container = document.querySelector('.desktop-subnav .subnav-container');
+    if (container && container.dataset.grouped !== 'true') {
+    const path = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    const yearLinks = [
+      ['firstYear.html', 'السنة الأولى', 'fa-cubes'], ['secndYear.html', 'السنة الثانية', 'fa-microchip'], ['thirdYear.html', 'السنة الثالثة', 'fa-network-wired'], ['fourthYear.html', 'السنة الرابعة', 'fa-laptop-code'], ['fifthYear.html', 'السنة الخامسة', 'fa-award']
+    ];
+    const toolLinks = [
+      ['search.html', 'البحث عن المواد', 'fa-magnifying-glass'], ['gpa-calculator.html', 'حاسبة المعدل', 'fa-calculator'], ['final-calculator.html', 'حاسبة الفاينل', 'fa-bullseye'], ['schedule-builder.html', 'صانع الجدول', 'fa-calendar-days'], ['degree-tracker.html', 'شجرة الخطة', 'fa-diagram-project'], ['study-tools.html', 'أدوات الدراسة', 'fa-brain'], ['quran-wird.html', 'الورد اليومي', 'fa-book-quran'], ['#contact', 'التواصل والدعم', 'fa-headset'],
+      ['#', 'المواد المحفوظة', 'fa-star', 'window.openFavoritesModal()'], ['#', 'مؤقت بومودورو', 'fa-stopwatch', 'window.openPomodoroModal()'], ['#', 'تثبيت التطبيق', 'fa-mobile-screen-button', 'window.triggerPwaInstall()'],
+      ['https://t.me/+lUyeZmUh7KpjM2Fi', 'قناة التليجرام', 'fa-brands fa-telegram'], ['http://t.me/iug_computer_Enfuneering_bot', 'بوت الملفات', 'fa-robot']
+    ];
+    const menu = (label, icon, links, active) => `<details class="nav-menu-group ${active ? 'is-current' : ''}"><summary class="subnav-link"><i class="fa-solid ${icon}"></i><span>${label}</span><i class="fa-solid fa-chevron-down nav-menu-chevron"></i></summary><div class="nav-menu-popover">${links.map(([href, text, ico, action]) => action ? `<button type="button" onclick="${action}"><i class="fa-solid ${ico}"></i><span>${text}</span></button>` : `<a href="${href}" ${href.startsWith('https://') || href.startsWith('http://') ? 'target="_blank" rel="noopener noreferrer"' : ''} class="${path === href.toLowerCase() ? 'active' : ''}"><i class="fa-solid ${ico}"></i><span>${text}</span></a>`).join('')}</div></details>`;
+    container.innerHTML = `<a href="index.html" class="subnav-link ${path === 'index.html' ? 'active' : ''}"><i class="fa-solid fa-house"></i><span>الرئيسية</span></a>
+      ${menu('كل السنوات', 'fa-graduation-cap', yearLinks, yearLinks.some(([href]) => href.toLowerCase() === path))}
+      <a href="university-requirements.html" class="subnav-link ${path === 'university-requirements.html' ? 'active' : ''}"><i class="fa-solid fa-building-columns"></i><span>متطلبات الجامعة</span></a>
+      ${menu('الأدوات الأكاديمية', 'fa-screwdriver-wrench', toolLinks, toolLinks.some(([href]) => href.toLowerCase() === path))}`;
+    container.dataset.grouped = 'true';
+    container.querySelectorAll('.nav-menu-group').forEach((group) => group.addEventListener('toggle', () => {
+      if (group.open) container.querySelectorAll('.nav-menu-group').forEach((other) => { if (other !== group) other.open = false; });
+    }));
+    if (container.dataset.dismissBound !== 'true') {
+      document.addEventListener('click', (event) => {
+        if (!container.contains(event.target)) container.querySelectorAll('.nav-menu-group').forEach((group) => { group.open = false; });
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') container.querySelectorAll('.nav-menu-group').forEach((group) => { group.open = false; });
+      });
+      container.dataset.dismissBound = 'true';
+    }
+    }
+    const sidebarNav = document.querySelector('#globalSidebar .sidebar-nav');
+    if (sidebarNav) sidebarNav.outerHTML = sidebarNavigationMarkup();
+    const palette = document.querySelector('#globalSidebar .sb-swatches-grid');
+    if (palette) palette.innerHTML = themePickerMarkup('sb-swatch-btn');
+    updateThemeSelection(safeGetStorage('ui-theme') || 'palette-dark');
+  }
 
   function updateThemeToggleIcons(isDark) {
     const btns = document.querySelectorAll('.theme-toggle-btn i');
     btns.forEach((icon) => {
       icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
     });
+    document.querySelectorAll('.portal-mode-button span').forEach((label) => {
+      label.textContent = isDark ? 'الوضع النهاري' : 'الوضع الليلي';
+    });
   }
 
   window.applyColorTheme = function (themeId) {
-    const classes = document.body.className
-      .split(' ')
-      .filter((c) => !c.startsWith('theme-'))
-      .join(' ');
-    
-    if (themeId) {
-      document.body.className = (classes + ' ' + themeId).trim();
-      localStorage.setItem('ui-theme', themeId);
-    } else {
-      document.body.className = classes.trim();
-      localStorage.removeItem('ui-theme');
-    }
-
-    // Update active swatch state
-    document.querySelectorAll('.sb-swatch-btn').forEach((btn) => {
-      btn.classList.toggle('selected', btn.dataset.theme === (themeId || ''));
-    });
+    const themes = getThemeOptions();
+    const selected = themes.find((theme) => theme.id === themeId) || themes[0];
+    Array.from(document.body.classList).filter((name) => name.startsWith('theme-') || name.startsWith('palette-')).forEach((name) => document.body.classList.remove(name));
+    document.body.classList.add(selected.id);
+    document.body.classList.toggle('dark-mode', selected.dark);
+    safeSetStorage('ui-theme', selected.id);
+    safeSetStorage('themeMode', selected.dark ? 'dark' : 'light');
+    updateThemeToggleIcons(selected.dark);
+    updateThemeSelection(selected.id);
   };
 
   // ==========================================
@@ -87,6 +168,7 @@
       sidebar = document.getElementById('globalSidebar');
       backdrop = document.getElementById('sidebarBackdrop');
     }
+    initGroupedNavigation();
     if (sidebar) {
       sidebar.classList.add('sidebar-open');
       sidebar.querySelector('.sidebar-close-btn')?.focus();
@@ -131,7 +213,7 @@
             <circle cx="20" cy="20" r="4" fill="#F59E0B"/>
           </svg>
           <div>
-            <span style="font-family:var(--font-mono); font-size:0.9rem; font-weight:900; color:var(--text-main); display:block;">COMPUTER ENG</span>
+            <span style="font-family:var(--font-mono); font-size:0.68rem; letter-spacing:-.035em; font-weight:900; color:var(--text-main); display:block;">COMPUTER ENGINEERING</span>
             <span style="font-size:0.7rem; color:var(--text-subtle);">IUG القائمة الأكاديمية الشاملة</span>
           </div>
         </div>
@@ -150,41 +232,14 @@
         </div>
       </div>
 
-      <nav class="sidebar-nav">
-        <span class="sidebar-section-label">التنقل والأدوات الأكاديمية</span>
-        <div class="sidebar-links-list">
-          <a href="index.html" class="sidebar-nav-item "><i class="fa-solid fa-house"></i> <span>الرئيسية</span></a>
-          <a href="quran-wird.html" class="sidebar-nav-item "><i class="fa-solid fa-book-quran" style="color:#D4AF37;"></i> <span>الورد اليومي 📖</span></a>
-          <a href="firstYear.html" class="sidebar-nav-item "><i class="fa-solid fa-cubes" style="color:#0EA5E9;"></i> <span>السنة الأولى</span></a>
-          <a href="secndYear.html" class="sidebar-nav-item "><i class="fa-solid fa-microchip" style="color:#10B981;"></i> <span>السنة الثانية</span></a>
-          <a href="thirdYear.html" class="sidebar-nav-item "><i class="fa-solid fa-network-wired" style="color:#8B5CF6;"></i> <span>السنة الثالثة</span></a>
-          <a href="fourthYear.html" class="sidebar-nav-item "><i class="fa-solid fa-laptop-code" style="color:#F59E0B;"></i> <span>السنة الرابعة</span></a>
-          <a href="fifthYear.html" class="sidebar-nav-item "><i class="fa-solid fa-award" style="color:#EC4899;"></i> <span>السنة الخامسة</span></a>
-          <a href="university-requirements.html" class="sidebar-nav-item "><i class="fa-solid fa-graduation-cap" style="color:#06B6D4;"></i> <span>متطلبات الجامعة</span></a>
-          <a href="gpa-calculator.html" class="sidebar-nav-item "><i class="fa-solid fa-calculator" style="color:#F59E0B;"></i> <span>حاسبة المعدل التراكمي</span></a>
-          <a href="final-calculator.html" class="sidebar-nav-item "><i class="fa-solid fa-bullseye" style="color:#F59E0B;"></i> <span>حاسبة علامة الفاينل 🎯</span></a>
-          <a href="schedule-builder.html" class="sidebar-nav-item "><i class="fa-solid fa-calendar-days" style="color:#0EA5E9;"></i> <span>صانع الجدول الأسبوعي 📅</span></a>
-          <a href="degree-tracker.html" class="sidebar-nav-item highlight-item "><i class="fa-solid fa-network-wired" style="color:#10B981;"></i> <span>شجرة المتطلبات والخطة 🌳</span></a>
-          <a href="study-tools.html" class="sidebar-nav-item "><i class="fa-solid fa-brain" style="color:#10B981;"></i> <span>أدوات الدراسة والوايت بورد</span></a>
-          <a href="search.html" class="sidebar-nav-item "><i class="fa-solid fa-magnifying-glass"></i> <span>البحث الشامل في المواد</span></a>
-        </div>
-      </nav>
+      ${sidebarNavigationMarkup()}
 
       <div class="sidebar-theme-section">
         <div class="sb-theme-head">
           <span class="sidebar-section-label">تخصيص لون السمة</span>
           <button type="button" class="sb-theme-reset" onclick="window.applyColorTheme('')">الافتراضي</button>
         </div>
-        <div class="sb-swatches-grid">
-          <button type="button" class="sb-swatch-btn" data-theme="" style="background-color:#1B2A4A; border-color:#F59E0B;" onclick="window.applyColorTheme('')" title="الافتراضي"></button>
-          <button type="button" class="sb-swatch-btn" data-theme="theme-blue" style="background-color:#3b82f6;" onclick="window.applyColorTheme('theme-blue')" title="Blue"></button>
-          <button type="button" class="sb-swatch-btn" data-theme="theme-green" style="background-color:#10b981;" onclick="window.applyColorTheme('theme-green')" title="Green"></button>
-          <button type="button" class="sb-swatch-btn" data-theme="theme-purple" style="background-color:#8b5cf6;" onclick="window.applyColorTheme('theme-purple')" title="Purple"></button>
-          <button type="button" class="sb-swatch-btn" data-theme="theme-orange" style="background-color:#f97316;" onclick="window.applyColorTheme('theme-orange')" title="Orange"></button>
-          <button type="button" class="sb-swatch-btn" data-theme="theme-red" style="background-color:#ef4444;" onclick="window.applyColorTheme('theme-red')" title="Red"></button>
-          <button type="button" class="sb-swatch-btn" data-theme="theme-pink" style="background-color:#ec4899;" onclick="window.applyColorTheme('theme-pink')" title="Pink"></button>
-          <button type="button" class="sb-swatch-btn" data-theme="theme-cyan" style="background-color:#06b6d4;" onclick="window.applyColorTheme('theme-cyan')" title="Cyan"></button>
-        </div>
+        <div class="sb-swatches-grid">${themePickerMarkup('sb-swatch-btn')}</div>
       </div>
 
       <div class="sidebar-footer">
@@ -212,6 +267,52 @@
   </aside>
     `;
     document.body.appendChild(div);
+  }
+
+  function initHeaderAyah() {
+    const navbar = document.querySelector('.navbar-container');
+    if (!navbar) return;
+
+    let strip = navbar.querySelector('.header-ayah-strip');
+    if (!strip) {
+      strip = document.createElement('div');
+      strip.className = 'header-ayah-strip';
+      strip.setAttribute('role', 'group');
+      strip.setAttribute('aria-label', 'آية قرآنية متغيرة');
+      strip.innerHTML = `
+        <span class="header-ayah-ornament" aria-hidden="true">۞</span>
+        <div class="header-ayah-copy">
+          <p class="header-ayah-text quran-scripture" data-language-ignore>وَقُل رَّبِّ زِدْنِي عِلْمًا</p>
+          <span class="header-ayah-reference quran-reference" data-language-ignore>سورة طه · الآية ١١٤</span>
+        </div>
+        <span class="header-ayah-ornament" aria-hidden="true">۞</span>`;
+      const actions = navbar.querySelector('.navbar-actions');
+      if (actions) actions.before(strip);
+      else navbar.appendChild(strip);
+    }
+
+    if (strip.dataset.rotatorReady === 'true') return;
+    strip.dataset.rotatorReady = 'true';
+    const verses = [
+      ['وَقُل رَّبِّ زِدْنِي عِلْمًا', 'سورة طه · الآية ١١٤'],
+      ['إِنَّ مَعَ الْعُسْرِ يُسْرًا', 'سورة الشرح · الآية ٦'],
+      ['فَإِذَا فَرَغْتَ فَانصَبْ', 'سورة الشرح · الآية ٧'],
+      ['وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ', 'سورة النجم · الآية ٣٩'],
+      ['إِنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ', 'سورة التوبة · الآية ١٢٠']
+    ];
+    const text = strip.querySelector('.header-ayah-text');
+    const reference = strip.querySelector('.header-ayah-reference');
+    if (!text || !reference) return;
+    let index = 0;
+    window.setInterval(() => {
+      index = (index + 1) % verses.length;
+      text.classList.add('is-changing');
+      window.setTimeout(() => {
+        text.textContent = verses[index][0];
+        reference.textContent = verses[index][1];
+        text.classList.remove('is-changing');
+      }, 180);
+    }, 3000);
   }
 
   // ==========================================
@@ -865,7 +966,9 @@
   }
 
   function initAllApp() {
+    initHeaderAyah();
     initTheme();
+    initGroupedNavigation();
     initHeaderSearch();
     updateFavoritesUI();
     updatePomoUI();
@@ -893,6 +996,7 @@
     // Auto-inject sidebar for sub-pages if not present
     if (!document.getElementById('globalSidebar')) {
       injectGlobalSidebar();
+      initGroupedNavigation();
     }
   }
 
