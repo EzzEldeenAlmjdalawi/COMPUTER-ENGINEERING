@@ -113,7 +113,7 @@
       }
       toggle.addEventListener('click', () => apply(language === 'ar' ? 'en' : 'ar'));
     }
-    if (document.body.classList.contains('year-page')) {
+    if (document.body.matches('.year-page, .home-page')) {
       toggle.classList.add('site-language-toggle--year');
       toggle.innerHTML = '<i class="fa-solid fa-language" aria-hidden="true"></i><span class="site-language-label">EN</span>';
     }

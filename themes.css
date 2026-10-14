@@ -951,3 +951,150 @@ html.ce-entry-pending .ce-entry-splash { animation:ce-entry-failsafe .8s 8s forw
 @keyframes ce-entry-failsafe { to { opacity:0; visibility:hidden; pointer-events:none; } }
 @media(max-width:520px) { .ce-entry-content { box-sizing:border-box; width:min(620px,calc(100vw - 2rem)); min-width:0; padding:1rem .25rem; } .ce-entry-mark { width:94px; height:94px; border-radius:26px; } .ce-entry-mark svg { width:50px; height:50px; } .ce-entry-progress-wrap,.ce-entry-pulse { width:100%; } .ce-entry-progress-wrap { margin-top:1.8rem; } .ce-entry-pulse { height:40px; } .ce-entry-footer { margin-top:1.15rem; } }
 @media(prefers-reduced-motion:reduce) { .ce-entry-mark,.ce-entry-mark::before,.ce-entry-mark::after,.ce-entry-splash::after,.ce-entry-pulse path { animation:none; } .ce-entry-progress-fill { transition:none; } }
+
+
+/* Shared compact language and community actions on the landing and year pages. */
+:is(.year-page,.home-page) .site-language-toggle--year {
+  position: static !important;
+  display: inline-flex;
+  min-width: 76px;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.42rem;
+  padding: 0.38rem 0.68rem;
+  color: var(--text-main);
+  border: 1px solid color-mix(in srgb, var(--accent-teal) 42%, var(--border-default));
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--bg-surface) 88%, transparent);
+  box-shadow: 0 4px 14px rgba(5, 22, 36, 0.12);
+  font: 800 0.78rem var(--font-arabic, "Cairo", system-ui, sans-serif);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+:is(.year-page,.home-page) .site-language-toggle--year i {
+  color: var(--accent-teal);
+  font-size: 1rem;
+}
+
+:is(.year-page,.home-page) .site-language-toggle--year:hover {
+  color: var(--text-main);
+  border-color: var(--accent-teal);
+  background: color-mix(in srgb, var(--accent-teal) 12%, var(--bg-surface));
+  transform: translateY(-1px);
+}
+
+:is(.year-page,.home-page) .site-language-toggle--year:focus-visible {
+  outline: 2px solid var(--accent-teal);
+  outline-offset: 2px;
+}
+
+/* Keep the three most-used community tools beside language on year pages. */
+:is(.year-page,.home-page) .navbar-actions {
+  direction: ltr;
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+  gap: 0.34rem;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+:is(.year-page,.home-page) .navbar-actions > .site-language-toggle--year { order: 0; }
+:is(.year-page,.home-page) .navbar-actions > .favorite-navbar-link { order: 1; }
+:is(.year-page,.home-page) .navbar-actions > .bot-btn { order: 2; }
+:is(.year-page,.home-page) .navbar-actions > .tg-btn { order: 3; }
+
+:is(.year-page,.home-page) .navbar-actions > .favorite-navbar-link,
+:is(.year-page,.home-page) .navbar-actions > .bot-btn,
+:is(.year-page,.home-page) .navbar-actions > .tg-btn {
+  position: relative;
+  display: inline-flex !important;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+  color: var(--text-main);
+  border: 1px solid color-mix(in srgb, var(--ce-teal) 32%, var(--border-default));
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--ce-teal-soft) 52%, var(--bg-surface));
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+:is(.year-page,.home-page) .navbar-actions > .favorite-navbar-link i { color: var(--accent-amber); }
+:is(.year-page,.home-page) .navbar-actions > .bot-btn i,
+:is(.year-page,.home-page) .navbar-actions > .tg-btn i { color: var(--ce-teal); }
+
+:is(.year-page,.home-page) .navbar-actions > .favorite-navbar-link:hover,
+:is(.year-page,.home-page) .navbar-actions > .bot-btn:hover,
+:is(.year-page,.home-page) .navbar-actions > .tg-btn:hover {
+  color: var(--ce-teal);
+  border-color: var(--ce-teal);
+  background: var(--ce-teal-soft);
+  transform: translateY(-1px);
+}
+
+:is(.year-page,.home-page) .navbar-actions > .bot-btn span:not(.count-tag),
+:is(.year-page,.home-page) .navbar-actions > .tg-btn span,
+:is(.year-page,.home-page) .navbar-actions > .favorite-navbar-link span:not(.count-tag) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+:is(.year-page,.home-page) .navbar-actions > .favorite-navbar-link .fav-count-badge {
+  top: -0.35rem;
+  right: -0.35rem;
+  min-width: 1rem;
+  min-height: 1rem;
+  padding: 0.08rem 0.25rem;
+  border: 2px solid var(--bg-surface);
+  font-size: 0.62rem;
+  line-height: 1;
+  text-align: center;
+}
+
+:is(.year-page,.home-page) .navbar-actions > .favorite-navbar-link:focus-visible,
+:is(.year-page,.home-page) .navbar-actions > .bot-btn:focus-visible,
+:is(.year-page,.home-page) .navbar-actions > .tg-btn:focus-visible {
+  outline: 2px solid var(--ce-teal);
+  outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+  :is(.year-page,.home-page) .navbar-actions { gap: 0.22rem; padding-inline: 0; }
+  :is(.year-page,.home-page) .navbar-actions > .favorite-navbar-link,
+  :is(.year-page,.home-page) .navbar-actions > .bot-btn,
+  :is(.year-page,.home-page) .navbar-actions > .tg-btn,
+  :is(.year-page,.home-page) .site-language-toggle--year {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+  }
+  :is(.year-page,.home-page) .site-language-toggle--year { gap: 0; padding: 0; }
+  :is(.year-page,.home-page) .site-language-toggle--year .site-language-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 380px) {
+  :is(.year-page,.home-page) .navbar-actions { gap: 0.12rem; }
+  :is(.year-page,.home-page) .brand-title { max-width: 82px; }
+  :is(.year-page,.home-page) .brand-sub { display: none; }
+}
