@@ -894,7 +894,7 @@ body.palette-light .portal-safe-note,body.palette-pearl .portal-safe-note,body.p
   border-radius:13px; background:color-mix(in srgb,var(--bg-surface,#fff) 78%,transparent);
 }
 .header-ayah-copy { display:grid; min-width:0; flex:1 1 auto; gap:.06rem; direction:rtl; text-align:center; }
-.header-ayah-text { display:-webkit-box; overflow:hidden; max-width:100%; margin:0; color:var(--text-main,#17283c); font:700 clamp(.7rem,.9vw,.9rem)/1.48 "Times New Roman",serif; -webkit-box-orient:vertical; -webkit-line-clamp:2; transition:opacity .18s ease; }
+.header-ayah-text { display:-webkit-box; overflow:hidden; max-width:100%; margin:0; color:var(--text-main,#17283c); font:700 clamp(.92rem,1.1vw,1.05rem)/1.48 "Times New Roman",serif; -webkit-box-orient:vertical; -webkit-line-clamp:2; transition:opacity .18s ease; }
 .header-ayah-reference { overflow:hidden; color:var(--text-muted,#657789); font-size:.61rem; font-weight:700; line-height:1.2; text-overflow:ellipsis; white-space:nowrap; }
 .header-ayah-ornament { flex:0 0 auto; color:var(--ce-teal,#218c9b); font-size:.92rem; opacity:.86; }
 .header-ayah-text.is-changing { opacity:0; }
@@ -914,7 +914,7 @@ body.palette-light .portal-safe-note,body.palette-pearl .portal-safe-note,body.p
 }
 @media(max-width:520px) {
   .header-ayah-strip { min-height:42px; gap:.35rem; }
-  .header-ayah-text { font-size:.72rem; }
+  .header-ayah-text { font-size:clamp(.9rem,3vw,1rem); }
   .header-ayah-reference { font-size:.58rem; }
 }
 @media(prefers-reduced-motion:reduce) { .header-ayah-text { transition:none; } }
