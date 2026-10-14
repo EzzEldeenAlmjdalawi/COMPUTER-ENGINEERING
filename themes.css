@@ -890,7 +890,10 @@ body.palette-light .portal-safe-note,body.palette-pearl .portal-safe-note,body.p
 .header-ayah-ornament { flex:0 0 auto; color:var(--ce-teal,#218c9b); font-size:.92rem; opacity:.86; }
 .header-ayah-text.is-changing { opacity:0; }
 .subpage-header-actions { position:absolute; z-index:5; top:14px; right:14px; display:flex; align-items:center; gap:.55rem; direction:ltr; }
-.subpage-header-actions .toggle-btn { position:static; flex:0 0 44px; margin:0; }
+.subpage-header-actions .toggle-btn { position:static; flex:0 0 44px; width:44px; height:44px; min-width:44px; min-height:44px; margin:0; display:inline-flex; align-items:center; justify-content:center; border-radius:12px; color:var(--text-main,#eaf3fb); border:1px solid color-mix(in srgb,var(--ce-teal,#218c9b) 62%,var(--border-default,#d6e0e9)); background:color-mix(in srgb,var(--bg-surface,#13233a) 88%,transparent); box-shadow:0 5px 18px rgba(6,20,37,.16); cursor:pointer; transition:background .18s ease,border-color .18s ease,transform .18s ease,color .18s ease; }
+.subpage-header-actions .toggle-btn i { color:var(--ce-teal,#42c8c1); font-size:1.15rem; transition:color .18s ease; }
+.subpage-header-actions .toggle-btn:hover { color:var(--text-main,#fff); border-color:var(--ce-teal,#42c8c1); background:var(--bg-surface-subtle,#203650); transform:translateY(-1px); }
+.subpage-header-actions .toggle-btn:hover i { color:var(--text-main,#fff); }
 .site-language-toggle--subpage { position:static!important; display:inline-flex; width:auto; min-width:76px; height:44px; min-height:44px; align-items:center; justify-content:center; gap:.42rem; padding:.42rem .72rem; color:var(--text-main,#eaf3fb); border:1px solid color-mix(in srgb,var(--ce-teal,#218c9b) 62%,var(--border-default,#d6e0e9)); border-radius:12px; background:color-mix(in srgb,var(--bg-surface,#13233a) 88%,transparent); box-shadow:0 5px 18px rgba(6,20,37,.16); font:800 .78rem var(--font-arabic,"Cairo",system-ui,sans-serif); white-space:nowrap; cursor:pointer; transition:background .18s ease,border-color .18s ease,transform .18s ease; }
 .site-language-toggle--subpage i { color:var(--ce-teal,#42c8c1); font-size:1rem; }
 .site-language-toggle--subpage:hover { color:var(--text-main,#fff); border-color:var(--ce-teal,#42c8c1); background:var(--bg-surface-subtle,#203650); transform:translateY(-1px); }
