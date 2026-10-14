@@ -361,6 +361,36 @@
     });
   }
 
+  function getFavoritesResourceHref(href, year) {
+    const validYearPages = ['firstYear', 'secndYear', 'thirdYear', 'fourthYear', 'fifthYear'];
+    if (!href || !validYearPages.includes(year)) return href || '#';
+
+    try {
+      const destination = new URL(href, window.location.href);
+      if (destination.origin !== window.location.origin || !/\.html$/i.test(destination.pathname)) return href;
+      destination.searchParams.set('returnTo', `${year}.html`);
+      return destination.href;
+    } catch (e) {
+      return href;
+    }
+  }
+
+  function initSubpageBackLink() {
+    const backLink = document.querySelector('.subpage-back-nav');
+    if (!backLink) return;
+
+    const returnTo = new URLSearchParams(window.location.search).get('returnTo');
+    const validYearPages = ['firstYear.html', 'secndYear.html', 'thirdYear.html', 'fourthYear.html', 'fifthYear.html'];
+    if (!returnTo || !validYearPages.includes(returnTo)) return;
+
+    try {
+      const destination = new URL(returnTo, window.location.href);
+      if (destination.origin !== window.location.origin) return;
+      backLink.href = destination.href;
+      backLink.removeAttribute('onclick');
+    } catch (e) {}
+  }
+
   function injectFavoritesModal() {
     if (document.getElementById('favoritesModal')) return;
     const div = document.createElement('div');
@@ -420,10 +450,10 @@
                 ${
                   linkKeys.length > 0
                     ? linkKeys
-                        .map(
-                          (k) =>
-                            `<a href="${links[k]}" target="_blank" rel="noopener noreferrer" style="font-size:0.775rem; font-weight:700; padding: 0.25rem 0.55rem; background:var(--bg-surface); border:1px solid var(--border-default); border-radius:var(--radius-sm); color:var(--text-main); text-decoration:none;">${k}</a>`
-                        )
+                        .map((k) => {
+                          const href = getFavoritesResourceHref(links[k], subInfo.year);
+                          return `<a href="${href}" target="_blank" rel="noopener noreferrer" style="font-size:0.775rem; font-weight:700; padding: 0.25rem 0.55rem; background:var(--bg-surface); border:1px solid var(--border-default); border-radius:var(--radius-sm); color:var(--text-main); text-decoration:none;">${k}</a>`;
+                        })
                         .join('')
                     : '<span style="font-size:0.8rem; color:var(--text-subtle);">لا تتوفر روابط مباشرة</span>'
                 }
@@ -967,6 +997,7 @@
 
   function initAllApp() {
     initHeaderAyah();
+    initSubpageBackLink();
     initTheme();
     initGroupedNavigation();
     initHeaderSearch();
