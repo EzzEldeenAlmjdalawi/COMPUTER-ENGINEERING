@@ -383,6 +383,23 @@
   <link rel="stylesheet" href="themes.css">
 </head>
 <body>
+<script>
+  (function () {
+    const themes = ['palette-dark','palette-light','palette-aurora','palette-pearl','palette-nebula','palette-olive','palette-silver','palette-sunset','palette-lavender','palette-ocean'];
+    const darkThemes = ['palette-dark','palette-aurora','palette-nebula','palette-olive','palette-sunset','palette-ocean'];
+    function applySavedTheme(theme) {
+      if (!themes.includes(theme)) theme = 'palette-dark';
+      document.body.classList.remove(...themes);
+      document.body.classList.add(theme);
+      document.body.classList.toggle('dark-mode', darkThemes.includes(theme));
+    }
+    try { applySavedTheme(localStorage.getItem('ui-theme') || (localStorage.getItem('themeMode') === 'light' ? 'palette-light' : 'palette-dark')); }
+    catch (_) { applySavedTheme('palette-dark'); }
+    window.addEventListener('storage', function (event) {
+      if (event.key === 'ui-theme') applySavedTheme(event.newValue || 'palette-dark');
+    });
+  })();
+</script>
   <div id="ceEntrySplash" class="ce-entry-splash" role="dialog" aria-modal="true" aria-label="مرحباً بك في منصتك الأكاديمية" aria-hidden="true">
     <div class="ce-entry-content" dir="rtl">
       <div class="ce-entry-mark" aria-hidden="true">

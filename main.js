@@ -1007,6 +1007,11 @@
     init3DParallaxTilt();
     initBackToTop();
 
+    // Keep already-open pages on the same palette when it changes in another tab.
+    window.addEventListener('storage', function (event) {
+      if (event.key === 'ui-theme') window.applyColorTheme(event.newValue || 'palette-dark');
+    });
+
     // Sticky Navbar Scroll Listener
     window.addEventListener('scroll', function () {
       const nav = document.querySelector('.unified-navbar');

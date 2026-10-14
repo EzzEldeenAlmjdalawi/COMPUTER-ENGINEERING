@@ -497,7 +497,7 @@ body.dark-mode .unified-navbar.is-scrolled { border-color: var(--border-default)
   height: 100%;
   object-fit: cover;
   object-position: 50% 43%;
-  filter: saturate(.9) brightness(.78);
+  filter: saturate(.92) brightness(.9) contrast(1.02);
   -webkit-mask-image: radial-gradient(ellipse at 50% 48%, #000 42%, rgba(0,0,0,.92) 58%, rgba(0,0,0,.48) 78%, transparent 100%);
   mask-image: radial-gradient(ellipse at 50% 48%, #000 42%, rgba(0,0,0,.92) 58%, rgba(0,0,0,.48) 78%, transparent 100%);
   transform-origin: center;
@@ -505,21 +505,12 @@ body.dark-mode .unified-navbar.is-scrolled { border-color: var(--border-default)
 }
 
 .hero-centerpiece-visual.is-revealed .hero-engineer-photo {
-  animation: heroArtworkFadeIn .9s cubic-bezier(.2,.7,.2,1) both,
-    heroEngineerHeartbeat 4.8s ease-in-out .9s infinite;
+  animation: heroArtworkFadeIn .9s cubic-bezier(.2,.7,.2,1) both;
 }
 
 @keyframes heroArtworkFadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
-}
-
-/* A restrained double beat gives the still photo a living, video-like feel. */
-@keyframes heroEngineerHeartbeat {
-  0%, 100% { transform: scale(1); }
-  34% { transform: scale(1.018); }
-  40% { transform: scale(1); }
-  49%, 61% { transform: scale(1.03); }
 }
 
 /* Image motion for the existing three-scene showcase. */
@@ -1098,3 +1089,82 @@ html.ce-entry-pending .ce-entry-splash { animation:ce-entry-failsafe .8s 8s forw
   :is(.year-page,.home-page) .brand-title { max-width: 82px; }
   :is(.year-page,.home-page) .brand-sub { display: none; }
 }
+
+/* Apply the selected 10-color palette consistently across every site page. */
+body[class*="palette-"] {
+  --accent-amber:var(--ce-gold);
+  --accent-amber-hover:color-mix(in srgb,var(--ce-gold) 82%,#101820);
+  --accent-amber-glow:color-mix(in srgb,var(--ce-gold) 27%,transparent);
+  --accent-teal:var(--ce-teal);
+  --accent-emerald:var(--ce-teal);
+  --primary-slate:var(--bg-surface);
+  --primary-slate-dark:var(--bg-body);
+  --primary-slate-light:var(--bg-surface-subtle);
+  --bg:var(--bg-body);
+  --bg2:var(--bg-surface);
+  --bg3:var(--bg-surface-subtle);
+  --cyan:var(--ce-teal);
+  --cyan-dim:var(--ce-teal);
+  --cyan-glow:color-mix(in srgb,var(--ce-teal) 16%,transparent);
+  --text:var(--text-main);
+  --text-dim:var(--text-muted);
+  --border:var(--border-default);
+  --whatsapp-ink:#087f5b;
+  --whatsapp-wash:rgba(8,127,91,.14);
+  --whatsapp-border:rgba(8,127,91,.34);
+}
+
+body.palette-dark,body.palette-aurora,body.palette-nebula,body.palette-olive,body.palette-sunset,body.palette-ocean {
+  --whatsapp-ink:#35d982;
+  --whatsapp-wash:rgba(53,217,130,.16);
+  --whatsapp-border:rgba(53,217,130,.42);
+}
+
+body[class*="palette-"] .comm-wa-icon,
+body[class*="palette-"] .contact-link-icon--whatsapp {
+  color:var(--whatsapp-ink)!important;
+  background:var(--whatsapp-wash)!important;
+  border:1px solid var(--whatsapp-border);
+}
+body[class*="palette-"] .sb-contact-btn.wa { color:var(--whatsapp-ink); border-color:var(--whatsapp-border); }
+body[class*="palette-"] .contact-link-item--whatsapp strong { color:var(--text-main)!important; }
+body[class*="palette-"] .contact-link-item--whatsapp span { color:var(--text-muted)!important; }
+body[class*="palette-"] .contact-link-icon {
+  display:grid;
+  width:36px;
+  height:36px;
+  flex:0 0 36px;
+  place-items:center;
+  border-radius:var(--radius-sm);
+}
+
+@media (max-width:480px) {
+  body[class*="palette-"] .contact-link-icon { width:34px; height:34px; flex-basis:34px; }
+}
+
+/* Keep the engineering photo clear, still, and blended into the active surface. */
+.engineer-showcase-visual-frame,
+.engineer-showcase-visual-frame:hover {
+  transform:none!important;
+  border-color:transparent!important;
+  box-shadow:none!important;
+  background:transparent;
+}
+.engineer-showcase-img,
+.reveal-on-scroll.is-revealed .engineer-showcase-img,
+.engineer-showcase-visual-frame:hover .engineer-showcase-img {
+  opacity:1;
+  transform:none!important;
+  animation:none!important;
+  filter:saturate(.96) contrast(1.03);
+  -webkit-mask-image:radial-gradient(ellipse at center,#000 72%,rgba(0,0,0,.88) 86%,transparent 100%);
+  mask-image:radial-gradient(ellipse at center,#000 72%,rgba(0,0,0,.88) 86%,transparent 100%);
+}
+
+/* The standalone study-tools page uses its own CSS variables; map them to the site palette. */
+body[class*="palette-"] .study-top-nav {
+  background:color-mix(in srgb,var(--bg-surface) 94%,transparent);
+  border-color:var(--border-default);
+}
+body[class*="palette-"] .tab-btn.active,
+body[class*="palette-"] .btn-save { color:var(--text-inverse); }
