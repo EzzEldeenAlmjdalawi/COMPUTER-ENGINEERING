@@ -38,7 +38,7 @@
   function toggleText(node) {
     if (!node?.nodeValue) return;
     const parent = node.parentElement;
-    if (parent?.closest('script,style,noscript,textarea,code,pre,[data-language-ignore],.quran-scripture,.ayah-scripture,.quran-text,.ayah-text')) return;
+    if (parent?.closest('script,style,noscript,textarea,code,pre,[data-language-ignore],.quran-scripture,.ayah-scripture,.quran-text,.ayah-text,.subject-name-ar')) return;
     if (!savedText.has(node)) savedText.set(node, node.nodeValue);
     const original = savedText.get(node);
     if (language === 'ar') { node.nodeValue = original; return; }
@@ -112,6 +112,10 @@
         document.body.appendChild(toggle);
       }
       toggle.addEventListener('click', () => apply(language === 'ar' ? 'en' : 'ar'));
+    }
+    if (document.body.classList.contains('year-page')) {
+      toggle.classList.add('site-language-toggle--year');
+      toggle.innerHTML = '<i class="fa-solid fa-language" aria-hidden="true"></i><span class="site-language-label">EN</span>';
     }
     let preferred = 'ar';
     try { preferred = localStorage.getItem('site-language') || 'ar'; } catch (_) {}

@@ -242,6 +242,63 @@
   line-height: 1.3;
 }
 
+.subject-title-stack {
+  display: flex;
+  min-width: 0;
+  max-width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.08rem;
+  text-align: start;
+}
+
+.subject-name-ar {
+  display: block;
+  max-width: 100%;
+  color: color-mix(in srgb, var(--text-main) 78%, transparent);
+  font-size: clamp(0.72rem, 1.35vw, 0.82rem);
+  font-weight: 600;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.site-language-toggle--year {
+  position: static !important;
+  display: inline-flex;
+  min-width: 76px;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.42rem;
+  padding: 0.38rem 0.68rem;
+  color: var(--text-main);
+  border: 1px solid color-mix(in srgb, var(--accent-teal) 42%, var(--border-default));
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--bg-surface) 88%, transparent);
+  box-shadow: 0 4px 14px rgba(5, 22, 36, 0.12);
+  font: 800 0.78rem var(--font-arabic, "Cairo", system-ui, sans-serif);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+.site-language-toggle--year i {
+  color: var(--accent-teal);
+  font-size: 1rem;
+}
+
+.site-language-toggle--year:hover {
+  color: var(--text-main);
+  border-color: var(--accent-teal);
+  background: color-mix(in srgb, var(--accent-teal) 12%, var(--bg-surface));
+  transform: translateY(-1px);
+}
+
+.site-language-toggle--year:focus-visible {
+  outline: 2px solid var(--accent-teal);
+  outline-offset: 2px;
+}
+
 .badge-lab {
   font-size: 0.725rem;
   font-weight: 800;
@@ -399,6 +456,10 @@
 
   .subject-name {
     font-size: 0.95rem;
+  }
+
+  .subject-name-ar {
+    font-size: 0.73rem;
   }
 
   .semester-pills-row {
