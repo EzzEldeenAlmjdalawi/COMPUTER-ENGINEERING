@@ -15,6 +15,22 @@
     "productivity",
     "utilities"
   ],
+  "screenshots": [
+    {
+      "src": "iug_campus_splash.jpg",
+      "sizes": "1024x1024",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "واجهة الجامعة الإسلامية بغزة — هندسة الحاسوب"
+    },
+    {
+      "src": "iug_campus_splash.jpg",
+      "sizes": "1024x1024",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "واجهة الجامعة الإسلامية بغزة — هندسة الحاسوب"
+    }
+  ],
   "icons": [
     {
       "src": "favicon.png",
