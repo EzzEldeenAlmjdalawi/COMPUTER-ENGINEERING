@@ -2,5 +2,5 @@ User-agent: *
 Allow: /
 
 # Sitemap Index for Google Search Engine Optimization
-Sitemap: https://ezzeldeenalmjdalawi.github.io/COMPUTER-ENGINEERING/sitemap.xml
+Sitemap: https://computer-engineering-iug.vercel.app/sitemap.xml
 Sitemap: sitemap.xml
