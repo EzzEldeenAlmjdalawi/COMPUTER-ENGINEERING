@@ -376,9 +376,9 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1rem;
-  min-height: 48px;
+  gap: 0.6rem;
+  padding: 0.75rem 0.85rem;
+  min-height: 56px;
   box-sizing: border-box;
   background: var(--bg-surface);
   border: 1.5px solid var(--border-default);
@@ -400,18 +400,75 @@
 
 .resource-chip-link i {
   color: var(--accent-teal);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .resource-chip-link:hover i {
   color: var(--accent-amber);
 }
 
+.resource-title-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.15rem;
+  min-width: 0;
+  line-height: 1.25;
+}
+
+.resource-name {
+  display: block;
+  font-size: clamp(0.8rem, 1.6vw, 0.875rem);
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.2;
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resource-chip-link:hover .resource-name {
+  color: var(--accent-amber);
+}
+
+.resource-name-ar {
+  display: block;
+  font-size: clamp(0.7rem, 1.35vw, 0.76rem);
+  font-weight: 700;
+  color: var(--accent-teal);
+  line-height: 1.25;
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resource-chip-link:hover .resource-name-ar {
+  color: var(--accent-amber);
+}
+
 /* Mobile Polish */
 @media (max-width: 640px) {
   .resources-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
     gap: 0.5rem;
+  }
+
+  .resource-chip-link {
+    padding: 0.65rem 0.5rem;
+    min-height: 52px;
+    gap: 0.45rem;
+  }
+
+  .resource-chip-link i {
+    font-size: 0.95rem;
+  }
+
+  .resource-name {
+    font-size: 0.78rem;
+  }
+
+  .resource-name-ar {
+    font-size: 0.68rem;
   }
 
   .subject-header-btn {

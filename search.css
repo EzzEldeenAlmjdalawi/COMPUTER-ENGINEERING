@@ -248,6 +248,19 @@
   color: #0F172A;
 }
 
+.search-mini-ar {
+  font-size: 0.72rem;
+  font-weight: 600;
+  opacity: 0.88;
+  margin-inline-start: 0.35rem;
+  color: var(--accent-teal);
+}
+
+.search-mini-link:hover .search-mini-ar {
+  color: #0F172A;
+  opacity: 0.95;
+}
+
 /* Empty State */
 .search-empty-state-card {
   background: var(--bg-surface);

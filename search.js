@@ -4,6 +4,17 @@
  */
 
 (function () {
+  const RESOURCE_AR = {
+    'Slides': 'السلايدات',
+    'Book & Solutions': 'الكتاب وحلوله',
+    'Lectures': 'المحاضرات',
+    'Chapters': 'الشباتر',
+    'Discussion & Problems & Problems solution': 'المناقشات وحلول المسائل',
+    'Quiz & Exams & Homework': 'الاختبارات والكويزات والواجبات',
+    'Lab': 'المعمل / اللاب',
+    'Recorded Videos': 'الفيديوهات المسجلة'
+  };
+
   'use strict';
 
   let currentCategory = 'all';
@@ -163,7 +174,7 @@
                         else if (k.toLowerCase().includes('lab')) iconClass = 'fa-solid fa-flask';
                         else if (k.toLowerCase().includes('video') || k.toLowerCase().includes('youtube')) iconClass = 'fa-brands fa-youtube';
                         else if (k.toLowerCase().includes('exam') || k.toLowerCase().includes('quiz')) iconClass = 'fa-solid fa-file-circle-check';
-                        return `<a href="${url}" ${targetAttr} class="search-mini-link"><i class="${iconClass}"></i> ${k}</a>`;
+                        return `<a href="${url}" ${targetAttr} class="search-mini-link"><i class="${iconClass}"></i> <span>${k}</span>${RESOURCE_AR[k] ? ` <span class="search-mini-ar" lang="ar" dir="rtl">(${RESOURCE_AR[k]})</span>` : ''}</a>`;
                       })
                       .join('')
                   : `<a href="${pageUrl}" class="search-mini-link" target="_self"><i class="${pageIcon}"></i> ${pageLabel}</a>`

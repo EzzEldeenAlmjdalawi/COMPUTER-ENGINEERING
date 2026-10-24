@@ -38,7 +38,7 @@
   function toggleText(node) {
     if (!node?.nodeValue) return;
     const parent = node.parentElement;
-    if (parent?.closest('script,style,noscript,textarea,code,pre,[data-language-ignore],.quran-scripture,.ayah-scripture,.quran-text,.ayah-text,.subject-name-ar')) return;
+    if (parent?.closest('script,style,noscript,textarea,code,pre,[data-language-ignore],.quran-scripture,.ayah-scripture,.quran-text,.ayah-text,.subject-name-ar,.resource-name-ar')) return;
     if (!savedText.has(node)) savedText.set(node, node.nodeValue);
     const original = savedText.get(node);
     if (language === 'ar') { node.nodeValue = original; return; }
