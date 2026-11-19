@@ -283,6 +283,87 @@
     </div>
   </footer>
 
+  <!-- Global Collapsible Sidebar -->
+  <div id="sidebarBackdrop" class="sidebar-backdrop" style="display:none;" onclick="window.closeSidebar()"></div>
+  <aside id="globalSidebar" class="collapsible-sidebar" dir="rtl">
+    <div class="sidebar-inner">
+      <div class="sidebar-header">
+        <div style="display:flex; align-items:center; gap:0.65rem;">
+          <svg width="30" height="30" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="10" fill="#1B2A4A"/>
+            <rect x="11" y="11" width="18" height="18" rx="4" fill="#0F172A" stroke="#F59E0B" stroke-width="2"/>
+            <circle cx="20" cy="20" r="4" fill="#F59E0B"/>
+          </svg>
+          <div>
+            <span style="font-family:var(--font-mono); font-size:0.9rem; font-weight:900; color:var(--text-main); display:block;">COMPUTER ENG</span>
+            <span style="font-size:0.7rem; color:var(--text-subtle);">IUG القائمة الأكاديمية الشاملة</span>
+          </div>
+        </div>
+        <button type="button" class="sidebar-close-btn" onclick="window.closeSidebar()" aria-label="إغلاق">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Degree Plan Selector in Sidebar -->
+      <div class="sidebar-plan-section">
+        <span class="sidebar-section-label">نظام الخطة الدراسية</span>
+        <div class="sb-plan-options" role="radiogroup" aria-label="اختيار نظام الخطة الدراسية">
+          <button type="button" class="sb-plan-btn active" data-plan="5year" onclick="window.switchDegreePlan('5year')" aria-pressed="true">
+            <div class="sb-plan-btn-start">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <div class="sb-plan-btn-text">
+                <strong>خطة هندسة الحاسوب (5 سنين)</strong>
+                <small>167 ساعة معتمدة • الافتراضية</small>
+              </div>
+            </div>
+            <i class="fa-solid fa-circle-check sb-plan-check"></i>
+          </button>
+
+          <button type="button" class="sb-plan-btn" data-plan="4year" onclick="window.switchDegreePlan('4year')" aria-pressed="false">
+            <div class="sb-plan-btn-start">
+              <i class="fa-solid fa-bolt"></i>
+              <div class="sb-plan-btn-text">
+                <strong>خطة هندسة الحاسوب (4 سنين)</strong>
+                <small>136 ساعة معتمدة • الخطة الحديثة 🔥</small>
+              </div>
+            </div>
+            <i class="fa-solid fa-circle-check sb-plan-check"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="sb-pwa-card" onclick="window.triggerPwaInstall()">
+        <div class="sb-pwa-icon">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+        </div>
+        <div class="sb-pwa-text">
+          <strong>تثبيت التطبيق على هاتفك 📲</strong>
+          <span>وصول فوري للمساقات بدون إنترنت</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <span class="sidebar-section-label">التنقل والأدوات الأكاديمية</span>
+        <div class="sidebar-links-list">
+          <a href="index.html" class="sidebar-nav-item"><i class="fa-solid fa-house"></i> <span>الرئيسية</span></a>
+          <a href="quran-wird.html" class="sidebar-nav-item"><i class="fa-solid fa-book-quran" style="color:#D4AF37;"></i> <span>الورد اليومي 📖</span></a>
+          <a href="firstYear.html" class="sidebar-nav-item"><i class="fa-solid fa-cubes" style="color:#0EA5E9;"></i> <span>السنة الأولى</span></a>
+          <a href="secndYear.html" class="sidebar-nav-item"><i class="fa-solid fa-microchip" style="color:#10B981;"></i> <span>السنة الثانية</span></a>
+          <a href="thirdYear.html" class="sidebar-nav-item"><i class="fa-solid fa-network-wired" style="color:#8B5CF6;"></i> <span>السنة الثالثة</span></a>
+          <a href="fourthYear.html" class="sidebar-nav-item"><i class="fa-solid fa-laptop-code" style="color:#F59E0B;"></i> <span>السنة الرابعة</span></a>
+          <a href="fifthYear.html" class="sidebar-nav-item"><i class="fa-solid fa-award" style="color:#EC4899;"></i> <span>السنة الخامسة</span></a>
+          <a href="university-requirements.html" class="sidebar-nav-item"><i class="fa-solid fa-graduation-cap" style="color:#06B6D4;"></i> <span>متطلبات الجامعة</span></a>
+          <a href="gpa-calculator.html" class="sidebar-nav-item"><i class="fa-solid fa-calculator" style="color:#F59E0B;"></i> <span>حاسبة المعدل التراكمي</span></a>
+          <a href="final-calculator.html" class="sidebar-nav-item"><i class="fa-solid fa-bullseye" style="color:#F59E0B;"></i> <span>حاسبة علامة الفاينل 🎯</span></a>
+          <a href="schedule-builder.html" class="sidebar-nav-item"><i class="fa-solid fa-calendar-days" style="color:#0EA5E9;"></i> <span>صانع الجدول الأسبوعي 📅</span></a>
+          <a href="degree-tracker.html" class="sidebar-nav-item highlight-item active"><i class="fa-solid fa-network-wired" style="color:#10B981;"></i> <span>شجرة المتطلبات والخطة 🌳</span></a>
+          <a href="study-tools.html" class="sidebar-nav-item"><i class="fa-solid fa-brain" style="color:#10B981;"></i> <span>أدوات الدراسة والوايت بورد</span></a>
+          <a href="search.html" class="sidebar-nav-item"><i class="fa-solid fa-magnifying-glass"></i> <span>البحث الشامل في المواد</span></a>
+        </div>
+      </nav>
+    </div>
+  </aside>
+
   <!-- Scripts -->
   <script src="subjects-data.js"></script>
   <script src="main.js"></script>

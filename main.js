@@ -1012,7 +1012,7 @@
     document.body.classList.toggle('plan-4year-active', is4Year);
     document.body.classList.toggle('plan-5year-active', !is4Year);
 
-    document.querySelectorAll('.degree-plan-switcher [data-plan]').forEach(function (btn) {
+    document.querySelectorAll('.degree-plan-switcher [data-plan], .sb-plan-btn[data-plan]').forEach(function (btn) {
       const btnPlan = btn.getAttribute('data-plan');
       const active = (btnPlan === '4year' && is4Year) || (btnPlan === '5year' && !is4Year);
       btn.classList.toggle('active', active);
