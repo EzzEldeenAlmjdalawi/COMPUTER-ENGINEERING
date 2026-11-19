@@ -7,7 +7,6 @@
   'use strict';
 
   const STORAGE_KEY = 'ce_passed_courses_v1';
-  const TOTAL_HOURS = 167;
 
   // Complete Official Curriculum with Credit Hours & Exact Prerequisites
   const DEGREE_DATA = [
@@ -122,6 +121,11 @@
       passedCourseIds = [];
     }
     renderAll();
+
+    window.addEventListener('ce-plan-changed', function () {
+      renderAll();
+    });
+
   }
 
   function saveProgress() {
@@ -140,6 +144,110 @@
     renderAll();
   };
 
+
+  // Official 4-Year Curriculum (136 Credit Hours)
+  const DEGREE_DATA_4YEAR = [
+    // Year 1 (35 Hours)
+    {
+      yearKey: 'p4_y1',
+      yearTitle: 'السنة الأولى (35 ساعة معتمدة)',
+      courses: [
+        { id: 'eele1101', name: 'مختبر دوائر كهربائية (1)', code: 'EELE 1101', hours: 1, prereq: 'دوائر كهربائية (1)', prereqIds: ['eele1301'] },
+        { id: 'eele1301', name: 'دوائر كهربائية (1)', code: 'EELE 1301', hours: 3, prereq: 'فيزياء عامة (أ)', prereqIds: ['physa1301'] },
+        { id: 'engg1206', name: 'أساسيات الهندسة والبحث العلمي', code: 'ENGG 1206', hours: 2, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'qurn1101', name: 'قرآن كريم (1)', code: 'QURN 1101', hours: 2, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'matha1301', name: 'تفاضل وتكامل (أ)', code: 'MATHA 1301', hours: 3, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'physa1102', name: 'فيزياء عامة عملية (أ)', code: 'PHYSA 1102', hours: 1, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'physa1301', name: 'فيزياء عامة (أ)', code: 'PHYSA 1301', hours: 3, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'engg1301', name: 'أساسيات البرمجة', code: 'ENGG 1301', hours: 2, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'ecom1101', name: 'مختبر تصميم رقمي', code: 'ECOM 1101', hours: 1, prereq: 'تصميم رقمي', prereqIds: ['ecom1301'] },
+        { id: 'ecom1301', name: 'تصميم رقمي', code: 'ECOM 1301', hours: 3, prereq: 'أساسيات البرمجة', prereqIds: ['engg1301'] },
+        { id: 'ecom1401', name: 'برمجة حاسوب (1) [C++]', code: 'ECOM 1401', hours: 3, prereq: 'أساسيات البرمجة', prereqIds: ['engg1301'] },
+        { id: 'qurn2101', name: 'قرآن كريم (2)', code: 'QURN 2101', hours: 2, prereq: 'قرآن كريم (1)', prereqIds: ['qurn1101'] },
+        { id: 'eele1303', name: 'إلكترونيات (1)', code: 'EELE 1303', hours: 3, prereq: 'دوائر كهربائية (1)', prereqIds: ['eele1301'] },
+        { id: 'mathb1302', name: 'تفاضل تكامل (ب)', code: 'MATHB 1302', hours: 3, prereq: 'تفاضل وتكامل (أ)', prereqIds: ['matha1301'] },
+        { id: 'opti1202', name: 'متطلب جامعة اختياري (1)', code: 'OPTI 1202', hours: 2, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'eele1103', name: 'مختبر إلكترونيات (1)', code: 'EELE 1103', hours: 1, prereq: 'إلكترونيات (1)', prereqIds: ['eele1303'] }
+      ]
+    },
+    // Year 2 (36 Hours)
+    {
+      yearKey: 'p4_y2',
+      yearTitle: 'السنة الثانية (36 ساعة معتمدة)',
+      courses: [
+        { id: 'arab1202', name: 'اللغة العربية (نحو وصرف)', code: 'ARAB 1202', hours: 2, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'ecom2311', name: 'رياضيات متقطعة', code: 'ECOM 2311', hours: 3, prereq: 'أساسيات البرمجة', prereqIds: ['engg1301'] },
+        { id: 'ecom2402', name: 'برمجة حاسوب (2) [C++]', code: 'ECOM 2402', hours: 3, prereq: 'برمجة حاسوب (1)', prereqIds: ['ecom1401'] },
+        { id: 'qurn3101', name: 'قرآن كريم (3)', code: 'QURN 3101', hours: 2, prereq: 'قرآن كريم (2)', prereqIds: ['qurn2101'] },
+        { id: 'engg1305_p4', name: 'لغة إنجليزية تقنية', code: 'ENGG 1305', hours: 2, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'math2341_p4', name: 'جبر خطي', code: 'MATH 2341', hours: 3, prereq: 'تفاضل وتكامل (أ)', prereqIds: ['matha1301'] },
+        { id: 'engg1209', name: 'رسم هندسي بالحاسوب', code: 'ENGG 1209', hours: 2, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'ecom2407', name: 'تراكيب بيانات وخوارزميات', code: 'ECOM 2407', hours: 3, prereq: 'برمجة حاسوب (2)', prereqIds: ['ecom2402'] },
+        { id: 'eele2103', name: 'إلكترونيات رقمية (عملي)', code: 'EELE 2103', hours: 1, prereq: 'إلكترونيات رقمية', prereqIds: ['eele2303'] },
+        { id: 'eele2107', name: 'إشارات وأنظمة خطية (عملي)', code: 'EELE 2107', hours: 1, prereq: 'إشارات وأنظمة خطية', prereqIds: ['eele2307'] },
+        { id: 'voln1000', name: 'عمل تطوعي / 60 ساعة', code: 'VOLN 1000', hours: 0, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'eele2307', name: 'إشارات وأنظمة خطية', code: 'EELE 2307', hours: 3, prereq: 'تفاضل تكامل (ب)', prereqIds: ['mathb1302'] },
+        { id: 'math2300', name: 'الإحصاء والاحتمالات', code: 'MATH 2300', hours: 3, prereq: 'تفاضل تكامل (ب)', prereqIds: ['mathb1302'] },
+        { id: 'math2302_p4', name: 'معادلات تفاضلية عادية', code: 'MATH 2302', hours: 3, prereq: 'تفاضل تكامل (ب)', prereqIds: ['mathb1302'] },
+        { id: 'eele2303', name: 'إلكترونيات رقمية', code: 'EELE 2303', hours: 3, prereq: 'إلكترونيات (1)', prereqIds: ['eele1303'] }
+      ]
+    },
+    // Year 3 (35 Hours)
+    {
+      yearKey: 'p4_y3',
+      yearTitle: 'السنة الثالثة (35 ساعة معتمدة)',
+      courses: [
+        { id: 'ecom3403', name: 'اتصالات بيانات', code: 'ECOM 3403', hours: 3, prereq: 'إشارات وأنظمة خطية', prereqIds: ['eele2307'] },
+        { id: 'ecom3409', name: 'نظم قواعد البيانات', code: 'ECOM 3409', hours: 3, prereq: 'تراكيب بيانات وخوارزميات', prereqIds: ['ecom2407'] },
+        { id: 'pols3220', name: 'دراسات فلسطينية', code: 'POLS 3220', hours: 2, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'eele3160_p4', name: 'أنظمة التحكم الخطية (عملي)', code: 'EELE 3160', hours: 1, prereq: 'أنظمة التحكم الخطية', prereqIds: ['eele3360_p4'] },
+        { id: 'eele3360_p4', name: 'أنظمة التحكم الخطية', code: 'EELE 3360', hours: 3, prereq: 'إشارات وأنظمة خطية', prereqIds: ['eele2307'] },
+        { id: 'ecom3421_p4', name: 'عمارة حاسبات', code: 'ECOM 3421', hours: 3, prereq: 'تصميم رقمي', prereqIds: ['ecom1301'] },
+        { id: 'ecom3002', name: 'تدريب عملي (250 ساعة)', code: 'ECOM 3002', hours: 2, prereq: 'إنجاز 90 ساعة', prereqIds: [] },
+        { id: 'ecom3306', name: 'لغة تجميع', code: 'ECOM 3306', hours: 3, prereq: 'عمارة حاسبات', prereqIds: ['ecom3421_p4'] },
+        { id: 'ecom3401', name: 'نظم تشغيل', code: 'ECOM 3401', hours: 3, prereq: 'عمارة حاسبات', prereqIds: ['ecom3421_p4'] },
+        { id: 'opti3313', name: 'متطلب تخصص اختياري (1)', code: 'OPTI 3313', hours: 3, prereq: 'تراكيب بيانات وخوارزميات', prereqIds: ['ecom2407'] },
+        { id: 'opti1203', name: 'متطلب جامعة اختياري (2)', code: 'OPTI 1203', hours: 2, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'opti3113', name: 'متطلب تخصص اختياري (1) عملي', code: 'OPTI 3113', hours: 1, prereq: 'متطلب تخصص اختياري (1)', prereqIds: ['opti3313'] },
+        { id: 'ecom3402', name: 'شبكات حاسوب', code: 'ECOM 3402', hours: 3, prereq: 'اتصالات بيانات', prereqIds: ['ecom3403'] }
+      ]
+    },
+    // Year 4 (30 Hours)
+    {
+      yearKey: 'p4_y4',
+      yearTitle: 'السنة الرابعة (30 ساعة معتمدة)',
+      courses: [
+        { id: 'aqid3306', name: 'دراسات في العقيدة', code: 'AQID 3306', hours: 2, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'ecom4101', name: 'بحث وندوه', code: 'ECOM 4101', hours: 1, prereq: 'إنجاز 100 ساعة', prereqIds: [] },
+        { id: 'ecom4301', name: 'نظم مغموسة', code: 'ECOM 4301', hours: 3, prereq: 'عمارة حاسبات', prereqIds: ['ecom3421_p4'] },
+        { id: 'opti4317', name: 'متطلب تخصص اختياري (2)', code: 'OPTI 4317', hours: 3, prereq: 'شبكات حاسوب', prereqIds: ['ecom3402'] },
+        { id: 'opti4117', name: 'متطلب تخصص اختياري (2) عملي', code: 'OPTI 4117', hours: 1, prereq: 'متطلب تخصص اختياري (2)', prereqIds: ['opti4317'] },
+        { id: 'opti4213', name: 'متطلب جامعة اختياري (4)', code: 'OPTI 4213', hours: 2, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'opti3212', name: 'متطلب جامعة اختياري (3)', code: 'OPTI 3212', hours: 2, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'ecom4302', name: 'مشروع تخرج', code: 'ECOM 4302', hours: 3, prereq: 'بحث وندوه', prereqIds: ['ecom4101'] },
+        { id: 'opti4118', name: 'متطلب تخصص اختياري (3) عملي', code: 'OPTI 4118', hours: 1, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'opti4119', name: 'متطلب تخصص اختياري (4) عملي', code: 'OPTI 4119', hours: 1, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'qurn4102', name: 'قرآن كريم (4)', code: 'QURN 4102', hours: 2, prereq: 'قرآن كريم (3)', prereqIds: ['qurn3101'] },
+        { id: 'opti4319', name: 'متطلب تخصص اختياري (4)', code: 'OPTI 4319', hours: 3, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'opti4325', name: 'متطلب تخصص اختياري (5)', code: 'OPTI 4325', hours: 3, prereq: 'لا يوجد', prereqIds: [] },
+        { id: 'opti4318', name: 'متطلب تخصص اختياري (3)', code: 'OPTI 4318', hours: 3, prereq: 'لا يوجد', prereqIds: [] }
+      ]
+    }
+  ];
+
+  
+  function isPlan4Year() {
+    return !!(window.getStudyPlan && window.getStudyPlan() === '4year');
+  }
+
+  function getTotalHours() {
+    return isPlan4Year() ? 136 : 167;
+  }
+
+  function getActiveDegreeData() {
+    return isPlan4Year() ? DEGREE_DATA_4YEAR : DEGREE_DATA;
+  }
+
   function isCourseEligible(course) {
     if (passedCourseIds.includes(course.id)) return false;
     if (!course.prereqIds || course.prereqIds.length === 0) return true;
@@ -150,7 +258,7 @@
     let passedHours = 0;
     let eligibleCount = 0;
 
-    DEGREE_DATA.forEach(function (year) {
+    getActiveDegreeData().forEach(function (year) {
       year.courses.forEach(function (c) {
         if (passedCourseIds.includes(c.id)) {
           passedHours += c.hours;
@@ -160,10 +268,10 @@
       });
     });
 
-    const percent = Math.min(100, (passedHours / TOTAL_HOURS) * 100);
-    const remainingHours = Math.max(0, TOTAL_HOURS - passedHours);
+    const percent = Math.min(100, (passedHours / getTotalHours()) * 100);
+    const remainingHours = Math.max(0, getTotalHours() - passedHours);
 
-    if (passedHoursDisplayEl) passedHoursDisplayEl.textContent = passedHours + ' / ' + TOTAL_HOURS;
+    if (passedHoursDisplayEl) passedHoursDisplayEl.textContent = passedHours + ' / ' + getTotalHours();
     if (percentDisplayEl) percentDisplayEl.textContent = percent.toFixed(1) + '%';
     if (remainingHoursDisplayEl) remainingHoursDisplayEl.textContent = remainingHours + ' س';
     if (eligibleCountDisplayEl) eligibleCountDisplayEl.textContent = eligibleCount;
@@ -177,7 +285,7 @@
 
     let html = '';
 
-    DEGREE_DATA.forEach(function (year) {
+    getActiveDegreeData().forEach(function (year) {
       const filteredCourses = year.courses.filter(function (c) {
         const isPassed = passedCourseIds.includes(c.id);
         const isEligible = isCourseEligible(c);
@@ -266,7 +374,7 @@
     if (selectAllBtn) {
       selectAllBtn.addEventListener('click', function () {
         const allIds = [];
-        DEGREE_DATA.forEach(function (y) { y.courses.forEach(function (c) { allIds.push(c.id); }); });
+        getActiveDegreeData().forEach(function (y) { y.courses.forEach(function (c) { allIds.push(c.id); }); });
         passedCourseIds = allIds;
         saveProgress();
         renderAll();

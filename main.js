@@ -995,7 +995,45 @@
     }, { passive: true });
   }
 
+  // ==========================================
+  // DEGREE STUDY PLAN MANAGER (5-Year & 4-Year)
+  // ==========================================
+  const PLAN_STORAGE_KEY = 'ce_study_plan';
+
+  function getStudyPlan() {
+    const saved = safeGetStorage(PLAN_STORAGE_KEY);
+    return saved === '4year' ? '4year' : '5year';
+  }
+
+  function applyStudyPlan(plan) {
+    const is4Year = plan === '4year';
+    safeSetStorage(PLAN_STORAGE_KEY, is4Year ? '4year' : '5year');
+
+    document.body.classList.toggle('plan-4year-active', is4Year);
+    document.body.classList.toggle('plan-5year-active', !is4Year);
+
+    document.querySelectorAll('.degree-plan-switcher [data-plan]').forEach(function (btn) {
+      const btnPlan = btn.getAttribute('data-plan');
+      const active = (btnPlan === '4year' && is4Year) || (btnPlan === '5year' && !is4Year);
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+
+    window.dispatchEvent(new CustomEvent('ce-plan-changed', { detail: { plan: is4Year ? '4year' : '5year' } }));
+  }
+
+  window.switchDegreePlan = function (plan) {
+    applyStudyPlan(plan);
+  };
+
+  window.getStudyPlan = getStudyPlan;
+
+  function initStudyPlan() {
+    applyStudyPlan(getStudyPlan());
+  }
+
   function initAllApp() {
+    initStudyPlan();
     initHeaderAyah();
     initSubpageBackLink();
     initTheme();
@@ -1007,9 +1045,10 @@
     init3DParallaxTilt();
     initBackToTop();
 
-    // Keep already-open pages on the same palette when it changes in another tab.
+    // Keep already-open pages on the same palette and study plan when it changes in another tab.
     window.addEventListener('storage', function (event) {
       if (event.key === 'ui-theme') window.applyColorTheme(event.newValue || 'palette-dark');
+      if (event.key === PLAN_STORAGE_KEY) applyStudyPlan(event.newValue || '5year');
     });
 
     // Sticky Navbar Scroll Listener

@@ -155,7 +155,27 @@
       <p class="year-hero-desc">المقررات التأسيسية للهندسة، الرياضيات والفيزياء ومقدمات البرمجة</p>
 
       <!-- Semester Navigation Pills -->
-      <div class="semester-pills-row">
+      
+      
+      <!-- Multi-Curriculum Degree Plan Switcher -->
+      <div class="degree-plan-switcher-wrap">
+        <div class="degree-plan-switcher" role="radiogroup" aria-label="اختيار نظام الخطة الدراسية">
+          <button type="button" class="plan-pill-btn active" data-plan="5year" onclick="window.switchDegreePlan('5year')" aria-pressed="true">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>الخطة الخمسية (167 ساعة)</span>
+            <span class="plan-badge-tag">الافتراضية</span>
+          </button>
+          <button type="button" class="plan-pill-btn" data-plan="4year" onclick="window.switchDegreePlan('4year')" aria-pressed="false">
+            <i class="fa-solid fa-bolt"></i>
+            <span>الخطة الحديثة 4 سنوات (136 ساعة)</span>
+            <span class="plan-badge-tag plan-badge-new">جديد 🔥</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Semester Navigation Pills (5-Year Plan) -->
+      <div class="semester-pills-row plan-view--5year">
+
         
           <a href="#sec1" class="sem-pill">
             <span>📘</span>
@@ -169,12 +189,29 @@
             <span class="pill-count">(7 مساقات)</span>
           </a>
         
+      
+      </div>
+
+      <!-- Semester Navigation Pills (4-Year Plan) -->
+      <div class="semester-pills-row plan-view--4year">
+        <a href="#p4_sec1" class="sem-pill">
+          <span>📘</span>
+          <span>الفصل الدراسي الأول</span>
+          <span class="pill-count">(8 مساقات)</span>
+        </a>
+        <a href="#p4_sec2" class="sem-pill">
+          <span>📙</span>
+          <span>الفصل الدراسي الثاني</span>
+          <span class="pill-count">(8 مساقات)</span>
+        </a>
       </div>
     </div>
   </header>
 
   <!-- Main Subjects Content with Collapsible Semesters -->
   <main class="year-main-content container">
+    <div class="plan-view plan-view--5year">
+
     
       <section id="sec1" class="semester-block">
         <div class="semester-title-bar" onclick="window.toggleSemesterAccordion('sec1')" title="انقر لطي أو فتح الفصل الدراسي">
@@ -1006,6 +1043,985 @@
         </div>
       </section>
       
+  
+    </div>
+
+    <div class="plan-view plan-view--4year">
+      <section id="p4_sec1" class="semester-block">
+        <div class="semester-title-bar" onclick="window.toggleSemesterAccordion('p4_sec1')" title="انقر للطي أو الفتح">
+          <div class="semester-title-left">
+            <div class="semester-icon">📘</div>
+            <div>
+              <h3>الفصل الدراسي الأول (17 ساعة معتمدة)</h3>
+              <p>المقررات التأسيسية للهندسة، دوائر كهربائية 1، تفاضل وفيزياء وأساسيات البرمجة</p>
+            </div>
+          </div>
+          <span class="badge-lab">8 مساقات</span>
+        </div>
+        <div class="subjects-accordion-list">
+
+            <div id="card_p4_y1_s1_0" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y1_s1_0')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">EELE 1101</span>
+                    <span class="subject-cat-badge">متطلب كلية</span>
+                    <span class="badge-lab">معمل / عملي</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Electric Circuits Lab 1</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">مختبر دوائر كهربائية (1)</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Electric Circuits Lab 1" onclick="window.toggleFavorite('Electric Circuits Lab 1')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Electric Circuits Lab 1')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="Electric Circuits Lab 1_lec.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-flask"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Lab</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المعمل / اللاب</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://www.youtube.com/watch?v=_ZRJbBljj9A" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-brands fa-youtube"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Recorded Videos</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الفيديوهات المسجلة</span>
+                        </span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y1_s1_1" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y1_s1_1')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">EELE 1301</span>
+                    <span class="subject-cat-badge">متطلب كلية</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Electric Circuits 1</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">دوائر كهربائية (1)</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Electric Circuits 1" onclick="window.toggleFavorite('Electric Circuits 1')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Electric Circuits 1')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="Electric_Circuits_1_slides.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-file-powerpoint"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Slides</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">السلايدات</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/152ds4OkK0QMPu7fIaweshHvGH0jfujrR" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-book"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Book & Solutions</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الكتاب وحلوله</span>
+                        </span>
+                      </a>
+                    
+                      <a href="Electric_Circuits_1_lec.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Lectures</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المحاضرات</span>
+                        </span>
+                      </a>
+                    
+                      <a href="Electric_Circuits_1_chapters.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-list-ol"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Chapters</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الشباتر</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/15Dh0YCXQdoHf2Wk4Y7FEqCWGc9rf1Woi" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Discussion & Problems & Problems solution</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المناقشات وحلول المسائل</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/15Kdhi5ezaZsvVneZ_4vfR7BGMx9Y-Zdd" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-file-circle-check"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Quiz & Exams & Homework</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الاختبارات السابقة والكويزات والواجبات</span>
+                        </span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y1_s1_2" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y1_s1_2')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">ENGG 1206</span>
+                    <span class="subject-cat-badge">متطلب كلية</span>
+                    <span class="badge-lab">مقرر مدمج (ورش + منهجية بحث)</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Engineering Foundations & Research Methodology</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">أساسيات الهندسة والبحث العلمي</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Engineering Foundations & Research Methodology" onclick="window.toggleFavorite('Engineering Foundations & Research Methodology')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Engineering Foundations & Research Methodology')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  <a href="Workshop Technology_lec.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-flask"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Workshop Practical</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">معمل الورش الهندسية</span>
+                    </span>
+                  </a>
+                  <a href="https://youtube.com/playlist?list=PLw4p3drzdttSvHxb4IigE9Rv01TcQKXUU&feature=shared" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                    <i class="fa-brands fa-youtube"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Workshop Videos</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">فيديوهات شروحات الورش</span>
+                    </span>
+                  </a>
+                  <a href="https://drive.google.com/drive/folders/1ILQazmvS9dK7uXJnVnn-fHM7Pb_-I4T1?usp=sharing" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                    <i class="fa-brands fa-youtube"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Research Videos</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">فيديوهات منهجية البحث</span>
+                    </span>
+                  </a>
+                  <a href="https://drive.google.com/drive/folders/1STKIgYA-LP21Sq83t1hF_Sra-77r8-Jx?usp=sharing" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Research Drive Folder</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">حقيبة منهجية البحث العلمي</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y1_s1_3" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y1_s1_3')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">QURN 1101</span>
+                    <span class="subject-cat-badge">متطلب جامعة</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Quran 1</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">قرآن كريم (1)</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Quran 1" onclick="window.toggleFavorite('Quran 1')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Quran 1')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  <a href="university-requirements.html#quran1" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-book-quran"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Course Materials & Outline</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">ملفات ومقرر المادة الأكاديمية</span>
+                    </span>
+                  </a>
+                  <a href="university-requirements.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-compass"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">All Requirements & Electives</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">دليل متطلبات الجامعة والاختياري</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y1_s1_4" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y1_s1_4')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">MATHA 1301</span>
+                    <span class="subject-cat-badge">متطلب كلية</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Calculus A</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">تفاضل وتكامل (أ)</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Calculus A" onclick="window.toggleFavorite('Calculus A')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Calculus A')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="CalculusA_slides.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-file-powerpoint"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Slides</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">السلايدات</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1cjCMhjvsrMCHfC4Dz7iklUAD7LsF0MUx?usp=sharing" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-book"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Book & Solutions</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الكتاب وحلوله</span>
+                        </span>
+                      </a>
+                    
+                      <a href="CalculusA_lec.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Lectures</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المحاضرات</span>
+                        </span>
+                      </a>
+                    
+                      <a href="CalculusA_chapters.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-list-ol"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Chapters</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الشباتر</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/15Yt2rb-pVzZfkSfw7gp_wKByxKpxzLX2" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Discussion & Problems & Problems solution</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المناقشات وحلول المسائل</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1CQNxFWJ8Oudsw5MTjzJTihUjB0w0V9mg" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-file-circle-check"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Quiz & Exams & Homework</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الاختبارات السابقة والكويزات والواجبات</span>
+                        </span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y1_s1_5" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y1_s1_5')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">PHYSA 1102</span>
+                    <span class="subject-cat-badge">متطلب كلية</span>
+                    <span class="badge-lab">معمل / عملي</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">General Physics Lab A</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">فيزياء عامة عملية (أ)</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="General Physics Lab A" onclick="window.toggleFavorite('General Physics Lab A')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('General Physics Lab A')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="General Physics Lab A_dis.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-flask"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Lab</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المعمل / اللاب</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://youtube.com/@islamicuniversityphysics8361?feature=shared" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-brands fa-youtube"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Recorded Videos</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الفيديوهات المسجلة</span>
+                        </span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y1_s1_6" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y1_s1_6')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">PHYSA 1301</span>
+                    <span class="subject-cat-badge">متطلب كلية</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">General Physics A</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">فيزياء عامة (أ)</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="General Physics A" onclick="window.toggleFavorite('General Physics A')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('General Physics A')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="General_Physics_A_slides.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-file-powerpoint"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Slides</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">السلايدات</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1qR3Mdf6umHXyTxR_x0IIDhkaArvQZ1H1?usp=sharing" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-book"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Book & Solutions</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الكتاب وحلوله</span>
+                        </span>
+                      </a>
+                    
+                      <a href="General_Physics_A_lec.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Lectures</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المحاضرات</span>
+                        </span>
+                      </a>
+                    
+                      <a href="General_Physics_A_chapters.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-list-ol"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Chapters</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الشباتر</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1rDXiV2IjZHitR6wpJDiT-kQbBpOX7UMt" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Discussion & Problems & Problems solution</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المناقشات وحلول المسائل</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1CEBf8YsAUe7X9W33Sm3y4X7UguzIUEId" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-file-circle-check"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Quiz & Exams & Homework</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الاختبارات السابقة والكويزات والواجبات</span>
+                        </span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y1_s1_7" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y1_s1_7')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">ENGG 1301</span>
+                    <span class="subject-cat-badge">متطلب كلية</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Introduction to Computers</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">أساسيات البرمجة</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Introduction to Computers" onclick="window.toggleFavorite('Introduction to Computers')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Introduction to Computers')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="Introduction_to_Computers_slides.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-file-powerpoint"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Slides</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">السلايدات</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1SsVupb7weX2vcZ8cVnA-6H0780BmjnRu" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-book"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Book & Solutions</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الكتاب وحلوله</span>
+                        </span>
+                      </a>
+                    
+                      <a href="Introduction_to_Computers_lec.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Lectures</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المحاضرات</span>
+                        </span>
+                      </a>
+                    
+                      <a href="Introduction_to_Computers_chapters.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-list-ol"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Chapters</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الشباتر</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1rGyf1Tn9S_DEYdskwOo81CrTX3fNZZk6" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Discussion & Problems & Problems solution</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المناقشات وحلول المسائل</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/13agufZwZ13gonWYhl7ahCEmx4ostnO2l" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-file-circle-check"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Quiz & Exams & Homework</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الاختبارات السابقة والكويزات والواجبات</span>
+                        </span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+
+      <section id="p4_sec2" class="semester-block">
+        <div class="semester-title-bar" onclick="window.toggleSemesterAccordion('p4_sec2')" title="انقر للطي أو الفتح">
+          <div class="semester-title-left">
+            <div class="semester-icon">📙</div>
+            <div>
+              <h3>الفصل الدراسي الثاني (18 ساعة معتمدة)</h3>
+              <p>تصميم رقمي، برمجة C++ (1)، إلكترونيات 1، تفاضل (ب) واختياري الجامعة</p>
+            </div>
+          </div>
+          <span class="badge-lab">8 مساقات</span>
+        </div>
+        <div class="subjects-accordion-list">
+
+            <div id="card_p4_y1_s2_0" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y1_s2_0')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">ECOM 1101</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                    <span class="badge-lab">معمل / عملي</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Digital Design Lab 1</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">مختبر تصميم رقمي</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Digital Design Lab 1" onclick="window.toggleFavorite('Digital Design Lab 1')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Digital Design Lab 1')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="https://drive.google.com/drive/folders/14XctxF6tgfWrXY_NNsPRqYBvmSSoTuAu" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-flask"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Lab</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المعمل / اللاب</span>
+                        </span>
+                      </a>
+                    
+                      <a href="Digital Design Lab 1_lec.html" target="_self" class="resource-chip-link">
+                        <i class="fa-brands fa-youtube"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Recorded Videos</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الفيديوهات المسجلة</span>
+                        </span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y1_s2_1" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y1_s2_1')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">ECOM 1301</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Digital Design 1</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">تصميم رقمي</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Digital Design 1" onclick="window.toggleFavorite('Digital Design 1')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Digital Design 1')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="Digital_Design_1_slides.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-file-powerpoint"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Slides</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">السلايدات</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/149p3cDpQdX3ggEWj4fvmJu1hiCgAbWko" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-book"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Book & Solutions</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الكتاب وحلوله</span>
+                        </span>
+                      </a>
+                    
+                      <a href="Digital_Design_1_lec.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Lectures</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المحاضرات</span>
+                        </span>
+                      </a>
+                    
+                      <a href="Digital_Design_1_chapters.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-list-ol"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Chapters</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الشباتر</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/14NYD0oogHrsUSWeU9fyfIz4jxPamwek3" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Discussion & Problems & Problems solution</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المناقشات وحلول المسائل</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/14E_f1fKi3wvv8tHWJQFeAI-ZFulUHPlz" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-file-circle-check"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Quiz & Exams & Homework</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الاختبارات السابقة والكويزات والواجبات</span>
+                        </span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y1_s2_2" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y1_s2_2')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">ECOM 1401</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                    <span class="subject-cat-badge" style="background:rgba(255, 184, 0, 0.15); color:var(--accent-amber); border-color:rgba(255, 184, 0, 0.35);">C++ 1</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Computer Programming 1 (C++)</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">برمجة حاسوب (1) — لغة C++</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Computer Programming 1 (C++)" onclick="window.toggleFavorite('Computer Programming 1 (C++)')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Computer Programming 1 (C++)')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  <a href="javascript:void(0)" class="resource-chip-link" title="سيتم تحديث الرابط قريباً من قبل المهندس">
+                    <i class="fa-solid fa-file-powerpoint"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Slides</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">السلايدات</span>
+                    </span>
+                  </a>
+                  <a href="javascript:void(0)" class="resource-chip-link" title="سيتم تحديث الرابط قريباً من قبل المهندس">
+                    <i class="fa-solid fa-book"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Book & Solutions</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الكتاب وحلوله</span>
+                    </span>
+                  </a>
+                  <a href="javascript:void(0)" class="resource-chip-link" title="سيتم تحديث الرابط قريباً من قبل المهندس">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Lectures</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المحاضرات</span>
+                    </span>
+                  </a>
+                  <a href="javascript:void(0)" class="resource-chip-link" title="سيتم تحديث الرابط قريباً من قبل المهندس">
+                    <i class="fa-solid fa-list-ol"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Chapters</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الشباتر</span>
+                    </span>
+                  </a>
+                  <a href="javascript:void(0)" class="resource-chip-link" title="سيتم تحديث الرابط قريباً من قبل المهندس">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Discussion & Problems & Problems solution</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المناقشات وحلول المسائل</span>
+                    </span>
+                  </a>
+                  <a href="javascript:void(0)" class="resource-chip-link" title="سيتم تحديث الرابط قريباً من قبل المهندس">
+                    <i class="fa-solid fa-file-circle-check"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Quiz & Exams & Homework</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الاختبارات السابقة والكويزات والواجبات</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y1_s2_3" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y1_s2_3')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">QURN 2101</span>
+                    <span class="subject-cat-badge">متطلب جامعة</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Quran 2</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">قرآن كريم (2)</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Quran 2" onclick="window.toggleFavorite('Quran 2')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Quran 2')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  <a href="university-requirements.html#quran2" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-book-quran"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Course Materials & Outline</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">ملفات ومقرر المادة الأكاديمية</span>
+                    </span>
+                  </a>
+                  <a href="university-requirements.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-compass"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">All Requirements & Electives</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">دليل متطلبات الجامعة والاختياري</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y1_s2_4" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y1_s2_4')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">EELE 1303</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Electronics 1</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">إلكترونيات (1)</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Electronics 1" onclick="window.toggleFavorite('Electronics 1')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Electronics 1')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="Electronics_1_slides.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-file-powerpoint"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Slides</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">السلايدات</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/17Caiwj2571-fykWMovDiFs4hbl1gmu8W" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-book"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Book & Solutions</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الكتاب وحلوله</span>
+                        </span>
+                      </a>
+                    
+                      <a href="Electronics_1_lec.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Lectures</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المحاضرات</span>
+                        </span>
+                      </a>
+                    
+                      <a href="Electronics_1_chapters.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-list-ol"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Chapters</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الشباتر</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/17OMK75pTTbJeWgYmbHnPHibsLOQGQZll" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Discussion & Problems & Problems solution</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المناقشات وحلول المسائل</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/17P9scKBxXXnBPDycaiKQ_X2f_bCD6-fb" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-file-circle-check"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Quiz & Exams & Homework</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الاختبارات السابقة والكويزات والواجبات</span>
+                        </span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y1_s2_5" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y1_s2_5')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">MATHB 1302</span>
+                    <span class="subject-cat-badge">متطلب كلية</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Calculus B</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">تفاضل تكامل (ب)</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Calculus B" onclick="window.toggleFavorite('Calculus B')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Calculus B')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="Calculus_B_slides.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-file-powerpoint"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Slides</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">السلايدات</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1XPCcMzeAY_U7ctFcDBhLijJknB0JnaB1" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-book"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Book & Solutions</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الكتاب وحلوله</span>
+                        </span>
+                      </a>
+                    
+                      <a href="Calculus_B_lec.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Lectures</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المحاضرات</span>
+                        </span>
+                      </a>
+                    
+                      <a href="Calculus_B_chapters.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-list-ol"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Chapters</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الشباتر</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1rkimAtnG8AiVkKae-xd0Gsu35YKHg-QE" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Discussion & Problems & Problems solution</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المناقشات وحلول المسائل</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/14TMKVtzMTj35p7f14fqkb1EtgY5X91Ef" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-file-circle-check"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Quiz & Exams & Homework</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الاختبارات السابقة والكويزات والواجبات</span>
+                        </span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y1_s2_6" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y1_s2_6')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">OPTI 1202</span>
+                    <span class="subject-cat-badge">متطلب جامعة</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">University Elective 1 (First Aid)</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">متطلب جامعة اختياري (1) — إسعافات أولية</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="University Elective 1 (First Aid)" onclick="window.toggleFavorite('University Elective 1 (First Aid)')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('University Elective 1 (First Aid)')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  <a href="university-requirements.html#first-aid" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-kit-medical"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Course Materials & Outline</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">ملفات ومقرر المادة الأكاديمية</span>
+                    </span>
+                  </a>
+                  <a href="university-requirements.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-compass"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">All Requirements & Electives</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">دليل متطلبات الجامعة والاختياري</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y1_s2_7" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y1_s2_7')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">EELE 1103</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                    <span class="badge-lab">معمل / عملي</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Electronics Lab 1</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">مختبر إلكترونيات (1)</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Electronics Lab 1" onclick="window.toggleFavorite('Electronics Lab 1')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Electronics Lab 1')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="Electronic 1 _Lab.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-flask"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Lab</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المعمل / اللاب</span>
+                        </span>
+                      </a>
+                    
+                      <a href="Electronic 1_lab_lec.html" target="_self" class="resource-chip-link">
+                        <i class="fa-brands fa-youtube"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Recorded Videos</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الفيديوهات المسجلة</span>
+                        </span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+    </div>
   </main>
 
   
@@ -1117,6 +2133,22 @@
         <button type="button" class="sidebar-close-btn" onclick="window.closeSidebar()" aria-label="إغلاق">
           <i class="fa-solid fa-xmark"></i>
         </button>
+      </div>
+
+      
+      <!-- Degree Plan Switcher in Sidebar -->
+      <div class="sidebar-plan-section" style="padding:0.75rem 1rem; border-bottom:1px solid var(--border-subtle);">
+        <span class="sidebar-section-label" style="display:block; margin-bottom:0.5rem;">نظام الخطة الدراسية</span>
+        <div class="degree-plan-switcher" style="width:100%; flex-direction:column; border-radius:var(--radius-md);">
+          <button type="button" class="plan-pill-btn active" data-plan="5year" onclick="window.switchDegreePlan('5year')" style="width:100%; justify-content:space-between;">
+            <span style="display:flex; align-items:center; gap:0.4rem;"><i class="fa-solid fa-graduation-cap"></i> 5 سنوات (167 ساعة)</span>
+            <span class="plan-badge-tag">الافتراضي</span>
+          </button>
+          <button type="button" class="plan-pill-btn" data-plan="4year" onclick="window.switchDegreePlan('4year')" style="width:100%; justify-content:space-between;">
+            <span style="display:flex; align-items:center; gap:0.4rem;"><i class="fa-solid fa-bolt"></i> 4 سنوات (136 ساعة)</span>
+            <span class="plan-badge-tag plan-badge-new">جديد 🔥</span>
+          </button>
+        </div>
       </div>
 
       <div class="sb-pwa-card" onclick="window.triggerPwaInstall()">

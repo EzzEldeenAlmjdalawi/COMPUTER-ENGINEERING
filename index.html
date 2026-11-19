@@ -336,7 +336,7 @@
           <a class="portal-destination-card" href="quran-wird.html"><i class="fa-solid fa-book-quran"></i><span><b>الورد القرآني</b><small>قراءة يومية وتدبر</small></span><i class="fa-solid fa-arrow-up-left-from-circle portal-card-arrow"></i></a>
         </nav>
         <div class="portal-pulse-line" aria-hidden="true"><svg viewBox="0 0 760 34" preserveAspectRatio="none"><path d="M0 18h86l26-1 22-9 21 15 26-6h52l16-1 18-19 17 30 17-10 18 1h133l20-6 22 7h63l19-1 18-12 17 24 18-10h81l25-1h74"/></svg></div>
-        <div class="portal-stats-row"><span><b>5</b> سنوات دراسية</span><span><b>167</b> ساعة معتمدة</span><span><b>50+</b> مساق ومختبر</span><a href="#platform-home-hero">استكشف المنصة <i class="fa-solid fa-arrow-down"></i></a></div>
+        <div class="portal-stats-row"><span><b class="plan-hours-val-5year">5</b><b class="plan-hours-val-4year">4</b> سنوات دراسية</span><span><b class="plan-hours-val-5year">167</b><b class="plan-hours-val-4year">136</b> ساعة معتمدة</span><span><b>50+</b> مساق ومختبر</span><a href="#platform-home-hero">استكشف المنصة <i class="fa-solid fa-arrow-down"></i></a></div>
       </div>
 
       <aside class="portal-welcome-card" aria-label="ابدأ باستخدام المنصة">
@@ -559,6 +559,22 @@
       <p class="section-lead-p">اختر سنتك الدراسية للوصول إلى كافة المواد والمختبرات والمراجع والامتحانات السابقة</p>
     </div>
 
+    
+    <!-- Multi-Curriculum Degree Plan Switcher -->
+    <div class="degree-plan-switcher-wrap" style="margin-bottom:2rem;">
+      <div class="degree-plan-switcher" role="radiogroup" aria-label="اختيار نظام الخطة الدراسية">
+        <button type="button" class="plan-pill-btn active" data-plan="5year" onclick="window.switchDegreePlan('5year')" aria-pressed="true">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>الخطة الخمسية (167 ساعة)</span>
+          <span class="plan-badge-tag">الافتراضية</span>
+        </button>
+        <button type="button" class="plan-pill-btn" data-plan="4year" onclick="window.switchDegreePlan('4year')" aria-pressed="false">
+          <i class="fa-solid fa-bolt"></i>
+          <span>الخطة الحديثة 4 سنوات (136 ساعة)</span>
+          <span class="plan-badge-tag plan-badge-new">جديد 🔥</span>
+        </button>
+      </div>
+    </div>
     <div class="academic-years-grid">
       <!-- Year 1 -->
       <a href="firstYear.html" class="subject-card reveal-on-scroll">
@@ -633,7 +649,7 @@
       </a>
 
       <!-- Year 5 -->
-      <a href="fifthYear.html" class="subject-card reveal-on-scroll">
+      <a href="fifthYear.html" class="subject-card reveal-on-scroll year-card-fifth-year">
         <div>
           <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem;">
             <div style="width:48px; height:48px; border-radius:var(--radius-md); background:rgba(255, 46, 147, 0.15); color:#FF2E93; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
@@ -1097,6 +1113,22 @@
         </button>
       </div>
 
+      
+      <!-- Degree Plan Switcher in Sidebar -->
+      <div class="sidebar-plan-section" style="padding:0.75rem 1rem; border-bottom:1px solid var(--border-subtle);">
+        <span class="sidebar-section-label" style="display:block; margin-bottom:0.5rem;">نظام الخطة الدراسية</span>
+        <div class="degree-plan-switcher" style="width:100%; flex-direction:column; border-radius:var(--radius-md);">
+          <button type="button" class="plan-pill-btn active" data-plan="5year" onclick="window.switchDegreePlan('5year')" style="width:100%; justify-content:space-between;">
+            <span style="display:flex; align-items:center; gap:0.4rem;"><i class="fa-solid fa-graduation-cap"></i> 5 سنوات (167 ساعة)</span>
+            <span class="plan-badge-tag">الافتراضي</span>
+          </button>
+          <button type="button" class="plan-pill-btn" data-plan="4year" onclick="window.switchDegreePlan('4year')" style="width:100%; justify-content:space-between;">
+            <span style="display:flex; align-items:center; gap:0.4rem;"><i class="fa-solid fa-bolt"></i> 4 سنوات (136 ساعة)</span>
+            <span class="plan-badge-tag plan-badge-new">جديد 🔥</span>
+          </button>
+        </div>
+      </div>
+
       <div class="sb-pwa-card" onclick="window.triggerPwaInstall()">
         <div class="sb-pwa-icon">
           <i class="fa-solid fa-mobile-screen-button"></i>
@@ -1116,7 +1148,7 @@
           <a href="secndYear.html" class="sidebar-nav-item"><i class="fa-solid fa-microchip" style="color:#00FF9D;"></i> <span>السنة الثانية</span></a>
           <a href="thirdYear.html" class="sidebar-nav-item"><i class="fa-solid fa-network-wired" style="color:#9D4EDD;"></i> <span>السنة الثالثة</span></a>
           <a href="fourthYear.html" class="sidebar-nav-item"><i class="fa-solid fa-laptop-code" style="color:#FFB800;"></i> <span>السنة الرابعة</span></a>
-          <a href="fifthYear.html" class="sidebar-nav-item"><i class="fa-solid fa-award" style="color:#FF2E93;"></i> <span>السنة الخامسة</span></a>
+          <a href="fifthYear.html" class="sidebar-nav-item year-card-fifth-year"><i class="fa-solid fa-award" style="color:#FF2E93;"></i> <span>السنة الخامسة</span></a>
           <a href="university-requirements.html" class="sidebar-nav-item"><i class="fa-solid fa-graduation-cap" style="color:#00D2FF;"></i> <span>متطلبات الجامعة</span></a>
           <a href="gpa-calculator.html" class="sidebar-nav-item"><i class="fa-solid fa-calculator" style="color:#FFB800;"></i> <span>حاسبة المعدل التراكمي</span></a>
           <a href="final-calculator.html" class="sidebar-nav-item"><i class="fa-solid fa-bullseye" style="color:#FF1E56;"></i> <span>حاسبة علامة الفاينل 🎯</span></a>

@@ -155,7 +155,27 @@
       <p class="year-hero-desc">نظم التشغيل، شبكات الحاسوب، الأنظمة المدمجة، ولغات توصيف العتاد</p>
 
       <!-- Semester Navigation Pills -->
-      <div class="semester-pills-row">
+      
+      
+      <!-- Multi-Curriculum Degree Plan Switcher -->
+      <div class="degree-plan-switcher-wrap">
+        <div class="degree-plan-switcher" role="radiogroup" aria-label="اختيار نظام الخطة الدراسية">
+          <button type="button" class="plan-pill-btn active" data-plan="5year" onclick="window.switchDegreePlan('5year')" aria-pressed="true">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>الخطة الخمسية (167 ساعة)</span>
+            <span class="plan-badge-tag">الافتراضية</span>
+          </button>
+          <button type="button" class="plan-pill-btn" data-plan="4year" onclick="window.switchDegreePlan('4year')" aria-pressed="false">
+            <i class="fa-solid fa-bolt"></i>
+            <span>الخطة الحديثة 4 سنوات (136 ساعة)</span>
+            <span class="plan-badge-tag plan-badge-new">جديد 🔥</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Semester Navigation Pills (5-Year Plan) -->
+      <div class="semester-pills-row plan-view--5year">
+
         
           <a href="#sem1" class="sem-pill">
             <span>📘</span>
@@ -169,12 +189,29 @@
             <span class="pill-count">(7 مساقات)</span>
           </a>
         
+      
+      </div>
+
+      <!-- Semester Navigation Pills (4-Year Plan) -->
+      <div class="semester-pills-row plan-view--4year">
+        <a href="#p4_sec7" class="sem-pill">
+          <span>📘</span>
+          <span>الفصل الدراسي الأول</span>
+          <span class="pill-count">(7 مساقات)</span>
+        </a>
+        <a href="#p4_sec8" class="sem-pill">
+          <span>📙</span>
+          <span>الفصل الدراسي الثاني</span>
+          <span class="pill-count">(7 مساقات)</span>
+        </a>
       </div>
     </div>
   </header>
 
   <!-- Main Subjects Content with Collapsible Semesters -->
   <main class="year-main-content container">
+    <div class="plan-view plan-view--5year">
+
     
       <section id="sem1" class="semester-block">
         <div class="semester-title-bar" onclick="window.toggleSemesterAccordion('sem1')" title="انقر لطي أو فتح الفصل الدراسي">
@@ -1094,6 +1131,638 @@
         </div>
       </section>
       
+  
+    </div>
+
+    <div class="plan-view plan-view--4year">
+      <section id="p4_sec7" class="semester-block">
+        <div class="semester-title-bar" onclick="window.toggleSemesterAccordion('p4_sec7')" title="انقر للطي أو الفتح">
+          <div class="semester-title-left">
+            <div class="semester-icon">📘</div>
+            <div>
+              <h3>الفصل الدراسي الأول (15 ساعة معتمدة)</h3>
+              <p>نظم مغموسة، بحث وندوة، دراسات في العقيدة وحزمة المقررات الاختيارية</p>
+            </div>
+          </div>
+          <span class="badge-lab">7 مساقات</span>
+        </div>
+        <div class="subjects-accordion-list">
+
+            <div id="card_p4_y4_s1_0" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y4_s1_0')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">AQID 3306</span>
+                    <span class="subject-cat-badge">متطلب جامعة</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Islamic Creed Studies</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">دراسات في العقيدة</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Islamic Creed Studies" onclick="window.toggleFavorite('Islamic Creed Studies')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Islamic Creed Studies')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  <a href="university-requirements.html#aqida" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-mosque"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Course Materials & Outline</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">ملفات ومقرر المادة الأكاديمية</span>
+                    </span>
+                  </a>
+                  <a href="university-requirements.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-compass"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">All Requirements & Electives</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">دليل متطلبات الجامعة والاختياري</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y4_s1_1" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y4_s1_1')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">ECOM 4101</span>
+                    <span class="subject-cat-badge">تخصص اختياري</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Research and Seminar</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">بحث وندوه</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Research and Seminar" onclick="window.toggleFavorite('Research and Seminar')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Research and Seminar')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  <a href="search.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Search Elective Subjects</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">البحث في بنك المواد الاختيارية</span>
+                    </span>
+                  </a>
+                  <a href="degree-tracker.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Electives Degree Tree</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">شجرة وحزم مواد التخصص الاختياري</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y4_s1_2" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y4_s1_2')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">ECOM 4301</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Embedded Systems</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">نظم مغموسة</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Embedded Systems" onclick="window.toggleFavorite('Embedded Systems')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Embedded Systems')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  
+                      <a href="Embedded_Systems_slides.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-file-powerpoint"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Slides</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">السلايدات</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1Ha-FktxIVnUrfJ-RtvaPv0zSgGBfMt0g" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-book"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Book & Solutions</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الكتاب وحلوله</span>
+                        </span>
+                      </a>
+                    
+                      <a href="Embedded_Systems_lec.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Lectures</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المحاضرات</span>
+                        </span>
+                      </a>
+                    
+                      <a href="Embedded_Systems_chapters.html" target="_self" class="resource-chip-link">
+                        <i class="fa-solid fa-list-ol"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Chapters</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الشباتر</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1Jv2_87dN99FNNTvxgq3lQIZpgIVR8uJ9" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Discussion & Problems & Problems solution</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المناقشات وحلول المسائل</span>
+                        </span>
+                      </a>
+                    
+                      <a href="https://drive.google.com/drive/folders/1I72ucHKhXKx9vufUX3vY9V0qsWSI_pz3" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                        <i class="fa-solid fa-file-circle-check"></i>
+                        <span class="resource-title-stack">
+                          <span class="resource-name">Quiz & Exams & Homework</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">الاختبارات السابقة والكويزات والواجبات</span>
+                        </span>
+                      </a>
+                    
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y4_s1_3" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y4_s1_3')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">OPTI 4317</span>
+                    <span class="subject-cat-badge">تخصص اختياري</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Department Elective 2 (Network Security / AI / Deep Learning)</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">متطلب تخصص اختياري (2) — أمن شبكات / ذكاء اصطناعي</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Department Elective 2 (Network Security / AI / Deep Learning)" onclick="window.toggleFavorite('Department Elective 2 (Network Security / AI / Deep Learning)')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Department Elective 2 (Network Security / AI / Deep Learning)')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  <a href="search.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Search Elective Subjects</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">البحث في بنك المواد الاختيارية</span>
+                    </span>
+                  </a>
+                  <a href="degree-tracker.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Electives Degree Tree</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">شجرة وحزم مواد التخصص الاختياري</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y4_s1_4" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y4_s1_4')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">OPTI 4117</span>
+                    <span class="subject-cat-badge">تخصص اختياري</span>
+                    <span class="badge-lab">معمل / عملي</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Department Elective 2 Lab</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">متطلب تخصص اختياري (2) عملي</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Department Elective 2 Lab" onclick="window.toggleFavorite('Department Elective 2 Lab')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Department Elective 2 Lab')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  <a href="search.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Search Elective Subjects</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">البحث في بنك المواد الاختيارية</span>
+                    </span>
+                  </a>
+                  <a href="degree-tracker.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Electives Degree Tree</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">شجرة وحزم مواد التخصص الاختياري</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y4_s1_5" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y4_s1_5')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">OPTI 4213</span>
+                    <span class="subject-cat-badge">متطلب جامعة</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">University Elective 4</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">متطلب جامعة اختياري (4)</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="University Elective 4" onclick="window.toggleFavorite('University Elective 4')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('University Elective 4')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  <a href="university-requirements.html#electives" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Course Materials & Outline</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">ملفات ومقرر المادة الأكاديمية</span>
+                    </span>
+                  </a>
+                  <a href="university-requirements.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-compass"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">All Requirements & Electives</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">دليل متطلبات الجامعة والاختياري</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y4_s1_6" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y4_s1_6')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">OPTI 3212</span>
+                    <span class="subject-cat-badge">متطلب جامعة</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">University Elective 3</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">متطلب جامعة اختياري (3)</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="University Elective 3" onclick="window.toggleFavorite('University Elective 3')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('University Elective 3')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  <a href="university-requirements.html#electives" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Course Materials & Outline</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">ملفات ومقرر المادة الأكاديمية</span>
+                    </span>
+                  </a>
+                  <a href="university-requirements.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-compass"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">All Requirements & Electives</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">دليل متطلبات الجامعة والاختياري</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+
+      <section id="p4_sec8" class="semester-block">
+        <div class="semester-title-bar" onclick="window.toggleSemesterAccordion('p4_sec8')" title="انقر للطي أو الفتح">
+          <div class="semester-title-left">
+            <div class="semester-icon">📙</div>
+            <div>
+              <h3>الفصل الدراسي الثاني (15 ساعة معتمدة)</h3>
+              <p>مشروع التخرج، قرآن كريم 4، وحزم المواد والمختبرات الاختيارية المتقدمة</p>
+            </div>
+          </div>
+          <span class="badge-lab">7 مساقات</span>
+        </div>
+        <div class="subjects-accordion-list">
+
+            <div id="card_p4_y4_s2_0" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y4_s2_0')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">ECOM 4302</span>
+                    <span class="subject-cat-badge">تخصص</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Graduation Project 1</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">مشروع تخرج</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Graduation Project 1" onclick="window.toggleFavorite('Graduation Project 1')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Graduation Project 1')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  <a href="https://drive.google.com/drive/folders/1QgwoODHp7o4DUu5Q-zmtU63yZoSfgIGd" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                    <i class="fa-solid fa-flask"></i>
+                    <span class="resource-title-stack">
+                          <span class="resource-name">Lab</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المعمل / اللاب</span>
+                        </span>
+                  </a>
+                  <a href="https://drive.google.com/drive/folders/1QgwoODHp7o4DUu5Q-zmtU63yZoSfgIGd" target="_blank" rel="noopener noreferrer" class="resource-chip-link">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <span class="resource-title-stack">
+                          <span class="resource-name">Lectures</span>
+                          <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">المحاضرات</span>
+                        </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y4_s2_1" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y4_s2_1')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">OPTI 4118</span>
+                    <span class="subject-cat-badge">تخصص اختياري</span>
+                    <span class="badge-lab">معمل / عملي</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Department Elective 3 Lab</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">متطلب تخصص اختياري (3) عملي</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Department Elective 3 Lab" onclick="window.toggleFavorite('Department Elective 3 Lab')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Department Elective 3 Lab')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  <a href="search.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Search Elective Subjects</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">البحث في بنك المواد الاختيارية</span>
+                    </span>
+                  </a>
+                  <a href="degree-tracker.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Electives Degree Tree</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">شجرة وحزم مواد التخصص الاختياري</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y4_s2_2" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y4_s2_2')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">OPTI 4119</span>
+                    <span class="subject-cat-badge">تخصص اختياري</span>
+                    <span class="badge-lab">معمل / عملي</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Department Elective 4 Lab</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">متطلب تخصص اختياري (4) عملي</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Department Elective 4 Lab" onclick="window.toggleFavorite('Department Elective 4 Lab')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Department Elective 4 Lab')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  <a href="search.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Search Elective Subjects</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">البحث في بنك المواد الاختيارية</span>
+                    </span>
+                  </a>
+                  <a href="degree-tracker.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Electives Degree Tree</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">شجرة وحزم مواد التخصص الاختياري</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y4_s2_3" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y4_s2_3')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">QURN 4102</span>
+                    <span class="subject-cat-badge">متطلب جامعة</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Quran 4</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">قرآن كريم (4)</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Quran 4" onclick="window.toggleFavorite('Quran 4')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Quran 4')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  <a href="university-requirements.html#quran4" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-book-quran"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Course Materials & Outline</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">ملفات ومقرر المادة الأكاديمية</span>
+                    </span>
+                  </a>
+                  <a href="university-requirements.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-compass"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">All Requirements & Electives</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">دليل متطلبات الجامعة والاختياري</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y4_s2_4" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y4_s2_4')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">OPTI 4319</span>
+                    <span class="subject-cat-badge">تخصص اختياري</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Department Elective 4</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">متطلب تخصص اختياري (4)</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Department Elective 4" onclick="window.toggleFavorite('Department Elective 4')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Department Elective 4')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  <a href="search.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Search Elective Subjects</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">البحث في بنك المواد الاختيارية</span>
+                    </span>
+                  </a>
+                  <a href="degree-tracker.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Electives Degree Tree</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">شجرة وحزم مواد التخصص الاختياري</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y4_s2_5" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y4_s2_5')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">OPTI 4325</span>
+                    <span class="subject-cat-badge">تخصص اختياري</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Department Elective 5</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">متطلب تخصص اختياري (5)</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Department Elective 5" onclick="window.toggleFavorite('Department Elective 5')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Department Elective 5')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  <a href="search.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Search Elective Subjects</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">البحث في بنك المواد الاختيارية</span>
+                    </span>
+                  </a>
+                  <a href="degree-tracker.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Electives Degree Tree</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">شجرة وحزم مواد التخصص الاختياري</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div id="card_p4_y4_s2_6" class="subject-card">
+              <div class="subject-header-btn" onclick="window.toggleSubjectAccordion('card_p4_y4_s2_6')">
+                <div class="subject-info-left">
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.25rem;">
+                    <span class="subject-code-badge">OPTI 4318</span>
+                    <span class="subject-cat-badge">تخصص اختياري</span>
+                  </div>
+                  <div class="subject-title-stack"><span class="subject-name">Department Elective 3</span><span class="subject-name-ar" lang="ar" dir="rtl" translate="no">متطلب تخصص اختياري (3)</span></div>
+                </div>
+                <div class="subject-actions-right" onclick="event.stopPropagation()">
+                  <button type="button" class="subject-tool-btn star-btn" data-subject="Department Elective 3" onclick="window.toggleFavorite('Department Elective 3')" title="إضافة للمفضلة">
+                    <i class="fa-regular fa-star"></i>
+                  </button>
+                  <button type="button" class="subject-tool-btn checklist-btn" onclick="window.openChecklistModal('Department Elective 3')" title="قائمة متابعة المادة">
+                    <i class="fa-solid fa-list-check"></i>
+                  </button>
+                  <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+                </div>
+              </div>
+
+              <div class="subject-resources-body">
+                <div class="resources-grid">
+                  <a href="search.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Search Elective Subjects</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">البحث في بنك المواد الاختيارية</span>
+                    </span>
+                  </a>
+                  <a href="degree-tracker.html" target="_self" class="resource-chip-link">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <span class="resource-title-stack">
+                      <span class="resource-name">Electives Degree Tree</span>
+                      <span class="resource-name-ar" lang="ar" dir="rtl" translate="no">شجرة وحزم مواد التخصص الاختياري</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+    </div>
   </main>
 
   
@@ -1205,6 +1874,22 @@
         <button type="button" class="sidebar-close-btn" onclick="window.closeSidebar()" aria-label="إغلاق">
           <i class="fa-solid fa-xmark"></i>
         </button>
+      </div>
+
+      
+      <!-- Degree Plan Switcher in Sidebar -->
+      <div class="sidebar-plan-section" style="padding:0.75rem 1rem; border-bottom:1px solid var(--border-subtle);">
+        <span class="sidebar-section-label" style="display:block; margin-bottom:0.5rem;">نظام الخطة الدراسية</span>
+        <div class="degree-plan-switcher" style="width:100%; flex-direction:column; border-radius:var(--radius-md);">
+          <button type="button" class="plan-pill-btn active" data-plan="5year" onclick="window.switchDegreePlan('5year')" style="width:100%; justify-content:space-between;">
+            <span style="display:flex; align-items:center; gap:0.4rem;"><i class="fa-solid fa-graduation-cap"></i> 5 سنوات (167 ساعة)</span>
+            <span class="plan-badge-tag">الافتراضي</span>
+          </button>
+          <button type="button" class="plan-pill-btn" data-plan="4year" onclick="window.switchDegreePlan('4year')" style="width:100%; justify-content:space-between;">
+            <span style="display:flex; align-items:center; gap:0.4rem;"><i class="fa-solid fa-bolt"></i> 4 سنوات (136 ساعة)</span>
+            <span class="plan-badge-tag plan-badge-new">جديد 🔥</span>
+          </button>
+        </div>
       </div>
 
       <div class="sb-pwa-card" onclick="window.triggerPwaInstall()">

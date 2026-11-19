@@ -155,7 +155,27 @@
       <p class="year-hero-desc">الذكاء الاصطناعي، أمن المعلومات والشبكات، ومساقات التخرج التخصصية</p>
 
       <!-- Semester Navigation Pills -->
-      <div class="semester-pills-row">
+      
+      
+      <!-- Multi-Curriculum Degree Plan Switcher -->
+      <div class="degree-plan-switcher-wrap">
+        <div class="degree-plan-switcher" role="radiogroup" aria-label="اختيار نظام الخطة الدراسية">
+          <button type="button" class="plan-pill-btn active" data-plan="5year" onclick="window.switchDegreePlan('5year')" aria-pressed="true">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>الخطة الخمسية (167 ساعة)</span>
+            <span class="plan-badge-tag">الافتراضية</span>
+          </button>
+          <button type="button" class="plan-pill-btn" data-plan="4year" onclick="window.switchDegreePlan('4year')" aria-pressed="false">
+            <i class="fa-solid fa-bolt"></i>
+            <span>الخطة الحديثة 4 سنوات (136 ساعة)</span>
+            <span class="plan-badge-tag plan-badge-new">جديد 🔥</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Semester Navigation Pills (5-Year Plan) -->
+      <div class="semester-pills-row plan-view--5year">
+
         
           <a href="#sem1" class="sem-pill">
             <span>📘</span>
@@ -169,12 +189,15 @@
             <span class="pill-count">(5 مساقات)</span>
           </a>
         
+      
       </div>
     </div>
   </header>
 
   <!-- Main Subjects Content with Collapsible Semesters -->
   <main class="year-main-content container">
+    <div class="plan-view plan-view--5year">
+
     
       <section id="sem1" class="semester-block">
         <div class="semester-title-bar" onclick="window.toggleSemesterAccordion('sem1')" title="انقر لطي أو فتح الفصل الدراسي">
@@ -939,6 +962,21 @@
         </div>
       </section>
       
+  
+    </div>
+
+    <div class="plan-view plan-view--4year">
+      <div class="plan-notice-banner">
+        <div class="plan-notice-icon"><i class="fa-solid fa-circle-info"></i></div>
+        <h2 class="plan-notice-title">السنة الخامسة تابعة للخطة الخمسية فقط (167 ساعة)</h2>
+        <p class="plan-notice-desc">
+          الخطة الرباعية الحديثة (136 ساعة معتمدة) تتكون من <strong>أربع سنوات دراسية فقط</strong> ويتخرج الطالب بنهاية السنة الرابعة. للاطلاع على مقررات السنة الخامسة يمكنك التبديل إلى الخطة الخمسية مباشرة.
+        </p>
+        <button type="button" class="plan-notice-btn" onclick="window.switchDegreePlan('5year')">
+          <i class="fa-solid fa-graduation-cap"></i> التبديل إلى الخطة الخمسية (167 ساعة)
+        </button>
+      </div>
+    </div>
   </main>
 
   
@@ -1050,6 +1088,22 @@
         <button type="button" class="sidebar-close-btn" onclick="window.closeSidebar()" aria-label="إغلاق">
           <i class="fa-solid fa-xmark"></i>
         </button>
+      </div>
+
+      
+      <!-- Degree Plan Switcher in Sidebar -->
+      <div class="sidebar-plan-section" style="padding:0.75rem 1rem; border-bottom:1px solid var(--border-subtle);">
+        <span class="sidebar-section-label" style="display:block; margin-bottom:0.5rem;">نظام الخطة الدراسية</span>
+        <div class="degree-plan-switcher" style="width:100%; flex-direction:column; border-radius:var(--radius-md);">
+          <button type="button" class="plan-pill-btn active" data-plan="5year" onclick="window.switchDegreePlan('5year')" style="width:100%; justify-content:space-between;">
+            <span style="display:flex; align-items:center; gap:0.4rem;"><i class="fa-solid fa-graduation-cap"></i> 5 سنوات (167 ساعة)</span>
+            <span class="plan-badge-tag">الافتراضي</span>
+          </button>
+          <button type="button" class="plan-pill-btn" data-plan="4year" onclick="window.switchDegreePlan('4year')" style="width:100%; justify-content:space-between;">
+            <span style="display:flex; align-items:center; gap:0.4rem;"><i class="fa-solid fa-bolt"></i> 4 سنوات (136 ساعة)</span>
+            <span class="plan-badge-tag plan-badge-new">جديد 🔥</span>
+          </button>
+        </div>
       </div>
 
       <div class="sb-pwa-card" onclick="window.triggerPwaInstall()">
