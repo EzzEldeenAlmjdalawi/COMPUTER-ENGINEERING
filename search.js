@@ -36,7 +36,9 @@
     'Field Training Portal': 'بوابة التدريب العملي (250 ساعة)',
     'Training Videos': 'فيديوهات التدريب الميداني',
     'Alt Course Lab (SystemVerilog)': 'معمل بديل التدريب (SystemVerilog)',
-    'Alt Course Lectures (SystemVerilog)': 'فيديوهات بديل التدريب (SystemVerilog)'
+    'Alt Course Lectures (SystemVerilog)': 'فيديوهات بديل التدريب (SystemVerilog)',
+    'Course Materials & Files': 'ملفات وملازم المادة',
+    'All Requirements & Electives': 'دليل متطلبات الجامعة والاختياري'
   };
 
   'use strict';
