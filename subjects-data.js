@@ -20,20 +20,27 @@
       "Quiz & Exams & Homework": "https://drive.google.com/drive/folders/1y4D8gQe0_v4y4L3k2q1l1z1b1n1m1",
     },
     "Computer Programming 1 (C++)": {
-      "Slides": "https://drive.google.com/drive/folders/1",
-      "Book & Solutions": "https://drive.google.com/drive/folders/1",
-      "Lectures": "https://youtube.com/playlist?list=PL",
-      "Chapters": "https://drive.google.com/drive/folders/1",
-      "Discussion & Problems & Problems solution": "https://drive.google.com/drive/folders/1",
-      "Quiz & Exams & Homework": "https://drive.google.com/drive/folders/1",
+      "Slides": "https://drive.google.com/drive/folders/1exVd55WCsNFl5dskcnYxKGmHp3TXEJLZ",
+      "Book & Solutions": "https://drive.google.com/drive/folders/17sovelTkrLUVIT_agn52Te_8M5QlVsJZ",
+      "Lectures": "https://youtube.com/playlist?list=PLluzYl4fG9JbVDRjSilEtG2wg_Oq5iDJA&si=AUq3kw7SR4cAsC9d",
+      "External Course (Ahmed Adel)": "https://youtu.be/35qTqtpQMxg?si=Vgj0rw-gwcvLmy0v",
+      "Chapters": "https://drive.google.com/drive/folders/18feCNNAG4qeZMoRAfZFo0n4gDGcPzYN5",
+      "Discussion & Problems & Problems solution": "https://drive.google.com/drive/folders/1LUl5Ttw0ZQvQdx5sLWV-_2wCQlZ5BfC4",
+      "Quiz & Exams & Homework": "https://drive.google.com/drive/folders/1LFRRv90PxO0YIExPdnd_ayMI4-2Tj_OS",
+      "Comprehensive C++ Portal": "https://realmathmodel.github.io/#cpp",
+      "Checkpoint Solutions": "https://liveexample.pearsoncmg.com/liang/cpp3e/solution.html",
+      "Interactive Quizzes & Practice": "https://liveexample.pearsoncmg.com/liang/cpp3e/quiz.html"
     },
     "Computer Programming 2 (C++)": {
-      "Slides": "https://drive.google.com/drive/folders/1",
-      "Book & Solutions": "https://drive.google.com/drive/folders/1",
-      "Lectures": "https://youtube.com/playlist?list=PL",
-      "Chapters": "https://drive.google.com/drive/folders/1",
-      "Discussion & Problems & Problems solution": "https://drive.google.com/drive/folders/1",
-      "Quiz & Exams & Homework": "https://drive.google.com/drive/folders/1",
+      "Slides": "https://drive.google.com/drive/folders/1QTPQf9F3FUTjIRsO1NrYMEyjJIlDLfR-",
+      "Book & Solutions": "https://drive.google.com/drive/folders/1DnIxm219TEIUXrR9WHuRh8LoK9szuK19",
+      "Lectures": "https://youtu.be/35qTqtpQMxg?si=Vgj0rw-gwcvLmy0v",
+      "Chapters": "https://drive.google.com/drive/folders/1JRqLpQiwGlgjS2tT7E10P5va3nfRTTjj",
+      "Discussion & Problems & Problems solution": "https://drive.google.com/drive/folders/1BmTRWTNR5yxx8N31wp7TmOSvS6_4gKCI",
+      "Quiz & Exams & Homework": "https://drive.google.com/drive/folders/1dmwqrtLYp7NEPcyDfiJz7__r2Cxu9-pd",
+      "Comprehensive C++ Portal": "https://realmathmodel.github.io/#cpp",
+      "Checkpoint Solutions": "https://liveexample.pearsoncmg.com/liang/cpp3e/solution.html",
+      "Interactive Quizzes & Practice": "https://liveexample.pearsoncmg.com/liang/cpp3e/quiz.html"
     },
     "Calculus A": {
       "Slides": "CalculusA_slides.html",
@@ -573,6 +580,10 @@
     { year: 'fifthYear', yearTitleAr: 'السنة الخامسة', semester: 'Second Semester', semesterTitleAr: 'الفصل الثاني', name: 'دراسات في الحديث الشريف', code: 'HADT 4204', category: 'متطلب جامعة', altName: 'HADT 4204 دراسات في الحديث الشريف حديث متطلب جامعة سنة خامسة', isLab: false },
     { year: 'fifthYear', yearTitleAr: 'السنة الخامسة', semester: 'Second Semester', semesterTitleAr: 'الفصل الثاني', name: 'مساق اختياري (3)', code: 'OPTI 5403', category: 'تخصص', altName: 'OPTI 5403 مساق اختياري 3 elective سنة خامسة', isLab: false },
     { year: 'fifthYear', yearTitleAr: 'السنة الخامسة', semester: 'Second Semester', semesterTitleAr: 'الفصل الثاني', name: 'مساق اختياري (4)', code: 'OPTI 5404', category: 'تخصص', altName: 'OPTI 5404 مساق اختياري 4 elective سنة خامسة', isLab: false },
+
+    // مساقات الخطة الرباعية الحديثة (4-Year Plan Courses)
+    { year: 'firstYear', yearTitleAr: 'السنة الأولى (خطة 4 سنين)', semester: 'Second Semester', semesterTitleAr: 'الفصل الثاني', name: 'Computer Programming 1 (C++)', code: 'ECOM 1401', category: 'تخصص', altName: 'ECOM 1401 برمجة حاسوب 1 سي بلس بلس cpp c++ برمجة 1 ربا سلامة احمد عادل سنة اولى الفصل الثاني خطة 4 سنين', isLab: false },
+    { year: 'secndYear', yearTitleAr: 'السنة الثانية (خطة 4 سنين)', semester: 'First Semester', semesterTitleAr: 'الفصل الأول', name: 'Computer Programming 2 (C++)', code: 'ECOM 2402', category: 'تخصص', altName: 'ECOM 2402 برمجة حاسوب 2 سي بلس بلس cpp c++ برمجة 2 احمد عادل سنة ثانية الفصل الاول خطة 4 سنين كائنية OOP', isLab: false }
   ];
 
   const yearsConfig = {

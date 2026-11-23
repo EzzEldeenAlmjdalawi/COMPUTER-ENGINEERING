@@ -12,7 +12,11 @@
     'Discussion & Problems & Problems solution': 'المناقشات وحلول المسائل',
     'Quiz & Exams & Homework': 'الاختبارات والكويزات والواجبات',
     'Lab': 'المعمل / اللاب',
-    'Recorded Videos': 'الفيديوهات المسجلة'
+    'Recorded Videos': 'الفيديوهات المسجلة',
+    'External Course (Ahmed Adel)': 'كورس كامل (أحمد عادل)',
+    'Comprehensive C++ Portal': 'دليل شامل لكل ما يخص المادة 🌐',
+    'Checkpoint Solutions': 'حلول أسئلة Checkpoint تفاعلية',
+    'Interactive Quizzes & Practice': 'كويزات وتدريبات تفاعلية أونلاين'
   };
 
   'use strict';
