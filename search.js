@@ -16,7 +16,27 @@
     'External Course (Ahmed Adel)': 'كورس كامل (أحمد عادل)',
     'Comprehensive C++ Portal': 'دليل شامل لكل ما يخص المادة 🌐',
     'Checkpoint Solutions': 'حلول أسئلة Checkpoint تفاعلية',
-    'Interactive Quizzes & Practice': 'كويزات وتدريبات تفاعلية أونلاين'
+    'Interactive Quizzes & Practice': 'كويزات وتدريبات تفاعلية أونلاين',
+    'Slides (Design 1)': 'السلايدات (تصميم 1)',
+    'Slides (Design 2)': 'السلايدات (تصميم 2)',
+    'Book & Solutions (Design 1)': 'الكتاب وحلوله (تصميم 1)',
+    'Book & Solutions (Design 2)': 'الكتاب وحلوله (تصميم 2)',
+    'Lectures (Design 1)': 'المحاضرات (تصميم 1)',
+    'Lectures (Design 2)': 'المحاضرات (تصميم 2)',
+    'Chapters (Design 1)': 'الشباتر (تصميم 1)',
+    'Chapters (Design 2)': 'الشباتر (تصميم 2)',
+    'Discussion (Design 1)': 'المناقشات وحلول المسائل (1)',
+    'Discussion (Design 2)': 'المناقشات وحلول المسائل (2)',
+    'Quiz & Exams (Design 1)': 'الاختبارات والكويزات (1)',
+    'Quiz & Exams (Design 2)': 'الاختبارات والكويزات (2)',
+    'Lab 1 (Combinational)': 'مختبر تصميم 1 (تجميعي)',
+    'Lab 1 Videos': 'فيديوهات مختبر 1',
+    'Lab 2 (Sequential)': 'مختبر تصميم 2 (تتابعي)',
+    'Lab 2 Videos': 'فيديوهات مختبر 2',
+    'Field Training Portal': 'بوابة التدريب العملي (250 ساعة)',
+    'Training Videos': 'فيديوهات التدريب الميداني',
+    'Alt Course Lab (SystemVerilog)': 'معمل بديل التدريب (SystemVerilog)',
+    'Alt Course Lectures (SystemVerilog)': 'فيديوهات بديل التدريب (SystemVerilog)'
   };
 
   'use strict';

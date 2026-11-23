@@ -38,7 +38,6 @@
       "Chapters": "https://drive.google.com/drive/folders/1JRqLpQiwGlgjS2tT7E10P5va3nfRTTjj",
       "Discussion & Problems & Problems solution": "https://drive.google.com/drive/folders/1BmTRWTNR5yxx8N31wp7TmOSvS6_4gKCI",
       "Quiz & Exams & Homework": "https://drive.google.com/drive/folders/1dmwqrtLYp7NEPcyDfiJz7__r2Cxu9-pd",
-      "Comprehensive C++ Portal": "https://realmathmodel.github.io/#cpp",
       "Checkpoint Solutions": "https://liveexample.pearsoncmg.com/liang/cpp3e/solution.html",
       "Interactive Quizzes & Practice": "https://liveexample.pearsoncmg.com/liang/cpp3e/quiz.html"
     },
@@ -137,6 +136,26 @@
     "Digital Design Lab 1": {
       "Lab": "https://drive.google.com/drive/folders/14XctxF6tgfWrXY_NNsPRqYBvmSSoTuAu",
       "Recorded Videos": "Digital Design Lab 1_lec.html",
+    },
+    "Digital Design (1+2)": {
+      "Slides (Design 1)": "Digital_Design_1_slides.html",
+      "Slides (Design 2)": "Digital_Design_2_slides.html",
+      "Book & Solutions (Design 1)": "https://drive.google.com/drive/folders/149p3cDpQdX3ggEWj4fvmJu1hiCgAbWko",
+      "Book & Solutions (Design 2)": "https://drive.google.com/drive/folders/16c-noM16S20YeO-O501iXw99J8c6bCmy",
+      "Lectures (Design 1)": "Digital_Design_1_lec.html",
+      "Lectures (Design 2)": "Digital_Design_2_lec.html",
+      "Chapters (Design 1)": "Digital_Design_1_chapters.html",
+      "Chapters (Design 2)": "Digital_Design_2_chapters.html",
+      "Discussion (Design 1)": "https://drive.google.com/drive/folders/14NYD0oogHrsUSWeU9fyfIz4jxPamwek3",
+      "Discussion (Design 2)": "https://drive.google.com/drive/folders/1773l2-ytwDT_wu27XGOcx7YohNvho7vk",
+      "Quiz & Exams (Design 1)": "https://drive.google.com/drive/folders/14E_f1fKi3wvv8tHWJQFeAI-ZFulUHPlz",
+      "Quiz & Exams (Design 2)": "https://drive.google.com/drive/folders/177PQZamd5p2IH144QAqrZ8HRI12UbH6J"
+    },
+    "Digital Design Lab (1+2)": {
+      "Lab 1 (Combinational)": "https://drive.google.com/drive/folders/14XctxF6tgfWrXY_NNsPRqYBvmSSoTuAu",
+      "Lab 1 Videos": "Digital Design Lab 1_lec.html",
+      "Lab 2 (Sequential)": "https://drive.google.com/drive/folders/161SnL_AbfF3GzUk9Niv0v4yKVvnPKMSl",
+      "Lab 2 Videos": "Digital Design Lab 2_lec.html"
     },
     "Computer Programming Lab 1": {
       "Lab": "https://drive.google.com/drive/folders/1422IcXWjGPLR5QnLxshuLWXY0ZEbyHcX",
@@ -339,8 +358,10 @@
       "Recorded Videos": "Operating Systems Lab_lec.html",
     },
     "Practical Training 250h": {
-      "Lab": "تدريب عملي(250)ساعة.html",
+      "Field Training Portal": "تدريب عملي(250)ساعة.html",
       "Recorded Videos": "https://drive.google.com/drive/folders/19dWhAXXJnx0FyGVvjHnWgBfrzYG7Q9-1",
+      "Alt Course Lab (SystemVerilog)": "https://drive.google.com/drive/folders/10ZgBtY4WWsAouaJcuDyZeno0lS-6Al_-",
+      "Alt Course Lectures (SystemVerilog)": "https://youtube.com/playlist?list=PLKzJ_un9PrOw&si=uXBK8UqjvNLR3zlc"
     },
     "Embedded Systems Lab": {
       "Lab": "Embedded Systems Lab.html",
@@ -852,8 +873,8 @@
           titleAr: 'الفصل الدراسي الثاني (18 ساعة)',
           icon: '📙',
           subjects: [
-            { name: 'Digital Design Lab 1', code: 'ECOM 1101', nameAr: 'مختبر تصميم رقمي', category: 'تخصص', isLab: true },
-            { name: 'Digital Design 1', code: 'ECOM 1301', nameAr: 'تصميم رقمي', category: 'تخصص', isLab: false },
+            { name: 'Digital Design Lab (1+2)', code: 'ECOM 1101', nameAr: 'مختبر تصميم رقمي (مدمج 1 و 2)', category: 'تخصص', isLab: true },
+            { name: 'Digital Design (1+2)', code: 'ECOM 1301', nameAr: 'تصميم رقمي (مدمج 1 و 2)', category: 'تخصص', isLab: false },
             { name: 'Computer Programming 1 (C++)', code: 'ECOM 1401', nameAr: 'برمجة حاسوب (1) [C++]', category: 'تخصص', isLab: false },
             { name: 'Quran 2', code: 'QURN 2101', nameAr: 'قرآن كريم (2)', category: 'متطلب جامعة', isLab: false },
             { name: 'Electronics 1', code: 'EELE 1303', nameAr: 'إلكترونيات (1)', category: 'تخصص', isLab: false },
@@ -933,7 +954,7 @@
           titleAr: 'الفصل الدراسي الثاني (17 ساعة)',
           icon: '📙',
           subjects: [
-            { name: 'Practical Training 250h', code: 'ECOM 3002', nameAr: 'تدريب عملي (250 ساعة)', category: 'تخصص', isLab: true },
+            { name: 'Practical Training 250h', code: 'ECOM 3002', nameAr: 'تدريب عملي (250 ساعة) + بديل التدريب', category: 'تخصص', isLab: true },
             { name: 'Assembly Language', code: 'ECOM 3306', nameAr: 'لغة تجميع', category: 'تخصص', isLab: false },
             { name: 'Operating Systems', code: 'ECOM 3401', nameAr: 'نظم تشغيل', category: 'تخصص', isLab: false },
             { name: 'Department Elective 1', code: 'OPTI 3313', nameAr: 'متطلب تخصص اختياري (1)', category: 'تخصص اختياري', isLab: false },
