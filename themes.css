@@ -1243,7 +1243,10 @@ html.ce-entry-pending .ce-entry-splash {
 
 
 /* Shared compact language and community actions on the landing and year pages. */
-:is(.year-page,.home-page) .site-language-toggle--year {
+:is(.unified-navbar, .year-page, .home-page) .site-language-toggle--year,
+.site-language-toggle--year,
+.navbar-actions > .site-language-toggle,
+.unified-navbar .site-language-toggle {
   position: static !important;
   display: inline-flex;
   min-width: 76px;
@@ -1263,25 +1266,35 @@ html.ce-entry-pending .ce-entry-splash {
   transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
 }
 
-:is(.year-page,.home-page) .site-language-toggle--year i {
+:is(.unified-navbar, .year-page, .home-page) .site-language-toggle--year i,
+.site-language-toggle--year i,
+.navbar-actions > .site-language-toggle i,
+.unified-navbar .site-language-toggle i {
   color: var(--accent-teal);
   font-size: 1rem;
 }
 
-:is(.year-page,.home-page) .site-language-toggle--year:hover {
+:is(.unified-navbar, .year-page, .home-page) .site-language-toggle--year:hover,
+.site-language-toggle--year:hover,
+.navbar-actions > .site-language-toggle:hover,
+.unified-navbar .site-language-toggle:hover {
   color: var(--text-main);
   border-color: var(--accent-teal);
   background: color-mix(in srgb, var(--accent-teal) 12%, var(--bg-surface));
   transform: translateY(-1px);
 }
 
-:is(.year-page,.home-page) .site-language-toggle--year:focus-visible {
+:is(.unified-navbar, .year-page, .home-page) .site-language-toggle--year:focus-visible,
+.site-language-toggle--year:focus-visible,
+.navbar-actions > .site-language-toggle:focus-visible,
+.unified-navbar .site-language-toggle:focus-visible {
   outline: 2px solid var(--accent-teal);
   outline-offset: 2px;
 }
 
-/* Keep the three most-used community tools beside language on year pages. */
-:is(.year-page,.home-page) .navbar-actions {
+/* Keep the three most-used community tools beside language on unified navigation. */
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions,
+.unified-navbar .navbar-actions {
   direction: ltr;
   flex: 0 0 auto;
   flex-wrap: nowrap;
@@ -1290,14 +1303,26 @@ html.ce-entry-pending .ce-entry-splash {
   white-space: nowrap;
 }
 
-:is(.year-page,.home-page) .navbar-actions > .site-language-toggle--year { order: 0; }
-:is(.year-page,.home-page) .navbar-actions > .favorite-navbar-link { order: 1; }
-:is(.year-page,.home-page) .navbar-actions > .bot-btn { order: 2; }
-:is(.year-page,.home-page) .navbar-actions > .tg-btn { order: 3; }
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .site-language-toggle,
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .site-language-toggle--year,
+.unified-navbar .navbar-actions > .site-language-toggle,
+.unified-navbar .navbar-actions > .site-language-toggle--year { order: 0; }
 
-:is(.year-page,.home-page) .navbar-actions > .favorite-navbar-link,
-:is(.year-page,.home-page) .navbar-actions > .bot-btn,
-:is(.year-page,.home-page) .navbar-actions > .tg-btn {
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .favorite-navbar-link,
+.unified-navbar .navbar-actions > .favorite-navbar-link { order: 1; }
+
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .bot-btn,
+.unified-navbar .navbar-actions > .bot-btn { order: 2; }
+
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .tg-btn,
+.unified-navbar .navbar-actions > .tg-btn { order: 3; }
+
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .favorite-navbar-link,
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .bot-btn,
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .tg-btn,
+.unified-navbar .navbar-actions > .favorite-navbar-link,
+.unified-navbar .navbar-actions > .bot-btn,
+.unified-navbar .navbar-actions > .tg-btn {
   position: relative;
   display: inline-flex !important;
   width: 38px;
@@ -1317,22 +1342,32 @@ html.ce-entry-pending .ce-entry-splash {
   transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
 }
 
-:is(.year-page,.home-page) .navbar-actions > .favorite-navbar-link i { color: var(--accent-amber); }
-:is(.year-page,.home-page) .navbar-actions > .bot-btn i,
-:is(.year-page,.home-page) .navbar-actions > .tg-btn i { color: var(--ce-teal); }
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .favorite-navbar-link i,
+.unified-navbar .navbar-actions > .favorite-navbar-link i { color: var(--accent-amber); }
 
-:is(.year-page,.home-page) .navbar-actions > .favorite-navbar-link:hover,
-:is(.year-page,.home-page) .navbar-actions > .bot-btn:hover,
-:is(.year-page,.home-page) .navbar-actions > .tg-btn:hover {
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .bot-btn i,
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .tg-btn i,
+.unified-navbar .navbar-actions > .bot-btn i,
+.unified-navbar .navbar-actions > .tg-btn i { color: var(--ce-teal); }
+
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .favorite-navbar-link:hover,
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .bot-btn:hover,
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .tg-btn:hover,
+.unified-navbar .navbar-actions > .favorite-navbar-link:hover,
+.unified-navbar .navbar-actions > .bot-btn:hover,
+.unified-navbar .navbar-actions > .tg-btn:hover {
   color: var(--ce-teal);
   border-color: var(--ce-teal);
   background: var(--ce-teal-soft);
   transform: translateY(-1px);
 }
 
-:is(.year-page,.home-page) .navbar-actions > .bot-btn span:not(.count-tag),
-:is(.year-page,.home-page) .navbar-actions > .tg-btn span,
-:is(.year-page,.home-page) .navbar-actions > .favorite-navbar-link span:not(.count-tag) {
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .bot-btn span:not(.count-tag),
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .tg-btn span,
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .favorite-navbar-link span:not(.count-tag),
+.unified-navbar .navbar-actions > .bot-btn span:not(.count-tag),
+.unified-navbar .navbar-actions > .tg-btn span,
+.unified-navbar .navbar-actions > .favorite-navbar-link span:not(.count-tag) {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -1341,7 +1376,8 @@ html.ce-entry-pending .ce-entry-splash {
   white-space: nowrap;
 }
 
-:is(.year-page,.home-page) .navbar-actions > .favorite-navbar-link .fav-count-badge {
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .favorite-navbar-link .fav-count-badge,
+.unified-navbar .navbar-actions > .favorite-navbar-link .fav-count-badge {
   top: -0.35rem;
   right: -0.35rem;
   min-width: 1rem;
@@ -1353,26 +1389,39 @@ html.ce-entry-pending .ce-entry-splash {
   text-align: center;
 }
 
-:is(.year-page,.home-page) .navbar-actions > .favorite-navbar-link:focus-visible,
-:is(.year-page,.home-page) .navbar-actions > .bot-btn:focus-visible,
-:is(.year-page,.home-page) .navbar-actions > .tg-btn:focus-visible {
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .favorite-navbar-link:focus-visible,
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .bot-btn:focus-visible,
+:is(.unified-navbar, .year-page, .home-page) .navbar-actions > .tg-btn:focus-visible,
+.unified-navbar .navbar-actions > .favorite-navbar-link:focus-visible,
+.unified-navbar .navbar-actions > .bot-btn:focus-visible,
+.unified-navbar .navbar-actions > .tg-btn:focus-visible {
   outline: 2px solid var(--ce-teal);
   outline-offset: 2px;
 }
 
 @media (max-width: 760px) {
-  :is(.year-page,.home-page) .navbar-actions { gap: 0.22rem; padding-inline: 0; }
-  :is(.year-page,.home-page) .navbar-actions > .favorite-navbar-link,
-  :is(.year-page,.home-page) .navbar-actions > .bot-btn,
-  :is(.year-page,.home-page) .navbar-actions > .tg-btn,
-  :is(.year-page,.home-page) .site-language-toggle--year {
+  :is(.unified-navbar, .year-page, .home-page) .navbar-actions,
+  .unified-navbar .navbar-actions { gap: 0.22rem; padding-inline: 0; }
+  :is(.unified-navbar, .year-page, .home-page) .navbar-actions > .favorite-navbar-link,
+  :is(.unified-navbar, .year-page, .home-page) .navbar-actions > .bot-btn,
+  :is(.unified-navbar, .year-page, .home-page) .navbar-actions > .tg-btn,
+  :is(.unified-navbar, .year-page, .home-page) .site-language-toggle--year,
+  .unified-navbar .navbar-actions > .favorite-navbar-link,
+  .unified-navbar .navbar-actions > .bot-btn,
+  .unified-navbar .navbar-actions > .tg-btn,
+  .unified-navbar .navbar-actions > .site-language-toggle,
+  .site-language-toggle--year {
     width: 36px;
     height: 36px;
     min-width: 36px;
     min-height: 36px;
   }
-  :is(.year-page,.home-page) .site-language-toggle--year { gap: 0; padding: 0; }
-  :is(.year-page,.home-page) .site-language-toggle--year .site-language-label {
+  :is(.unified-navbar, .year-page, .home-page) .site-language-toggle--year,
+  .unified-navbar .navbar-actions > .site-language-toggle,
+  .site-language-toggle--year { gap: 0; padding: 0; }
+  :is(.unified-navbar, .year-page, .home-page) .site-language-toggle--year .site-language-label,
+  .unified-navbar .navbar-actions > .site-language-toggle .site-language-label,
+  .site-language-toggle--year .site-language-label {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -1383,9 +1432,12 @@ html.ce-entry-pending .ce-entry-splash {
 }
 
 @media (max-width: 380px) {
-  :is(.year-page,.home-page) .navbar-actions { gap: 0.12rem; }
-  :is(.year-page,.home-page) .brand-title { max-width: 82px; }
-  :is(.year-page,.home-page) .brand-sub { display: none; }
+  :is(.unified-navbar, .year-page, .home-page) .navbar-actions,
+  .unified-navbar .navbar-actions { gap: 0.12rem; }
+  :is(.unified-navbar, .year-page, .home-page) .brand-title,
+  .unified-navbar .brand-title { max-width: 82px; }
+  :is(.unified-navbar, .year-page, .home-page) .brand-sub,
+  .unified-navbar .brand-sub { display: none; }
 }
 
 /* Apply the selected 10-color palette consistently across every site page. */
