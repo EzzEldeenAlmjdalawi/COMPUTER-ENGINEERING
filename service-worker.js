@@ -3,7 +3,7 @@
  * Offline Cache & High-Speed Asset Acceleration
  */
 
-const CACHE_NAME = 'ce-iug-pwa-v25';
+const CACHE_NAME = 'ce-iug-pwa-v26';
 
 const PRECACHE_ASSETS = [
   './',
@@ -52,7 +52,8 @@ const PRECACHE_ASSETS = [
   './study-tools.html',
   './search.html',
   './search.css',
-  './search.js'
+  './search.js',
+  './Programming_Fundamentals_lec.html'
 ];
 
 // Install Event

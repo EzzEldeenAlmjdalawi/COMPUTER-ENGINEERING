@@ -112,6 +112,14 @@ function getLinkFor(subjectName, item) {
             "Quiz & Exams & Homework":"https://drive.google.com/drive/folders/1qs_VN7fUGVQ2npqVOehmseqhXgrGBarQ",
               
         },
+        "Programming Fundamentals": {
+            "Slides": "Introduction_to_Computers_slides.html",
+            "Book & Solutions": "https://drive.google.com/drive/folders/1SsVupb7weX2vcZ8cVnA-6H0780BmjnRu",
+            "Lectures": "Programming_Fundamentals_lec.html",
+            "Chapters": "Introduction_to_Computers_chapters.html",
+            "Discussion & Problems & Problems solution": "https://drive.google.com/drive/folders/1rGyf1Tn9S_DEYdskwOo81CrTX3fNZZk6",
+            "Quiz & Exams & Homework": "https://drive.google.com/drive/folders/13agufZwZ13gonWYhl7ahCEmx4ostnO2l"
+        },
         "Introduction to Computers": {
             "Slides": "Introduction_to_Computers_slides.html",
             "Book & Solutions": "https://drive.google.com/drive/folders/1SsVupb7weX2vcZ8cVnA-6H0780BmjnRu",

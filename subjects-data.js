@@ -14,7 +14,7 @@
     "Programming Fundamentals": {
       "Slides": "Introduction_to_Computers_slides.html",
       "Book & Solutions": "https://drive.google.com/drive/folders/1qP4nL0j2k_u9T4F5o4-v1S1rK3V4M7Q2",
-      "Lectures": "Introduction_to_Computers_lec.html",
+      "Lectures": "Programming_Fundamentals_lec.html",
       "Chapters": "Introduction_to_Computers_chapters.html",
       "Lab": "Introduction_to_Computers lab_lec.html",
       "Quiz & Exams & Homework": "https://drive.google.com/drive/folders/1y4D8gQe0_v4y4L3k2q1l1z1b1n1m1",
@@ -680,7 +680,8 @@
 
     // مساقات الخطة الرباعية الحديثة (4-Year Plan Courses)
     { year: 'firstYear', yearTitleAr: 'السنة الأولى (خطة 4 سنين)', semester: 'Second Semester', semesterTitleAr: 'الفصل الثاني', name: 'Computer Programming 1 (C++)', code: 'ECOM 1401', category: 'تخصص', altName: 'ECOM 1401 برمجة حاسوب 1 سي بلس بلس cpp c++ برمجة 1 ربا سلامة احمد عادل سنة اولى الفصل الثاني خطة 4 سنين', isLab: false },
-    { year: 'secndYear', yearTitleAr: 'السنة الثانية (خطة 4 سنين)', semester: 'First Semester', semesterTitleAr: 'الفصل الأول', name: 'Computer Programming 2 (C++)', code: 'ECOM 2402', category: 'تخصص', altName: 'ECOM 2402 برمجة حاسوب 2 سي بلس بلس cpp c++ برمجة 2 احمد عادل سنة ثانية الفصل الاول خطة 4 سنين كائنية OOP', isLab: false }
+    { year: 'secndYear', yearTitleAr: 'السنة الثانية (خطة 4 سنين)', semester: 'First Semester', semesterTitleAr: 'الفصل الأول', name: 'Computer Programming 2 (C++)', code: 'ECOM 2402', category: 'تخصص', altName: 'ECOM 2402 برمجة حاسوب 2 سي بلس بلس cpp c++ برمجة 2 احمد عادل سنة ثانية الفصل الاول خطة 4 سنين كائنية OOP', isLab: false },
+    { year: 'firstYear', yearTitleAr: 'السنة الأولى (خطة 4 سنين)', semester: 'First Semester', semesterTitleAr: 'الفصل الأول', name: 'Programming Fundamentals', code: 'ENGG 1301', category: 'متطلب كلية', altName: 'ENGG 1301 اساسيات البرمجة أساسيات البرمجة بايثون محمد الحنجوري سنة اولى الفصل الاول خطة 4 سنين', isLab: false }
   ];
 
   const yearsConfig = {
